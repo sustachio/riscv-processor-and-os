@@ -1,0 +1,6 @@
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (10281): Verilog HDL Declaration information at riscv.v(12): object "SRAM_ADDR" differs only in case from object "sram_addr" in the same scope
+Warning (10273): Verilog HDL warning at interfaces.v(151): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at interfaces.v(336): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at interfaces.v(344): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at interfaces.v(353): extended using "x" or "z"

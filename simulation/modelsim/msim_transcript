@@ -1,0 +1,42 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do riscv_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/riscv.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module riscv
+# 
+# Top level modules:
+# 	riscv
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/interfaces.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module flash_interface32bit
+# -- Compiling module sram_interface32bit
+# 
+# Top level modules:
+# 	flash_interface32bit
+# 	sram_interface32bit
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/utils.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module button_debounce
+# -- Compiling module hex_to_7seg
+# -- Compiling module display_32bit_7seg
+# 
+# Top level modules:
+# 	button_debounce
+# 	display_32bit_7seg
+# 
+vsim work.sram_interface32bit
+# vsim work.sram_interface32bit 
+# Loading work.sram_interface32bit
+do sramtesting.do
+# vsim work.sram_interface32bit 
+# Loading work.sram_interface32bit

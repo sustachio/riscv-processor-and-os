@@ -1,0 +1,1791 @@
+TimeQuest Timing Analyzer report for riscv
+Wed Jun 03 23:03:31 2026
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. SDC File List
+  5. Clocks
+  6. Slow Model Fmax Summary
+  7. Slow Model Setup Summary
+  8. Slow Model Hold Summary
+  9. Slow Model Recovery Summary
+ 10. Slow Model Removal Summary
+ 11. Slow Model Minimum Pulse Width Summary
+ 12. Slow Model Setup: 'CLOCK_50'
+ 13. Slow Model Hold: 'CLOCK_50'
+ 14. Slow Model Minimum Pulse Width: 'CLOCK_50'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Output Enable Times
+ 20. Minimum Output Enable Times
+ 21. Output Disable Times
+ 22. Minimum Output Disable Times
+ 23. Fast Model Setup Summary
+ 24. Fast Model Hold Summary
+ 25. Fast Model Recovery Summary
+ 26. Fast Model Removal Summary
+ 27. Fast Model Minimum Pulse Width Summary
+ 28. Fast Model Setup: 'CLOCK_50'
+ 29. Fast Model Hold: 'CLOCK_50'
+ 30. Fast Model Minimum Pulse Width: 'CLOCK_50'
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Output Enable Times
+ 36. Minimum Output Enable Times
+ 37. Output Disable Times
+ 38. Minimum Output Disable Times
+ 39. Multicorner Timing Analysis Summary
+ 40. Setup Times
+ 41. Hold Times
+ 42. Clock to Output Times
+ 43. Minimum Clock to Output Times
+ 44. Setup Transfers
+ 45. Hold Transfers
+ 46. Report TCCS
+ 47. Report RSKM
+ 48. Unconstrained Paths
+ 49. TimeQuest Timing Analyzer Messages
+ 50. TimeQuest Timing Analyzer Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; riscv                                                             ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C20F484C7                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 24     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------+
+; SDC File List                                     ;
++---------------+--------+--------------------------+
+; SDC File Path ; Status ; Read at                  ;
++---------------+--------+--------------------------+
+; riscv.sdc     ; OK     ; Wed Jun 03 23:03:30 2026 ;
++---------------+--------+--------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency ; Rise  ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; CLOCK_50   ; Base ; 20.000 ; 50.0 MHz  ; 0.000 ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_50 } ;
++------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 127.71 MHz ; 127.71 MHz      ; CLOCK_50   ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------+
+; Slow Model Setup Summary          ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; CLOCK_50 ; 12.170 ; 0.000         ;
++----------+--------+---------------+
+
+
++----------------------------------+
+; Slow Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; CLOCK_50 ; 0.445 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++----------+-------+---------------------+
+; Clock    ; Slack ; End Point TNS       ;
++----------+-------+---------------------+
+; CLOCK_50 ; 8.889 ; 0.000               ;
++----------+-------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'CLOCK_50'                                                                                                                                               ;
++--------+---------------------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 12.170 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.862      ;
+; 12.170 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.862      ;
+; 12.170 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.862      ;
+; 12.170 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.862      ;
+; 12.170 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.862      ;
+; 12.170 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.862      ;
+; 12.170 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.862      ;
+; 12.170 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.862      ;
+; 12.293 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.738      ;
+; 12.293 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.738      ;
+; 12.293 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.738      ;
+; 12.481 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.551      ;
+; 12.481 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.551      ;
+; 12.481 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.551      ;
+; 12.481 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.551      ;
+; 12.481 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.551      ;
+; 12.481 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.551      ;
+; 12.481 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.551      ;
+; 12.481 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.551      ;
+; 12.524 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.510      ;
+; 12.524 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.510      ;
+; 12.524 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.510      ;
+; 12.524 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.510      ;
+; 12.524 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.510      ;
+; 12.524 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.510      ;
+; 12.524 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.510      ;
+; 12.524 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.510      ;
+; 12.559 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.473      ;
+; 12.559 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.473      ;
+; 12.559 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.473      ;
+; 12.559 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.473      ;
+; 12.559 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.473      ;
+; 12.559 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.473      ;
+; 12.559 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.473      ;
+; 12.559 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.473      ;
+; 12.604 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.427      ;
+; 12.604 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.427      ;
+; 12.604 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.427      ;
+; 12.647 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 7.386      ;
+; 12.647 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 7.386      ;
+; 12.647 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 7.386      ;
+; 12.682 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.349      ;
+; 12.682 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.349      ;
+; 12.682 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.349      ;
+; 12.697 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[12] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.334      ;
+; 12.827 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.205      ;
+; 12.827 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.205      ;
+; 12.827 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.205      ;
+; 12.827 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.205      ;
+; 12.827 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.205      ;
+; 12.827 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.205      ;
+; 12.827 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.205      ;
+; 12.827 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.205      ;
+; 12.878 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[16] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.003     ; 7.157      ;
+; 12.878 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[17] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.003     ; 7.157      ;
+; 12.878 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[18] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.003     ; 7.157      ;
+; 12.878 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[19] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.003     ; 7.157      ;
+; 12.878 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[23] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.003     ; 7.157      ;
+; 12.936 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[0]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.096      ;
+; 12.936 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[1]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.096      ;
+; 12.936 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[2]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.096      ;
+; 12.936 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[3]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.096      ;
+; 12.936 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[4]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.096      ;
+; 12.936 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[5]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.096      ;
+; 12.936 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[6]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.096      ;
+; 12.936 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[7]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.096      ;
+; 12.950 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.081      ;
+; 12.950 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.081      ;
+; 12.950 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.081      ;
+; 12.973 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.061      ;
+; 12.973 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.061      ;
+; 12.973 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.061      ;
+; 12.973 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.061      ;
+; 12.973 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.061      ;
+; 12.973 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.061      ;
+; 12.973 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.061      ;
+; 12.973 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 7.061      ;
+; 12.977 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|finished     ; CLOCK_50     ; CLOCK_50    ; 20.000       ; 0.001      ; 7.062      ;
+; 12.977 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|busy         ; CLOCK_50     ; CLOCK_50    ; 20.000       ; 0.001      ; 7.062      ;
+; 13.008 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[12] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 7.023      ;
+; 13.027 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.005      ;
+; 13.027 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.005      ;
+; 13.027 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.005      ;
+; 13.027 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.005      ;
+; 13.027 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.005      ;
+; 13.027 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.005      ;
+; 13.027 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.005      ;
+; 13.027 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 7.005      ;
+; 13.046 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 6.988      ;
+; 13.046 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 6.988      ;
+; 13.046 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 6.988      ;
+; 13.046 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 6.988      ;
+; 13.046 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 6.988      ;
+; 13.046 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 6.988      ;
+; 13.046 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 6.988      ;
+; 13.046 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 6.988      ;
+; 13.051 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[12] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 6.982      ;
+; 13.086 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[12] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.007     ; 6.945      ;
+; 13.096 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 6.937      ;
+; 13.096 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 6.937      ;
++--------+---------------------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'CLOCK_50'                                                                                                                                                                   ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                              ; To Node                                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.445 ; button_debounce:sram_command_trigger|internal_debounce ; button_debounce:sram_command_trigger|internal_debounce ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; button_debounce:sram_command_trigger|debounced         ; button_debounce:sram_command_trigger|debounced         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; sram_interface32bit:sram32|state.WRITE1                ; sram_interface32bit:sram32|state.WRITE1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.IDLE                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; button_debounce:num_display_control|debounced          ; button_debounce:num_display_control|debounced          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; sram_interface32bit:sram32|interface_addr[0]           ; sram_interface32bit:sram32|interface_addr[0]           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; sram_interface32bit:sram32|interface_addr[3]           ; sram_interface32bit:sram32|interface_addr[3]           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; sram_interface32bit:sram32|interface_lower_byte_mask_n ; sram_interface32bit:sram32|interface_lower_byte_mask_n ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.731      ;
+; 0.629 ; button_debounce:sram_command_trigger|internal_debounce ; button_debounce:sram_command_trigger|debounced         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.915      ;
+; 0.762 ; button_debounce:num_display_control|sync1              ; button_debounce:num_display_control|sync2              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.048      ;
+; 0.768 ; button_debounce:sram_command_trigger|sync1             ; button_debounce:sram_command_trigger|sync2             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.054      ;
+; 0.955 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 1.243      ;
+; 0.960 ; button_debounce:sram_command_trigger|counter[12]       ; button_debounce:sram_command_trigger|counter[12]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.246      ;
+; 0.960 ; button_debounce:num_display_control|counter[12]        ; button_debounce:num_display_control|counter[12]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.246      ;
+; 0.964 ; button_debounce:sram_command_trigger|counter[0]        ; button_debounce:sram_command_trigger|counter[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; button_debounce:sram_command_trigger|counter[3]        ; button_debounce:sram_command_trigger|counter[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; button_debounce:sram_command_trigger|counter[5]        ; button_debounce:sram_command_trigger|counter[5]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; button_debounce:sram_command_trigger|counter[7]        ; button_debounce:sram_command_trigger|counter[7]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; button_debounce:num_display_control|counter[0]         ; button_debounce:num_display_control|counter[0]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; button_debounce:num_display_control|counter[3]         ; button_debounce:num_display_control|counter[3]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; button_debounce:num_display_control|counter[5]         ; button_debounce:num_display_control|counter[5]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.964 ; button_debounce:num_display_control|counter[7]         ; button_debounce:num_display_control|counter[7]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.250      ;
+; 0.967 ; button_debounce:sram_command_trigger|counter[13]       ; button_debounce:sram_command_trigger|counter[13]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.253      ;
+; 0.967 ; button_debounce:num_display_control|counter[13]        ; button_debounce:num_display_control|counter[13]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.253      ;
+; 0.968 ; button_debounce:sram_command_trigger|counter[14]       ; button_debounce:sram_command_trigger|counter[14]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.254      ;
+; 0.968 ; button_debounce:sram_command_trigger|counter[21]       ; button_debounce:sram_command_trigger|counter[21]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.254      ;
+; 0.968 ; button_debounce:num_display_control|counter[14]        ; button_debounce:num_display_control|counter[14]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.254      ;
+; 0.968 ; button_debounce:num_display_control|counter[21]        ; button_debounce:num_display_control|counter[21]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.254      ;
+; 0.969 ; button_debounce:sram_command_trigger|counter[9]        ; button_debounce:sram_command_trigger|counter[9]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:sram_command_trigger|counter[10]       ; button_debounce:sram_command_trigger|counter[10]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:sram_command_trigger|counter[11]       ; button_debounce:sram_command_trigger|counter[11]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:sram_command_trigger|counter[16]       ; button_debounce:sram_command_trigger|counter[16]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:sram_command_trigger|counter[19]       ; button_debounce:sram_command_trigger|counter[19]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:sram_command_trigger|counter[23]       ; button_debounce:sram_command_trigger|counter[23]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:num_display_control|counter[9]         ; button_debounce:num_display_control|counter[9]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:num_display_control|counter[10]        ; button_debounce:num_display_control|counter[10]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:num_display_control|counter[11]        ; button_debounce:num_display_control|counter[11]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:num_display_control|counter[16]        ; button_debounce:num_display_control|counter[16]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:num_display_control|counter[19]        ; button_debounce:num_display_control|counter[19]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; button_debounce:num_display_control|counter[23]        ; button_debounce:num_display_control|counter[23]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
+; 0.977 ; button_debounce:sram_command_trigger|sync2             ; button_debounce:sram_command_trigger|internal_debounce ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.263      ;
+; 0.978 ; button_debounce:sram_command_trigger|sync2             ; button_debounce:sram_command_trigger|debounced         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.264      ;
+; 1.004 ; button_debounce:sram_command_trigger|counter[1]        ; button_debounce:sram_command_trigger|counter[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.290      ;
+; 1.004 ; button_debounce:sram_command_trigger|counter[2]        ; button_debounce:sram_command_trigger|counter[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.290      ;
+; 1.004 ; button_debounce:num_display_control|counter[1]         ; button_debounce:num_display_control|counter[1]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.290      ;
+; 1.004 ; button_debounce:num_display_control|counter[2]         ; button_debounce:num_display_control|counter[2]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.290      ;
+; 1.007 ; button_debounce:sram_command_trigger|counter[4]        ; button_debounce:sram_command_trigger|counter[4]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.293      ;
+; 1.007 ; button_debounce:sram_command_trigger|counter[20]       ; button_debounce:sram_command_trigger|counter[20]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.293      ;
+; 1.007 ; button_debounce:num_display_control|counter[4]         ; button_debounce:num_display_control|counter[4]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.293      ;
+; 1.008 ; button_debounce:sram_command_trigger|counter[6]        ; button_debounce:sram_command_trigger|counter[6]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:sram_command_trigger|counter[8]        ; button_debounce:sram_command_trigger|counter[8]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:sram_command_trigger|counter[15]       ; button_debounce:sram_command_trigger|counter[15]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:sram_command_trigger|counter[17]       ; button_debounce:sram_command_trigger|counter[17]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:sram_command_trigger|counter[18]       ; button_debounce:sram_command_trigger|counter[18]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:sram_command_trigger|counter[22]       ; button_debounce:sram_command_trigger|counter[22]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:num_display_control|counter[6]         ; button_debounce:num_display_control|counter[6]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:num_display_control|counter[8]         ; button_debounce:num_display_control|counter[8]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:num_display_control|counter[15]        ; button_debounce:num_display_control|counter[15]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:num_display_control|counter[17]        ; button_debounce:num_display_control|counter[17]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; button_debounce:num_display_control|counter[18]        ; button_debounce:num_display_control|counter[18]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.294      ;
+; 1.011 ; button_debounce:num_display_control|counter[20]        ; button_debounce:num_display_control|counter[20]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.297      ;
+; 1.012 ; button_debounce:num_display_control|counter[22]        ; button_debounce:num_display_control|counter[22]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.298      ;
+; 1.018 ; button_debounce:num_display_control|counter[24]        ; button_debounce:num_display_control|counter[24]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.304      ;
+; 1.018 ; button_debounce:num_display_control|counter[24]        ; button_debounce:num_display_control|debounced          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.304      ;
+; 1.019 ; button_debounce:sram_command_trigger|counter[24]       ; button_debounce:sram_command_trigger|counter[24]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.305      ;
+; 1.023 ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; sram_interface32bit:sram32|state.UNALIGNED_READ3       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.309      ;
+; 1.038 ; sram_interface32bit:sram32|state.WRITE1                ; sram_interface32bit:sram32|state.WRITE2                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 1.326      ;
+; 1.062 ; sram_interface32bit:sram32|state.READ1                 ; sram_interface32bit:sram32|state.READ2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.348      ;
+; 1.178 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.WRITE1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.464      ;
+; 1.193 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.479      ;
+; 1.219 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; sram_interface32bit:sram32|write_halfword[11]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.004      ; 1.509      ;
+; 1.230 ; button_debounce:sram_command_trigger|debounced         ; sram_interface32bit:sram32|state.IDLE                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.002     ; 1.514      ;
+; 1.232 ; button_debounce:sram_command_trigger|debounced         ; sram_interface32bit:sram32|state.READ_BYTE_UPPER       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.002     ; 1.516      ;
+; 1.235 ; button_debounce:sram_command_trigger|debounced         ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.002     ; 1.519      ;
+; 1.237 ; button_debounce:sram_command_trigger|debounced         ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.002     ; 1.521      ;
+; 1.277 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|finished                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.003      ; 1.566      ;
+; 1.305 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2      ; sram_interface32bit:sram32|state.UNALIGNED_WRITE3      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.591      ;
+; 1.314 ; sram_interface32bit:sram32|state.UNALIGNED_READ1       ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.600      ;
+; 1.328 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|busy                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.003      ; 1.617      ;
+; 1.331 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.READ_BYTE_LOWER       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 1.619      ;
+; 1.335 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.UNALIGNED_READ1       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 1.623      ;
+; 1.335 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.READ1                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 1.623      ;
+; 1.385 ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; sram_interface32bit:sram32|data_out[9]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.003     ; 1.668      ;
+; 1.388 ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; sram_interface32bit:sram32|data_out[14]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.003     ; 1.671      ;
+; 1.389 ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; sram_interface32bit:sram32|data_out[19]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.003     ; 1.672      ;
+; 1.390 ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; sram_interface32bit:sram32|data_out[16]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.003     ; 1.673      ;
+; 1.390 ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; sram_interface32bit:sram32|data_out[17]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.003     ; 1.673      ;
+; 1.392 ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; sram_interface32bit:sram32|data_out[8]                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.003     ; 1.675      ;
+; 1.392 ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; sram_interface32bit:sram32|data_out[11]                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.003     ; 1.675      ;
+; 1.392 ; button_debounce:sram_command_trigger|counter[12]       ; button_debounce:sram_command_trigger|counter[13]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.678      ;
+; 1.392 ; button_debounce:num_display_control|counter[12]        ; button_debounce:num_display_control|counter[13]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.678      ;
+; 1.396 ; button_debounce:sram_command_trigger|counter[0]        ; button_debounce:sram_command_trigger|counter[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.682      ;
+; 1.396 ; button_debounce:num_display_control|counter[0]         ; button_debounce:num_display_control|counter[1]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.682      ;
+; 1.396 ; button_debounce:sram_command_trigger|counter[5]        ; button_debounce:sram_command_trigger|counter[6]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.682      ;
+; 1.396 ; button_debounce:sram_command_trigger|counter[7]        ; button_debounce:sram_command_trigger|counter[8]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.682      ;
+; 1.396 ; button_debounce:num_display_control|counter[5]         ; button_debounce:num_display_control|counter[6]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.682      ;
+; 1.396 ; button_debounce:num_display_control|counter[7]         ; button_debounce:num_display_control|counter[8]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.682      ;
+; 1.399 ; button_debounce:sram_command_trigger|counter[13]       ; button_debounce:sram_command_trigger|counter[14]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.685      ;
+; 1.399 ; button_debounce:num_display_control|counter[13]        ; button_debounce:num_display_control|counter[14]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.685      ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'CLOCK_50'                                                                                          ;
++-------+--------------+----------------+------------------+----------+------------+--------------------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                           ;
++-------+--------------+----------------+------------------+----------+------------+--------------------------------------------------+
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[0]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[0]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[10]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[10]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[11]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[11]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[12]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[12]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[13]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[13]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[14]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[14]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[15]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[15]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[16]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[16]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[17]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[17]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[18]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[18]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[19]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[19]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[1]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[1]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[20]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[20]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[21]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[21]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[22]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[22]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[23]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[23]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[24]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[24]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[2]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[2]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[3]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[3]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[4]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[4]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[5]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[5]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[6]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[6]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[7]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[7]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[8]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[8]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[9]   ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[9]   ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|debounced    ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|debounced    ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|sync1        ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|sync1        ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|sync2        ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|sync2        ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[0]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[0]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[10] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[10] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[11] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[11] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[12] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[12] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[13] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[13] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[14] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[14] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[15] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[15] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[16] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[16] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[17] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[17] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[18] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[18] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[19] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[19] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[1]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[1]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[20] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[20] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[21] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[21] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[22] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[22] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[23] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[23] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[24] ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[24] ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[2]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[2]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[3]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[3]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[4]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[4]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[5]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[5]  ;
+; 8.889 ; 10.000       ; 1.111          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[6]  ;
+; 8.889 ; 10.000       ; 1.111          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[6]  ;
++-------+--------------+----------------+------------------+----------+------------+--------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Setup Times                                                              ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; KEY[*]       ; CLOCK_50   ; 5.050 ; 5.050 ; Rise       ; CLOCK_50        ;
+;  KEY[0]      ; CLOCK_50   ; 5.018 ; 5.018 ; Rise       ; CLOCK_50        ;
+;  KEY[1]      ; CLOCK_50   ; 5.050 ; 5.050 ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]   ; CLOCK_50   ; 4.980 ; 4.980 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 4.140 ; 4.140 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 4.513 ; 4.513 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 4.354 ; 4.354 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 4.784 ; 4.784 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]  ; CLOCK_50   ; 4.454 ; 4.454 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]  ; CLOCK_50   ; 4.625 ; 4.625 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]  ; CLOCK_50   ; 4.747 ; 4.747 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]  ; CLOCK_50   ; 4.317 ; 4.317 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 4.766 ; 4.766 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 4.980 ; 4.980 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 4.504 ; 4.504 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 4.858 ; 4.858 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12] ; CLOCK_50   ; 4.656 ; 4.656 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13] ; CLOCK_50   ; 4.704 ; 4.704 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14] ; CLOCK_50   ; 4.408 ; 4.408 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15] ; CLOCK_50   ; 3.627 ; 3.627 ; Rise       ; CLOCK_50        ;
+; SW[*]        ; CLOCK_50   ; 6.436 ; 6.436 ; Rise       ; CLOCK_50        ;
+;  SW[0]       ; CLOCK_50   ; 1.065 ; 1.065 ; Rise       ; CLOCK_50        ;
+;  SW[1]       ; CLOCK_50   ; 0.991 ; 0.991 ; Rise       ; CLOCK_50        ;
+;  SW[2]       ; CLOCK_50   ; 0.751 ; 0.751 ; Rise       ; CLOCK_50        ;
+;  SW[3]       ; CLOCK_50   ; 0.734 ; 0.734 ; Rise       ; CLOCK_50        ;
+;  SW[4]       ; CLOCK_50   ; 6.330 ; 6.330 ; Rise       ; CLOCK_50        ;
+;  SW[5]       ; CLOCK_50   ; 2.157 ; 2.157 ; Rise       ; CLOCK_50        ;
+;  SW[6]       ; CLOCK_50   ; 1.212 ; 1.212 ; Rise       ; CLOCK_50        ;
+;  SW[7]       ; CLOCK_50   ; 0.737 ; 0.737 ; Rise       ; CLOCK_50        ;
+;  SW[8]       ; CLOCK_50   ; 6.386 ; 6.386 ; Rise       ; CLOCK_50        ;
+;  SW[9]       ; CLOCK_50   ; 6.436 ; 6.436 ; Rise       ; CLOCK_50        ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Hold Times                                                                 ;
++--------------+------------+--------+--------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------+------------+--------+--------+------------+-----------------+
+; KEY[*]       ; CLOCK_50   ; -4.770 ; -4.770 ; Rise       ; CLOCK_50        ;
+;  KEY[0]      ; CLOCK_50   ; -4.770 ; -4.770 ; Rise       ; CLOCK_50        ;
+;  KEY[1]      ; CLOCK_50   ; -4.802 ; -4.802 ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]   ; CLOCK_50   ; -3.372 ; -3.372 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; -3.676 ; -3.676 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; -3.917 ; -3.917 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; -3.824 ; -3.824 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; -3.822 ; -3.822 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]  ; CLOCK_50   ; -4.065 ; -4.065 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]  ; CLOCK_50   ; -4.008 ; -4.008 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]  ; CLOCK_50   ; -4.086 ; -4.086 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]  ; CLOCK_50   ; -4.037 ; -4.037 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; -3.806 ; -3.806 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; -3.803 ; -3.803 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; -4.179 ; -4.179 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; -3.897 ; -3.897 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12] ; CLOCK_50   ; -4.405 ; -4.405 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13] ; CLOCK_50   ; -4.154 ; -4.154 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14] ; CLOCK_50   ; -3.656 ; -3.656 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15] ; CLOCK_50   ; -3.372 ; -3.372 ; Rise       ; CLOCK_50        ;
+; SW[*]        ; CLOCK_50   ; 0.144  ; 0.144  ; Rise       ; CLOCK_50        ;
+;  SW[0]       ; CLOCK_50   ; -0.814 ; -0.814 ; Rise       ; CLOCK_50        ;
+;  SW[1]       ; CLOCK_50   ; -0.737 ; -0.737 ; Rise       ; CLOCK_50        ;
+;  SW[2]       ; CLOCK_50   ; -0.502 ; -0.502 ; Rise       ; CLOCK_50        ;
+;  SW[3]       ; CLOCK_50   ; -0.482 ; -0.482 ; Rise       ; CLOCK_50        ;
+;  SW[4]       ; CLOCK_50   ; 0.144  ; 0.144  ; Rise       ; CLOCK_50        ;
+;  SW[5]       ; CLOCK_50   ; -0.338 ; -0.338 ; Rise       ; CLOCK_50        ;
+;  SW[6]       ; CLOCK_50   ; -0.209 ; -0.209 ; Rise       ; CLOCK_50        ;
+;  SW[7]       ; CLOCK_50   ; 0.122  ; 0.122  ; Rise       ; CLOCK_50        ;
+;  SW[8]       ; CLOCK_50   ; -0.304 ; -0.304 ; Rise       ; CLOCK_50        ;
+;  SW[9]       ; CLOCK_50   ; 0.037  ; 0.037  ; Rise       ; CLOCK_50        ;
++--------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------------+
+; Clock to Output Times                                                       ;
++---------------+------------+--------+--------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++---------------+------------+--------+--------+------------+-----------------+
+; HEX0[*]       ; CLOCK_50   ; 10.567 ; 10.567 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]      ; CLOCK_50   ; 10.165 ; 10.165 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]      ; CLOCK_50   ; 10.190 ; 10.190 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]      ; CLOCK_50   ; 10.208 ; 10.208 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]      ; CLOCK_50   ; 10.193 ; 10.193 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]      ; CLOCK_50   ; 10.567 ; 10.567 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]      ; CLOCK_50   ; 10.563 ; 10.563 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]      ; CLOCK_50   ; 10.538 ; 10.538 ; Rise       ; CLOCK_50        ;
+; HEX1[*]       ; CLOCK_50   ; 11.245 ; 11.245 ; Rise       ; CLOCK_50        ;
+;  HEX1[0]      ; CLOCK_50   ; 10.416 ; 10.416 ; Rise       ; CLOCK_50        ;
+;  HEX1[1]      ; CLOCK_50   ; 11.181 ; 11.181 ; Rise       ; CLOCK_50        ;
+;  HEX1[2]      ; CLOCK_50   ; 11.192 ; 11.192 ; Rise       ; CLOCK_50        ;
+;  HEX1[3]      ; CLOCK_50   ; 11.181 ; 11.181 ; Rise       ; CLOCK_50        ;
+;  HEX1[4]      ; CLOCK_50   ; 11.199 ; 11.199 ; Rise       ; CLOCK_50        ;
+;  HEX1[5]      ; CLOCK_50   ; 11.207 ; 11.207 ; Rise       ; CLOCK_50        ;
+;  HEX1[6]      ; CLOCK_50   ; 11.245 ; 11.245 ; Rise       ; CLOCK_50        ;
+; HEX2[*]       ; CLOCK_50   ; 11.746 ; 11.746 ; Rise       ; CLOCK_50        ;
+;  HEX2[0]      ; CLOCK_50   ; 10.780 ; 10.780 ; Rise       ; CLOCK_50        ;
+;  HEX2[1]      ; CLOCK_50   ; 10.853 ; 10.853 ; Rise       ; CLOCK_50        ;
+;  HEX2[2]      ; CLOCK_50   ; 11.746 ; 11.746 ; Rise       ; CLOCK_50        ;
+;  HEX2[3]      ; CLOCK_50   ; 11.155 ; 11.155 ; Rise       ; CLOCK_50        ;
+;  HEX2[4]      ; CLOCK_50   ; 10.828 ; 10.828 ; Rise       ; CLOCK_50        ;
+;  HEX2[5]      ; CLOCK_50   ; 11.094 ; 11.094 ; Rise       ; CLOCK_50        ;
+;  HEX2[6]      ; CLOCK_50   ; 11.213 ; 11.213 ; Rise       ; CLOCK_50        ;
+; HEX3[*]       ; CLOCK_50   ; 11.402 ; 11.402 ; Rise       ; CLOCK_50        ;
+;  HEX3[0]      ; CLOCK_50   ; 10.841 ; 10.841 ; Rise       ; CLOCK_50        ;
+;  HEX3[1]      ; CLOCK_50   ; 11.402 ; 11.402 ; Rise       ; CLOCK_50        ;
+;  HEX3[2]      ; CLOCK_50   ; 10.890 ; 10.890 ; Rise       ; CLOCK_50        ;
+;  HEX3[3]      ; CLOCK_50   ; 10.435 ; 10.435 ; Rise       ; CLOCK_50        ;
+;  HEX3[4]      ; CLOCK_50   ; 10.771 ; 10.771 ; Rise       ; CLOCK_50        ;
+;  HEX3[5]      ; CLOCK_50   ; 10.823 ; 10.823 ; Rise       ; CLOCK_50        ;
+;  HEX3[6]      ; CLOCK_50   ; 11.163 ; 11.163 ; Rise       ; CLOCK_50        ;
+; LEDG[*]       ; CLOCK_50   ; 9.444  ; 9.444  ; Rise       ; CLOCK_50        ;
+;  LEDG[6]      ; CLOCK_50   ; 9.444  ; 9.444  ; Rise       ; CLOCK_50        ;
+;  LEDG[7]      ; CLOCK_50   ; 9.189  ; 9.189  ; Rise       ; CLOCK_50        ;
+; LEDR[*]       ; CLOCK_50   ; 12.440 ; 12.440 ; Rise       ; CLOCK_50        ;
+;  LEDR[0]      ; CLOCK_50   ; 12.209 ; 12.209 ; Rise       ; CLOCK_50        ;
+;  LEDR[1]      ; CLOCK_50   ; 12.440 ; 12.440 ; Rise       ; CLOCK_50        ;
+;  LEDR[2]      ; CLOCK_50   ; 11.455 ; 11.455 ; Rise       ; CLOCK_50        ;
+;  LEDR[3]      ; CLOCK_50   ; 12.228 ; 12.228 ; Rise       ; CLOCK_50        ;
+; SRAM_ADDR[*]  ; CLOCK_50   ; 7.449  ; 7.449  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[0] ; CLOCK_50   ; 7.199  ; 7.199  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[1] ; CLOCK_50   ; 7.449  ; 7.449  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[2] ; CLOCK_50   ; 7.207  ; 7.207  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[3] ; CLOCK_50   ; 7.198  ; 7.198  ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]    ; CLOCK_50   ; 8.863  ; 8.863  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]   ; CLOCK_50   ; 6.917  ; 6.917  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]   ; CLOCK_50   ; 6.929  ; 6.929  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]   ; CLOCK_50   ; 7.185  ; 7.185  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]   ; CLOCK_50   ; 7.195  ; 7.195  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]   ; CLOCK_50   ; 8.837  ; 8.837  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]   ; CLOCK_50   ; 8.598  ; 8.598  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]   ; CLOCK_50   ; 8.853  ; 8.853  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]   ; CLOCK_50   ; 8.863  ; 8.863  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]   ; CLOCK_50   ; 7.171  ; 7.171  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]   ; CLOCK_50   ; 7.136  ; 7.136  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10]  ; CLOCK_50   ; 7.163  ; 7.163  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11]  ; CLOCK_50   ; 7.420  ; 7.420  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12]  ; CLOCK_50   ; 8.540  ; 8.540  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13]  ; CLOCK_50   ; 8.220  ; 8.220  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14]  ; CLOCK_50   ; 8.218  ; 8.218  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15]  ; CLOCK_50   ; 7.923  ; 7.923  ; Rise       ; CLOCK_50        ;
+; SRAM_LB_N     ; CLOCK_50   ; 6.909  ; 6.909  ; Rise       ; CLOCK_50        ;
+; SRAM_OE_N     ; CLOCK_50   ; 6.928  ; 6.928  ; Rise       ; CLOCK_50        ;
+; SRAM_UB_N     ; CLOCK_50   ; 7.443  ; 7.443  ; Rise       ; CLOCK_50        ;
+; SRAM_WE_N     ; CLOCK_50   ; 8.322  ; 8.322  ; Rise       ; CLOCK_50        ;
++---------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                               ;
++---------------+------------+--------+--------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++---------------+------------+--------+--------+------------+-----------------+
+; HEX0[*]       ; CLOCK_50   ; 9.361  ; 9.361  ; Rise       ; CLOCK_50        ;
+;  HEX0[0]      ; CLOCK_50   ; 9.361  ; 9.361  ; Rise       ; CLOCK_50        ;
+;  HEX0[1]      ; CLOCK_50   ; 9.387  ; 9.387  ; Rise       ; CLOCK_50        ;
+;  HEX0[2]      ; CLOCK_50   ; 9.404  ; 9.404  ; Rise       ; CLOCK_50        ;
+;  HEX0[3]      ; CLOCK_50   ; 9.389  ; 9.389  ; Rise       ; CLOCK_50        ;
+;  HEX0[4]      ; CLOCK_50   ; 9.763  ; 9.763  ; Rise       ; CLOCK_50        ;
+;  HEX0[5]      ; CLOCK_50   ; 9.758  ; 9.758  ; Rise       ; CLOCK_50        ;
+;  HEX0[6]      ; CLOCK_50   ; 9.736  ; 9.736  ; Rise       ; CLOCK_50        ;
+; HEX1[*]       ; CLOCK_50   ; 8.935  ; 8.935  ; Rise       ; CLOCK_50        ;
+;  HEX1[0]      ; CLOCK_50   ; 8.935  ; 8.935  ; Rise       ; CLOCK_50        ;
+;  HEX1[1]      ; CLOCK_50   ; 9.701  ; 9.701  ; Rise       ; CLOCK_50        ;
+;  HEX1[2]      ; CLOCK_50   ; 9.712  ; 9.712  ; Rise       ; CLOCK_50        ;
+;  HEX1[3]      ; CLOCK_50   ; 9.701  ; 9.701  ; Rise       ; CLOCK_50        ;
+;  HEX1[4]      ; CLOCK_50   ; 9.714  ; 9.714  ; Rise       ; CLOCK_50        ;
+;  HEX1[5]      ; CLOCK_50   ; 9.722  ; 9.722  ; Rise       ; CLOCK_50        ;
+;  HEX1[6]      ; CLOCK_50   ; 9.764  ; 9.764  ; Rise       ; CLOCK_50        ;
+; HEX2[*]       ; CLOCK_50   ; 9.979  ; 9.979  ; Rise       ; CLOCK_50        ;
+;  HEX2[0]      ; CLOCK_50   ; 9.979  ; 9.979  ; Rise       ; CLOCK_50        ;
+;  HEX2[1]      ; CLOCK_50   ; 10.046 ; 10.046 ; Rise       ; CLOCK_50        ;
+;  HEX2[2]      ; CLOCK_50   ; 10.950 ; 10.950 ; Rise       ; CLOCK_50        ;
+;  HEX2[3]      ; CLOCK_50   ; 10.352 ; 10.352 ; Rise       ; CLOCK_50        ;
+;  HEX2[4]      ; CLOCK_50   ; 10.021 ; 10.021 ; Rise       ; CLOCK_50        ;
+;  HEX2[5]      ; CLOCK_50   ; 10.288 ; 10.288 ; Rise       ; CLOCK_50        ;
+;  HEX2[6]      ; CLOCK_50   ; 10.406 ; 10.406 ; Rise       ; CLOCK_50        ;
+; HEX3[*]       ; CLOCK_50   ; 9.475  ; 9.475  ; Rise       ; CLOCK_50        ;
+;  HEX3[0]      ; CLOCK_50   ; 9.881  ; 9.881  ; Rise       ; CLOCK_50        ;
+;  HEX3[1]      ; CLOCK_50   ; 10.438 ; 10.438 ; Rise       ; CLOCK_50        ;
+;  HEX3[2]      ; CLOCK_50   ; 9.930  ; 9.930  ; Rise       ; CLOCK_50        ;
+;  HEX3[3]      ; CLOCK_50   ; 9.475  ; 9.475  ; Rise       ; CLOCK_50        ;
+;  HEX3[4]      ; CLOCK_50   ; 9.810  ; 9.810  ; Rise       ; CLOCK_50        ;
+;  HEX3[5]      ; CLOCK_50   ; 9.864  ; 9.864  ; Rise       ; CLOCK_50        ;
+;  HEX3[6]      ; CLOCK_50   ; 10.203 ; 10.203 ; Rise       ; CLOCK_50        ;
+; LEDG[*]       ; CLOCK_50   ; 9.189  ; 9.189  ; Rise       ; CLOCK_50        ;
+;  LEDG[6]      ; CLOCK_50   ; 9.444  ; 9.444  ; Rise       ; CLOCK_50        ;
+;  LEDG[7]      ; CLOCK_50   ; 9.189  ; 9.189  ; Rise       ; CLOCK_50        ;
+; LEDR[*]       ; CLOCK_50   ; 9.285  ; 9.285  ; Rise       ; CLOCK_50        ;
+;  LEDR[0]      ; CLOCK_50   ; 11.268 ; 11.268 ; Rise       ; CLOCK_50        ;
+;  LEDR[1]      ; CLOCK_50   ; 10.885 ; 10.885 ; Rise       ; CLOCK_50        ;
+;  LEDR[2]      ; CLOCK_50   ; 9.285  ; 9.285  ; Rise       ; CLOCK_50        ;
+;  LEDR[3]      ; CLOCK_50   ; 10.421 ; 10.421 ; Rise       ; CLOCK_50        ;
+; SRAM_ADDR[*]  ; CLOCK_50   ; 7.198  ; 7.198  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[0] ; CLOCK_50   ; 7.199  ; 7.199  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[1] ; CLOCK_50   ; 7.449  ; 7.449  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[2] ; CLOCK_50   ; 7.207  ; 7.207  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[3] ; CLOCK_50   ; 7.198  ; 7.198  ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]    ; CLOCK_50   ; 6.917  ; 6.917  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]   ; CLOCK_50   ; 6.917  ; 6.917  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]   ; CLOCK_50   ; 6.929  ; 6.929  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]   ; CLOCK_50   ; 7.185  ; 7.185  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]   ; CLOCK_50   ; 7.195  ; 7.195  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]   ; CLOCK_50   ; 8.789  ; 8.789  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]   ; CLOCK_50   ; 8.550  ; 8.550  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]   ; CLOCK_50   ; 8.805  ; 8.805  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]   ; CLOCK_50   ; 8.815  ; 8.815  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]   ; CLOCK_50   ; 7.171  ; 7.171  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]   ; CLOCK_50   ; 7.136  ; 7.136  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10]  ; CLOCK_50   ; 7.163  ; 7.163  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11]  ; CLOCK_50   ; 7.420  ; 7.420  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12]  ; CLOCK_50   ; 8.163  ; 8.163  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13]  ; CLOCK_50   ; 7.843  ; 7.843  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14]  ; CLOCK_50   ; 7.841  ; 7.841  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15]  ; CLOCK_50   ; 7.546  ; 7.546  ; Rise       ; CLOCK_50        ;
+; SRAM_LB_N     ; CLOCK_50   ; 6.909  ; 6.909  ; Rise       ; CLOCK_50        ;
+; SRAM_OE_N     ; CLOCK_50   ; 6.928  ; 6.928  ; Rise       ; CLOCK_50        ;
+; SRAM_UB_N     ; CLOCK_50   ; 7.443  ; 7.443  ; Rise       ; CLOCK_50        ;
+; SRAM_WE_N     ; CLOCK_50   ; 8.322  ; 8.322  ; Rise       ; CLOCK_50        ;
++---------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Output Enable Times                                                     ;
++--------------+------------+-------+------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+------+------------+-----------------+
+; SRAM_DQ[*]   ; CLOCK_50   ; 7.908 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 7.908 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 7.918 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 8.490 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 8.500 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 8.480 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 8.480 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 8.168 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 8.478 ;      ; Rise       ; CLOCK_50        ;
++--------------+------------+-------+------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Output Enable Times                                             ;
++--------------+------------+-------+------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+------+------------+-----------------+
+; SRAM_DQ[*]   ; CLOCK_50   ; 7.791 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 7.860 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 7.870 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 8.442 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 8.452 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 8.103 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 8.103 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 7.791 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 8.101 ;      ; Rise       ; CLOCK_50        ;
++--------------+------------+-------+------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------+
+; Output Disable Times                                                             ;
++--------------+------------+-----------+-----------+------------+-----------------+
+; Data Port    ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++--------------+------------+-----------+-----------+------------+-----------------+
+; SRAM_DQ[*]   ; CLOCK_50   ; 7.908     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 7.908     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 7.918     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 8.490     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 8.500     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 8.480     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 8.480     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 8.168     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 8.478     ;           ; Rise       ; CLOCK_50        ;
++--------------+------------+-----------+-----------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------+
+; Minimum Output Disable Times                                                     ;
++--------------+------------+-----------+-----------+------------+-----------------+
+; Data Port    ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++--------------+------------+-----------+-----------+------------+-----------------+
+; SRAM_DQ[*]   ; CLOCK_50   ; 7.791     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 7.860     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 7.870     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 8.442     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 8.452     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 8.103     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 8.103     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 7.791     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 8.101     ;           ; Rise       ; CLOCK_50        ;
++--------------+------------+-----------+-----------+------------+-----------------+
+
+
++-----------------------------------+
+; Fast Model Setup Summary          ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; CLOCK_50 ; 17.038 ; 0.000         ;
++----------+--------+---------------+
+
+
++----------------------------------+
+; Fast Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; CLOCK_50 ; 0.215 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++----------+-------+---------------------+
+; Clock    ; Slack ; End Point TNS       ;
++----------+-------+---------------------+
+; CLOCK_50 ; 9.000 ; 0.000               ;
++----------+-------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'CLOCK_50'                                                                                                                                               ;
++--------+---------------------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 17.038 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.989      ;
+; 17.038 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.989      ;
+; 17.038 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.989      ;
+; 17.038 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.989      ;
+; 17.038 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.989      ;
+; 17.038 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.989      ;
+; 17.038 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.989      ;
+; 17.038 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.989      ;
+; 17.068 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.958      ;
+; 17.068 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.958      ;
+; 17.068 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.958      ;
+; 17.158 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.869      ;
+; 17.158 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.869      ;
+; 17.158 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.869      ;
+; 17.158 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.869      ;
+; 17.158 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.869      ;
+; 17.158 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.869      ;
+; 17.158 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.869      ;
+; 17.158 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.869      ;
+; 17.161 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.866      ;
+; 17.161 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.866      ;
+; 17.161 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.866      ;
+; 17.161 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.866      ;
+; 17.161 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.866      ;
+; 17.161 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.866      ;
+; 17.161 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.866      ;
+; 17.161 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.866      ;
+; 17.173 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.855      ;
+; 17.173 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.855      ;
+; 17.173 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.855      ;
+; 17.173 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.855      ;
+; 17.173 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.855      ;
+; 17.173 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.855      ;
+; 17.173 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.855      ;
+; 17.173 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.855      ;
+; 17.188 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.838      ;
+; 17.188 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.838      ;
+; 17.188 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.838      ;
+; 17.191 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.835      ;
+; 17.191 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.835      ;
+; 17.191 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.835      ;
+; 17.203 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.824      ;
+; 17.203 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.824      ;
+; 17.203 ; sram_interface32bit:sram32|state.WRITE1           ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.824      ;
+; 17.211 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[12] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.815      ;
+; 17.274 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.753      ;
+; 17.274 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.753      ;
+; 17.274 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.753      ;
+; 17.274 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.753      ;
+; 17.274 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.753      ;
+; 17.274 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.753      ;
+; 17.274 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.753      ;
+; 17.274 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.753      ;
+; 17.288 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[16] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.002     ; 2.742      ;
+; 17.288 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[17] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.002     ; 2.742      ;
+; 17.288 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[18] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.002     ; 2.742      ;
+; 17.288 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[19] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.002     ; 2.742      ;
+; 17.288 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[23] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.002     ; 2.742      ;
+; 17.300 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.728      ;
+; 17.300 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.728      ;
+; 17.300 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.728      ;
+; 17.300 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.728      ;
+; 17.300 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.728      ;
+; 17.300 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.728      ;
+; 17.300 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.728      ;
+; 17.300 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.728      ;
+; 17.301 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[0]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.726      ;
+; 17.301 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[1]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.726      ;
+; 17.301 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[2]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.726      ;
+; 17.301 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[3]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.726      ;
+; 17.301 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[4]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.726      ;
+; 17.301 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[5]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.726      ;
+; 17.301 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[6]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.726      ;
+; 17.301 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|data_out[7]  ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.726      ;
+; 17.304 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.722      ;
+; 17.304 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.722      ;
+; 17.304 ; sram_interface32bit:sram32|state.UNALIGNED_READ2  ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.722      ;
+; 17.312 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.715      ;
+; 17.312 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.715      ;
+; 17.312 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.715      ;
+; 17.312 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.715      ;
+; 17.312 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.715      ;
+; 17.312 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.715      ;
+; 17.312 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.715      ;
+; 17.312 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2 ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.715      ;
+; 17.320 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[24] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.708      ;
+; 17.320 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[25] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.708      ;
+; 17.320 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[26] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.708      ;
+; 17.320 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[27] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.708      ;
+; 17.320 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[28] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.708      ;
+; 17.320 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[29] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.708      ;
+; 17.320 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[30] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.708      ;
+; 17.320 ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER ; sram_interface32bit:sram32|data_out[31] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.004     ; 2.708      ;
+; 17.323 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|finished     ; CLOCK_50     ; CLOCK_50    ; 20.000       ; 0.001      ; 2.710      ;
+; 17.323 ; sram_interface32bit:sram32|state.READ1            ; sram_interface32bit:sram32|busy         ; CLOCK_50     ; CLOCK_50    ; 20.000       ; 0.001      ; 2.710      ;
+; 17.330 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[20] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.697      ;
+; 17.330 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[21] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.697      ;
+; 17.330 ; sram_interface32bit:sram32|state.IDLE             ; sram_interface32bit:sram32|data_out[22] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.005     ; 2.697      ;
+; 17.331 ; sram_interface32bit:sram32|state.UNALIGNED_READ1  ; sram_interface32bit:sram32|data_out[12] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.695      ;
+; 17.334 ; button_debounce:sram_command_trigger|debounced    ; sram_interface32bit:sram32|data_out[12] ; CLOCK_50     ; CLOCK_50    ; 20.000       ; -0.006     ; 2.692      ;
++--------+---------------------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'CLOCK_50'                                                                                                                                                                   ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                              ; To Node                                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; button_debounce:sram_command_trigger|internal_debounce ; button_debounce:sram_command_trigger|internal_debounce ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; button_debounce:sram_command_trigger|debounced         ; button_debounce:sram_command_trigger|debounced         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; sram_interface32bit:sram32|state.WRITE1                ; sram_interface32bit:sram32|state.WRITE1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.IDLE                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; button_debounce:num_display_control|debounced          ; button_debounce:num_display_control|debounced          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; sram_interface32bit:sram32|interface_addr[0]           ; sram_interface32bit:sram32|interface_addr[0]           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; sram_interface32bit:sram32|interface_addr[3]           ; sram_interface32bit:sram32|interface_addr[3]           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; sram_interface32bit:sram32|interface_lower_byte_mask_n ; sram_interface32bit:sram32|interface_lower_byte_mask_n ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.246 ; button_debounce:sram_command_trigger|internal_debounce ; button_debounce:sram_command_trigger|debounced         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.398      ;
+; 0.324 ; button_debounce:num_display_control|sync1              ; button_debounce:num_display_control|sync2              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.476      ;
+; 0.330 ; button_debounce:sram_command_trigger|sync1             ; button_debounce:sram_command_trigger|sync2             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.482      ;
+; 0.353 ; button_debounce:sram_command_trigger|counter[12]       ; button_debounce:sram_command_trigger|counter[12]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.505      ;
+; 0.353 ; button_debounce:num_display_control|counter[12]        ; button_debounce:num_display_control|counter[12]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.505      ;
+; 0.356 ; button_debounce:sram_command_trigger|counter[0]        ; button_debounce:sram_command_trigger|counter[0]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; button_debounce:sram_command_trigger|counter[3]        ; button_debounce:sram_command_trigger|counter[3]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; button_debounce:sram_command_trigger|counter[5]        ; button_debounce:sram_command_trigger|counter[5]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; button_debounce:sram_command_trigger|counter[7]        ; button_debounce:sram_command_trigger|counter[7]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; button_debounce:num_display_control|counter[0]         ; button_debounce:num_display_control|counter[0]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; button_debounce:num_display_control|counter[3]         ; button_debounce:num_display_control|counter[3]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; button_debounce:num_display_control|counter[5]         ; button_debounce:num_display_control|counter[5]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.356 ; button_debounce:num_display_control|counter[7]         ; button_debounce:num_display_control|counter[7]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.508      ;
+; 0.357 ; button_debounce:sram_command_trigger|counter[13]       ; button_debounce:sram_command_trigger|counter[13]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.509      ;
+; 0.357 ; button_debounce:num_display_control|counter[13]        ; button_debounce:num_display_control|counter[13]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.509      ;
+; 0.358 ; button_debounce:sram_command_trigger|counter[14]       ; button_debounce:sram_command_trigger|counter[14]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; button_debounce:sram_command_trigger|counter[21]       ; button_debounce:sram_command_trigger|counter[21]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; button_debounce:sram_command_trigger|counter[23]       ; button_debounce:sram_command_trigger|counter[23]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; button_debounce:num_display_control|counter[14]        ; button_debounce:num_display_control|counter[14]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; button_debounce:num_display_control|counter[21]        ; button_debounce:num_display_control|counter[21]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; button_debounce:num_display_control|counter[23]        ; button_debounce:num_display_control|counter[23]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.510      ;
+; 0.359 ; button_debounce:sram_command_trigger|counter[9]        ; button_debounce:sram_command_trigger|counter[9]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; button_debounce:sram_command_trigger|counter[10]       ; button_debounce:sram_command_trigger|counter[10]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; button_debounce:sram_command_trigger|counter[11]       ; button_debounce:sram_command_trigger|counter[11]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; button_debounce:sram_command_trigger|counter[16]       ; button_debounce:sram_command_trigger|counter[16]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; button_debounce:sram_command_trigger|counter[19]       ; button_debounce:sram_command_trigger|counter[19]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; button_debounce:num_display_control|counter[9]         ; button_debounce:num_display_control|counter[9]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; button_debounce:num_display_control|counter[10]        ; button_debounce:num_display_control|counter[10]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; button_debounce:num_display_control|counter[11]        ; button_debounce:num_display_control|counter[11]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; button_debounce:num_display_control|counter[16]        ; button_debounce:num_display_control|counter[16]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; button_debounce:num_display_control|counter[19]        ; button_debounce:num_display_control|counter[19]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.363 ; button_debounce:sram_command_trigger|sync2             ; button_debounce:sram_command_trigger|internal_debounce ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.515      ;
+; 0.364 ; button_debounce:sram_command_trigger|sync2             ; button_debounce:sram_command_trigger|debounced         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.516      ;
+; 0.367 ; button_debounce:sram_command_trigger|counter[1]        ; button_debounce:sram_command_trigger|counter[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; button_debounce:sram_command_trigger|counter[2]        ; button_debounce:sram_command_trigger|counter[2]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; button_debounce:num_display_control|counter[1]         ; button_debounce:num_display_control|counter[1]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; button_debounce:num_display_control|counter[2]         ; button_debounce:num_display_control|counter[2]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.519      ;
+; 0.369 ; button_debounce:sram_command_trigger|counter[4]        ; button_debounce:sram_command_trigger|counter[4]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; button_debounce:sram_command_trigger|counter[6]        ; button_debounce:sram_command_trigger|counter[6]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; button_debounce:sram_command_trigger|counter[15]       ; button_debounce:sram_command_trigger|counter[15]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; button_debounce:sram_command_trigger|counter[20]       ; button_debounce:sram_command_trigger|counter[20]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; button_debounce:sram_command_trigger|counter[22]       ; button_debounce:sram_command_trigger|counter[22]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; button_debounce:num_display_control|counter[4]         ; button_debounce:num_display_control|counter[4]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; button_debounce:num_display_control|counter[6]         ; button_debounce:num_display_control|counter[6]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; button_debounce:num_display_control|counter[15]        ; button_debounce:num_display_control|counter[15]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.521      ;
+; 0.370 ; button_debounce:sram_command_trigger|counter[8]        ; button_debounce:sram_command_trigger|counter[8]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; button_debounce:sram_command_trigger|counter[17]       ; button_debounce:sram_command_trigger|counter[17]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; button_debounce:sram_command_trigger|counter[18]       ; button_debounce:sram_command_trigger|counter[18]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; button_debounce:num_display_control|counter[8]         ; button_debounce:num_display_control|counter[8]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; button_debounce:num_display_control|counter[17]        ; button_debounce:num_display_control|counter[17]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.370 ; button_debounce:num_display_control|counter[18]        ; button_debounce:num_display_control|counter[18]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.522      ;
+; 0.371 ; button_debounce:num_display_control|counter[20]        ; button_debounce:num_display_control|counter[20]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.523      ;
+; 0.372 ; button_debounce:sram_command_trigger|counter[24]       ; button_debounce:sram_command_trigger|counter[24]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; button_debounce:num_display_control|counter[22]        ; button_debounce:num_display_control|counter[22]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.524      ;
+; 0.374 ; button_debounce:num_display_control|counter[24]        ; button_debounce:num_display_control|counter[24]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.526      ;
+; 0.375 ; button_debounce:num_display_control|counter[24]        ; button_debounce:num_display_control|debounced          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.527      ;
+; 0.405 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; sram_interface32bit:sram32|state.UNALIGNED_WRITE2      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.558      ;
+; 0.421 ; sram_interface32bit:sram32|state.UNALIGNED_READ2       ; sram_interface32bit:sram32|state.UNALIGNED_READ3       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.573      ;
+; 0.433 ; sram_interface32bit:sram32|state.WRITE1                ; sram_interface32bit:sram32|state.WRITE2                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.586      ;
+; 0.446 ; sram_interface32bit:sram32|state.READ1                 ; sram_interface32bit:sram32|state.READ2                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.598      ;
+; 0.467 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.WRITE1                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.619      ;
+; 0.472 ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; sram_interface32bit:sram32|write_halfword[11]          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.003      ; 0.627      ;
+; 0.476 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.628      ;
+; 0.477 ; button_debounce:sram_command_trigger|debounced         ; sram_interface32bit:sram32|state.IDLE                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.628      ;
+; 0.479 ; button_debounce:sram_command_trigger|debounced         ; sram_interface32bit:sram32|state.READ_BYTE_UPPER       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.630      ;
+; 0.482 ; button_debounce:sram_command_trigger|debounced         ; sram_interface32bit:sram32|state.UNALIGNED_WRITE1      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.633      ;
+; 0.483 ; button_debounce:sram_command_trigger|debounced         ; sram_interface32bit:sram32|state.WRITE_BYTE_UPPER      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.634      ;
+; 0.491 ; button_debounce:sram_command_trigger|counter[12]       ; button_debounce:sram_command_trigger|counter[13]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.643      ;
+; 0.491 ; button_debounce:num_display_control|counter[12]        ; button_debounce:num_display_control|counter[13]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.643      ;
+; 0.494 ; button_debounce:sram_command_trigger|counter[0]        ; button_debounce:sram_command_trigger|counter[1]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.646      ;
+; 0.494 ; button_debounce:num_display_control|counter[0]         ; button_debounce:num_display_control|counter[1]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.646      ;
+; 0.494 ; button_debounce:sram_command_trigger|counter[5]        ; button_debounce:sram_command_trigger|counter[6]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.646      ;
+; 0.494 ; button_debounce:num_display_control|counter[5]         ; button_debounce:num_display_control|counter[6]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.646      ;
+; 0.494 ; button_debounce:sram_command_trigger|counter[7]        ; button_debounce:sram_command_trigger|counter[8]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.646      ;
+; 0.494 ; button_debounce:num_display_control|counter[7]         ; button_debounce:num_display_control|counter[8]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.646      ;
+; 0.495 ; button_debounce:sram_command_trigger|counter[13]       ; button_debounce:sram_command_trigger|counter[14]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.647      ;
+; 0.495 ; button_debounce:num_display_control|counter[13]        ; button_debounce:num_display_control|counter[14]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.647      ;
+; 0.496 ; button_debounce:sram_command_trigger|counter[14]       ; button_debounce:sram_command_trigger|counter[15]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.648      ;
+; 0.496 ; button_debounce:sram_command_trigger|counter[21]       ; button_debounce:sram_command_trigger|counter[22]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.648      ;
+; 0.496 ; button_debounce:num_display_control|counter[14]        ; button_debounce:num_display_control|counter[15]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.648      ;
+; 0.496 ; button_debounce:sram_command_trigger|counter[23]       ; button_debounce:sram_command_trigger|counter[24]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.648      ;
+; 0.496 ; button_debounce:num_display_control|counter[21]        ; button_debounce:num_display_control|counter[22]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.648      ;
+; 0.496 ; button_debounce:num_display_control|counter[23]        ; button_debounce:num_display_control|counter[24]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.648      ;
+; 0.497 ; button_debounce:sram_command_trigger|counter[9]        ; button_debounce:sram_command_trigger|counter[10]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.649      ;
+; 0.497 ; button_debounce:sram_command_trigger|counter[10]       ; button_debounce:sram_command_trigger|counter[11]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.649      ;
+; 0.497 ; button_debounce:num_display_control|counter[9]         ; button_debounce:num_display_control|counter[10]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.649      ;
+; 0.497 ; button_debounce:num_display_control|counter[10]        ; button_debounce:num_display_control|counter[11]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.649      ;
+; 0.497 ; button_debounce:sram_command_trigger|counter[16]       ; button_debounce:sram_command_trigger|counter[17]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.649      ;
+; 0.497 ; button_debounce:num_display_control|counter[16]        ; button_debounce:num_display_control|counter[17]        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.649      ;
+; 0.506 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|busy                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.002      ; 0.660      ;
+; 0.507 ; sram_interface32bit:sram32|state.IDLE                  ; sram_interface32bit:sram32|state.READ_BYTE_LOWER       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.660      ;
++-------+--------------------------------------------------------+--------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'CLOCK_50'                                                                                          ;
++-------+--------------+----------------+------------------+----------+------------+--------------------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                           ;
++-------+--------------+----------------+------------------+----------+------------+--------------------------------------------------+
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[0]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[0]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[10]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[10]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[11]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[11]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[12]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[12]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[13]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[13]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[14]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[14]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[15]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[15]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[16]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[16]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[17]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[17]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[18]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[18]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[19]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[19]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[1]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[1]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[20]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[20]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[21]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[21]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[22]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[22]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[23]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[23]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[24]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[24]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[2]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[2]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[3]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[3]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[4]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[4]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[5]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[5]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[6]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[6]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[7]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[7]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[8]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[8]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[9]   ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|counter[9]   ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|debounced    ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|debounced    ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|sync1        ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|sync1        ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|sync2        ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:num_display_control|sync2        ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[0]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[0]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[10] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[10] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[11] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[11] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[12] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[12] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[13] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[13] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[14] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[14] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[15] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[15] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[16] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[16] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[17] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[17] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[18] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[18] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[19] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[19] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[1]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[1]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[20] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[20] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[21] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[21] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[22] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[22] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[23] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[23] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[24] ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[24] ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[2]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[2]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[3]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[3]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[4]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[4]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[5]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[5]  ;
+; 9.000 ; 10.000       ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[6]  ;
+; 9.000 ; 10.000       ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; button_debounce:sram_command_trigger|counter[6]  ;
++-------+--------------+----------------+------------------+----------+------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Setup Times                                                                ;
++--------------+------------+--------+--------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------+------------+--------+--------+------------+-----------------+
+; KEY[*]       ; CLOCK_50   ; 2.314  ; 2.314  ; Rise       ; CLOCK_50        ;
+;  KEY[0]      ; CLOCK_50   ; 2.292  ; 2.292  ; Rise       ; CLOCK_50        ;
+;  KEY[1]      ; CLOCK_50   ; 2.314  ; 2.314  ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]   ; CLOCK_50   ; 2.125  ; 2.125  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 1.827  ; 1.827  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 1.969  ; 1.969  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 1.927  ; 1.927  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 2.068  ; 2.068  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]  ; CLOCK_50   ; 1.985  ; 1.985  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]  ; CLOCK_50   ; 2.038  ; 2.038  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]  ; CLOCK_50   ; 2.086  ; 2.086  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]  ; CLOCK_50   ; 1.941  ; 1.941  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 2.050  ; 2.050  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 2.125  ; 2.125  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 1.961  ; 1.961  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 2.113  ; 2.113  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12] ; CLOCK_50   ; 2.012  ; 2.012  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13] ; CLOCK_50   ; 2.022  ; 2.022  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14] ; CLOCK_50   ; 1.911  ; 1.911  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15] ; CLOCK_50   ; 1.623  ; 1.623  ; Rise       ; CLOCK_50        ;
+; SW[*]        ; CLOCK_50   ; 1.937  ; 1.937  ; Rise       ; CLOCK_50        ;
+;  SW[0]       ; CLOCK_50   ; -0.014 ; -0.014 ; Rise       ; CLOCK_50        ;
+;  SW[1]       ; CLOCK_50   ; -0.056 ; -0.056 ; Rise       ; CLOCK_50        ;
+;  SW[2]       ; CLOCK_50   ; -0.134 ; -0.134 ; Rise       ; CLOCK_50        ;
+;  SW[3]       ; CLOCK_50   ; -0.273 ; -0.273 ; Rise       ; CLOCK_50        ;
+;  SW[4]       ; CLOCK_50   ; 1.891  ; 1.891  ; Rise       ; CLOCK_50        ;
+;  SW[5]       ; CLOCK_50   ; 0.302  ; 0.302  ; Rise       ; CLOCK_50        ;
+;  SW[6]       ; CLOCK_50   ; -0.058 ; -0.058 ; Rise       ; CLOCK_50        ;
+;  SW[7]       ; CLOCK_50   ; -0.250 ; -0.250 ; Rise       ; CLOCK_50        ;
+;  SW[8]       ; CLOCK_50   ; 1.888  ; 1.888  ; Rise       ; CLOCK_50        ;
+;  SW[9]       ; CLOCK_50   ; 1.937  ; 1.937  ; Rise       ; CLOCK_50        ;
++--------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Hold Times                                                                 ;
++--------------+------------+--------+--------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------+------------+--------+--------+------------+-----------------+
+; KEY[*]       ; CLOCK_50   ; -2.172 ; -2.172 ; Rise       ; CLOCK_50        ;
+;  KEY[0]      ; CLOCK_50   ; -2.172 ; -2.172 ; Rise       ; CLOCK_50        ;
+;  KEY[1]      ; CLOCK_50   ; -2.194 ; -2.194 ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]   ; CLOCK_50   ; -1.499 ; -1.499 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; -1.632 ; -1.632 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; -1.726 ; -1.726 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; -1.691 ; -1.691 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; -1.692 ; -1.692 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]  ; CLOCK_50   ; -1.813 ; -1.813 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]  ; CLOCK_50   ; -1.778 ; -1.778 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]  ; CLOCK_50   ; -1.823 ; -1.823 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]  ; CLOCK_50   ; -1.809 ; -1.809 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; -1.676 ; -1.676 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; -1.672 ; -1.672 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; -1.793 ; -1.793 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; -1.747 ; -1.747 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12] ; CLOCK_50   ; -1.885 ; -1.885 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13] ; CLOCK_50   ; -1.787 ; -1.787 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14] ; CLOCK_50   ; -1.612 ; -1.612 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15] ; CLOCK_50   ; -1.499 ; -1.499 ; Rise       ; CLOCK_50        ;
+; SW[*]        ; CLOCK_50   ; 0.595  ; 0.595  ; Rise       ; CLOCK_50        ;
+;  SW[0]       ; CLOCK_50   ; 0.138  ; 0.138  ; Rise       ; CLOCK_50        ;
+;  SW[1]       ; CLOCK_50   ; 0.181  ; 0.181  ; Rise       ; CLOCK_50        ;
+;  SW[2]       ; CLOCK_50   ; 0.256  ; 0.256  ; Rise       ; CLOCK_50        ;
+;  SW[3]       ; CLOCK_50   ; 0.399  ; 0.399  ; Rise       ; CLOCK_50        ;
+;  SW[4]       ; CLOCK_50   ; 0.583  ; 0.583  ; Rise       ; CLOCK_50        ;
+;  SW[5]       ; CLOCK_50   ; 0.384  ; 0.384  ; Rise       ; CLOCK_50        ;
+;  SW[6]       ; CLOCK_50   ; 0.476  ; 0.476  ; Rise       ; CLOCK_50        ;
+;  SW[7]       ; CLOCK_50   ; 0.595  ; 0.595  ; Rise       ; CLOCK_50        ;
+;  SW[8]       ; CLOCK_50   ; 0.395  ; 0.395  ; Rise       ; CLOCK_50        ;
+;  SW[9]       ; CLOCK_50   ; 0.551  ; 0.551  ; Rise       ; CLOCK_50        ;
++--------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Clock to Output Times                                                     ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; HEX0[*]       ; CLOCK_50   ; 5.193 ; 5.193 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]      ; CLOCK_50   ; 5.008 ; 5.008 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]      ; CLOCK_50   ; 5.029 ; 5.029 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]      ; CLOCK_50   ; 5.043 ; 5.043 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]      ; CLOCK_50   ; 5.035 ; 5.035 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]      ; CLOCK_50   ; 5.193 ; 5.193 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]      ; CLOCK_50   ; 5.189 ; 5.189 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]      ; CLOCK_50   ; 5.168 ; 5.168 ; Rise       ; CLOCK_50        ;
+; HEX1[*]       ; CLOCK_50   ; 5.444 ; 5.444 ; Rise       ; CLOCK_50        ;
+;  HEX1[0]      ; CLOCK_50   ; 5.101 ; 5.101 ; Rise       ; CLOCK_50        ;
+;  HEX1[1]      ; CLOCK_50   ; 5.391 ; 5.391 ; Rise       ; CLOCK_50        ;
+;  HEX1[2]      ; CLOCK_50   ; 5.401 ; 5.401 ; Rise       ; CLOCK_50        ;
+;  HEX1[3]      ; CLOCK_50   ; 5.397 ; 5.397 ; Rise       ; CLOCK_50        ;
+;  HEX1[4]      ; CLOCK_50   ; 5.409 ; 5.409 ; Rise       ; CLOCK_50        ;
+;  HEX1[5]      ; CLOCK_50   ; 5.427 ; 5.427 ; Rise       ; CLOCK_50        ;
+;  HEX1[6]      ; CLOCK_50   ; 5.444 ; 5.444 ; Rise       ; CLOCK_50        ;
+; HEX2[*]       ; CLOCK_50   ; 5.696 ; 5.696 ; Rise       ; CLOCK_50        ;
+;  HEX2[0]      ; CLOCK_50   ; 5.214 ; 5.214 ; Rise       ; CLOCK_50        ;
+;  HEX2[1]      ; CLOCK_50   ; 5.273 ; 5.273 ; Rise       ; CLOCK_50        ;
+;  HEX2[2]      ; CLOCK_50   ; 5.696 ; 5.696 ; Rise       ; CLOCK_50        ;
+;  HEX2[3]      ; CLOCK_50   ; 5.397 ; 5.397 ; Rise       ; CLOCK_50        ;
+;  HEX2[4]      ; CLOCK_50   ; 5.260 ; 5.260 ; Rise       ; CLOCK_50        ;
+;  HEX2[5]      ; CLOCK_50   ; 5.355 ; 5.355 ; Rise       ; CLOCK_50        ;
+;  HEX2[6]      ; CLOCK_50   ; 5.422 ; 5.422 ; Rise       ; CLOCK_50        ;
+; HEX3[*]       ; CLOCK_50   ; 5.594 ; 5.594 ; Rise       ; CLOCK_50        ;
+;  HEX3[0]      ; CLOCK_50   ; 5.299 ; 5.299 ; Rise       ; CLOCK_50        ;
+;  HEX3[1]      ; CLOCK_50   ; 5.594 ; 5.594 ; Rise       ; CLOCK_50        ;
+;  HEX3[2]      ; CLOCK_50   ; 5.379 ; 5.379 ; Rise       ; CLOCK_50        ;
+;  HEX3[3]      ; CLOCK_50   ; 5.124 ; 5.124 ; Rise       ; CLOCK_50        ;
+;  HEX3[4]      ; CLOCK_50   ; 5.246 ; 5.246 ; Rise       ; CLOCK_50        ;
+;  HEX3[5]      ; CLOCK_50   ; 5.297 ; 5.297 ; Rise       ; CLOCK_50        ;
+;  HEX3[6]      ; CLOCK_50   ; 5.425 ; 5.425 ; Rise       ; CLOCK_50        ;
+; LEDG[*]       ; CLOCK_50   ; 4.764 ; 4.764 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]      ; CLOCK_50   ; 4.764 ; 4.764 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]      ; CLOCK_50   ; 4.678 ; 4.678 ; Rise       ; CLOCK_50        ;
+; LEDR[*]       ; CLOCK_50   ; 5.865 ; 5.865 ; Rise       ; CLOCK_50        ;
+;  LEDR[0]      ; CLOCK_50   ; 5.784 ; 5.784 ; Rise       ; CLOCK_50        ;
+;  LEDR[1]      ; CLOCK_50   ; 5.865 ; 5.865 ; Rise       ; CLOCK_50        ;
+;  LEDR[2]      ; CLOCK_50   ; 5.491 ; 5.491 ; Rise       ; CLOCK_50        ;
+;  LEDR[3]      ; CLOCK_50   ; 5.738 ; 5.738 ; Rise       ; CLOCK_50        ;
+; SRAM_ADDR[*]  ; CLOCK_50   ; 3.989 ; 3.989 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[0] ; CLOCK_50   ; 3.900 ; 3.900 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[1] ; CLOCK_50   ; 3.989 ; 3.989 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[2] ; CLOCK_50   ; 3.905 ; 3.905 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[3] ; CLOCK_50   ; 3.899 ; 3.899 ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]    ; CLOCK_50   ; 4.530 ; 4.530 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]   ; CLOCK_50   ; 3.792 ; 3.792 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]   ; CLOCK_50   ; 3.802 ; 3.802 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]   ; CLOCK_50   ; 3.888 ; 3.888 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]   ; CLOCK_50   ; 3.898 ; 3.898 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]   ; CLOCK_50   ; 4.506 ; 4.506 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]   ; CLOCK_50   ; 4.432 ; 4.432 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]   ; CLOCK_50   ; 4.520 ; 4.520 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]   ; CLOCK_50   ; 4.530 ; 4.530 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]   ; CLOCK_50   ; 3.872 ; 3.872 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]   ; CLOCK_50   ; 3.852 ; 3.852 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10]  ; CLOCK_50   ; 3.862 ; 3.862 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11]  ; CLOCK_50   ; 3.954 ; 3.954 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12]  ; CLOCK_50   ; 4.386 ; 4.386 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13]  ; CLOCK_50   ; 4.254 ; 4.254 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14]  ; CLOCK_50   ; 4.252 ; 4.252 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15]  ; CLOCK_50   ; 4.138 ; 4.138 ; Rise       ; CLOCK_50        ;
+; SRAM_LB_N     ; CLOCK_50   ; 3.780 ; 3.780 ; Rise       ; CLOCK_50        ;
+; SRAM_OE_N     ; CLOCK_50   ; 3.782 ; 3.782 ; Rise       ; CLOCK_50        ;
+; SRAM_UB_N     ; CLOCK_50   ; 3.963 ; 3.963 ; Rise       ; CLOCK_50        ;
+; SRAM_WE_N     ; CLOCK_50   ; 4.316 ; 4.316 ; Rise       ; CLOCK_50        ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; HEX0[*]       ; CLOCK_50   ; 4.708 ; 4.708 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]      ; CLOCK_50   ; 4.708 ; 4.708 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]      ; CLOCK_50   ; 4.732 ; 4.732 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]      ; CLOCK_50   ; 4.746 ; 4.746 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]      ; CLOCK_50   ; 4.738 ; 4.738 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]      ; CLOCK_50   ; 4.892 ; 4.892 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]      ; CLOCK_50   ; 4.887 ; 4.887 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]      ; CLOCK_50   ; 4.869 ; 4.869 ; Rise       ; CLOCK_50        ;
+; HEX1[*]       ; CLOCK_50   ; 4.554 ; 4.554 ; Rise       ; CLOCK_50        ;
+;  HEX1[0]      ; CLOCK_50   ; 4.554 ; 4.554 ; Rise       ; CLOCK_50        ;
+;  HEX1[1]      ; CLOCK_50   ; 4.844 ; 4.844 ; Rise       ; CLOCK_50        ;
+;  HEX1[2]      ; CLOCK_50   ; 4.852 ; 4.852 ; Rise       ; CLOCK_50        ;
+;  HEX1[3]      ; CLOCK_50   ; 4.848 ; 4.848 ; Rise       ; CLOCK_50        ;
+;  HEX1[4]      ; CLOCK_50   ; 4.858 ; 4.858 ; Rise       ; CLOCK_50        ;
+;  HEX1[5]      ; CLOCK_50   ; 4.878 ; 4.878 ; Rise       ; CLOCK_50        ;
+;  HEX1[6]      ; CLOCK_50   ; 4.899 ; 4.899 ; Rise       ; CLOCK_50        ;
+; HEX2[*]       ; CLOCK_50   ; 4.958 ; 4.958 ; Rise       ; CLOCK_50        ;
+;  HEX2[0]      ; CLOCK_50   ; 4.958 ; 4.958 ; Rise       ; CLOCK_50        ;
+;  HEX2[1]      ; CLOCK_50   ; 5.006 ; 5.006 ; Rise       ; CLOCK_50        ;
+;  HEX2[2]      ; CLOCK_50   ; 5.429 ; 5.429 ; Rise       ; CLOCK_50        ;
+;  HEX2[3]      ; CLOCK_50   ; 5.136 ; 5.136 ; Rise       ; CLOCK_50        ;
+;  HEX2[4]      ; CLOCK_50   ; 4.996 ; 4.996 ; Rise       ; CLOCK_50        ;
+;  HEX2[5]      ; CLOCK_50   ; 5.088 ; 5.088 ; Rise       ; CLOCK_50        ;
+;  HEX2[6]      ; CLOCK_50   ; 5.158 ; 5.158 ; Rise       ; CLOCK_50        ;
+; HEX3[*]       ; CLOCK_50   ; 4.747 ; 4.747 ; Rise       ; CLOCK_50        ;
+;  HEX3[0]      ; CLOCK_50   ; 4.923 ; 4.923 ; Rise       ; CLOCK_50        ;
+;  HEX3[1]      ; CLOCK_50   ; 5.214 ; 5.214 ; Rise       ; CLOCK_50        ;
+;  HEX3[2]      ; CLOCK_50   ; 5.002 ; 5.002 ; Rise       ; CLOCK_50        ;
+;  HEX3[3]      ; CLOCK_50   ; 4.747 ; 4.747 ; Rise       ; CLOCK_50        ;
+;  HEX3[4]      ; CLOCK_50   ; 4.868 ; 4.868 ; Rise       ; CLOCK_50        ;
+;  HEX3[5]      ; CLOCK_50   ; 4.918 ; 4.918 ; Rise       ; CLOCK_50        ;
+;  HEX3[6]      ; CLOCK_50   ; 5.048 ; 5.048 ; Rise       ; CLOCK_50        ;
+; LEDG[*]       ; CLOCK_50   ; 4.678 ; 4.678 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]      ; CLOCK_50   ; 4.764 ; 4.764 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]      ; CLOCK_50   ; 4.678 ; 4.678 ; Rise       ; CLOCK_50        ;
+; LEDR[*]       ; CLOCK_50   ; 4.704 ; 4.704 ; Rise       ; CLOCK_50        ;
+;  LEDR[0]      ; CLOCK_50   ; 5.403 ; 5.403 ; Rise       ; CLOCK_50        ;
+;  LEDR[1]      ; CLOCK_50   ; 5.267 ; 5.267 ; Rise       ; CLOCK_50        ;
+;  LEDR[2]      ; CLOCK_50   ; 4.704 ; 4.704 ; Rise       ; CLOCK_50        ;
+;  LEDR[3]      ; CLOCK_50   ; 5.063 ; 5.063 ; Rise       ; CLOCK_50        ;
+; SRAM_ADDR[*]  ; CLOCK_50   ; 3.899 ; 3.899 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[0] ; CLOCK_50   ; 3.900 ; 3.900 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[1] ; CLOCK_50   ; 3.989 ; 3.989 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[2] ; CLOCK_50   ; 3.905 ; 3.905 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[3] ; CLOCK_50   ; 3.899 ; 3.899 ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]    ; CLOCK_50   ; 3.792 ; 3.792 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]   ; CLOCK_50   ; 3.792 ; 3.792 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]   ; CLOCK_50   ; 3.802 ; 3.802 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]   ; CLOCK_50   ; 3.888 ; 3.888 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]   ; CLOCK_50   ; 3.898 ; 3.898 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]   ; CLOCK_50   ; 4.479 ; 4.479 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]   ; CLOCK_50   ; 4.405 ; 4.405 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]   ; CLOCK_50   ; 4.493 ; 4.493 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]   ; CLOCK_50   ; 4.503 ; 4.503 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]   ; CLOCK_50   ; 3.872 ; 3.872 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]   ; CLOCK_50   ; 3.852 ; 3.852 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10]  ; CLOCK_50   ; 3.862 ; 3.862 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11]  ; CLOCK_50   ; 3.954 ; 3.954 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12]  ; CLOCK_50   ; 4.251 ; 4.251 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13]  ; CLOCK_50   ; 4.119 ; 4.119 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14]  ; CLOCK_50   ; 4.117 ; 4.117 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15]  ; CLOCK_50   ; 4.003 ; 4.003 ; Rise       ; CLOCK_50        ;
+; SRAM_LB_N     ; CLOCK_50   ; 3.780 ; 3.780 ; Rise       ; CLOCK_50        ;
+; SRAM_OE_N     ; CLOCK_50   ; 3.782 ; 3.782 ; Rise       ; CLOCK_50        ;
+; SRAM_UB_N     ; CLOCK_50   ; 3.963 ; 3.963 ; Rise       ; CLOCK_50        ;
+; SRAM_WE_N     ; CLOCK_50   ; 4.316 ; 4.316 ; Rise       ; CLOCK_50        ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Output Enable Times                                                     ;
++--------------+------------+-------+------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+------+------------+-----------------+
+; SRAM_DQ[*]   ; CLOCK_50   ; 4.137 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 4.137 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 4.147 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 4.356 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 4.366 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 4.340 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 4.340 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 4.214 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 4.336 ;      ; Rise       ; CLOCK_50        ;
++--------------+------------+-------+------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Output Enable Times                                             ;
++--------------+------------+-------+------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+------+------------+-----------------+
+; SRAM_DQ[*]   ; CLOCK_50   ; 4.079 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 4.110 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 4.120 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 4.329 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 4.339 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 4.205 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 4.205 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 4.079 ;      ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 4.201 ;      ; Rise       ; CLOCK_50        ;
++--------------+------------+-------+------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------+
+; Output Disable Times                                                             ;
++--------------+------------+-----------+-----------+------------+-----------------+
+; Data Port    ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++--------------+------------+-----------+-----------+------------+-----------------+
+; SRAM_DQ[*]   ; CLOCK_50   ; 4.137     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 4.137     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 4.147     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 4.356     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 4.366     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 4.340     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 4.340     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 4.214     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 4.336     ;           ; Rise       ; CLOCK_50        ;
++--------------+------------+-----------+-----------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------+
+; Minimum Output Disable Times                                                     ;
++--------------+------------+-----------+-----------+------------+-----------------+
+; Data Port    ; Clock Port ; 0 to Hi-Z ; 1 to Hi-Z ; Clock Edge ; Clock Reference ;
++--------------+------------+-----------+-----------+------------+-----------------+
+; SRAM_DQ[*]   ; CLOCK_50   ; 4.079     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 4.110     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 4.120     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 4.329     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 4.339     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 4.205     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 4.205     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 4.079     ;           ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 4.201     ;           ; Rise       ; CLOCK_50        ;
++--------------+------------+-----------+-----------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                          ;
++------------------+--------+-------+----------+---------+---------------------+
+; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+--------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 12.170 ; 0.215 ; N/A      ; N/A     ; 8.889               ;
+;  CLOCK_50        ; 12.170 ; 0.215 ; N/A      ; N/A     ; 8.889               ;
+; Design-wide TNS  ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
+;  CLOCK_50        ; 0.000  ; 0.000 ; N/A      ; N/A     ; 0.000               ;
++------------------+--------+-------+----------+---------+---------------------+
+
+
++--------------------------------------------------------------------------+
+; Setup Times                                                              ;
++--------------+------------+-------+-------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++--------------+------------+-------+-------+------------+-----------------+
+; KEY[*]       ; CLOCK_50   ; 5.050 ; 5.050 ; Rise       ; CLOCK_50        ;
+;  KEY[0]      ; CLOCK_50   ; 5.018 ; 5.018 ; Rise       ; CLOCK_50        ;
+;  KEY[1]      ; CLOCK_50   ; 5.050 ; 5.050 ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]   ; CLOCK_50   ; 4.980 ; 4.980 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; 4.140 ; 4.140 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; 4.513 ; 4.513 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; 4.354 ; 4.354 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; 4.784 ; 4.784 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]  ; CLOCK_50   ; 4.454 ; 4.454 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]  ; CLOCK_50   ; 4.625 ; 4.625 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]  ; CLOCK_50   ; 4.747 ; 4.747 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]  ; CLOCK_50   ; 4.317 ; 4.317 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; 4.766 ; 4.766 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; 4.980 ; 4.980 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; 4.504 ; 4.504 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; 4.858 ; 4.858 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12] ; CLOCK_50   ; 4.656 ; 4.656 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13] ; CLOCK_50   ; 4.704 ; 4.704 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14] ; CLOCK_50   ; 4.408 ; 4.408 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15] ; CLOCK_50   ; 3.627 ; 3.627 ; Rise       ; CLOCK_50        ;
+; SW[*]        ; CLOCK_50   ; 6.436 ; 6.436 ; Rise       ; CLOCK_50        ;
+;  SW[0]       ; CLOCK_50   ; 1.065 ; 1.065 ; Rise       ; CLOCK_50        ;
+;  SW[1]       ; CLOCK_50   ; 0.991 ; 0.991 ; Rise       ; CLOCK_50        ;
+;  SW[2]       ; CLOCK_50   ; 0.751 ; 0.751 ; Rise       ; CLOCK_50        ;
+;  SW[3]       ; CLOCK_50   ; 0.734 ; 0.734 ; Rise       ; CLOCK_50        ;
+;  SW[4]       ; CLOCK_50   ; 6.330 ; 6.330 ; Rise       ; CLOCK_50        ;
+;  SW[5]       ; CLOCK_50   ; 2.157 ; 2.157 ; Rise       ; CLOCK_50        ;
+;  SW[6]       ; CLOCK_50   ; 1.212 ; 1.212 ; Rise       ; CLOCK_50        ;
+;  SW[7]       ; CLOCK_50   ; 0.737 ; 0.737 ; Rise       ; CLOCK_50        ;
+;  SW[8]       ; CLOCK_50   ; 6.386 ; 6.386 ; Rise       ; CLOCK_50        ;
+;  SW[9]       ; CLOCK_50   ; 6.436 ; 6.436 ; Rise       ; CLOCK_50        ;
++--------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Hold Times                                                                 ;
++--------------+------------+--------+--------+------------+-----------------+
+; Data Port    ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++--------------+------------+--------+--------+------------+-----------------+
+; KEY[*]       ; CLOCK_50   ; -2.172 ; -2.172 ; Rise       ; CLOCK_50        ;
+;  KEY[0]      ; CLOCK_50   ; -2.172 ; -2.172 ; Rise       ; CLOCK_50        ;
+;  KEY[1]      ; CLOCK_50   ; -2.194 ; -2.194 ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]   ; CLOCK_50   ; -1.499 ; -1.499 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]  ; CLOCK_50   ; -1.632 ; -1.632 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]  ; CLOCK_50   ; -1.726 ; -1.726 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]  ; CLOCK_50   ; -1.691 ; -1.691 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]  ; CLOCK_50   ; -1.692 ; -1.692 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]  ; CLOCK_50   ; -1.813 ; -1.813 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]  ; CLOCK_50   ; -1.778 ; -1.778 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]  ; CLOCK_50   ; -1.823 ; -1.823 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]  ; CLOCK_50   ; -1.809 ; -1.809 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]  ; CLOCK_50   ; -1.676 ; -1.676 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]  ; CLOCK_50   ; -1.672 ; -1.672 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10] ; CLOCK_50   ; -1.793 ; -1.793 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11] ; CLOCK_50   ; -1.747 ; -1.747 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12] ; CLOCK_50   ; -1.885 ; -1.885 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13] ; CLOCK_50   ; -1.787 ; -1.787 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14] ; CLOCK_50   ; -1.612 ; -1.612 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15] ; CLOCK_50   ; -1.499 ; -1.499 ; Rise       ; CLOCK_50        ;
+; SW[*]        ; CLOCK_50   ; 0.595  ; 0.595  ; Rise       ; CLOCK_50        ;
+;  SW[0]       ; CLOCK_50   ; 0.138  ; 0.138  ; Rise       ; CLOCK_50        ;
+;  SW[1]       ; CLOCK_50   ; 0.181  ; 0.181  ; Rise       ; CLOCK_50        ;
+;  SW[2]       ; CLOCK_50   ; 0.256  ; 0.256  ; Rise       ; CLOCK_50        ;
+;  SW[3]       ; CLOCK_50   ; 0.399  ; 0.399  ; Rise       ; CLOCK_50        ;
+;  SW[4]       ; CLOCK_50   ; 0.583  ; 0.583  ; Rise       ; CLOCK_50        ;
+;  SW[5]       ; CLOCK_50   ; 0.384  ; 0.384  ; Rise       ; CLOCK_50        ;
+;  SW[6]       ; CLOCK_50   ; 0.476  ; 0.476  ; Rise       ; CLOCK_50        ;
+;  SW[7]       ; CLOCK_50   ; 0.595  ; 0.595  ; Rise       ; CLOCK_50        ;
+;  SW[8]       ; CLOCK_50   ; 0.395  ; 0.395  ; Rise       ; CLOCK_50        ;
+;  SW[9]       ; CLOCK_50   ; 0.551  ; 0.551  ; Rise       ; CLOCK_50        ;
++--------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------------+
+; Clock to Output Times                                                       ;
++---------------+------------+--------+--------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++---------------+------------+--------+--------+------------+-----------------+
+; HEX0[*]       ; CLOCK_50   ; 10.567 ; 10.567 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]      ; CLOCK_50   ; 10.165 ; 10.165 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]      ; CLOCK_50   ; 10.190 ; 10.190 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]      ; CLOCK_50   ; 10.208 ; 10.208 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]      ; CLOCK_50   ; 10.193 ; 10.193 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]      ; CLOCK_50   ; 10.567 ; 10.567 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]      ; CLOCK_50   ; 10.563 ; 10.563 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]      ; CLOCK_50   ; 10.538 ; 10.538 ; Rise       ; CLOCK_50        ;
+; HEX1[*]       ; CLOCK_50   ; 11.245 ; 11.245 ; Rise       ; CLOCK_50        ;
+;  HEX1[0]      ; CLOCK_50   ; 10.416 ; 10.416 ; Rise       ; CLOCK_50        ;
+;  HEX1[1]      ; CLOCK_50   ; 11.181 ; 11.181 ; Rise       ; CLOCK_50        ;
+;  HEX1[2]      ; CLOCK_50   ; 11.192 ; 11.192 ; Rise       ; CLOCK_50        ;
+;  HEX1[3]      ; CLOCK_50   ; 11.181 ; 11.181 ; Rise       ; CLOCK_50        ;
+;  HEX1[4]      ; CLOCK_50   ; 11.199 ; 11.199 ; Rise       ; CLOCK_50        ;
+;  HEX1[5]      ; CLOCK_50   ; 11.207 ; 11.207 ; Rise       ; CLOCK_50        ;
+;  HEX1[6]      ; CLOCK_50   ; 11.245 ; 11.245 ; Rise       ; CLOCK_50        ;
+; HEX2[*]       ; CLOCK_50   ; 11.746 ; 11.746 ; Rise       ; CLOCK_50        ;
+;  HEX2[0]      ; CLOCK_50   ; 10.780 ; 10.780 ; Rise       ; CLOCK_50        ;
+;  HEX2[1]      ; CLOCK_50   ; 10.853 ; 10.853 ; Rise       ; CLOCK_50        ;
+;  HEX2[2]      ; CLOCK_50   ; 11.746 ; 11.746 ; Rise       ; CLOCK_50        ;
+;  HEX2[3]      ; CLOCK_50   ; 11.155 ; 11.155 ; Rise       ; CLOCK_50        ;
+;  HEX2[4]      ; CLOCK_50   ; 10.828 ; 10.828 ; Rise       ; CLOCK_50        ;
+;  HEX2[5]      ; CLOCK_50   ; 11.094 ; 11.094 ; Rise       ; CLOCK_50        ;
+;  HEX2[6]      ; CLOCK_50   ; 11.213 ; 11.213 ; Rise       ; CLOCK_50        ;
+; HEX3[*]       ; CLOCK_50   ; 11.402 ; 11.402 ; Rise       ; CLOCK_50        ;
+;  HEX3[0]      ; CLOCK_50   ; 10.841 ; 10.841 ; Rise       ; CLOCK_50        ;
+;  HEX3[1]      ; CLOCK_50   ; 11.402 ; 11.402 ; Rise       ; CLOCK_50        ;
+;  HEX3[2]      ; CLOCK_50   ; 10.890 ; 10.890 ; Rise       ; CLOCK_50        ;
+;  HEX3[3]      ; CLOCK_50   ; 10.435 ; 10.435 ; Rise       ; CLOCK_50        ;
+;  HEX3[4]      ; CLOCK_50   ; 10.771 ; 10.771 ; Rise       ; CLOCK_50        ;
+;  HEX3[5]      ; CLOCK_50   ; 10.823 ; 10.823 ; Rise       ; CLOCK_50        ;
+;  HEX3[6]      ; CLOCK_50   ; 11.163 ; 11.163 ; Rise       ; CLOCK_50        ;
+; LEDG[*]       ; CLOCK_50   ; 9.444  ; 9.444  ; Rise       ; CLOCK_50        ;
+;  LEDG[6]      ; CLOCK_50   ; 9.444  ; 9.444  ; Rise       ; CLOCK_50        ;
+;  LEDG[7]      ; CLOCK_50   ; 9.189  ; 9.189  ; Rise       ; CLOCK_50        ;
+; LEDR[*]       ; CLOCK_50   ; 12.440 ; 12.440 ; Rise       ; CLOCK_50        ;
+;  LEDR[0]      ; CLOCK_50   ; 12.209 ; 12.209 ; Rise       ; CLOCK_50        ;
+;  LEDR[1]      ; CLOCK_50   ; 12.440 ; 12.440 ; Rise       ; CLOCK_50        ;
+;  LEDR[2]      ; CLOCK_50   ; 11.455 ; 11.455 ; Rise       ; CLOCK_50        ;
+;  LEDR[3]      ; CLOCK_50   ; 12.228 ; 12.228 ; Rise       ; CLOCK_50        ;
+; SRAM_ADDR[*]  ; CLOCK_50   ; 7.449  ; 7.449  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[0] ; CLOCK_50   ; 7.199  ; 7.199  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[1] ; CLOCK_50   ; 7.449  ; 7.449  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[2] ; CLOCK_50   ; 7.207  ; 7.207  ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[3] ; CLOCK_50   ; 7.198  ; 7.198  ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]    ; CLOCK_50   ; 8.863  ; 8.863  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]   ; CLOCK_50   ; 6.917  ; 6.917  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]   ; CLOCK_50   ; 6.929  ; 6.929  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]   ; CLOCK_50   ; 7.185  ; 7.185  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]   ; CLOCK_50   ; 7.195  ; 7.195  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]   ; CLOCK_50   ; 8.837  ; 8.837  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]   ; CLOCK_50   ; 8.598  ; 8.598  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]   ; CLOCK_50   ; 8.853  ; 8.853  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]   ; CLOCK_50   ; 8.863  ; 8.863  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]   ; CLOCK_50   ; 7.171  ; 7.171  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]   ; CLOCK_50   ; 7.136  ; 7.136  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10]  ; CLOCK_50   ; 7.163  ; 7.163  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11]  ; CLOCK_50   ; 7.420  ; 7.420  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12]  ; CLOCK_50   ; 8.540  ; 8.540  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13]  ; CLOCK_50   ; 8.220  ; 8.220  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14]  ; CLOCK_50   ; 8.218  ; 8.218  ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15]  ; CLOCK_50   ; 7.923  ; 7.923  ; Rise       ; CLOCK_50        ;
+; SRAM_LB_N     ; CLOCK_50   ; 6.909  ; 6.909  ; Rise       ; CLOCK_50        ;
+; SRAM_OE_N     ; CLOCK_50   ; 6.928  ; 6.928  ; Rise       ; CLOCK_50        ;
+; SRAM_UB_N     ; CLOCK_50   ; 7.443  ; 7.443  ; Rise       ; CLOCK_50        ;
+; SRAM_WE_N     ; CLOCK_50   ; 8.322  ; 8.322  ; Rise       ; CLOCK_50        ;
++---------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                             ;
++---------------+------------+-------+-------+------------+-----------------+
+; Data Port     ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++---------------+------------+-------+-------+------------+-----------------+
+; HEX0[*]       ; CLOCK_50   ; 4.708 ; 4.708 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]      ; CLOCK_50   ; 4.708 ; 4.708 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]      ; CLOCK_50   ; 4.732 ; 4.732 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]      ; CLOCK_50   ; 4.746 ; 4.746 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]      ; CLOCK_50   ; 4.738 ; 4.738 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]      ; CLOCK_50   ; 4.892 ; 4.892 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]      ; CLOCK_50   ; 4.887 ; 4.887 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]      ; CLOCK_50   ; 4.869 ; 4.869 ; Rise       ; CLOCK_50        ;
+; HEX1[*]       ; CLOCK_50   ; 4.554 ; 4.554 ; Rise       ; CLOCK_50        ;
+;  HEX1[0]      ; CLOCK_50   ; 4.554 ; 4.554 ; Rise       ; CLOCK_50        ;
+;  HEX1[1]      ; CLOCK_50   ; 4.844 ; 4.844 ; Rise       ; CLOCK_50        ;
+;  HEX1[2]      ; CLOCK_50   ; 4.852 ; 4.852 ; Rise       ; CLOCK_50        ;
+;  HEX1[3]      ; CLOCK_50   ; 4.848 ; 4.848 ; Rise       ; CLOCK_50        ;
+;  HEX1[4]      ; CLOCK_50   ; 4.858 ; 4.858 ; Rise       ; CLOCK_50        ;
+;  HEX1[5]      ; CLOCK_50   ; 4.878 ; 4.878 ; Rise       ; CLOCK_50        ;
+;  HEX1[6]      ; CLOCK_50   ; 4.899 ; 4.899 ; Rise       ; CLOCK_50        ;
+; HEX2[*]       ; CLOCK_50   ; 4.958 ; 4.958 ; Rise       ; CLOCK_50        ;
+;  HEX2[0]      ; CLOCK_50   ; 4.958 ; 4.958 ; Rise       ; CLOCK_50        ;
+;  HEX2[1]      ; CLOCK_50   ; 5.006 ; 5.006 ; Rise       ; CLOCK_50        ;
+;  HEX2[2]      ; CLOCK_50   ; 5.429 ; 5.429 ; Rise       ; CLOCK_50        ;
+;  HEX2[3]      ; CLOCK_50   ; 5.136 ; 5.136 ; Rise       ; CLOCK_50        ;
+;  HEX2[4]      ; CLOCK_50   ; 4.996 ; 4.996 ; Rise       ; CLOCK_50        ;
+;  HEX2[5]      ; CLOCK_50   ; 5.088 ; 5.088 ; Rise       ; CLOCK_50        ;
+;  HEX2[6]      ; CLOCK_50   ; 5.158 ; 5.158 ; Rise       ; CLOCK_50        ;
+; HEX3[*]       ; CLOCK_50   ; 4.747 ; 4.747 ; Rise       ; CLOCK_50        ;
+;  HEX3[0]      ; CLOCK_50   ; 4.923 ; 4.923 ; Rise       ; CLOCK_50        ;
+;  HEX3[1]      ; CLOCK_50   ; 5.214 ; 5.214 ; Rise       ; CLOCK_50        ;
+;  HEX3[2]      ; CLOCK_50   ; 5.002 ; 5.002 ; Rise       ; CLOCK_50        ;
+;  HEX3[3]      ; CLOCK_50   ; 4.747 ; 4.747 ; Rise       ; CLOCK_50        ;
+;  HEX3[4]      ; CLOCK_50   ; 4.868 ; 4.868 ; Rise       ; CLOCK_50        ;
+;  HEX3[5]      ; CLOCK_50   ; 4.918 ; 4.918 ; Rise       ; CLOCK_50        ;
+;  HEX3[6]      ; CLOCK_50   ; 5.048 ; 5.048 ; Rise       ; CLOCK_50        ;
+; LEDG[*]       ; CLOCK_50   ; 4.678 ; 4.678 ; Rise       ; CLOCK_50        ;
+;  LEDG[6]      ; CLOCK_50   ; 4.764 ; 4.764 ; Rise       ; CLOCK_50        ;
+;  LEDG[7]      ; CLOCK_50   ; 4.678 ; 4.678 ; Rise       ; CLOCK_50        ;
+; LEDR[*]       ; CLOCK_50   ; 4.704 ; 4.704 ; Rise       ; CLOCK_50        ;
+;  LEDR[0]      ; CLOCK_50   ; 5.403 ; 5.403 ; Rise       ; CLOCK_50        ;
+;  LEDR[1]      ; CLOCK_50   ; 5.267 ; 5.267 ; Rise       ; CLOCK_50        ;
+;  LEDR[2]      ; CLOCK_50   ; 4.704 ; 4.704 ; Rise       ; CLOCK_50        ;
+;  LEDR[3]      ; CLOCK_50   ; 5.063 ; 5.063 ; Rise       ; CLOCK_50        ;
+; SRAM_ADDR[*]  ; CLOCK_50   ; 3.899 ; 3.899 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[0] ; CLOCK_50   ; 3.900 ; 3.900 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[1] ; CLOCK_50   ; 3.989 ; 3.989 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[2] ; CLOCK_50   ; 3.905 ; 3.905 ; Rise       ; CLOCK_50        ;
+;  SRAM_ADDR[3] ; CLOCK_50   ; 3.899 ; 3.899 ; Rise       ; CLOCK_50        ;
+; SRAM_DQ[*]    ; CLOCK_50   ; 3.792 ; 3.792 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[0]   ; CLOCK_50   ; 3.792 ; 3.792 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[1]   ; CLOCK_50   ; 3.802 ; 3.802 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[2]   ; CLOCK_50   ; 3.888 ; 3.888 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[3]   ; CLOCK_50   ; 3.898 ; 3.898 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[4]   ; CLOCK_50   ; 4.479 ; 4.479 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[5]   ; CLOCK_50   ; 4.405 ; 4.405 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[6]   ; CLOCK_50   ; 4.493 ; 4.493 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[7]   ; CLOCK_50   ; 4.503 ; 4.503 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[8]   ; CLOCK_50   ; 3.872 ; 3.872 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[9]   ; CLOCK_50   ; 3.852 ; 3.852 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[10]  ; CLOCK_50   ; 3.862 ; 3.862 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[11]  ; CLOCK_50   ; 3.954 ; 3.954 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[12]  ; CLOCK_50   ; 4.251 ; 4.251 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[13]  ; CLOCK_50   ; 4.119 ; 4.119 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[14]  ; CLOCK_50   ; 4.117 ; 4.117 ; Rise       ; CLOCK_50        ;
+;  SRAM_DQ[15]  ; CLOCK_50   ; 4.003 ; 4.003 ; Rise       ; CLOCK_50        ;
+; SRAM_LB_N     ; CLOCK_50   ; 3.780 ; 3.780 ; Rise       ; CLOCK_50        ;
+; SRAM_OE_N     ; CLOCK_50   ; 3.782 ; 3.782 ; Rise       ; CLOCK_50        ;
+; SRAM_UB_N     ; CLOCK_50   ; 3.963 ; 3.963 ; Rise       ; CLOCK_50        ;
+; SRAM_WE_N     ; CLOCK_50   ; 4.316 ; 4.316 ; Rise       ; CLOCK_50        ;
++---------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 3203     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 3203     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 28    ; 28   ;
+; Unconstrained Input Port Paths  ; 263   ; 263  ;
+; Unconstrained Output Ports      ; 58    ; 58   ;
+; Unconstrained Output Port Paths ; 330   ; 330  ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Jun 03 23:03:30 2026
+Info: Command: quartus_sta riscv -c riscv
+Info: qsta_default_script.tcl version: #1
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332104): Reading SDC File: 'riscv.sdc'
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Info (332146): Worst-case setup slack is 12.170
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    12.170         0.000 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.445
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.445         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 8.889
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     8.889         0.000 CLOCK_50 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Info (332146): Worst-case setup slack is 17.038
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    17.038         0.000 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is 9.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     9.000         0.000 CLOCK_50 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info (144001): Generated suppressed messages file C:/Users/Seth Mueller/Documents/fpga/output_files/riscv.sta.smsg
+Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 326 megabytes
+    Info: Processing ended: Wed Jun 03 23:03:31 2026
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++-----------------------------------------------+
+; TimeQuest Timing Analyzer Suppressed Messages ;
++-----------------------------------------------+
+The suppressed messages can be found in C:/Users/Seth Mueller/Documents/fpga/output_files/riscv.sta.smsg.
+
+
