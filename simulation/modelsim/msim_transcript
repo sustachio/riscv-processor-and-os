@@ -10,6 +10,12 @@
 # ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/memory.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module memory_controller
+# 
+# Top level modules:
+# 	memory_controller
 # vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/riscv.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module riscv
@@ -34,9 +40,14 @@
 # 	button_debounce
 # 	display_32bit_7seg
 # 
-vsim work.sram_interface32bit
-# vsim work.sram_interface32bit 
+vsim work.memory_controller
+# vsim work.memory_controller 
+# Loading work.memory_controller
+# Loading work.flash_interface32bit
 # Loading work.sram_interface32bit
-do sramtesting.do
-# vsim work.sram_interface32bit 
-# Loading work.sram_interface32bit
+# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Too few port connections. Expected 17, found 16.
+# 
+#         Region: /memory_controller/sram32
+# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Missing connection for port 'TEST_EXPOSE_STATE'.
+# 
+do meminterface1.do

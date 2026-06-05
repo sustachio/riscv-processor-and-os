@@ -1,0 +1,158 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do riscv_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/memory.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module memory_controller
+# 
+# Top level modules:
+# 	memory_controller
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/riscv.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module riscv
+# 
+# Top level modules:
+# 	riscv
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/interfaces.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module flash_interface32bit
+# -- Compiling module sram_interface32bit
+# 
+# Top level modules:
+# 	flash_interface32bit
+# 	sram_interface32bit
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/utils.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module button_debounce
+# -- Compiling module hex_to_7seg
+# -- Compiling module display_32bit_7seg
+# 
+# Top level modules:
+# 	button_debounce
+# 	display_32bit_7seg
+# 
+vsim work.memory_controller
+# vsim work.memory_controller 
+# Loading work.memory_controller
+# Loading work.flash_interface32bit
+# Loading work.sram_interface32bit
+# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Too few port connections. Expected 17, found 16.
+# 
+#         Region: /memory_controller/sram32
+# ** Warning: (vsim-3015) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [PCDPC] - Port size (19 or 19) does not match connection size (18) for port 'addr'. The port definition is at: C:/Users/Seth Mueller/Documents/fpga/interfaces.v(137).
+# 
+#         Region: /memory_controller/sram32
+# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Missing connection for port 'TEST_EXPOSE_STATE'.
+# 
+add wave -position end  sim:/memory_controller/clk
+add wave -position end  sim:/memory_controller/rst_n
+force -freeze sim:/memory_controller/clk 0 0, 1 10 ns -repeat 20 ns
+force -freeze sim:/memory_controller/rst_n 0 0
+add wave -position end  sim:/memory_controller/write_request
+add wave -position end  sim:/memory_controller/read_request
+add wave -position end  sim:/memory_controller/byte_mode
+add wave -position end  sim:/memory_controller/addr_in
+add wave -position end  sim:/memory_controller/data_in
+add wave -position end  sim:/memory_controller/data_out
+add wave -position end  sim:/memory_controller/busy
+add wave -position end  sim:/memory_controller/finished
+add wave -position end  sim:/memory_controller/FL_ADDR
+add wave -position end  sim:/memory_controller/FL_DQ
+add wave -position end  sim:/memory_controller/FL_OE_N
+add wave -position end  sim:/memory_controller/FL_RST_N
+add wave -position end  sim:/memory_controller/FL_WE_N
+add wave -position end  sim:/memory_controller/SRAM_ADDR
+add wave -position end  sim:/memory_controller/SRAM_DQ
+add wave -position end  sim:/memory_controller/SRAM_WE_N
+add wave -position end  sim:/memory_controller/SRAM_OE_N
+add wave -position end  sim:/memory_controller/SRAM_UB_N
+add wave -position end  sim:/memory_controller/SRAM_LB_N
+add wave -position end  sim:/memory_controller/SRAM_CE_N
+add wave -position 12  sim:/memory_controller/flash_read_request
+add wave -position 13  sim:/memory_controller/flash_addr
+run 20 ns
+force -freeze sim:/memory_controller/rst_n 1 0
+force -freeze sim:/memory_controller/write_request 1 0
+force -freeze sim:/memory_controller/read_request 1 0
+force -freeze sim:/memory_controller/write_request 0 0
+force -freeze sim:/memory_controller/byte_mode 0 0
+force -freeze sim:/memory_controller/addr_in 0 0
+force -freeze sim:/memory_controller/data_in 0 0
+run 20ns
+force -freeze sim:/memory_controller/FL_DQ 00000010 0
+run 20ns
+run 20ns
+run 20ns
+run 20ns
+add wave -position end  sim:/memory_controller/flash32/state
+add wave -position end  sim:/memory_controller/flash32/state
+force -freeze sim:/memory_controller/write_request 1 0
+run 20ns
+run 20ns
+run 20ns
+restart -f
+# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Too few port connections. Expected 17, found 16.
+# 
+#         Region: /memory_controller/sram32
+# ** Warning: (vsim-3015) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [PCDPC] - Port size (19 or 19) does not match connection size (18) for port 'addr'. The port definition is at: C:/Users/Seth Mueller/Documents/fpga/interfaces.v(137).
+# 
+#         Region: /memory_controller/sram32
+# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Missing connection for port 'TEST_EXPOSE_STATE'.
+# 
+add wave -position end  sim:/memory_controller/flash32/interface_addr
+add wave -position end  sim:/memory_controller/flash32/interface_data
+add wave -position end  sim:/memory_controller/flash32/read_request
+add wave -position end  sim:/memory_controller/flash32/addr
+add wave -position end  sim:/memory_controller/flash32/data
+add wave -position end  sim:/memory_controller/flash32/finished
+add wave -position end  sim:/memory_controller/flash32/busy
+add wave -position end  sim:/memory_controller/flash32/state
+add wave -position end  sim:/memory_controller/flash32/next_state
+force -freeze sim:/memory_controller/clk 1 0, 0 {10000 ps} -r {20 ns}
+force -freeze sim:/memory_controller/rst_n 0 0
+force -freeze sim:/memory_controller/write_request 0 0
+force -freeze sim:/memory_controller/read_request 1 0
+force -freeze sim:/memory_controller/byte_mode 0 0
+force -freeze sim:/memory_controller/addr_in 1 0
+force -freeze sim:/memory_controller/data_in 0 0
+force -freeze sim:/memory_controller/FL_DQ 00000011 0
+force -freeze sim:/memory_controller/SRAM_DQ 0000000000100000 0
+force -freeze sim:/memory_controller/flash32/interface_data 00000011 0
+run 20n
+# Invalid time value: 20n
+run 20 ns
+force -freeze sim:/memory_controller/rst_n 1 0
+run 20 ns
+force -freeze sim:/memory_controller/read_request 0 0
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+add wave -position end  sim:/memory_controller/last_module
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {C:/Users/Seth Mueller/Documents/fpga/simulation/modelsim/meminterface1.do}

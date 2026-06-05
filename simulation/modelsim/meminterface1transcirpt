@@ -1,0 +1,82 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do riscv_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/memory.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module memory_controller
+# 
+# Top level modules:
+# 	memory_controller
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/riscv.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module riscv
+# 
+# Top level modules:
+# 	riscv
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/interfaces.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module flash_interface32bit
+# -- Compiling module sram_interface32bit
+# 
+# Top level modules:
+# 	flash_interface32bit
+# 	sram_interface32bit
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/utils.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module button_debounce
+# -- Compiling module hex_to_7seg
+# -- Compiling module display_32bit_7seg
+# 
+# Top level modules:
+# 	button_debounce
+# 	display_32bit_7seg
+# 
+vsim work.memory_controller
+# vsim work.memory_controller 
+# Loading work.memory_controller
+# Loading work.flash_interface32bit
+# Loading work.sram_interface32bit
+# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Too few port connections. Expected 17, found 16.
+# 
+#         Region: /memory_controller/sram32
+# ** Warning: (vsim-3015) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [PCDPC] - Port size (19 or 19) does not match connection size (18) for port 'addr'. The port definition is at: C:/Users/Seth Mueller/Documents/fpga/interfaces.v(137).
+# 
+#         Region: /memory_controller/sram32
+# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Missing connection for port 'TEST_EXPOSE_STATE'.
+# 
+ls
+# meminterface1.do               riscv_run_msim_rtl_verilog.do.bak   riscv_run_msim_rtl_verilog.do.bak9  
+# meminterface1transcirpt        riscv_run_msim_rtl_verilog.do.bak1  riscv_v.sdo                         
+# modelsim.ini                   riscv_run_msim_rtl_verilog.do.bak2  riscv_v_fast.sdo                    
+# msim_transcript                riscv_run_msim_rtl_verilog.do.bak3  rtl_work                            
+# riscv.sft                      riscv_run_msim_rtl_verilog.do.bak4  sramtesting                         
+# riscv.vo                       riscv_run_msim_rtl_verilog.do.bak5  sramtesting.do                      
+# riscv_fast.vo                  riscv_run_msim_rtl_verilog.do.bak6  vsim.wlf                            
+# riscv_modelsim.xrf             riscv_run_msim_rtl_verilog.do.bak7  wave.do                             
+# riscv_run_msim_rtl_verilog.do  riscv_run_msim_rtl_verilog.do.bak8                                      
+do meminterface1.do
+# Invalid time value: 20n
+# Executing ONERROR command at macro ./meminterface1.do line 69
+force -freeze sim:/memory_controller/addr_in 00010000000000000000000000000001 0
+run 20 ns
+run 20 ns
+force -freeze sim:/memory_controller/read_request 1 0
+run 20 ns
+force -freeze sim:/memory_controller/read_request 0 0
+run 20 ns
+add wave -position end  sim:/memory_controller/sram32/interface_data
+force -freeze sim:/memory_controller/sram32/interface_data 0000000000100000 0
+run 20 ns
+run 20 ns
+run 20 ns
+add wave -position end  sim:/memory_controller/sram32/interface_addr
+add wave -position end  sim:/memory_controller/sram32/addr
