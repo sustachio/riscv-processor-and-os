@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II 32-bit"
 // VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
-// DATE "06/04/2026 20:21:40"
+// DATE "06/06/2026 20:57:58"
 
 // 
 // Device: Altera EP2C20F484C7 Package FBGA484
@@ -617,16 +617,16 @@ wire \mydisp|hex3conv|WideOr3~0_combout ;
 wire \mydisp|hex3conv|WideOr2~0_combout ;
 wire \mydisp|hex3conv|WideOr1~0_combout ;
 wire \mydisp|hex3conv|WideOr0~0_combout ;
-wire [31:0] \mem|flash32|data ;
 wire [24:0] \sram_command_trigger|counter ;
 wire [24:0] \num_display_control|counter ;
 wire [21:0] \mem|flash32|interface_addr ;
 wire [3:0] \mem|flash32|delay_counter ;
+wire [31:0] \mem|flash32|data ;
 wire [15:0] \mem|sram32|write_halfword ;
 wire [17:0] \mem|sram32|interface_addr ;
 wire [31:0] \mem|sram32|data_out ;
-wire [3:0] \KEY~combout ;
 wire [7:0] \FL_DQ~combout ;
+wire [3:0] \KEY~combout ;
 wire [9:0] \SW~combout ;
 
 

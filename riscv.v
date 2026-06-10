@@ -27,80 +27,43 @@ module riscv(
 	output [6:0] HEX2,
 	output [6:0] HEX3
 );
-  wire rst_n = 1;
+  //////////////////////////////////
 
-  // SW[9] - read (1)/write (0)
-  // SW[8] - byte mode enable
-  // SW[7] - addr[28] 0 - flash, 1 - sram
-  // SW[6:4] - addr[2:0]
-  // SW[3:0] - data
+  wire rst_n;
 
-  // KEY[0] - run command
-  // KEY[1] - press to look at significant two bytes
+  rst_n_init rst_n_init(
+    .clk(CLOCK_50),
+    .rst_n(rst_n)
+  );
 
-  // LEDG[7] - busy
-  // LEDG[6] - ready
-	
-  wire look_at_sig;
+  /////////////// MEMORY /////////////
 
-  wire trigger_request;
-  wire read_or_write = SW[9];
+  wire memory_write_request;
+  wire memory_read_request;
 
-  wire read_request  = read_or_write ? trigger_request : 0;
-  wire write_request = read_or_write ? 0 : trigger_request;
-  wire byte_mode = SW[8];
-  wire [31:0] data_in = SW[3:0];
-  wire [31:0] addr;
-  assign addr[31:29] = 0;
-  assign addr[28] = SW[7];
-  assign addr[27:3] = 0;
-  assign addr[2:0] = SW[6:4];
-  wire [31:0] data_out;
-	
-	wire busy;
-	wire finished;
-	
-	assign LEDG[7] = busy;
-	assign LEDG[6] = finished;
+  wire memory_byte_mode;
 
-	
-	button_debounce #(.SINGLE_CYCLE_TRIGGER(1)) sram_command_trigger(
-		.clk(CLOCK_50),
-		.button(!KEY[0]),
-		.debounced(trigger_request)
-	);
+  wire [31:0] memory_addr;
+  wire [31:0] memory_data_in;
+  wire [31:0] memory_data_out;
 
-	button_debounce #(.SINGLE_CYCLE_TRIGGER(0)) num_display_control(
-		.clk(CLOCK_50),
-		.button(!KEY[1]),
-		.debounced(look_at_sig)
-	);
-
-
-	display_32bit_7seg mydisp(
-		.num(data_out),
-		.hex0(HEX0),
-		.hex1(HEX1),
-		.hex2(HEX2),
-		.hex3(HEX3),
-		.upper_sel(look_at_sig)
-	);
-
+  wire memory_busy;
+  wire memory_finished;
   memory_controller mem(
     .clk(CLOCK_50),
     .rst_n(rst_n),
 
-    .write_request(write_request),
-    .read_request(read_request),
+    .write_request(memory_write_request),
+    .read_request(memory_read_request),
 
-    .byte_mode(byte_mode),
+    .byte_mode(memory_byte_mode),
 
-    .addr_in(addr),
-    .data_in(data_in),
-    .data_out(data_out),
+    .addr_in(memory_addr),
+    .data_in(memory_data_in),
+    .data_out(memory_data_out),
 
-    .busy(busy),
-    .finished(finished),
+    .busy(memory_busy),
+    .finished(memory_finished),
 
     ///////// pins: ///////
     // flash
@@ -118,5 +81,191 @@ module riscv(
     .SRAM_UB_N(SRAM_UB_N),
     .SRAM_LB_N(SRAM_LB_N),
     .SRAM_CE_N(SRAM_CE_N)
+  );
+
+
+  wire instruction_fetch_request;
+  wire [31:0] instruction_fetch_addr;
+  wire [31:0] instruction_fetch_result;
+  wire instruction_fetch_finished;
+  wire instruction_fetch_busy;
+
+  wire [31:0] mem_access_addr;
+  wire [31:0] mem_access_data;
+  wire mem_access_byte_mode;
+  wire mem_access_read_request;
+  wire mem_access_write_request;
+  wire [31:0] mem_access_result;
+  wire mem_access_finished;
+  wire mem_access_busy;
+  memory_multiplexer memory_multiplexer(
+    .clk(CLOCK_50),
+    .rst_n(rst_n),
+
+    // instruction fetch
+    .instruction_fetch_request(instruction_fetch_request),
+    .instruction_fetch_addr(instruction_fetch_addr),
+
+    .instruction_fetch_result(instruction_fetch_result),
+    .instruction_fetch_finished(instruction_fetch_finished),
+    .instruction_fetch_busy(instruction_fetch_busy),
+
+    // memory read/write
+    .mem_access_addr(mem_access_addr),
+    .mem_access_data(mem_access_data),
+    .mem_access_byte_mode(mem_access_byte_mode),
+
+    .mem_access_read_request(mem_access_read_request),
+    .mem_access_write_request(mem_access_write_request),
+
+    .mem_access_result(mem_access_result),
+    .mem_access_finished(mem_access_finished),
+    .mem_access_busy(mem_access_busy),
+
+    // mem controller interface
+    .mem_controller_write_request(memory_write_request),
+    .mem_controller_read_request(memory_read_request),
+    .mem_controller_byte_mode(memory_byte_mode),
+    .mem_controller_addr_in(memory_addr),
+    .mem_controller_data_in(memory_data_in),
+    .mem_controller_data_out(memory_data_out),
+    .mem_controller_busy(memory_busy),
+    .mem_controller_finished(memory_finished)
+  );
+
+  ////////////// PROCESSOR //////////////
+
+  wire memory_access_stalled;
+  wire instruction_fetch_stalled;
+  wire processor_stalled;
+  stall_manager stall_manager(
+    .memory_access_stalled(memory_access_stalled),
+    .instruction_fetch_stalled(instruction_fetch_stalled),
+
+    .stall_processor(processor_stalled)
+  );
+
+  wire [4:0] rs1_bank_interface_in;
+  wire [4:0] rs2_bank_interface_in;
+  wire [31:0] rs1_bank_interface_out;
+  wire [31:0] rs2_bank_interface_out;
+  wire [4:0] rd_writeback_reg;
+  wire [31:0] rd_writeback_val;
+  reg_bank reg_bank(
+    .clk(CLOCK_50),
+    .rst_n(rst_n),
+
+    .stalled(processor_stalled),
+
+    .rs1_bank_interface_in(rs1_bank_interface_in),
+    .rs2_bank_interface_in(rs2_bank_interface_in),
+    .rs1_bank_interface_out(rs1_bank_interface_out),
+    .rs2_bank_interface_out(rs2_bank_interface_out),
+    
+    .rd_writeback_reg(rd_writeback_reg),
+    .rd_writeback_val(rd_writeback_val)
+  );
+
+  wire [31:0] next_pc;
+  wire [31:0] pc;
+  wire [31:0] instruction32;
+  wire ins_valid;
+  instruction_fetch_and_pc instruction_fetch_and_pc(
+    .clk(CLOCK_50),
+    .rst_n(rst_n),
+
+    .next_pc(next_pc),
+    .pc(pc),
+
+    .instruction32(instruction32),
+
+    .processor_stalled(processor_stalled),
+    .issue_stall(instruction_fetch_stalled),
+    .ins_valid(ins_valid),
+
+    // memory multiplexer interface
+    .instruction_fetch_request(instruction_fetch_request),
+    .instruction_fetch_addr(instruction_fetch_addr),
+
+    .instruction_fetch_result(instruction_fetch_result),
+    .instruction_fetch_finished(instruction_fetch_finished),
+    .instruction_fetch_busy(instruction_fetch_busy)
+  );
+
+  wire [5:0] decoder_op;
+  wire [4:0] decoder_rd;
+  wire [31:0] decoder_rs1;
+  wire [31:0] decoder_rs2;
+  wire [31:0] decoder_imm;
+  decoder decoder(
+    .clk(CLOCK_50),
+    .rst_n(rst_n),
+
+    .instruction32(instruction32),
+    .op(decoder_op),
+    .rd(decoder_rd),
+    .rs1(decoder_rs1),
+    .rs2(decoder_rs2),
+    .imm(decoder_imm),
+    
+    .rs1_bank_interface_in(rs1_bank_interface_in),
+    .rs2_bank_interface_in(rs2_bank_interface_in),
+    .rs1_bank_interface_out(rs1_bank_interface_out),
+    .rs2_bank_interface_out(rs2_bank_interface_out)
+  );
+
+  wire [31:0] execute_result;
+  execute execute(
+    .clk(CLOCK_50),
+    .rst_n(rst_n),
+
+    .op(decoder_op),
+    .rd(decoder_rd),
+    .rs1(decoder_rs1),
+    .rs2(decoder_rs2),
+    .imm(decoder_imm),
+    .pc(pc),
+
+    .res(execute_result),
+
+    .next_pc(next_pc)
+  );
+
+  wire [31:0] memory_access_result;
+  memory_access memory_access(
+    .clk(CLOCK_50),
+    .rst_n(rst_n),
+
+    .op(decoder_op),
+    .write_data(decoder_rs1),
+    .execute_result(execute_result),
+    .read_res(memory_access_result),
+
+    .ins_valid(ins_valid),
+    .issue_stall(memory_access_stalled),
+
+    // mem multiplexer interface
+    .mem_access_read_request(mem_access_read_request),
+    .mem_access_write_request(mem_access_write_request),
+    .mem_access_addr(mem_access_addr),
+    .mem_access_data(mem_access_data),
+    .mem_access_byte_mode(mem_access_byte_mode),
+
+    .mem_access_result(mem_access_result),
+    .mem_access_finished(mem_access_finished),
+    .mem_access_busy(mem_access_busy)
+  );
+
+  reg_writeback reg_writeback(
+    .clk(CLOCK_50),
+    .rst_n(rst_n),
+
+    .rd_in(decoder_rd),
+    .op(decoder_op),
+    .execute_result(execute_result),
+    .mem_out(memory_access_result),
+
+    .reg_bank_rd(rd_writeback_reg),
+    .reg_bank_val(rd_writeback_val)
   );
 endmodule

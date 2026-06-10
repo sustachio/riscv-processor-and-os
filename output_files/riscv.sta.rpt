@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for riscv
-Thu Jun 04 20:21:39 2026
+Sat Jun 06 20:57:57 2026
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -107,7 +107,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; riscv.sdc     ; OK     ; Thu Jun 04 20:21:39 2026 ;
+; riscv.sdc     ; OK     ; Sat Jun 06 20:57:57 2026 ;
 +---------------+--------+--------------------------+
 
 
@@ -1782,7 +1782,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jun 04 20:21:38 2026
+    Info: Processing started: Sat Jun 06 20:57:56 2026
 Info: Command: quartus_sta riscv -c riscv
 Info: qsta_default_script.tcl version: #1
 Info (21077): Low junction temperature is 0 degrees C
@@ -1826,7 +1826,7 @@ Info (332102): Design is not fully constrained for hold requirements
 Info (144001): Generated suppressed messages file C:/Users/Seth Mueller/Documents/fpga/output_files/riscv.sta.smsg
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 327 megabytes
-    Info: Processing ended: Thu Jun 04 20:21:39 2026
+    Info: Processing ended: Sat Jun 06 20:57:57 2026
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

@@ -1,3 +1,22 @@
+// hold rst_n low for a few cycles
+module rst_n_init(
+  input clk,
+  output reg rst_n
+);
+  reg [1:0] counter = 0;
+
+  initial rst_n = 0;
+
+  always @(posedge clk) begin
+    if (counter != 3) begin
+      counter <= counter + 1;
+      rst_n <= 0;
+    end else begin
+      rst_n <= 1;
+    end
+  end
+endmodule
+
 // 83ms debounce given 50MHz clock
 module button_debounce #(
     parameter SINGLE_CYCLE_TRIGGER = 0
@@ -13,7 +32,7 @@ module button_debounce #(
 	// when off, is equal to exposed output
 	reg internal_debounce;
 	
-	reg [24:0] counter;
+	reg [26:0] counter;
 	
 	initial begin
 		internal_debounce = 0;
@@ -26,7 +45,7 @@ module button_debounce #(
 		
 		if (sync2 != internal_debounce) begin
 			counter <= counter + 1;
-			if (counter[24] == 1) begin
+			if (counter[26] == 1) begin
 				internal_debounce <= sync2;
 				debounced <= sync2;
 			end

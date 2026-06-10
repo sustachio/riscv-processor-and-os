@@ -38,10 +38,10 @@ module flash_interface32bit(
 	always @(*) begin
 		next_state = state;
 		if (state == IDLE) begin
-			if (read_request)
+			if (read_request & byte_mode)
+        next_state = READ_BYTE;
+      else if (read_request)
 				next_state = READ1;
-			else if (read_request & byte_mode)
-				next_state = READ_BYTE;
 		end
 		
 		if (delay_counter == 4)begin

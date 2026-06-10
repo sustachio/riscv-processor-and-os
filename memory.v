@@ -3,7 +3,151 @@
 // SRAM  (512KB)    0x10000000-0x1007FFFF
 // SDRAM (8MB)      0x20000000-0x207FFFFF
 
-// note: right now all memory has an extra cycle at the start as things dont start running as soon as a request flag comes in
+// manage requests from both instruction fetch and memory access
+module memory_multiplexer(
+  input clk,
+  input rst_n,
+
+  // instruction fetch
+  input instruction_fetch_request,
+  input [31:0] instruction_fetch_addr,
+
+  output reg [31:0] instruction_fetch_result,
+  output reg instruction_fetch_finished,
+  output reg instruction_fetch_busy, // used to check if access started
+
+  // memory read/write
+  input [31:0] mem_access_addr,
+  input [31:0] mem_access_data,
+  input mem_access_byte_mode,
+
+  input mem_access_read_request,
+  input mem_access_write_request,
+
+  output reg [31:0] mem_access_result,
+  output reg mem_access_finished,
+  output reg mem_access_busy, // used to check if access started
+
+  // mem controller interface
+  output reg mem_controller_write_request,
+  output reg mem_controller_read_request,
+  output reg mem_controller_byte_mode,
+  output reg [31:0] mem_controller_addr_in,
+  output reg [31:0] mem_controller_data_in,
+  input  [31:0] mem_controller_data_out,
+  input  mem_controller_busy,
+  input  mem_controller_finished
+);
+  // states
+  localparam IDLE = 0;
+  localparam INS_FETCH = 1;
+  localparam MEM_READ = 2;
+  localparam MEM_WRITE = 3;
+
+  reg [1:0] state = IDLE;
+  reg [1:0] next_state = IDLE;
+
+  always @(posedge clk or negedge rst_n) begin
+    state = next_state;
+    if (!rst_n)
+      state = IDLE;
+  end
+
+  always @(posedge mem_controller_finished or 
+           posedge mem_controller_busy or
+           negedge rst_n) begin
+    if (!rst_n) begin
+      instruction_fetch_result <= 0;
+      instruction_fetch_finished <= 0;
+      instruction_fetch_busy <= 0;
+    end 
+
+    // start operation
+    else if (mem_controller_busy) begin
+      if (state == INS_FETCH) begin
+        instruction_fetch_result <= 0;
+        instruction_fetch_finished <= 0;
+        instruction_fetch_busy <= 1;
+      end
+
+      else if (state == MEM_READ || state == MEM_WRITE) begin
+        mem_access_result <= 0;
+        mem_access_finished <= 0;
+        mem_access_busy <= 1;
+      end
+    end
+
+    // finish operation
+    else if (mem_controller_finished) begin
+      if (state == INS_FETCH) begin
+        instruction_fetch_result <= mem_controller_data_out;
+        instruction_fetch_finished <= 1;
+        instruction_fetch_busy <= 0;
+      end
+
+      else if (state == MEM_READ) begin
+        mem_access_result <= mem_controller_data_out;
+        mem_access_finished <= 1;
+        mem_access_busy <= 0;
+      end
+
+      else if (state == MEM_WRITE) begin
+        mem_access_result <= 0;
+        mem_access_finished <= 1;
+        mem_access_busy <= 0;
+      end
+    end
+  end
+
+  always @(*) begin
+    // defaults / rst_n
+    next_state = IDLE;
+
+    mem_controller_write_request = 0;
+    mem_controller_read_request = 0;
+    mem_controller_byte_mode = 0;
+    mem_controller_addr_in = 0;
+    mem_controller_data_in = 0;
+
+    if (rst_n) begin
+      // instruction fetches take priority
+      if (instruction_fetch_request || state == INS_FETCH) begin
+        next_state = INS_FETCH;
+
+        mem_controller_write_request = 0;
+        mem_controller_read_request = 1;
+        mem_controller_byte_mode = 0;
+        mem_controller_addr_in = instruction_fetch_addr;
+        mem_controller_data_in = 0;
+      end 
+
+      // mem read
+      if (mem_access_read_request || state == MEM_READ) begin
+        next_state = MEM_READ;
+
+        mem_controller_write_request = 0;
+        mem_controller_read_request = 1;
+        mem_controller_byte_mode = mem_access_byte_mode;
+        mem_controller_addr_in = mem_access_addr;
+        mem_controller_data_in = 0;
+      end
+
+      // mem write
+      if (mem_access_write_request || state == MEM_WRITE) begin
+        next_state = MEM_WRITE;
+
+        mem_controller_write_request = 1;
+        mem_controller_read_request = 0;
+        mem_controller_byte_mode = mem_access_byte_mode;
+        mem_controller_addr_in = mem_access_addr;
+        mem_controller_data_in = mem_access_data;
+      end
+
+      if (mem_controller_finished)
+        next_state = IDLE;
+    end
+  end
+endmodule
 
 module memory_controller(
   input clk,
