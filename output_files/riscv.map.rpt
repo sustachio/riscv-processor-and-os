@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv
-Tue Jun 09 11:51:41 2026
+Wed Jun 10 14:01:40 2026
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -10,8 +10,28 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
-  6. Analysis & Synthesis Suppressed Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |riscv|memory_controller:mem|last_module
+  9. State Machine - |riscv|memory_controller:mem|sram_interface32bit:sram32|state
+ 10. State Machine - |riscv|memory_controller:mem|flash_interface32bit:flash32|state
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Port Connectivity Checks: "memory_access:memory_access"
+ 17. Port Connectivity Checks: "decoder:decoder"
+ 18. Port Connectivity Checks: "instruction_fetch_and_pc:instruction_fetch_and_pc"
+ 19. Port Connectivity Checks: "reg_bank:reg_bank"
+ 20. Port Connectivity Checks: "memory_controller:mem|sram_interface32bit:sram32"
+ 21. Port Connectivity Checks: "memory_controller:mem|flash_interface32bit:flash32"
+ 22. Port Connectivity Checks: "memory_controller:mem"
+ 23. Port Connectivity Checks: "processor_state_manager:processor_state_manager"
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+ 26. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -37,20 +57,20 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Tue Jun 09 11:51:40 2026               ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 10 14:01:40 2026           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; riscv                                           ;
 ; Top-level Entity Name              ; riscv                                           ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; N/A until Partition Merge                       ;
-;     Total combinational functions  ; N/A until Partition Merge                       ;
-;     Dedicated logic registers      ; N/A until Partition Merge                       ;
-; Total registers                    ; N/A until Partition Merge                       ;
-; Total pins                         ; N/A until Partition Merge                       ;
-; Total virtual pins                 ; N/A until Partition Merge                       ;
-; Total memory bits                  ; N/A until Partition Merge                       ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
-; Total PLLs                         ; N/A until Partition Merge                       ;
+; Total logic elements               ; 1,036                                           ;
+;     Total combinational functions  ; 1,031                                           ;
+;     Dedicated logic registers      ; 204                                             ;
+; Total registers                    ; 204                                             ;
+; Total pins                         ; 133                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -150,13 +170,455 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                             ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------+---------+
+; memory.v                         ; yes             ; User Verilog HDL File  ; C:/Users/Seth Mueller/Documents/fpga/memory.v            ;         ;
+; riscv.v                          ; yes             ; User Verilog HDL File  ; C:/Users/Seth Mueller/Documents/fpga/riscv.v             ;         ;
+; interfaces.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Seth Mueller/Documents/fpga/interfaces.v        ;         ;
+; utils.v                          ; yes             ; User Verilog HDL File  ; C:/Users/Seth Mueller/Documents/fpga/utils.v             ;         ;
+; pipeline.v                       ; yes             ; User Verilog HDL File  ; C:/Users/Seth Mueller/Documents/fpga/pipeline.v          ;         ;
+; global_constants.vh              ; yes             ; User Unspecified File  ; C:/Users/Seth Mueller/Documents/fpga/global_constants.vh ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                               ;
++---------------------------------------------+-----------------------------+
+; Resource                                    ; Usage                       ;
++---------------------------------------------+-----------------------------+
+; Estimated Total logic elements              ; 1,036                       ;
+;                                             ;                             ;
+; Total combinational functions               ; 1031                        ;
+; Logic element usage by number of LUT inputs ;                             ;
+;     -- 4 input functions                    ; 555                         ;
+;     -- 3 input functions                    ; 344                         ;
+;     -- <=2 input functions                  ; 132                         ;
+;                                             ;                             ;
+; Logic elements by mode                      ;                             ;
+;     -- normal mode                          ; 845                         ;
+;     -- arithmetic mode                      ; 186                         ;
+;                                             ;                             ;
+; Total registers                             ; 204                         ;
+;     -- Dedicated logic registers            ; 204                         ;
+;     -- I/O registers                        ; 0                           ;
+;                                             ;                             ;
+; I/O pins                                    ; 133                         ;
+; Embedded Multiplier 9-bit elements          ; 0                           ;
+; Maximum fan-out node                        ; rst_n_init:rst_n_init|rst_n ;
+; Maximum fan-out                             ; 351                         ;
+; Total fan-out                               ; 4393                        ;
+; Average fan-out                             ; 3.21                        ;
++---------------------------------------------+-----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                           ;
++--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Library Name ;
++--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
+; |riscv                                                 ; 1031 (0)          ; 204 (0)      ; 0           ; 0            ; 0       ; 0         ; 133  ; 0            ; |riscv                                                    ; work         ;
+;    |decoder:decoder|                                   ; 227 (227)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|decoder:decoder                                    ; work         ;
+;    |execute:execute|                                   ; 384 (384)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|execute:execute                                    ; work         ;
+;    |instruction_fetch_and_pc:instruction_fetch_and_pc| ; 36 (36)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc  ; work         ;
+;    |memory_access:memory_access|                       ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_access:memory_access                        ; work         ;
+;    |memory_controller:mem|                             ; 309 (9)           ; 133 (1)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem                              ; work         ;
+;       |flash_interface32bit:flash32|                   ; 168 (168)         ; 63 (63)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|flash_interface32bit:flash32 ; work         ;
+;       |sram_interface32bit:sram32|                     ; 132 (132)         ; 69 (69)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|sram_interface32bit:sram32   ; work         ;
+;    |memory_multiplexer:memory_multiplexer|             ; 55 (55)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_multiplexer:memory_multiplexer              ; work         ;
+;    |processor_state_manager:processor_state_manager|   ; 7 (7)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|processor_state_manager:processor_state_manager    ; work         ;
+;    |reg_bank:reg_bank|                                 ; 4 (4)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_bank:reg_bank                                  ; work         ;
+;    |reg_writeback:reg_writeback|                       ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_writeback:reg_writeback                        ; work         ;
+;    |rst_n_init:rst_n_init|                             ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|rst_n_init:rst_n_init                              ; work         ;
++--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------+
+; State Machine - |riscv|memory_controller:mem|last_module ;
++-------------------+--------------------------------------+
+; Name              ; last_module.SRAM                     ;
++-------------------+--------------------------------------+
+; last_module.FLASH ; 0                                    ;
+; last_module.SRAM  ; 1                                    ;
++-------------------+--------------------------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |riscv|memory_controller:mem|sram_interface32bit:sram32|state                                                                                                                                                                                                                                                                      ;
++------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+--------------+--------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-------------+-------------+------------+
+; Name                   ; state.WRITE_BYTE_UPPER ; state.WRITE_BYTE_LOWER ; state.UNALIGNED_WRITE3 ; state.UNALIGNED_WRITE2 ; state.UNALIGNED_WRITE1 ; state.WRITE2 ; state.WRITE1 ; state.READ_BYTE_UPPER ; state.READ_BYTE_LOWER ; state.UNALIGNED_READ3 ; state.UNALIGNED_READ2 ; state.UNALIGNED_READ1 ; state.READ2 ; state.READ1 ; state.IDLE ;
++------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+--------------+--------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-------------+-------------+------------+
+; state.IDLE             ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 0          ;
+; state.READ1            ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 1           ; 1          ;
+; state.READ2            ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 1           ; 0           ; 1          ;
+; state.UNALIGNED_READ1  ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ; 0           ; 0           ; 1          ;
+; state.UNALIGNED_READ2  ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.UNALIGNED_READ3  ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.READ_BYTE_LOWER  ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.READ_BYTE_UPPER  ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.WRITE1           ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 1            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.WRITE2           ; 0                      ; 0                      ; 0                      ; 0                      ; 0                      ; 1            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.UNALIGNED_WRITE1 ; 0                      ; 0                      ; 0                      ; 0                      ; 1                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.UNALIGNED_WRITE2 ; 0                      ; 0                      ; 0                      ; 1                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.UNALIGNED_WRITE3 ; 0                      ; 0                      ; 1                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.WRITE_BYTE_LOWER ; 0                      ; 1                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
+; state.WRITE_BYTE_UPPER ; 1                      ; 0                      ; 0                      ; 0                      ; 0                      ; 0            ; 0            ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0           ; 0           ; 1          ;
++------------------------+------------------------+------------------------+------------------------+------------------------+------------------------+--------------+--------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-------------+-------------+------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------+
+; State Machine - |riscv|memory_controller:mem|flash_interface32bit:flash32|state                        ;
++-----------------+-------------+-------------+-------------+-------------+-----------------+------------+
+; Name            ; state.READ4 ; state.READ3 ; state.READ2 ; state.READ1 ; state.READ_BYTE ; state.IDLE ;
++-----------------+-------------+-------------+-------------+-------------+-----------------+------------+
+; state.IDLE      ; 0           ; 0           ; 0           ; 0           ; 0               ; 0          ;
+; state.READ_BYTE ; 0           ; 0           ; 0           ; 0           ; 1               ; 1          ;
+; state.READ1     ; 0           ; 0           ; 0           ; 1           ; 0               ; 1          ;
+; state.READ2     ; 0           ; 0           ; 1           ; 0           ; 0               ; 1          ;
+; state.READ3     ; 0           ; 1           ; 0           ; 0           ; 0               ; 1          ;
+; state.READ4     ; 1           ; 0           ; 0           ; 0           ; 0               ; 1          ;
++-----------------+-------------+-------------+-------------+-------------+-----------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                           ;
++---------------------------------------------------------------+------------------------------------------------------+------------------------+
+; Latch Name                                                    ; Latch Enable Signal                                  ; Free of Timing Hazards ;
++---------------------------------------------------------------+------------------------------------------------------+------------------------+
+; execute:execute|res[0]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[30]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[29]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[28]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[31]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[1]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[2]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[3]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[4]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[5]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[6]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[7]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[8]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[9]                                        ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[10]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[11]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[12]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[13]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[14]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[15]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[16]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[17]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[18]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[19]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[20]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|res[21]                                       ; execute:execute|Mux32                                ; yes                    ;
+; execute:execute|next_pc[0]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; processor_state_manager:processor_state_manager|next_state[1] ; processor_state_manager:processor_state_manager|Mux0 ; yes                    ;
+; processor_state_manager:processor_state_manager|next_state[2] ; processor_state_manager:processor_state_manager|Mux0 ; yes                    ;
+; memory_controller:mem|data_out[0]                             ; VCC                                                  ; yes                    ;
+; memory_controller:mem|finished                                ; memory_controller:mem|last_module.SRAM               ; yes                    ;
+; memory_controller:mem|data_out[14]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[13]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[12]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[6]                             ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[5]                             ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[4]                             ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[3]                             ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[2]                             ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[1]                             ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[31]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[30]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[29]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[28]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[27]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[26]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[25]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[24]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[23]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[22]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[21]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[20]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[19]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[18]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[17]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[16]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[15]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[11]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[10]                            ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[9]                             ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[8]                             ; VCC                                                  ; yes                    ;
+; memory_controller:mem|data_out[7]                             ; VCC                                                  ; yes                    ;
+; processor_state_manager:processor_state_manager|next_state[0] ; processor_state_manager:processor_state_manager|Mux0 ; yes                    ;
+; execute:execute|next_pc[30]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[29]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[28]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[31]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[1]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[2]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[3]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[4]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[5]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[6]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[7]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[8]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[9]                                    ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[10]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[11]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[12]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[13]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[14]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[15]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[16]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[17]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[18]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[19]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[20]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[21]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[27]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[26]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[25]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[24]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[23]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; execute:execute|next_pc[22]                                   ; rst_n_init:rst_n_init|rst_n                          ; yes                    ;
+; Number of user-specified and inferred latches = 94            ;                                                      ;                        ;
++---------------------------------------------------------------+------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                              ;
++-----------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+; Register name                                                               ; Reason for Removal                                                                ;
++-----------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[1..7,9..15] ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[31][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[2][0]                                           ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[3][0]                                           ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[4][0]                                           ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[5][0]                                           ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[6][0]                                           ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[7][0]                                           ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[8][0]                                           ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[9][0]                                           ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[10][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[11][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[12][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[13][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[14][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[15][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[16][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[17][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[18][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[19][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[20][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[21][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[22][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[23][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[24][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[25][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[26][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[27][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[28][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[29][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[30][0]                                          ; Lost fanout                                                                       ;
+; reg_bank:reg_bank|registers[0][0]                                           ; Stuck at GND due to stuck port clock_enable                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state.READ_BYTE_LOWER      ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state.READ_BYTE_UPPER      ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state.WRITE2               ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state.UNALIGNED_WRITE3     ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state.WRITE_BYTE_LOWER     ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state.WRITE_BYTE_UPPER     ; Lost fanout                                                                       ;
+; memory_controller:mem|last_module~5                                         ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state~4                    ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state~5                    ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state~6                    ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state~7                    ; Lost fanout                                                                       ;
+; memory_controller:mem|flash_interface32bit:flash32|state~4                  ; Lost fanout                                                                       ;
+; memory_controller:mem|flash_interface32bit:flash32|state~5                  ; Lost fanout                                                                       ;
+; memory_controller:mem|flash_interface32bit:flash32|state~6                  ; Lost fanout                                                                       ;
+; memory_controller:mem|flash_interface32bit:flash32|state.READ_BYTE          ; Stuck at GND due to stuck port data_in                                            ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[1]~en       ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[2]~en       ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[3]~en       ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[4]~en       ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[5]~en       ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[6]~en       ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[7]~en       ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[9]~en       ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[10]~en      ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[11]~en      ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[12]~en      ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[13]~en      ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[14]~en      ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[15]~en      ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; Total Number of Removed Registers = 74                                      ;                                                                                   ;
++-----------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 204   ;
+; Number of registers using Synchronous Clear  ; 2     ;
+; Number of registers using Synchronous Load   ; 17    ;
+; Number of registers using Asynchronous Clear ; 192   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 182   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                           ;
++------------------------------------------------------------------------------+---------+
+; Inverted Register                                                            ; Fan out ;
++------------------------------------------------------------------------------+---------+
+; memory_controller:mem|sram_interface32bit:sram32|interface_write_enable_n    ; 1       ;
+; memory_controller:mem|sram_interface32bit:sram32|interface_output_enable_n   ; 1       ;
+; memory_controller:mem|sram_interface32bit:sram32|interface_upper_byte_mask_n ; 2       ;
+; memory_controller:mem|sram_interface32bit:sram32|interface_lower_byte_mask_n ; 2       ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en        ; 1       ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en        ; 1       ;
+; Total number of inverted registers = 6                                       ;         ;
++------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[25]               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[23]               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[14]               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[1]                ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|instruction32[28]         ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 42 LEs               ; 21 LEs                 ; Yes        ; |riscv|memory_controller:mem|flash_interface32bit:flash32|interface_addr[1]        ;
+; 8:1                ; 17 bits   ; 85 LEs        ; 34 LEs               ; 51 LEs                 ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|interface_addr[17]         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|interface_output_enable_n  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state.READ4         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state                 ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[9]                                                      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.READ_BYTE_LOWER ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.UNALIGNED_READ1 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.WRITE1          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state.READ1         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |riscv|memory_controller:mem|next_module.SRAM                                      ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_rd[4]                                  ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; No         ; |riscv|decoder:decoder|imm[23]                                                     ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[25]                                                     ;
+; 64:1               ; 6 bits    ; 252 LEs       ; 12 LEs               ; 240 LEs                ; No         ; |riscv|execute:execute|Selector9                                                   ;
+; 20:1               ; 24 bits   ; 312 LEs       ; 48 LEs               ; 264 LEs                ; No         ; |riscv|execute:execute|Selector19                                                  ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |riscv|decoder:decoder|imm[19]                                                     ;
+; 11:1               ; 26 bits   ; 182 LEs       ; 78 LEs               ; 104 LEs                ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_addr[30]                       ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |riscv|decoder:decoder|imm[4]                                                      ;
+; 25:1               ; 10 bits   ; 160 LEs       ; 40 LEs               ; 120 LEs                ; No         ; |riscv|execute:execute|Mux2                                                        ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; No         ; |riscv|execute:execute|Mux29                                                       ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 16 LEs               ; 52 LEs                 ; No         ; |riscv|execute:execute|Mux23                                                       ;
+; 26:1               ; 2 bits    ; 34 LEs        ; 8 LEs                ; 26 LEs                 ; No         ; |riscv|execute:execute|Mux25                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory_access:memory_access"                                                                                                                           ;
++-----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type  ; Severity ; Details                                                                                                                                      ;
++-----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; mem_access_busy ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decoder:decoder"                                                                                                                                                                                     ;
++------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port                   ; Type   ; Severity ; Details                                                                                                                                                                            ;
++------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rs1_bank_interface_in  ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (5 bits) it drives.  The 4 most-significant bit(s) in the port expression will be connected to GND.              ;
+; rs2_bank_interface_in  ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (5 bits) it drives.  The 4 most-significant bit(s) in the port expression will be connected to GND.              ;
+; rs1_bank_interface_out ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; rs2_bank_interface_out ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "instruction_fetch_and_pc:instruction_fetch_and_pc"                                                                                                                 ;
++-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                                 ;
++-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; processor_state ; Input  ; Warning  ; Input port expression (3 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "processor_state[3..3]" will be connected to GND. ;
+; instruction32   ; Output ; Warning  ; Output or bidir port (33 bits) is wider than the port expression (32 bits) it drives; bit(s) "instruction32[32..32]" have no fanouts                    ;
++-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "reg_bank:reg_bank"                                                                                           ;
++-------------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                          ; Type   ; Severity ; Details                                                                             ;
++-------------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; rs1_bank_interface_out[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rs2_bank_interface_out[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory_controller:mem|sram_interface32bit:sram32"                                                                     ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                                  ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; TEST_EXPOSE_STATE ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory_controller:mem|flash_interface32bit:flash32"                                     ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; finished ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory_controller:mem"                                                              ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; busy ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processor_state_manager:processor_state_manager"                                                                                                                                      ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; decoder_op ; Input ; Warning  ; Input port expression (6 bits) is wider than the input port (1 bits) it drives.  The 5 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Jun 09 11:51:40 2026
+    Info: Processing started: Wed Jun 10 14:01:35 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv -c riscv
 Info (12021): Found 2 design units, including 2 entities, in source file memory.v
     Info (12023): Found entity 1: memory_multiplexer
@@ -174,15 +636,15 @@ Info (12021): Found 4 design units, including 4 entities, in source file utils.v
     Info (12023): Found entity 3: hex_to_7seg
     Info (12023): Found entity 4: display_32bit_7seg
 Info (12021): Found 7 design units, including 7 entities, in source file pipeline.v
-    Info (12023): Found entity 1: reg_bank
-    Info (12023): Found entity 2: stall_manager
+    Info (12023): Found entity 1: processor_state_manager
+    Info (12023): Found entity 2: reg_bank
     Info (12023): Found entity 3: instruction_fetch_and_pc
     Info (12023): Found entity 4: decoder
     Info (12023): Found entity 5: execute
     Info (12023): Found entity 6: memory_access
     Info (12023): Found entity 7: reg_writeback
 Info (12021): Found 0 design units, including 0 entities, in source file global_constants.v
-Warning (10236): Verilog HDL Implicit Net warning at memory.v(210): created implicit net for "flash_data_ready"
+Warning (10236): Verilog HDL Implicit Net warning at memory.v(142): created implicit net for "flash_data_ready"
 Info (12127): Elaborating entity "riscv" for the top level hierarchy
 Warning (10034): Output port "LEDR" at riscv.v(23) has no driver
 Warning (10034): Output port "LEDG" at riscv.v(24) has no driver
@@ -192,46 +654,53 @@ Warning (10034): Output port "HEX2" at riscv.v(27) has no driver
 Warning (10034): Output port "HEX3" at riscv.v(29) has no driver
 Info (12128): Elaborating entity "rst_n_init" for hierarchy "rst_n_init:rst_n_init"
 Warning (10230): Verilog HDL assignment warning at utils.v(12): truncated value with size 32 to match size of target (2)
+Info (12128): Elaborating entity "processor_state_manager" for hierarchy "processor_state_manager:processor_state_manager"
+Warning (10199): Verilog HDL Case Statement warning at pipeline.v(22): case item expression never matches the case expression
+Warning (10270): Verilog HDL Case Statement warning at pipeline.v(15): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at pipeline.v(15): inferring latch(es) for variable "next_state", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "next_state[0]" at pipeline.v(15)
+Info (10041): Inferred latch for "next_state[1]" at pipeline.v(15)
+Info (10041): Inferred latch for "next_state[2]" at pipeline.v(15)
 Info (12128): Elaborating entity "memory_controller" for hierarchy "memory_controller:mem"
-Warning (10858): Verilog HDL warning at memory.v(193): object flash_finished used but never assigned
-Warning (10240): Verilog HDL Always Construct warning at memory.v(273): inferring latch(es) for variable "finished", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at memory.v(273): inferring latch(es) for variable "data_out", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at memory.v(273): inferring latch(es) for variable "busy", which holds its previous value in one or more paths through the always construct
-Warning (10030): Net "flash_finished" at memory.v(193) has no driver or initial value, using a default initial value '0'
-Info (10041): Inferred latch for "busy" at memory.v(283)
-Info (10041): Inferred latch for "data_out[0]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[1]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[2]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[3]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[4]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[5]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[6]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[7]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[8]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[9]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[10]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[11]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[12]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[13]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[14]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[15]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[16]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[17]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[18]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[19]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[20]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[21]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[22]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[23]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[24]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[25]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[26]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[27]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[28]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[29]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[30]" at memory.v(283)
-Info (10041): Inferred latch for "data_out[31]" at memory.v(283)
-Info (10041): Inferred latch for "finished" at memory.v(283)
+Warning (10858): Verilog HDL warning at memory.v(125): object flash_finished used but never assigned
+Warning (10240): Verilog HDL Always Construct warning at memory.v(205): inferring latch(es) for variable "finished", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at memory.v(205): inferring latch(es) for variable "data_out", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at memory.v(205): inferring latch(es) for variable "busy", which holds its previous value in one or more paths through the always construct
+Warning (10030): Net "flash_finished" at memory.v(125) has no driver or initial value, using a default initial value '0'
+Info (10041): Inferred latch for "busy" at memory.v(215)
+Info (10041): Inferred latch for "data_out[0]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[1]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[2]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[3]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[4]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[5]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[6]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[7]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[8]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[9]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[10]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[11]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[12]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[13]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[14]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[15]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[16]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[17]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[18]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[19]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[20]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[21]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[22]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[23]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[24]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[25]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[26]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[27]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[28]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[29]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[30]" at memory.v(215)
+Info (10041): Inferred latch for "data_out[31]" at memory.v(215)
+Info (10041): Inferred latch for "finished" at memory.v(215)
 Info (12128): Elaborating entity "flash_interface32bit" for hierarchy "memory_controller:mem|flash_interface32bit:flash32"
 Warning (10270): Verilog HDL Case Statement warning at interfaces.v(48): incomplete case statement has no default case item
 Info (10264): Verilog HDL Case Statement information at interfaces.v(48): all case item expressions in this case statement are onehot
@@ -247,173 +716,312 @@ Warning (10230): Verilog HDL assignment warning at interfaces.v(393): truncated 
 Warning (10230): Verilog HDL assignment warning at interfaces.v(399): truncated value with size 32 to match size of target (18)
 Warning (10230): Verilog HDL assignment warning at interfaces.v(405): truncated value with size 32 to match size of target (18)
 Info (12128): Elaborating entity "memory_multiplexer" for hierarchy "memory_multiplexer:memory_multiplexer"
-Info (12128): Elaborating entity "stall_manager" for hierarchy "stall_manager:stall_manager"
+Warning (10240): Verilog HDL Always Construct warning at memory.v(36): inferring latch(es) for variable "mem_access_data_out", which holds its previous value in one or more paths through the always construct
+Warning (10034): Output port "memory_byte_mode" at memory.v(29) has no driver
+Info (10041): Inferred latch for "mem_access_data_out[0]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[1]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[2]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[3]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[4]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[5]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[6]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[7]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[8]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[9]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[10]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[11]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[12]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[13]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[14]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[15]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[16]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[17]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[18]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[19]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[20]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[21]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[22]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[23]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[24]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[25]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[26]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[27]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[28]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[29]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[30]" at memory.v(46)
+Info (10041): Inferred latch for "mem_access_data_out[31]" at memory.v(46)
 Info (12128): Elaborating entity "reg_bank" for hierarchy "reg_bank:reg_bank"
 Info (12128): Elaborating entity "instruction_fetch_and_pc" for hierarchy "instruction_fetch_and_pc:instruction_fetch_and_pc"
 Info (12128): Elaborating entity "decoder" for hierarchy "decoder:decoder"
-Warning (10036): Verilog HDL or VHDL warning at pipeline.v(144): object "opcode" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at pipeline.v(145): object "func7" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at pipeline.v(146): object "func3" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at pipeline.v(140): truncated value with size 5 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at pipeline.v(141): truncated value with size 5 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at pipeline.v(144): truncated value with size 7 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at pipeline.v(145): truncated value with size 7 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at pipeline.v(146): truncated value with size 3 to match size of target (1)
-Warning (10762): Verilog HDL Case Statement warning at pipeline.v(162): can't check case statement for completeness because the case expression has too many possible states
+Warning (10036): Verilog HDL or VHDL warning at pipeline.v(178): object "opcode" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at pipeline.v(179): object "func7" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at pipeline.v(180): object "func3" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at pipeline.v(175): truncated value with size 5 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at pipeline.v(176): truncated value with size 5 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at pipeline.v(178): truncated value with size 7 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at pipeline.v(179): truncated value with size 7 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at pipeline.v(180): truncated value with size 3 to match size of target (1)
+Warning (10762): Verilog HDL Case Statement warning at pipeline.v(196): can't check case statement for completeness because the case expression has too many possible states
 Info (12128): Elaborating entity "execute" for hierarchy "execute:execute"
-Warning (10036): Verilog HDL or VHDL warning at pipeline.v(313): object "pc_s" assigned a value but never read
-Warning (10240): Verilog HDL Always Construct warning at pipeline.v(316): inferring latch(es) for variable "res", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at pipeline.v(316): inferring latch(es) for variable "next_pc", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "next_pc[0]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[1]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[2]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[3]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[4]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[5]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[6]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[7]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[8]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[9]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[10]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[11]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[12]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[13]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[14]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[15]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[16]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[17]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[18]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[19]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[20]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[21]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[22]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[23]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[24]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[25]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[26]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[27]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[28]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[29]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[30]" at pipeline.v(320)
-Info (10041): Inferred latch for "next_pc[31]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[0]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[1]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[2]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[3]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[4]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[5]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[6]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[7]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[8]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[9]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[10]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[11]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[12]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[13]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[14]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[15]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[16]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[17]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[18]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[19]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[20]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[21]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[22]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[23]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[24]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[25]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[26]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[27]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[28]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[29]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[30]" at pipeline.v(320)
-Info (10041): Inferred latch for "res[31]" at pipeline.v(320)
+Warning (10036): Verilog HDL or VHDL warning at pipeline.v(346): object "pc_s" assigned a value but never read
+Warning (10240): Verilog HDL Always Construct warning at pipeline.v(349): inferring latch(es) for variable "res", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at pipeline.v(349): inferring latch(es) for variable "next_pc", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "next_pc[0]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[1]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[2]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[3]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[4]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[5]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[6]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[7]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[8]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[9]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[10]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[11]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[12]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[13]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[14]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[15]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[16]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[17]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[18]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[19]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[20]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[21]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[22]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[23]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[24]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[25]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[26]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[27]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[28]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[29]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[30]" at pipeline.v(353)
+Info (10041): Inferred latch for "next_pc[31]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[0]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[1]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[2]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[3]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[4]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[5]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[6]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[7]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[8]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[9]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[10]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[11]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[12]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[13]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[14]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[15]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[16]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[17]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[18]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[19]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[20]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[21]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[22]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[23]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[24]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[25]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[26]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[27]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[28]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[29]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[30]" at pipeline.v(353)
+Info (10041): Inferred latch for "res[31]" at pipeline.v(353)
 Info (12128): Elaborating entity "memory_access" for hierarchy "memory_access:memory_access"
-Critical Warning (10237): Verilog HDL warning at pipeline.v(460): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead
-Warning (10240): Verilog HDL Always Construct warning at pipeline.v(475): inferring latch(es) for variable "current_instruction", which holds its previous value in one or more paths through the always construct
-Warning (10034): Output port "read_res" at pipeline.v(429) has no driver
-Info (10041): Inferred latch for "current_instruction[0]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[1]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[2]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[3]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[4]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[5]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[6]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[7]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[8]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[9]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[10]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[11]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[12]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[13]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[14]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[15]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[16]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[17]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[18]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[19]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[20]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[21]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[22]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[23]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[24]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[25]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[26]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[27]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[28]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[29]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[30]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[31]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[32]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[33]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[34]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[35]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[36]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[37]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[38]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[39]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[40]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[41]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[42]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[43]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[44]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[45]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[46]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[47]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[48]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[49]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[50]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[51]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[52]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[53]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[54]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[55]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[56]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[57]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[58]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[59]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[60]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[61]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[62]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[63]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[64]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[65]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[66]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[67]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[68]" at pipeline.v(485)
-Info (10041): Inferred latch for "current_instruction[69]" at pipeline.v(485)
-Error (10818): Can't infer register for "state.DONE" at pipeline.v(466) because it does not hold its value outside the clock edge File: C:/Users/Seth Mueller/Documents/fpga/pipeline.v Line: 466
-Error (10818): Can't infer register for "state.BUSY" at pipeline.v(466) because it does not hold its value outside the clock edge File: C:/Users/Seth Mueller/Documents/fpga/pipeline.v Line: 466
-Error (10818): Can't infer register for "state.WAITING_TO_START" at pipeline.v(466) because it does not hold its value outside the clock edge File: C:/Users/Seth Mueller/Documents/fpga/pipeline.v Line: 466
-Error (10818): Can't infer register for "state.IDLE" at pipeline.v(466) because it does not hold its value outside the clock edge File: C:/Users/Seth Mueller/Documents/fpga/pipeline.v Line: 466
-Error (10822): HDL error at pipeline.v(466): couldn't implement registers for assignments on this clock edge File: C:/Users/Seth Mueller/Documents/fpga/pipeline.v Line: 466
-Error (12152): Can't elaborate user hierarchy "memory_access:memory_access" File: C:/Users/Seth Mueller/Documents/fpga/riscv.v Line: 257
+Warning (10270): Verilog HDL Case Statement warning at pipeline.v(499): incomplete case statement has no default case item
+Warning (10270): Verilog HDL Case Statement warning at pipeline.v(517): incomplete case statement has no default case item
+Info (12128): Elaborating entity "reg_writeback" for hierarchy "reg_writeback:reg_writeback"
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[1]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[1]" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[1]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[1]" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[1]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[1]" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[1]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[1]" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs1_bank_interface_in[1]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[4]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[3]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[2]" is missing source, defaulting to GND
+    Warning (12110): Net "rs2_bank_interface_in[1]" is missing source, defaulting to GND
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch execute:execute|res[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr1
+Warning (13012): Latch execute:execute|res[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr1
+Warning (13012): Latch execute:execute|res[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch execute:execute|res[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal decoder:decoder|WideOr0
+Warning (13012): Latch processor_state_manager:processor_state_manager|next_state[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal processor_state_manager:processor_state_manager|processor_state[2]
+Warning (13012): Latch processor_state_manager:processor_state_manager|next_state[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal processor_state_manager:processor_state_manager|processor_state[0]
+Warning (13012): Latch memory_controller:mem|finished has unsafe behavior
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal memory_controller:mem|last_module.SRAM
+Warning (13012): Latch processor_state_manager:processor_state_manager|next_state[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal processor_state_manager:processor_state_manager|processor_state[2]
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "FL_OE_N" is stuck at GND
+    Warning (13410): Pin "FL_RST_N" is stuck at VCC
+    Warning (13410): Pin "FL_WE_N" is stuck at VCC
+    Warning (13410): Pin "SRAM_CE_N" is stuck at GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
+    Warning (13410): Pin "HEX0[2]" is stuck at GND
+    Warning (13410): Pin "HEX0[3]" is stuck at GND
+    Warning (13410): Pin "HEX0[4]" is stuck at GND
+    Warning (13410): Pin "HEX0[5]" is stuck at GND
+    Warning (13410): Pin "HEX0[6]" is stuck at GND
+    Warning (13410): Pin "HEX1[0]" is stuck at GND
+    Warning (13410): Pin "HEX1[1]" is stuck at GND
+    Warning (13410): Pin "HEX1[2]" is stuck at GND
+    Warning (13410): Pin "HEX1[3]" is stuck at GND
+    Warning (13410): Pin "HEX1[4]" is stuck at GND
+    Warning (13410): Pin "HEX1[5]" is stuck at GND
+    Warning (13410): Pin "HEX1[6]" is stuck at GND
+    Warning (13410): Pin "HEX2[0]" is stuck at GND
+    Warning (13410): Pin "HEX2[1]" is stuck at GND
+    Warning (13410): Pin "HEX2[2]" is stuck at GND
+    Warning (13410): Pin "HEX2[3]" is stuck at GND
+    Warning (13410): Pin "HEX2[4]" is stuck at GND
+    Warning (13410): Pin "HEX2[5]" is stuck at GND
+    Warning (13410): Pin "HEX2[6]" is stuck at GND
+    Warning (13410): Pin "HEX3[0]" is stuck at GND
+    Warning (13410): Pin "HEX3[1]" is stuck at GND
+    Warning (13410): Pin "HEX3[2]" is stuck at GND
+    Warning (13410): Pin "HEX3[3]" is stuck at GND
+    Warning (13410): Pin "HEX3[4]" is stuck at GND
+    Warning (13410): Pin "HEX3[5]" is stuck at GND
+    Warning (13410): Pin "HEX3[6]" is stuck at GND
+Info (17049): 44 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Seth Mueller/Documents/fpga/output_files/riscv.map.smsg
-Error: Quartus II 32-bit Analysis & Synthesis was unsuccessful. 6 errors, 39 warnings
-    Error: Peak virtual memory: 354 megabytes
-    Error: Processing ended: Tue Jun 09 11:51:41 2026
-    Error: Elapsed time: 00:00:01
-    Error: Total CPU time (on all processors): 00:00:01
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 14 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[0]"
+    Warning (15610): No output dependent on input pin "SW[1]"
+    Warning (15610): No output dependent on input pin "SW[2]"
+    Warning (15610): No output dependent on input pin "SW[3]"
+    Warning (15610): No output dependent on input pin "SW[4]"
+    Warning (15610): No output dependent on input pin "SW[5]"
+    Warning (15610): No output dependent on input pin "SW[6]"
+    Warning (15610): No output dependent on input pin "SW[7]"
+    Warning (15610): No output dependent on input pin "SW[8]"
+    Warning (15610): No output dependent on input pin "SW[9]"
+    Warning (15610): No output dependent on input pin "KEY[0]"
+    Warning (15610): No output dependent on input pin "KEY[1]"
+    Warning (15610): No output dependent on input pin "KEY[2]"
+    Warning (15610): No output dependent on input pin "KEY[3]"
+Info (21057): Implemented 1212 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 23 input pins
+    Info (21059): Implemented 94 output pins
+    Info (21060): Implemented 16 bidirectional pins
+    Info (21061): Implemented 1079 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 215 warnings
+    Info: Peak virtual memory: 377 megabytes
+    Info: Processing ended: Wed Jun 10 14:01:40 2026
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +------------------------------------------+

@@ -1,3 +1,4 @@
+// instruction types
 `define OP_LUI 0
 `define OP_AUIPC 1
 `define OP_ADDI 2
@@ -39,3 +40,10 @@
 `define OP_BLTU 38
 `define OP_BGEU 39
 `define OP_ILLEGAL 40
+
+// processor_state
+`define START_FETCH 0
+`define FETCH 1
+`define START_MEM 2
+`define MEM_ACCESS 3
+`define WRITEBACK 4

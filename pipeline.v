@@ -1,5 +1,60 @@
 `include "global_constants.vh"
 
+module processor_state_manager(
+  input clk,
+  input rst_n,
+
+  input mem_finished,
+  input decoder_op,
+
+  output reg [2:0] processor_state
+);
+  reg [2:0] next_state;
+
+  always @(*) begin
+    case (processor_state)
+      `START_FETCH:
+        next_state = `FETCH;
+
+      `FETCH: begin
+        if (mem_finished) begin
+          case (decoder_op)
+            `OP_LW, `OP_LB, `OP_LH, `OP_LBU, `OP_LHU, `OP_SW, `OP_SB, `OP_SH:
+              next_state = `START_MEM;
+            default:
+              next_state = `WRITEBACK;
+          endcase
+        end
+        else
+          next_state = `FETCH;
+      end
+
+      `START_MEM:
+        next_state = `MEM_ACCESS;
+
+      `MEM_ACCESS: begin
+        if (mem_finished) begin
+          next_state = `WRITEBACK;
+        end
+        else 
+          next_state = `MEM_ACCESS;
+      end
+
+      `WRITEBACK:
+        next_state = `START_FETCH;
+    endcase
+  end
+
+  always @(posedge clk or negedge rst_n) begin
+    if (!rst_n)
+      processor_state <= `START_FETCH;
+    else begin
+      processor_state <= next_state; 
+    end
+  end
+
+endmodule
+
 // x0 - constant 0
 // x1 - conventional call return address
 // x2 - conventional stack pointer
@@ -8,7 +63,7 @@ module reg_bank(
   input clk,
   input rst_n,
 
-  input stalled,
+  input [2:0] processor_state,
 
 	input wire [4:0] rs1_bank_interface_in,
 	input wire [4:0] rs2_bank_interface_in,
@@ -29,7 +84,7 @@ module reg_bank(
         registers[i] <= 0;
       end
     end else begin
-      if (rd_writeback_reg != 0 && !stalled)
+      if (rd_writeback_reg != 0 && (processor_state == `WRITEBACK))
         registers[rd_writeback_reg] <= rd_writeback_val;
     end
   end
@@ -49,80 +104,60 @@ module reg_bank(
   end
 endmodule
 
-// ik this doesn't need to be a module but it makes the flowchart work better
-module stall_manager(
-  input memory_access_stalled,
-  input instruction_fetch_stalled,
-
-  output stall_processor
-);
-  assign stall_processor = memory_access_stalled & instruction_fetch_stalled;
-endmodule
-
 // NPC (next program counter) calculated in execute
 // structured similarly to memory_access
 module instruction_fetch_and_pc(
   input clk,
   input rst_n,
 
+  input [3:0] processor_state,
+
   input [31:0] next_pc,
   output reg [31:0] pc,
 
   output reg [32:0] instruction32,
 
-  input processor_stalled,
-  output reg issue_stall,
-  output reg ins_valid,
-
   // memory multiplexer interface
-  output reg instruction_fetch_request,
-  output reg [31:0] instruction_fetch_addr,
+  output reg mem_read_request,
+  output reg [31:0] mem_addr,
 
-  input [31:0] instruction_fetch_result,
-  input instruction_fetch_finished,
-  input instruction_fetch_busy // used to check if access started
+  input [31:0] mem_read_result,
+  input mem_finished
 );
-  reg starting_next_cycle;
-
+  // memory_mux control
   always @(*) begin
     if (!rst_n) begin
-      instruction_fetch_request = 0;
-      instruction_fetch_addr = 0;
-
-      issue_stall = 0;
-      ins_valid = 0;
-			
-			starting_next_cycle = 0;
+      mem_read_request = 0;
+      mem_addr = 0;
     end else begin
-      instruction_fetch_request = starting_next_cycle;
-      instruction_fetch_addr = pc;
-
-      issue_stall = starting_next_cycle || !instruction_fetch_finished;
-      ins_valid = !issue_stall;
-			
-			starting_next_cycle = !processor_stalled;
+      if (processor_state == `START_FETCH) begin
+        mem_read_request = 1;
+        mem_addr = pc;
+      end else if (processor_state == `FETCH) begin
+        mem_read_request = 0;
+        mem_addr = pc;
+      end else begin 
+        mem_read_request = 0;
+        mem_addr = 0;
+      end
     end
   end
 
   always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
       pc <= 0;
-    end else if (!processor_stalled) begin
-      pc <= next_pc;
-    end
-  end
-
-  always @(posedge instruction_fetch_finished or negedge rst_n) begin
-    if (!rst_n) begin
       instruction32 <= 0;
-    end else begin
-      instruction32 <= instruction_fetch_busy;
-    end
+    end else if (processor_state == `FETCH && mem_finished) begin
+      pc <= pc; // can i do this? note to future self
+      instruction32 <= mem_read_result;
+    end else if (processor_state == `WRITEBACK) begin
+      pc <= next_pc;
+      instruction32 <= 0;
+    end 
   end
 endmodule
 
 module decoder(
-	input clk,
 	input rst_n,
 
 	input [31:0] instruction32,
@@ -139,7 +174,6 @@ module decoder(
 );
   assign rs1_bank_interface_in = instruction32[19:15];
   assign rs2_bank_interface_in = instruction32[24:20];
-
 
   wire opcode = instruction32[6:0];
   wire func7  = instruction32[31:25];
@@ -292,7 +326,6 @@ module decoder(
 endmodule
 
 module execute(
-  input clk,
   input rst_n,
 
 	input [5:0] op,
@@ -423,13 +456,12 @@ module memory_access(
   input clk,
   input rst_n,
 
+  input [2:0] processor_state,
+
   input [5:0]  op,
   input [31:0] write_data,
   input [31:0] execute_result,
   output reg [31:0] read_res,
-
-  input ins_valid, /////////
-  output reg issue_stall,
 
   // mem multiplexer interface
   output reg mem_access_read_request,
@@ -442,34 +474,17 @@ module memory_access(
   input mem_access_finished,
   input mem_access_busy // used to check if access started
 );
-  // states
-  localparam IDLE = 0;
-  localparam WAITING_TO_START = 1;
-  localparam BUSY = 2;
-  localparam DONE = 3;
-
-  reg [1:0] state = IDLE;
-  reg [1:0] next_state = IDLE;
-
-  // addr + data + op
-  // to know if were done
-  reg [69:0] finished_instruction = 0; 
-  reg [69:0] current_instruction = 0;
-
+  // TODO: make load half and load byte not do the same thing
   always @(posedge clk or negedge rst_n) begin
-    state <= next_state;
     if (!rst_n) begin
-      state <= 0;
-      finished_instruction <= 0;
-    end
-
-    else if (next_state == DONE) begin
-      state <= IDLE;
-      finished_instruction <= current_instruction;
+      read_res <= 0;
+    end else if (processor_state == `MEM_ACCESS && mem_access_finished) begin
+      read_res <= mem_access_result;
+    end else begin
+      read_res <= read_res; // can i do this? note to future self
     end
   end
 
-  // TODO: make load half and load byte not do the same thing
   always @(*) begin
     // defaults / rst_n
     mem_access_read_request = 0;
@@ -478,74 +493,55 @@ module memory_access(
     mem_access_data = 0;
     mem_access_byte_mode = 0;
 
-    issue_stall = 0;
-
-    next_state = IDLE;
-
     if (rst_n) begin
-      current_instruction = {execute_result, write_data, op};
+      // requests only for one cycle
+      if (processor_state == `START_MEM) begin
+        case (op)
+          // load word
+          // load byte/half INCORRECT
+          `OP_LW, `OP_LB, `OP_LH, `OP_LBU, `OP_LHU: begin
+            mem_access_read_request = 1;
+            mem_access_write_request = 0;
+          end
 
-      next_state = state;
-      issue_stall = 1;
-      if (state == IDLE && finished_instruction == current_instruction)
-        issue_stall = 0;
-      else if (state == IDLE) begin
-        next_state = WAITING_TO_START;
-      end else if (state == WAITING_TO_START & mem_access_busy)
-        next_state = BUSY;
-      // state acutally goes to IDLE but finished_instruction is updated
-      else if (state == BUSY & mem_access_finished) begin
-        issue_stall = 0;
-        next_state = DONE; 
+          // store word
+          // store byte/half INCORRECT
+          `OP_SW, `OP_SB, `OP_SH: begin
+            mem_access_read_request = 0;
+            mem_access_write_request = 1;
+          end
+        endcase
       end
 
-      case (op)
-        // load word
-        `OP_LW: begin
-          mem_access_read_request = 1;
-          mem_access_write_request = 0;
-          mem_access_addr = execute_result;
-          mem_access_data = 0;
-          mem_access_byte_mode = 0;
+      if (processor_state == `START_MEM || processor_state == `MEM_ACCESS) begin
+        case (op)
+          // load word
+          `OP_LW: begin
+            mem_access_addr = execute_result;
+            mem_access_data = 0;
+            mem_access_byte_mode = 0;
 
-        end
-        // load byte/half INCORRECT
-        `OP_LB, `OP_LH, `OP_LBU, `OP_LHU: begin
-          mem_access_read_request = 1;
-          mem_access_write_request = 0;
-          mem_access_addr = execute_result;
-          mem_access_data = 0;
-          mem_access_byte_mode = 1;
-        end
+          end
+          // load byte/half INCORRECT
+          `OP_LB, `OP_LH, `OP_LBU, `OP_LHU: begin
+            mem_access_addr = execute_result;
+            mem_access_data = 0;
+            mem_access_byte_mode = 1;
+          end
 
-        // store word
-        `OP_SW: begin
-          mem_access_read_request = 0;
-          mem_access_write_request = 1;
-          mem_access_addr = execute_result;
-          mem_access_data = write_data;
-          mem_access_byte_mode = 0;
-        end
-        // store byte/half INCORRECT
-        `OP_SB, `OP_SH: begin
-          mem_access_read_request = 0;
-          mem_access_write_request = 1;
-          mem_access_addr = execute_result;
-          mem_access_data = write_data;
-          mem_access_byte_mode = 1;
-        end
-
-        default: begin
-          next_state = IDLE;
-          issue_stall = 0;
-        end
-      endcase
-
-      // requests only need to happen on first cycle
-      // (this is why we need the waiting to start state)
-      if (state == BUSY || state == DONE) begin
-        mem_access_read_request = 0;
-        mem_access_write_request = 0;
+          // store word
+          `OP_SW: begin
+            mem_access_addr = execute_result;
+            mem_access_data = write_data;
+            mem_access_byte_mode = 0;
+          end
+          // store byte/half INCORRECT
+          `OP_SB, `OP_SH: begin
+            mem_access_addr = execute_result;
+            mem_access_data = write_data;
+            mem_access_byte_mode = 1;
+          end
+        endcase
       end
     end
   end
@@ -554,6 +550,8 @@ endmodule
 module reg_writeback(
   input clk,
   input rst_n,
+
+  input [2:0] processor_state,
 
   input wire [4:0]  rd_in,
   input wire [5:0]  op,
