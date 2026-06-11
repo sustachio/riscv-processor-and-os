@@ -5,7 +5,7 @@ module processor_state_manager(
   input rst_n,
 
   input mem_finished,
-  input decoder_op,
+  input [5:0] decoder_op,
 
   output reg [2:0] processor_state
 );
@@ -42,6 +42,9 @@ module processor_state_manager(
 
       `WRITEBACK:
         next_state = `START_FETCH;
+				
+			default: // to make the compiler happy
+				next_state = `START_FETCH;
     endcase
   end
 
@@ -78,7 +81,7 @@ module reg_bank(
 
   // write result
   always @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
+    if (!rst_n) begin : block_name_because_modelsim_is_old
 			integer i;
       for (i = 0; i < 32; i = i + 1) begin
         registers[i] <= 0;
@@ -110,12 +113,12 @@ module instruction_fetch_and_pc(
   input clk,
   input rst_n,
 
-  input [3:0] processor_state,
+  input [2:0] processor_state,
 
   input [31:0] next_pc,
   output reg [31:0] pc,
 
-  output reg [32:0] instruction32,
+  output reg [31:0] instruction32,
 
   // memory multiplexer interface
   output reg mem_read_request,
@@ -124,35 +127,58 @@ module instruction_fetch_and_pc(
   input [31:0] mem_read_result,
   input mem_finished
 );
+  reg [31:0] saved_instruction32 = 0; // used so ins32 can be used on cycle it is ready
+
   // memory_mux control
   always @(*) begin
     if (!rst_n) begin
       mem_read_request = 0;
       mem_addr = 0;
+
+      instruction32 = 0;
     end else begin
-      if (processor_state == `START_FETCH) begin
-        mem_read_request = 1;
-        mem_addr = pc;
-      end else if (processor_state == `FETCH) begin
-        mem_read_request = 0;
-        mem_addr = pc;
-      end else begin 
-        mem_read_request = 0;
-        mem_addr = 0;
-      end
-    end
+      case (processor_state)
+				`START_FETCH: begin
+					mem_read_request = 1;
+					mem_addr = pc;
+					instruction32 = 0;
+				end
+
+				`FETCH: begin
+					mem_read_request = 0;
+					mem_addr = pc;
+
+					if (mem_finished)
+						instruction32 = mem_read_result;
+					else
+						instruction32 = 0;
+				end
+
+				`START_MEM, `MEM_ACCESS, `WRITEBACK: begin
+					mem_read_request = 0;
+					mem_addr = 0;
+					instruction32 = saved_instruction32;
+				end
+
+				default: begin
+					mem_read_request = 0;
+					mem_addr = 0;
+					instruction32 = 0;
+				end
+			endcase
+		end
   end
 
   always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
       pc <= 0;
-      instruction32 <= 0;
+      saved_instruction32 <= 0;
     end else if (processor_state == `FETCH && mem_finished) begin
       pc <= pc; // can i do this? note to future self
-      instruction32 <= mem_read_result;
+      saved_instruction32 <= mem_read_result;
     end else if (processor_state == `WRITEBACK) begin
       pc <= next_pc;
-      instruction32 <= 0;
+      saved_instruction32 <= 0;
     end 
   end
 endmodule
@@ -167,17 +193,17 @@ module decoder(
 	output reg [31:0] rs2,
 	output reg [31:0] imm,
 	
-	output wire rs1_bank_interface_in,
-	output wire rs2_bank_interface_in,
-	input wire rs1_bank_interface_out,
-	input wire rs2_bank_interface_out
+	output wire [4:0] rs1_bank_interface_in,
+	output wire [4:0] rs2_bank_interface_in,
+	input wire [31:0] rs1_bank_interface_out,
+	input wire [31:0] rs2_bank_interface_out
 );
   assign rs1_bank_interface_in = instruction32[19:15];
   assign rs2_bank_interface_in = instruction32[24:20];
 
-  wire opcode = instruction32[6:0];
-  wire func7  = instruction32[31:25];
-  wire func3  = instruction32[14:12];
+  //wire [6:0] opcode = instruction32[6:0];
+  //wire [6:0] func7  = instruction32[31:25];
+  //wire [2:0] func3  = instruction32[14:12];
 
   always @(*)
     if (!rst_n) begin
@@ -343,13 +369,13 @@ module execute(
   wire signed [31:0] rs1_s = $signed(rs1);
   wire signed [31:0] rs2_s = $signed(rs2);
   wire signed [31:0] imm_s = $signed(imm);
-  wire signed [31:0] pc_s  = $signed(pc);
 
   always @(*) begin
-    if (!rst_n) begin
-      res = 0;
-    end
-    else begin
+    // defaults / !rst_n
+		res = 0;
+		next_pc = 0;
+		
+    if (rst_n) begin
       next_pc = pc + 4;
 
       case (op)
@@ -510,6 +536,8 @@ module memory_access(
             mem_access_read_request = 0;
             mem_access_write_request = 1;
           end
+					
+					default: begin end // already assigned above
         endcase
       end
 
@@ -541,6 +569,8 @@ module memory_access(
             mem_access_data = write_data;
             mem_access_byte_mode = 1;
           end
+					
+					default: begin end // already assigned above
         endcase
       end
     end

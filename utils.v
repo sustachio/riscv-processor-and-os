@@ -9,7 +9,7 @@ module rst_n_init(
 
   always @(posedge clk) begin
     if (counter != 3) begin
-      counter <= counter + 1;
+      counter <= counter + 2'd1;
       rst_n <= 0;
     end else begin
       rst_n <= 1;

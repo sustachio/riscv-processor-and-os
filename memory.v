@@ -38,6 +38,7 @@ module memory_multiplexer(
       memory_write_request = 0;
       memory_addr = 0;
       memory_data_in = 0;
+      memory_byte_mode = 0;
 
       fetch_result = 0;
       mem_access_data_out = 0;
@@ -51,6 +52,7 @@ module memory_multiplexer(
           memory_write_request = 0;
           memory_addr = fetch_addr;
           memory_data_in = 0;
+          memory_byte_mode = 0;
 
           fetch_result = memory_data_out;
           mem_access_data_out = 0;
@@ -61,6 +63,7 @@ module memory_multiplexer(
           memory_write_request = mem_access_write_request;
           memory_addr = mem_access_addr;
           memory_data_in = mem_access_data_in;
+          memory_byte_mode = mem_access_byte_mode;
 
           fetch_result = 0;
           mem_access_data_out = mem_access_data_out;
@@ -139,7 +142,7 @@ module memory_controller(
 		.addr(flash_addr),
 
 		.data(flash_data),
-		.finished(flash_data_ready),
+		.finished(flash_finished),
     .busy(flash_busy)
 	);
 	

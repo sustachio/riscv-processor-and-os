@@ -57,6 +57,8 @@ module flash_interface32bit(
 
 				READ_BYTE:
 					next_state = IDLE;
+					
+				default: begin end // already assigned above
 			endcase
 		end
 		
@@ -85,15 +87,15 @@ module flash_interface32bit(
 
 					READ1: begin 
 						data[31:24] <= interface_data;
-						interface_addr <= addr + 1;
+						interface_addr <= addr[21:0] + 22'd1;
 					end
 					READ2: begin
 						data[23:16] <= interface_data;
-						interface_addr <= addr + 2;
+						interface_addr <= addr[21:0] + 22'd2;
 					end
 					READ3: begin
 						data[15:8]  <= interface_data;
-						interface_addr <= addr + 3;
+						interface_addr <= addr[21:0] + 22'd3;
 					end
 					READ4: begin
 						data[7:0] <= interface_data;
@@ -109,7 +111,7 @@ module flash_interface32bit(
 
 				endcase
 			end else
-				delay_counter <= delay_counter + 1;
+				delay_counter <= delay_counter + 4'd1;
 			
 			state <= next_state;
 		end
@@ -358,7 +360,7 @@ module sram_interface32bit(
           // reads	
           READ1: begin 
             data_out[31:16] <= interface_data;
-            interface_addr <= addr[18:1] + 1;
+            interface_addr <= addr[18:1] + 18'd1;
           end
           READ2: begin
             data_out[15:0] <= interface_data;
@@ -366,14 +368,14 @@ module sram_interface32bit(
 
           UNALIGNED_READ1: begin
 						data_out[31:24] <= interface_data[7:0];
-						interface_addr <= addr[18:1] + 1;
+						interface_addr <= addr[18:1] + 18'd1;
 
             interface_lower_byte_mask_n <= 0;
             interface_upper_byte_mask_n <= 0;
 					end
           UNALIGNED_READ2: begin
 						data_out[23:8] <= interface_data;
-						interface_addr <= addr[18:1] + 2;
+						interface_addr <= addr[18:1] + 18'd2;
 
             interface_lower_byte_mask_n <= 1;
             interface_upper_byte_mask_n <= 0;
@@ -390,19 +392,19 @@ module sram_interface32bit(
           // writes
 					WRITE1: begin
 						write_halfword <= write_data[15:0];
-						interface_addr <= addr[18:1] + 1;
+						interface_addr <= addr[18:1] + 18'd1;
 					end
 					WRITE2: begin end
 
           UNALIGNED_WRITE1: begin
             write_halfword <= write_data[23:8];
-						interface_addr <= addr[18:1] + 1;
+						interface_addr <= addr[18:1] + 18'd1;
 
             interface_lower_byte_mask_n <= 0;
             interface_upper_byte_mask_n <= 0;
 					end
           UNALIGNED_WRITE2: begin
-						interface_addr <= addr[18:1] + 2;
+						interface_addr <= addr[18:1] + 18'd2;
             write_halfword[15:8] <= write_data[7:0];
 
             interface_lower_byte_mask_n <= 1;

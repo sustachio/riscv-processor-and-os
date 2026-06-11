@@ -27,6 +27,13 @@ module riscv(
 	output [6:0] HEX2,
 	output [6:0] HEX3
 );
+	assign LEDR = 0;
+	assign LEDG = 0;
+	assign HEX0 = 0;
+	assign HEX1 = 0;
+	assign HEX2 = 0;
+	assign HEX3 = 0;
+
   //////////////////////////////////
 
   wire rst_n;
@@ -106,7 +113,7 @@ module riscv(
   wire [31:0] mem_access_data_in;
   wire mem_access_byte_mode;
   wire [31:0] mem_access_data_out;
- memory_multiplexer memory_multiplexer(
+	memory_multiplexer memory_multiplexer(
     .rst_n(rst_n),
 
     .processor_state(processor_state),

@@ -1,5 +1,5 @@
 Assembler report for riscv
-Wed Jun 10 14:01:49 2026
+Wed Jun 10 23:07:00 2026
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Jun 10 14:01:49 2026 ;
+; Assembler Status      ; Successful - Wed Jun 10 23:07:00 2026 ;
 ; Revision Name         ; riscv                                 ;
 ; Top-level Entity Name ; riscv                                 ;
 ; Family                ; Cyclone II                            ;
@@ -94,8 +94,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                              ;
 +----------------+----------------------------------------------------------------------+
 ; Device         ; EP2C20F484C7                                                         ;
-; JTAG usercode  ; 0x0027A348                                                           ;
-; Checksum       ; 0x0027A348                                                           ;
+; JTAG usercode  ; 0x004BBD16                                                           ;
+; Checksum       ; 0x004BBD16                                                           ;
 +----------------+----------------------------------------------------------------------+
 
 
@@ -106,8 +106,8 @@ applicable agreement for further details.
 +--------------------+------------------------------------------------------------------+
 ; Device             ; EPCS16                                                           ;
 ; JTAG usercode      ; 0x00000000                                                       ;
-; Checksum           ; 0x1DC7FF4F                                                       ;
-; Compression Ratio  ; 3                                                                ;
+; Checksum           ; 0x1D9176D4                                                       ;
+; Compression Ratio  ; 2                                                                ;
 +--------------------+------------------------------------------------------------------+
 
 
@@ -117,13 +117,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Jun 10 14:01:48 2026
+    Info: Processing started: Wed Jun 10 23:06:59 2026
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off riscv -c riscv
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 32-bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 371 megabytes
-    Info: Processing ended: Wed Jun 10 14:01:49 2026
+    Info: Peak virtual memory: 366 megabytes
+    Info: Processing ended: Wed Jun 10 23:07:00 2026
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

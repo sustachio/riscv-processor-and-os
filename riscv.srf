@@ -1,1 +1,10 @@
+{ "" "" "" "Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature." {  } {  } 0 292013 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "TimeQuest Timing Analyzer is analyzing 69 combinational loops as latches." {  } {  } 0 335093 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "Ignored I/O standard assignments to the following nodes" {  } {  } 0 15709 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "Found 110 output pins without output pin load capacitance assignment" {  } {  } 0 306006 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "Ignored locations or region assignments to the following nodes" {  } {  } 0 15705 "" 0 0 "Quartus II" 0 -1 0 ""}
 { "" "" "" "*" {  } {  } 0 20028 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 10240 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 10041 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 332060 "" 0 0 "Quartus II" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 171167 "" 0 0 "Quartus II" 0 -1 0 ""}
