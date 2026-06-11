@@ -7,7 +7,9 @@ module processor_state_manager(
   input mem_finished,
   input [5:0] decoder_op,
 
-  output reg [2:0] processor_state
+  output reg [2:0] processor_state,
+
+  input TEST_ALLOW_WB_COMPLETE
 );
   reg [2:0] next_state;
 
@@ -40,8 +42,12 @@ module processor_state_manager(
           next_state = `MEM_ACCESS;
       end
 
-      `WRITEBACK:
-        next_state = `START_FETCH;
+      `WRITEBACK: begin
+        if (TEST_ALLOW_WB_COMPLETE)
+          next_state = `START_FETCH;
+        else
+          next_state = `WRITEBACK;
+      end
 				
 			default: // to make the compiler happy
 				next_state = `START_FETCH;
@@ -74,7 +80,11 @@ module reg_bank(
 	output reg [31:0] rs2_bank_interface_out,
 	
 	input wire [4:0] rd_writeback_reg,
-  input wire [31:0] rd_writeback_val
+  input wire [31:0] rd_writeback_val,
+
+  input TEST_ALLOW_WB_COMPLETE,
+  input [4:0] TEST_REG_IN,
+  output reg [31:0] TEST_REG_OUT
 );
   // x0 unused
   reg [31:0] registers [0:31];
@@ -87,7 +97,7 @@ module reg_bank(
         registers[i] <= 0;
       end
     end else begin
-      if (rd_writeback_reg != 0 && (processor_state == `WRITEBACK))
+      if (rd_writeback_reg != 0 && (processor_state == `WRITEBACK) && TEST_ALLOW_WB_COMPLETE)
         registers[rd_writeback_reg] <= rd_writeback_val;
     end
   end
@@ -100,9 +110,11 @@ module reg_bank(
     end else begin
       rs1_bank_interface_out = registers[rs1_bank_interface_in];
       rs2_bank_interface_out = registers[rs2_bank_interface_in];
+      TEST_REG_OUT = registers[TEST_REG_IN];
 
       if (rs1_bank_interface_in == 0) rs1_bank_interface_out = 0;
       if (rs2_bank_interface_in == 0) rs2_bank_interface_out = 0;
+      if (TEST_REG_IN == 0) TEST_REG_OUT = 0;
     end
   end
 endmodule
@@ -125,7 +137,9 @@ module instruction_fetch_and_pc(
   output reg [31:0] mem_addr,
 
   input [31:0] mem_read_result,
-  input mem_finished
+  input mem_finished,
+
+  input TEST_ALLOW_WB_COMPLETE
 );
   reg [31:0] saved_instruction32 = 0; // used so ins32 can be used on cycle it is ready
 
@@ -176,7 +190,7 @@ module instruction_fetch_and_pc(
     end else if (processor_state == `FETCH && mem_finished) begin
       pc <= pc; // can i do this? note to future self
       saved_instruction32 <= mem_read_result;
-    end else if (processor_state == `WRITEBACK) begin
+    end else if (processor_state == `WRITEBACK && TEST_ALLOW_WB_COMPLETE) begin
       pc <= next_pc;
       saved_instruction32 <= 0;
     end 
@@ -216,7 +230,7 @@ module decoder(
     end
   else begin
     rd = instruction32[11:7];
-    rs1 = rs2_bank_interface_out;
+    rs1 = rs1_bank_interface_out;
     rs2 = rs2_bank_interface_out;
 
     casez (instruction32)
@@ -543,28 +557,28 @@ module memory_access(
 
       if (processor_state == `START_MEM || processor_state == `MEM_ACCESS) begin
         case (op)
-          // load word
-          `OP_LW: begin
+          // load word/load byte (need extra byte_mode)
+          `OP_LW, `OP_LH, `OP_LHU: begin
             mem_access_addr = execute_result;
             mem_access_data = 0;
             mem_access_byte_mode = 0;
-
           end
-          // load byte/half INCORRECT
-          `OP_LB, `OP_LH, `OP_LBU, `OP_LHU: begin
+
+          // load byte
+          `OP_LB, `OP_LBU: begin
             mem_access_addr = execute_result;
             mem_access_data = 0;
             mem_access_byte_mode = 1;
           end
 
-          // store word
-          `OP_SW: begin
+          // store word/store half
+          `OP_SW, `OP_SH: begin
             mem_access_addr = execute_result;
             mem_access_data = write_data;
             mem_access_byte_mode = 0;
           end
-          // store byte/half INCORRECT
-          `OP_SB, `OP_SH: begin
+          // store byte
+          `OP_SB: begin
             mem_access_addr = execute_result;
             mem_access_data = write_data;
             mem_access_byte_mode = 1;

@@ -27,14 +27,13 @@ module riscv(
 	output [6:0] HEX2,
 	output [6:0] HEX3
 );
-	assign LEDR = 0;
 	assign LEDG = 0;
-	assign HEX0 = 0;
-	assign HEX1 = 0;
-	assign HEX2 = 0;
-	assign HEX3 = 0;
 
   //////////////////////////////////
+
+  wire TEST_ALLOW_WB_COMPLETE;
+  wire [4:0] TEST_REG_IN;
+  wire [31:0] TEST_REG_OUT;
 
   wire rst_n;
 
@@ -53,7 +52,9 @@ module riscv(
     .mem_finished(mem_mux_finished),
     .decoder_op(decoder_op),
 
-    .processor_state(processor_state)
+    .processor_state(processor_state),
+
+    .TEST_ALLOW_WB_COMPLETE(TEST_ALLOW_WB_COMPLETE)
   );
 
   /////////////// MEMORY /////////////
@@ -161,7 +162,11 @@ module riscv(
     .rs2_bank_interface_out(rs2_bank_interface_out),
     
     .rd_writeback_reg(rd_writeback_reg),
-    .rd_writeback_val(rd_writeback_val)
+    .rd_writeback_val(rd_writeback_val),
+
+    .TEST_ALLOW_WB_COMPLETE(TEST_ALLOW_WB_COMPLETE),
+    .TEST_REG_IN(TEST_REG_IN),
+    .TEST_REG_OUT(TEST_REG_OUT)
   );
 
   wire [31:0] next_pc;
@@ -183,7 +188,9 @@ module riscv(
     .mem_read_request(fetch_read_request),
     .mem_addr(fetch_addr),
     .mem_read_result(fetch_result),
-    .mem_finished(mem_mux_finished)
+    .mem_finished(mem_mux_finished),
+
+    .TEST_ALLOW_WB_COMPLETE(TEST_ALLOW_WB_COMPLETE),
   );
 
   wire [4:0] decoder_rd;
@@ -259,4 +266,69 @@ module riscv(
     .reg_bank_rd(rd_writeback_reg),
     .reg_bank_val(rd_writeback_val)
   );
+  
+
+  //////// DEBUGING ///////////
+
+  // SW[4:0] - test reg address
+
+  // KEY[0] - allow WB
+  // KEY[1] - press to look at significant two bytes
+
+  // LEDR[9:0] - test reg out[9:0]
+
+  // hex - decoder_op
+	
+  wire look_at_sig;
+
+  assign TEST_REG_IN = SW[4:0];
+	
+	assign LEDR = TEST_REG_OUT[9:0];
+	
+	button_debounce #(.PRECISE_CYCLE_TRIGGER(1)) sram_command_trigger(
+		.clk(CLOCK_50),
+		.button(!KEY[0]),
+		.debounced(TEST_ALLOW_WB_COMPLETE)
+	);
+
+	button_debounce #(.PRECISE_CYCLE_TRIGGER(0)) num_display_control(
+		.clk(CLOCK_50),
+		.button(!KEY[1]),
+		.debounced(look_at_sig)
+	);
+
+	display_32bit_7seg mydisp(
+		.num(decoder_op),
+		.hex0(HEX0),
+		.hex1(HEX1),
+		.hex2(HEX2),
+		.hex3(HEX3),
+		.upper_sel(look_at_sig)
+	);
+
 endmodule
+
+
+// night sky https://www.asciiart.eu/ascii-night-sky-generator
+/*
+     o                 '   .         o                      +              .    
+                 .           .                              .                   
+ +                      +                                                 *     
+                                      o           .         _|_     '     o     
+            |               '                                |          '       
+  .      /- o -                                                    .            
+   '    /   |        .  |              '                   . +         .        
+       *             ' -o-           +        '                 o .             
+     .                  |                       +    .                .        .
+         .                                                             .        
+               .           .  .                                     .     +     
+                    . .                 '                  .       .            
+                     o                  '      ':.          _..               . 
+                     o                        .  '::._    '`-. `.               
+         ' .  .'                            .      '._)*      \  \              
+  .  +                      +           +              .      |  |              
+                                                              /  /              
+*.   .        .     *      .    o                         _.-`_.`               
+         '          '   ' +~~  .           +               '''                  
+                                           +         .        '        +        
+*/

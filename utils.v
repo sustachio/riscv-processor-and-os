@@ -18,8 +18,9 @@ module rst_n_init(
 endmodule
 
 // 83ms debounce given 50MHz clock
+// PRECISE_CYCLE_TRIGGER allows it to only be on for a specific nmber of cycles, set to 0 to turn off
 module button_debounce #(
-    parameter SINGLE_CYCLE_TRIGGER = 0
+    parameter PRECISE_CYCLE_TRIGGER = 0
 ) (
 	input  wire clk,
 	input  wire button,
@@ -32,7 +33,8 @@ module button_debounce #(
 	// when off, is equal to exposed output
 	reg internal_debounce;
 	
-	reg [26:0] counter;
+	reg [22:0] counter;
+  reg [22:0] precise_count_down;
 	
 	initial begin
 		internal_debounce = 0;
@@ -45,15 +47,19 @@ module button_debounce #(
 		
 		if (sync2 != internal_debounce) begin
 			counter <= counter + 1;
-			if (counter[26] == 1) begin
+			if (counter[22] == 1) begin
 				internal_debounce <= sync2;
 				debounced <= sync2;
+        precise_count_down <= PRECISE_CYCLE_TRIGGER - 1;
 			end
 		end
 		else begin
 			counter <= 0;
+
+      if (precise_count_down != 0)
+        precise_count_down <= precise_count_down - 1;
 			
-			if (SINGLE_CYCLE_TRIGGER)
+			if ((PRECISE_CYCLE_TRIGGER > 0) && precise_count_down == 0)
 				debounced <= 0;
 		end
 	end

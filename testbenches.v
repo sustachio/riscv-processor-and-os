@@ -1,6 +1,8 @@
 module TB_button_debounce();
 endmodule
 
+// ik these aren't testbenches, more of just a scrap file for debugging things
+
 /*
 /////////////////////////////// SRAM /////////////////////
 	assign SRAM_CE_N = 0;
