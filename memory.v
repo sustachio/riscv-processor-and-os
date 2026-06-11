@@ -194,7 +194,7 @@ module memory_controller(
   assign flash_byte_mode = byte_mode;
 
   assign sram_addr      = addr_in[18:0];
-  assign sram_data_in   = data_in;
+  assign sram_data_in   = byte_mode ? {data_in[7:0], 24'd0} : {data_in[7:0], data_in[15:8], data_in[23:16], data_in[31:24]}; // big -> little endian
   assign sram_byte_mode = byte_mode;
 
   // fsm for tracking which is finishing
@@ -218,13 +218,13 @@ module memory_controller(
       next_module = last_module;
 
       if (last_module == FLASH) begin
-        data_out = flash_data;
+        data_out = byte_mode ? {24'd0, flash_data[7:0]} : {flash_data[7:0], flash_data[15:8], flash_data[23:16], flash_data[31:24]}; // big -> little endian
         busy = flash_busy;
         finished = flash_finished;
       end
 
       else if (last_module == SRAM) begin
-        data_out = sram_data_out;
+        data_out = byte_mode ? {24'd0, flash_data[7:0]} : {sram_data_out[7:0], sram_data_out[15:8], sram_data_out[23:16], sram_data_out[31:24]}; // big -> little endian
         busy = sram_busy;
         finished = sram_finished;
       end

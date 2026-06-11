@@ -572,6 +572,7 @@ module memory_access(
           end
 
           // store word/store half
+          // store half is very incorrect
           `OP_SW, `OP_SH: begin
             mem_access_addr = execute_result;
             mem_access_data = write_data;
@@ -580,7 +581,7 @@ module memory_access(
           // store byte
           `OP_SB: begin
             mem_access_addr = execute_result;
-            mem_access_data = write_data;
+            mem_access_data = write_data; // otherwise gets fried in my lazy endienness conversion
             mem_access_byte_mode = 1;
           end
 					
