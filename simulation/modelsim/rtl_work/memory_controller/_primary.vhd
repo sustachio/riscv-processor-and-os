@@ -23,6 +23,7 @@ entity memory_controller is
         SRAM_OE_N       : out    vl_logic;
         SRAM_UB_N       : out    vl_logic;
         SRAM_LB_N       : out    vl_logic;
-        SRAM_CE_N       : out    vl_logic
+        SRAM_CE_N       : out    vl_logic;
+        LEDR            : out    vl_logic_vector(9 downto 0)
     );
 end memory_controller;

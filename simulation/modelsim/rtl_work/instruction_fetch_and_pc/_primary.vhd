@@ -11,6 +11,7 @@ entity instruction_fetch_and_pc is
         mem_read_request: out    vl_logic;
         mem_addr        : out    vl_logic_vector(31 downto 0);
         mem_read_result : in     vl_logic_vector(31 downto 0);
-        mem_finished    : in     vl_logic
+        mem_finished    : in     vl_logic;
+        TEST_ALLOW_WB_COMPLETE: in     vl_logic
     );
 end instruction_fetch_and_pc;

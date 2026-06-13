@@ -10,6 +10,9 @@ entity reg_bank is
         rs1_bank_interface_out: out    vl_logic_vector(31 downto 0);
         rs2_bank_interface_out: out    vl_logic_vector(31 downto 0);
         rd_writeback_reg: in     vl_logic_vector(4 downto 0);
-        rd_writeback_val: in     vl_logic_vector(31 downto 0)
+        rd_writeback_val: in     vl_logic_vector(31 downto 0);
+        TEST_ALLOW_WB_COMPLETE: in     vl_logic;
+        TEST_REG_IN     : in     vl_logic_vector(4 downto 0);
+        TEST_REG_OUT    : out    vl_logic_vector(31 downto 0)
     );
 end reg_bank;

@@ -115,7 +115,10 @@ module memory_controller(
 	output SRAM_OE_N, // !output enable
 	output SRAM_UB_N, // !upper byte mask
 	output SRAM_LB_N, // !lower byte mask
-	output SRAM_CE_N  // !chip enable
+	output SRAM_CE_N,  // !chip enable
+
+  // memory mapped I/O
+  output [9:0] LEDR
 );
 	////////////////////////////// 4MB 8-bit flash (ROM) @ 0x00000000 /////////////////////
 	assign FL_OE_N = 0;
@@ -187,27 +190,68 @@ module memory_controller(
   // todo
 
   ////////////////////////// L1 cache /////////////////////
-  // todo
+  // todo (?)
+
+  //////////////////////// MEMORY MAPPED I/O @ 0x30000000 /////////////////
+  reg mapped_read_request;
+  reg mapped_write_request;
+  wire [31:0] mapped_addr;
+  wire [31:0] mapped_data_in;
+  
+  wire [31:0] mapped_data_out;
+  wire mapped_finished;
+  
+  wire mapped_busy;
+
+  memory_mapped_io memory_mapped_io(
+    .clk(clk),
+    .rst_n(rst_n),
+    
+    .read_request(mapped_read_request),
+    .write_request(mapped_write_request),
+    .addr(mapped_addr),
+    .data_in(mapped_data_in),
+    
+    .data_out(mapped_data_out),
+    .finished(mapped_finished),
+    
+    .busy(mapped_busy),
+
+    // interfaces
+    .LEDR(LEDR)
+  );
+
 
   ///////////////////////// Memory Controller //////////////////
+  // flash
   assign flash_addr = addr_in[21:0];
   assign flash_byte_mode = byte_mode;
 
+  // sram
   assign sram_addr      = addr_in[18:0];
   assign sram_data_in   = byte_mode ? {data_in[7:0], 24'd0} : {data_in[7:0], data_in[15:8], data_in[23:16], data_in[31:24]}; // big -> little endian
   assign sram_byte_mode = byte_mode;
 
+  // memory mapped io
+  assign mapped_addr = addr_in;
+  assign mapped_data_in = data_in;
+
   // fsm for tracking which is finishing
   localparam FLASH = 0;
   localparam SRAM = 1;
+  localparam MMIO = 2;
 
   reg [1:0] last_module = FLASH;
   reg [1:0] next_module = FLASH;
 
   always @(*) begin
     flash_read_request = 0;
+
     sram_read_request  = 0;
     sram_write_request = 0;
+
+    mapped_read_request  = 0;
+    mapped_write_request = 0;
 
     if (!rst_n) begin
       next_module = FLASH;
@@ -229,6 +273,12 @@ module memory_controller(
         finished = sram_finished;
       end
 
+      else if (last_module == MMIO) begin
+        data_out = mapped_data_out;
+        busy = mapped_busy;
+        finished = mapped_finished;
+      end
+
       /////////// read/write requests ///////
       // flash
       if (addr_in[31:28] == 0 && read_request) begin
@@ -248,6 +298,19 @@ module memory_controller(
         sram_write_request  = 1;
 
         next_module = SRAM;
+      end
+
+      // MMIO
+      else if (addr_in[31:28] == 3 && read_request) begin
+        mapped_read_request  = 1;
+
+        next_module = MMIO;
+      end
+
+      else if (addr_in[31:28] == 3 && write_request) begin
+        mapped_write_request  = 1;
+
+        next_module = MMIO;
       end
     end
   end

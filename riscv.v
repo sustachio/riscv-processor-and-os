@@ -27,8 +27,6 @@ module riscv(
 	output [6:0] HEX2,
 	output [6:0] HEX3
 );
-	assign LEDG = 0;
-
   //////////////////////////////////
 
   wire TEST_ALLOW_WB_COMPLETE;
@@ -101,7 +99,10 @@ module riscv(
     .SRAM_OE_N(SRAM_OE_N),
     .SRAM_UB_N(SRAM_UB_N),
     .SRAM_LB_N(SRAM_LB_N),
-    .SRAM_CE_N(SRAM_CE_N)
+    .SRAM_CE_N(SRAM_CE_N),
+
+    // memory mapped i/o
+    .LEDR(LEDR)
   );
 
   wire fetch_read_request;
@@ -172,7 +173,6 @@ module riscv(
   wire [31:0] next_pc;
   wire [31:0] pc;
   wire [31:0] instruction32;
-  wire ins_valid;
   instruction_fetch_and_pc instruction_fetch_and_pc(
     .clk(CLOCK_50),
     .rst_n(rst_n),
@@ -190,7 +190,7 @@ module riscv(
     .mem_read_result(fetch_result),
     .mem_finished(mem_mux_finished),
 
-    .TEST_ALLOW_WB_COMPLETE(TEST_ALLOW_WB_COMPLETE),
+    .TEST_ALLOW_WB_COMPLETE(TEST_ALLOW_WB_COMPLETE)
   );
 
   wire [4:0] decoder_rd;
@@ -237,7 +237,7 @@ module riscv(
     .processor_state(processor_state),
 
     .op(decoder_op),
-    .write_data(decoder_rs1),
+    .write_data(decoder_rs2),
     .execute_result(execute_result),
     .read_res(memory_access_result),
 
@@ -270,43 +270,87 @@ module riscv(
 
   //////// DEBUGING ///////////
 
-  // SW[4:0] - test reg address
+  // SW[9:6] - select hex display (see below)
+  // SW[5]   - step mode
+  // SW[4:0] - TEST_REG_IN address
 
-  // KEY[0] - allow WB
+  // KEY[0] - allow WB (step)
   // KEY[1] - press to look at significant two bytes
 
-  // LEDR[9:0] - test reg out[9:0]
+  // LEDG[7:0] - TEST_REG_OUT[7:0] 
 
-  // hex - decoder_op
+  // hex - selected by SW[9:6]
+  // 0000 - decoder_op
+  // 0001 - TEST_REG_OUT
+  // 0010 - processor_state
+  // 0011 - mem_mux_finished
+  // 0100 - rs1 in (addr)
+  // 0101 - rs2 in (addr)
+  // 0110 - rs1 out (value)
+  // 0111 - rs2 out (value)
+  // 1000 - rd addr in
+  // 1001 - rd value in
+  // 1010 - pc
+  // 1011 - next_pc
+  // 1100 - instruction32
+  // 1101 - decoder_imm
+  // 1110 - execute_result
+
+  reg [31:0] hex_num;
+  always @(*) begin
+    case (SW[9:6])
+      4'b0000: hex_num = decoder_op;
+      4'b0001: hex_num = TEST_REG_OUT;
+      4'b0010: hex_num = processor_state;
+      4'b0011: hex_num = mem_mux_finished;
+      4'b0100: hex_num = rs1_bank_interface_in;
+      4'b0101: hex_num = rs2_bank_interface_in;
+      4'b0110: hex_num = rs1_bank_interface_out;
+      4'b0111: hex_num = rs2_bank_interface_out;
+      4'b1000: hex_num = rd_writeback_reg;
+      4'b1001: hex_num = rd_writeback_val;
+      4'b1010: hex_num = pc;
+      4'b1011: hex_num = next_pc;
+      4'b1100: hex_num = instruction32;
+      4'b1101: hex_num = decoder_imm;
+      4'b1110: hex_num = execute_result;
+
+      default: hex_num = 0;
+    endcase
+  end
 	
-  wire look_at_sig;
+  wire hex_upp_sel;
 
   assign TEST_REG_IN = SW[4:0];
 	
-	assign LEDR = TEST_REG_OUT[9:0];
+	assign LEDG = TEST_REG_OUT[7:0];
 	
+  wire step;
+  assign TEST_ALLOW_WB_COMPLETE = SW[5] | step;
 	button_debounce #(.PRECISE_CYCLE_TRIGGER(1)) sram_command_trigger(
 		.clk(CLOCK_50),
 		.button(!KEY[0]),
-		.debounced(TEST_ALLOW_WB_COMPLETE)
+		.debounced(step)
 	);
 
 	button_debounce #(.PRECISE_CYCLE_TRIGGER(0)) num_display_control(
 		.clk(CLOCK_50),
 		.button(!KEY[1]),
-		.debounced(look_at_sig)
+		.debounced(hex_upp_sel)
 	);
 
 	display_32bit_7seg mydisp(
-		.num(decoder_op),
+		.num(hex_num),
 		.hex0(HEX0),
 		.hex1(HEX1),
 		.hex2(HEX2),
 		.hex3(HEX3),
-		.upper_sel(look_at_sig)
+		.upper_sel(hex_upp_sel)
 	);
 
 endmodule
+
+
 
 
 // night sky https://www.asciiart.eu/ascii-night-sky-generator

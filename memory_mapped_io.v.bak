@@ -1,0 +1,80 @@
+// this is pretty inneficent but matches timing of other memory elements + buffer time for holding
+module memory_mapped_io(
+	input  wire clk,
+	input  wire rst_n,
+	
+	input  wire read_request,
+	input  wire write_request,
+	input  wire [31:0] addr,
+	input  wire [31:0] data_in,
+	
+	output reg [31:0] data_out,
+	output reg finished,
+	
+	output reg busy,
+
+  // interfaces
+  output reg [9:0] LEDR
+);
+	// states
+	localparam IDLE  = 3'd0;
+	localparam WRITE_LEDR = 3'd1;
+	
+	reg [2:0] state = IDLE;
+	reg [2:0] next_state = IDLE;
+
+	// FSM
+	always @(*) begin
+    if (!rst_n)
+      next_state = IDLE;
+    else begin
+      next_state = state;
+      case (state)
+        IDLE: begin
+          if (write_request && addr == 32'h30000000)
+            next_state = WRITE_LEDR;
+        end
+      
+        LEDR:
+          next_state = IDLE;
+
+        default: begin end
+      endcase
+    end
+	end
+	
+	always @(posedge clk or negedge rst_n) begin
+		if (!rst_n) begin
+			state <= IDLE;
+			finished <= 0;
+			data_out <= 0;
+			busy <= 0;
+		end else begin
+			// FSM transitions
+      if (next_state == IDLE) begin
+        busy <= 0;
+        finished <= 1;
+      end
+
+			if (next_state != state) begin
+				delay_counter <= 0;
+			
+				case (state)
+					IDLE: begin
+						busy <= 1;
+						finished <= 0;
+						data_out <= 0;
+					end
+
+          LEDR: begin
+            LEDR <= data_in[9:0];
+          end
+
+				endcase
+			end
+			
+			state <= next_state;
+		end
+	end
+
+endmodule

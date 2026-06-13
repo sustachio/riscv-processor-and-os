@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv
-Thu Jun 11 17:13:35 2026
+Fri Jun 12 22:02:40 2026
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,23 +14,22 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |riscv|memory_controller:mem|last_module
-  9. State Machine - |riscv|memory_controller:mem|sram_interface32bit:sram32|state
- 10. State Machine - |riscv|memory_controller:mem|flash_interface32bit:flash32|state
- 11. User-Specified and Inferred Latches
- 12. Registers Removed During Synthesis
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: button_debounce:sram_command_trigger
- 17. Parameter Settings for User Entity Instance: button_debounce:num_display_control
- 18. Port Connectivity Checks: "display_32bit_7seg:mydisp"
+  9. State Machine - |riscv|memory_controller:mem|memory_mapped_io:memory_mapped_io|state
+ 10. State Machine - |riscv|memory_controller:mem|sram_interface32bit:sram32|state
+ 11. State Machine - |riscv|memory_controller:mem|flash_interface32bit:flash32|state
+ 12. User-Specified and Inferred Latches
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: button_debounce:sram_command_trigger
+ 18. Parameter Settings for User Entity Instance: button_debounce:num_display_control
  19. Port Connectivity Checks: "memory_access:memory_access"
- 20. Port Connectivity Checks: "reg_bank:reg_bank"
- 21. Port Connectivity Checks: "memory_controller:mem|sram_interface32bit:sram32"
- 22. Port Connectivity Checks: "memory_controller:mem"
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
- 25. Analysis & Synthesis Suppressed Messages
+ 20. Port Connectivity Checks: "memory_controller:mem|sram_interface32bit:sram32"
+ 21. Port Connectivity Checks: "memory_controller:mem"
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+ 24. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -56,15 +55,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jun 11 17:13:35 2026           ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 12 22:02:40 2026           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; riscv                                           ;
 ; Top-level Entity Name              ; riscv                                           ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 5,333                                           ;
-;     Total combinational functions  ; 4,357                                           ;
-;     Dedicated logic registers      ; 1,301                                           ;
-; Total registers                    ; 1301                                            ;
+; Total logic elements               ; 6,233                                           ;
+;     Total combinational functions  ; 5,261                                           ;
+;     Dedicated logic registers      ; 1,311                                           ;
+; Total registers                    ; 1311                                            ;
 ; Total pins                         ; 133                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -180,6 +179,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; utils.v                          ; yes             ; User Verilog HDL File  ; C:/Users/Seth Mueller/Documents/fpga/utils.v             ;         ;
 ; pipeline.v                       ; yes             ; User Verilog HDL File  ; C:/Users/Seth Mueller/Documents/fpga/pipeline.v          ;         ;
 ; global_constants.vh              ; yes             ; User Unspecified File  ; C:/Users/Seth Mueller/Documents/fpga/global_constants.vh ;         ;
+; memory_mapped_io.v               ; yes             ; User Verilog HDL File  ; C:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v  ;         ;
 +----------------------------------+-----------------+------------------------+----------------------------------------------------------+---------+
 
 
@@ -188,67 +188,82 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 5,333                       ;
+; Estimated Total logic elements              ; 6,233                       ;
 ;                                             ;                             ;
-; Total combinational functions               ; 4357                        ;
+; Total combinational functions               ; 5261                        ;
 ; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 3154                        ;
-;     -- 3 input functions                    ; 923                         ;
-;     -- <=2 input functions                  ; 280                         ;
+;     -- 4 input functions                    ; 4032                        ;
+;     -- 3 input functions                    ; 929                         ;
+;     -- <=2 input functions                  ; 300                         ;
 ;                                             ;                             ;
 ; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 3919                        ;
+;     -- normal mode                          ; 4823                        ;
 ;     -- arithmetic mode                      ; 438                         ;
 ;                                             ;                             ;
-; Total registers                             ; 1301                        ;
-;     -- Dedicated logic registers            ; 1301                        ;
+; Total registers                             ; 1311                        ;
+;     -- Dedicated logic registers            ; 1311                        ;
 ;     -- I/O registers                        ; 0                           ;
 ;                                             ;                             ;
 ; I/O pins                                    ; 133                         ;
 ; Embedded Multiplier 9-bit elements          ; 0                           ;
 ; Maximum fan-out node                        ; rst_n_init:rst_n_init|rst_n ;
-; Maximum fan-out                             ; 1443                        ;
-; Total fan-out                               ; 21221                       ;
-; Average fan-out                             ; 3.66                        ;
+; Maximum fan-out                             ; 1600                        ;
+; Total fan-out                               ; 24779                       ;
+; Average fan-out                             ; 3.70                        ;
 +---------------------------------------------+-----------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                           ;
-+--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Library Name ;
-+--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
-; |riscv                                                 ; 4357 (0)          ; 1301 (0)     ; 0           ; 0            ; 0       ; 0         ; 133  ; 0            ; |riscv                                                    ; work         ;
-;    |button_debounce:num_display_control|               ; 26 (26)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|button_debounce:num_display_control                ; work         ;
-;    |button_debounce:sram_command_trigger|              ; 60 (60)           ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|button_debounce:sram_command_trigger               ; work         ;
-;    |decoder:decoder|                                   ; 1702 (1702)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|decoder:decoder                                    ; work         ;
-;    |display_32bit_7seg:mydisp|                         ; 16 (6)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp                          ; work         ;
-;       |hex_to_7seg:hex0conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex0conv     ; work         ;
-;       |hex_to_7seg:hex1conv|                           ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex1conv     ; work         ;
-;    |execute:execute|                                   ; 1397 (1397)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|execute:execute                                    ; work         ;
-;    |instruction_fetch_and_pc:instruction_fetch_and_pc| ; 162 (162)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc  ; work         ;
-;    |memory_access:memory_access|                       ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_access:memory_access                        ; work         ;
-;    |memory_controller:mem|                             ; 433 (73)          ; 155 (1)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem                              ; work         ;
-;       |flash_interface32bit:flash32|                   ; 176 (176)         ; 65 (65)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|flash_interface32bit:flash32 ; work         ;
-;       |sram_interface32bit:sram32|                     ; 184 (184)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|sram_interface32bit:sram32   ; work         ;
-;    |memory_multiplexer:memory_multiplexer|             ; 74 (74)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_multiplexer:memory_multiplexer              ; work         ;
-;    |processor_state_manager:processor_state_manager|   ; 6 (6)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|processor_state_manager:processor_state_manager    ; work         ;
-;    |reg_bank:reg_bank|                                 ; 267 (267)         ; 1000 (1000)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_bank:reg_bank                                  ; work         ;
-;    |reg_writeback:reg_writeback|                       ; 209 (209)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_writeback:reg_writeback                        ; work         ;
-;    |rst_n_init:rst_n_init|                             ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|rst_n_init:rst_n_init                              ; work         ;
-+--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                ;
++--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                            ; Library Name ;
++--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+; |riscv                                                 ; 5261 (68)         ; 1311 (0)     ; 0           ; 0            ; 0       ; 0         ; 133  ; 0            ; |riscv                                                         ; work         ;
+;    |button_debounce:num_display_control|               ; 26 (26)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|button_debounce:num_display_control                     ; work         ;
+;    |button_debounce:sram_command_trigger|              ; 60 (60)           ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|button_debounce:sram_command_trigger                    ; work         ;
+;    |decoder:decoder|                                   ; 401 (401)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|decoder:decoder                                         ; work         ;
+;    |display_32bit_7seg:mydisp|                         ; 268 (240)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp                               ; work         ;
+;       |hex_to_7seg:hex0conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex0conv          ; work         ;
+;       |hex_to_7seg:hex1conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex1conv          ; work         ;
+;       |hex_to_7seg:hex2conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex2conv          ; work         ;
+;       |hex_to_7seg:hex3conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex3conv          ; work         ;
+;    |execute:execute|                                   ; 1611 (1611)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|execute:execute                                         ; work         ;
+;    |instruction_fetch_and_pc:instruction_fetch_and_pc| ; 109 (109)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc       ; work         ;
+;    |memory_access:memory_access|                       ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_access:memory_access                             ; work         ;
+;    |memory_controller:mem|                             ; 443 (79)          ; 169 (3)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem                                   ; work         ;
+;       |flash_interface32bit:flash32|                   ; 167 (167)         ; 65 (65)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|flash_interface32bit:flash32      ; work         ;
+;       |memory_mapped_io:memory_mapped_io|              ; 17 (17)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|memory_mapped_io:memory_mapped_io ; work         ;
+;       |sram_interface32bit:sram32|                     ; 180 (180)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|sram_interface32bit:sram32        ; work         ;
+;    |memory_multiplexer:memory_multiplexer|             ; 74 (74)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_multiplexer:memory_multiplexer                   ; work         ;
+;    |processor_state_manager:processor_state_manager|   ; 6 (6)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|processor_state_manager:processor_state_manager         ; work         ;
+;    |reg_bank:reg_bank|                                 ; 2112 (2112)       ; 996 (996)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_bank:reg_bank                                       ; work         ;
+;    |reg_writeback:reg_writeback|                       ; 77 (77)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_writeback:reg_writeback                             ; work         ;
+;    |rst_n_init:rst_n_init|                             ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|rst_n_init:rst_n_init                                   ; work         ;
++--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------+
-; State Machine - |riscv|memory_controller:mem|last_module ;
-+-------------------+--------------------------------------+
-; Name              ; last_module.SRAM                     ;
-+-------------------+--------------------------------------+
-; last_module.FLASH ; 0                                    ;
-; last_module.SRAM  ; 1                                    ;
-+-------------------+--------------------------------------+
++-----------------------------------------------------------------------------+
+; State Machine - |riscv|memory_controller:mem|last_module                    ;
++-------------------+-------------------+------------------+------------------+
+; Name              ; last_module.FLASH ; last_module.MMIO ; last_module.SRAM ;
++-------------------+-------------------+------------------+------------------+
+; last_module.FLASH ; 0                 ; 0                ; 0                ;
+; last_module.SRAM  ; 1                 ; 0                ; 1                ;
+; last_module.MMIO  ; 1                 ; 1                ; 0                ;
++-------------------+-------------------+------------------+------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------+
+; State Machine - |riscv|memory_controller:mem|memory_mapped_io:memory_mapped_io|state ;
++------------------+-------------------------------------------------------------------+
+; Name             ; state.WRITE_LEDR                                                  ;
++------------------+-------------------------------------------------------------------+
+; state.IDLE       ; 0                                                                 ;
+; state.WRITE_LEDR ; 1                                                                 ;
++------------------+-------------------------------------------------------------------+
 
 
 Encoding Type:  One-Hot
@@ -303,101 +318,129 @@ Encoding Type:  One-Hot
 ; reg_bank:reg_bank|TEST_REG_OUT[5]                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
 ; reg_bank:reg_bank|TEST_REG_OUT[6]                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
 ; reg_bank:reg_bank|TEST_REG_OUT[7]                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[8]                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[9]                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; memory_controller:mem|data_out[6]                      ; VCC                                                                ; yes                    ;
-; memory_controller:mem|finished                         ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[4]                      ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[1]                      ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[0]                      ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[2]                      ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[5]                      ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[3]                      ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[14]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[13]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[12]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[25]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[26]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[27]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[28]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[30]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[31]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[29]                     ; VCC                                                                ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[16]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
 ; memory_controller:mem|data_out[15]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[24]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[23]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[21]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[19]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|finished                         ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[16]                     ; VCC                                                                ; yes                    ;
 ; memory_controller:mem|data_out[18]                     ; VCC                                                                ; yes                    ;
 ; memory_controller:mem|data_out[17]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[16]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[11]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[10]                     ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[9]                      ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[8]                      ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[7]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[19]                     ; VCC                                                                ; yes                    ;
 ; memory_controller:mem|data_out[20]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[21]                     ; VCC                                                                ; yes                    ;
 ; memory_controller:mem|data_out[22]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[23]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[24]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[0]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[1]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[2]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[3]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[4]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[5]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[6]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[14]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[12]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[13]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[27]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[31]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[25]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[26]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[28]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[29]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[30]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[7]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[10]                     ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[8]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[9]                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[11]                     ; VCC                                                                ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[17]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[18]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[19]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[20]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[21]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[22]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[23]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[8]                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[24]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[9]                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[25]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[10]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[26]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[11]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[27]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[12]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[28]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[13]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[29]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[14]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[30]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[31]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[15]                     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
 ; memory_multiplexer:memory_multiplexer|memory_byte_mode ; processor_state_manager:processor_state_manager|processor_state[2] ; yes                    ;
-; Number of user-specified and inferred latches = 44     ;                                                                    ;                        ;
+; Number of user-specified and inferred latches = 66     ;                                                                    ;                        ;
 +--------------------------------------------------------+--------------------------------------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                         ;
-+------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
-; Register name                                                          ; Reason for Removal                                                                ;
-+------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
-; button_debounce:num_display_control|internal_debounce                  ; Merged with button_debounce:num_display_control|debounced                         ;
-; reg_bank:reg_bank|registers[0][13]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][12]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][11]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][10]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][9]                                      ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][8]                                      ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][25]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][24]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][23]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][22]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][21]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][20]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][19]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][18]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][17]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][16]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][15]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][14]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][29]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][28]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][27]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][26]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][31]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][30]                                     ; Stuck at GND due to stuck port data_in                                            ;
-; memory_controller:mem|last_module~5                                    ; Lost fanout                                                                       ;
-; memory_controller:mem|sram_interface32bit:sram32|state~4               ; Lost fanout                                                                       ;
-; memory_controller:mem|sram_interface32bit:sram32|state~5               ; Lost fanout                                                                       ;
-; memory_controller:mem|sram_interface32bit:sram32|state~6               ; Lost fanout                                                                       ;
-; memory_controller:mem|sram_interface32bit:sram32|state~7               ; Lost fanout                                                                       ;
-; memory_controller:mem|flash_interface32bit:flash32|state~4             ; Lost fanout                                                                       ;
-; memory_controller:mem|flash_interface32bit:flash32|state~5             ; Lost fanout                                                                       ;
-; memory_controller:mem|flash_interface32bit:flash32|state~6             ; Lost fanout                                                                       ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[1]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[2]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[3]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[4]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[5]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[6]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[7]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[9]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[10]~en ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[11]~en ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[12]~en ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[13]~en ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[14]~en ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
-; memory_controller:mem|sram_interface32bit:sram32|write_halfword[15]~en ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
-; Total Number of Removed Registers = 47                                 ;                                                                                   ;
-+------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                          ;
++-------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+; Register name                                                           ; Reason for Removal                                                                ;
++-------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
+; memory_controller:mem|memory_mapped_io:memory_mapped_io|data_out[0..31] ; Stuck at GND due to stuck port data_in                                            ;
+; button_debounce:num_display_control|internal_debounce                   ; Merged with button_debounce:num_display_control|debounced                         ;
+; reg_bank:reg_bank|registers[0][16]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][7]                                       ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][4]                                       ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][15]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][17]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][18]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][19]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][20]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][21]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][22]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][23]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][24]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][25]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][26]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][27]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][28]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][29]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][30]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][31]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][8]                                       ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][9]                                       ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][10]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][11]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][12]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][13]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][14]                                      ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][6]                                       ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][5]                                       ; Stuck at GND due to stuck port data_in                                            ;
+; memory_controller:mem|memory_mapped_io:memory_mapped_io|state~5         ; Lost fanout                                                                       ;
+; memory_controller:mem|memory_mapped_io:memory_mapped_io|state~6         ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state~4                ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state~5                ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state~6                ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|state~7                ; Lost fanout                                                                       ;
+; memory_controller:mem|flash_interface32bit:flash32|state~4              ; Lost fanout                                                                       ;
+; memory_controller:mem|flash_interface32bit:flash32|state~5              ; Lost fanout                                                                       ;
+; memory_controller:mem|flash_interface32bit:flash32|state~6              ; Lost fanout                                                                       ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[1]~en   ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[2]~en   ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[3]~en   ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[4]~en   ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[5]~en   ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[6]~en   ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[7]~en   ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[9]~en   ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[10]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[11]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[12]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[13]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[14]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; memory_controller:mem|sram_interface32bit:sram32|write_halfword[15]~en  ; Merged with memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en ;
+; Total Number of Removed Registers = 84                                  ;                                                                                   ;
++-------------------------------------------------------------------------+-----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -405,12 +448,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1301  ;
-; Number of registers using Synchronous Clear  ; 72    ;
-; Number of registers using Synchronous Load   ; 47    ;
+; Total registers                              ; 1311  ;
+; Number of registers using Synchronous Clear  ; 70    ;
+; Number of registers using Synchronous Load   ; 17    ;
 ; Number of registers using Asynchronous Clear ; 1199  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1219  ;
+; Number of registers using Clock Enable       ; 1225  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -435,53 +478,58 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|saved_instruction32[27]   ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[31]               ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[22]               ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[8]                ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[2]                ;
-; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |riscv|button_debounce:sram_command_trigger|precise_count_down[7]                  ;
-; 5:1                ; 21 bits   ; 63 LEs        ; 42 LEs               ; 21 LEs                 ; Yes        ; |riscv|memory_controller:mem|flash_interface32bit:flash32|interface_addr[14]       ;
-; 8:1                ; 17 bits   ; 85 LEs        ; 34 LEs               ; 51 LEs                 ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|interface_addr[1]          ;
-; 29:1               ; 30 bits   ; 570 LEs       ; 60 LEs               ; 510 LEs                ; Yes        ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|pc[23]                    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|saved_instruction32[25]   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[25]               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[23]               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[12]               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[7]                ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |riscv|button_debounce:sram_command_trigger|precise_count_down[22]                 ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 42 LEs               ; 21 LEs                 ; Yes        ; |riscv|memory_controller:mem|flash_interface32bit:flash32|interface_addr[11]       ;
+; 8:1                ; 17 bits   ; 85 LEs        ; 34 LEs               ; 51 LEs                 ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|interface_addr[7]          ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|writing                    ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]          ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]          ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|write_halfword[9]          ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|write_halfword[5]          ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state.READ4         ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state                 ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|data_out[22]                                          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|data_out[6]                                           ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state               ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[7]                                 ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[10]                                                     ;
+; 3:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; No         ; |riscv|decoder:decoder|rs2[5]                                                      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[2]                                 ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[5]                                                      ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state                 ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|fetch_result[8]                       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.UNALIGNED_READ1 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|fetch_result[26]                      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|memory_mapped_io:memory_mapped_io|next_state.IDLE     ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.READ_BYTE_LOWER ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.WRITE1          ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |riscv|memory_controller:mem|next_module.SRAM                                      ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |riscv|memory_controller:mem|next_module                                           ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |riscv|memory_controller:mem|data_out[18]                                          ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; No         ; |riscv|memory_controller:mem|data_out[5]                                           ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state.READ1         ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_rd[4]                                  ;
-; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; No         ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|instruction32[6]          ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; No         ; |riscv|decoder:decoder|imm[24]                                                     ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_data_in[4]                     ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[26]                                                     ;
-; 33:1               ; 10 bits   ; 220 LEs       ; 220 LEs              ; 0 LEs                  ; No         ; |riscv|reg_bank:reg_bank|TEST_REG_OUT                                              ;
-; 7:1                ; 24 bits   ; 96 LEs        ; 24 LEs               ; 72 LEs                 ; No         ; |riscv|memory_controller:mem|sram_data_in[17]                                      ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 14 LEs               ; 21 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[14]                                ;
-; 10:1               ; 26 bits   ; 156 LEs       ; 78 LEs               ; 78 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_addr[29]                       ;
-; 36:1               ; 32 bits   ; 768 LEs       ; 704 LEs              ; 64 LEs                 ; No         ; |riscv|decoder:decoder|rs2[5]                                                      ;
-; 36:1               ; 32 bits   ; 768 LEs       ; 704 LEs              ; 64 LEs                 ; No         ; |riscv|decoder:decoder|rs1[13]                                                     ;
-; 9:1                ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |riscv|decoder:decoder|imm[18]                                                     ;
-; 8:1                ; 10 bits   ; 50 LEs        ; 20 LEs               ; 30 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[18]                                ;
-; 14:1               ; 4 bits    ; 36 LEs        ; 16 LEs               ; 20 LEs                 ; No         ; |riscv|decoder:decoder|imm[2]                                                      ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_rd[1]                                  ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; No         ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|instruction32[20]         ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; No         ; |riscv|decoder:decoder|imm[23]                                                     ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_data_in[3]                     ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[29]                                                     ;
+; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |riscv|reg_bank:reg_bank|TEST_REG_OUT                                              ;
+; 7:1                ; 22 bits   ; 88 LEs        ; 22 LEs               ; 66 LEs                 ; No         ; |riscv|memory_controller:mem|sram_data_in[21]                                      ;
+; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |riscv|reg_bank:reg_bank|rs1_bank_interface_out[14]                                ;
+; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |riscv|reg_bank:reg_bank|rs2_bank_interface_out[23]                                ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 14 LEs               ; 21 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[12]                                ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_addr[24]                       ;
+; 32:1               ; 6 bits    ; 126 LEs       ; 90 LEs               ; 36 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit3[1]                                         ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |riscv|decoder:decoder|imm[16]                                                     ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 32 LEs               ; 48 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[16]                                ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 16 LEs               ; 20 LEs                 ; No         ; |riscv|decoder:decoder|imm[3]                                                      ;
+; 30:1               ; 3 bits    ; 60 LEs        ; 42 LEs               ; 18 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit2[0]                                         ;
+; 29:1               ; 31 bits   ; 589 LEs       ; 62 LEs               ; 527 LEs                ; No         ; |riscv|execute:execute|next_pc[4]                                                  ;
+; 29:1               ; 2 bits    ; 38 LEs        ; 32 LEs               ; 6 LEs                  ; No         ; |riscv|display_32bit_7seg:mydisp|digit1[0]                                         ;
+; 30:1               ; 2 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |riscv|display_32bit_7seg:mydisp|digit0[1]                                         ;
 ; 40:1               ; 8 bits    ; 208 LEs       ; 128 LEs              ; 80 LEs                 ; No         ; |riscv|execute:execute|res[8]                                                      ;
-; 40:1               ; 6 bits    ; 156 LEs       ; 96 LEs               ; 60 LEs                 ; No         ; |riscv|execute:execute|res[20]                                                     ;
-; 42:1               ; 4 bits    ; 112 LEs       ; 68 LEs               ; 44 LEs                 ; No         ; |riscv|execute:execute|res[7]                                                      ;
-; 44:1               ; 2 bits    ; 58 LEs        ; 38 LEs               ; 20 LEs                 ; No         ; |riscv|execute:execute|res[3]                                                      ;
-; 44:1               ; 2 bits    ; 58 LEs        ; 38 LEs               ; 20 LEs                 ; No         ; |riscv|execute:execute|res[28]                                                     ;
-; 46:1               ; 2 bits    ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; No         ; |riscv|execute:execute|res[31]                                                     ;
-; 46:1               ; 2 bits    ; 60 LEs        ; 34 LEs               ; 26 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[23]                                ;
-; 48:1               ; 4 bits    ; 128 LEs       ; 80 LEs               ; 48 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[26]                                ;
+; 40:1               ; 8 bits    ; 208 LEs       ; 136 LEs              ; 72 LEs                 ; No         ; |riscv|execute:execute|res[21]                                                     ;
+; 42:1               ; 4 bits    ; 112 LEs       ; 72 LEs               ; 40 LEs                 ; No         ; |riscv|execute:execute|res[7]                                                      ;
+; 42:1               ; 4 bits    ; 112 LEs       ; 72 LEs               ; 40 LEs                 ; No         ; |riscv|execute:execute|res[25]                                                     ;
+; 44:1               ; 2 bits    ; 58 LEs        ; 40 LEs               ; 18 LEs                 ; No         ; |riscv|execute:execute|res[3]                                                      ;
+; 44:1               ; 2 bits    ; 58 LEs        ; 40 LEs               ; 18 LEs                 ; No         ; |riscv|execute:execute|res[29]                                                     ;
+; 46:1               ; 2 bits    ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; No         ; |riscv|execute:execute|res[30]                                                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 
 
@@ -505,15 +553,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "display_32bit_7seg:mydisp"                                                                                                                   ;
-+------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                       ;
-+------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; num  ; Input ; Warning  ; Input port expression (6 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "num[31..6]" will be connected to GND. ;
-+------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "memory_access:memory_access"                                                                                                                           ;
 +-----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -521,15 +560,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 ; mem_access_busy ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
 +-----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "reg_bank:reg_bank"                                                                                  ;
-+----------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                 ; Type   ; Severity ; Details                                                                             ;
-+----------------------+--------+----------+-------------------------------------------------------------------------------------+
-; TEST_REG_OUT[31..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -555,7 +585,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:14     ;
+; Top            ; 00:00:23     ;
 +----------------+--------------+
 
 
@@ -565,12 +595,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jun 11 17:13:19 2026
+    Info: Processing started: Fri Jun 12 22:02:13 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv -c riscv
 Info (12021): Found 2 design units, including 2 entities, in source file memory.v
     Info (12023): Found entity 1: memory_multiplexer
     Info (12023): Found entity 2: memory_controller
-Warning (10275): Verilog HDL Module Instantiation warning at riscv.v(194): ignored dangling comma in List of Port Connections
 Info (12021): Found 1 design units, including 1 entities, in source file riscv.v
     Info (12023): Found entity 1: riscv
 Info (12021): Found 2 design units, including 2 entities, in source file interfaces.v
@@ -592,6 +621,8 @@ Info (12021): Found 7 design units, including 7 entities, in source file pipelin
     Info (12023): Found entity 6: memory_access
     Info (12023): Found entity 7: reg_writeback
 Info (12021): Found 0 design units, including 0 entities, in source file global_constants.v
+Info (12021): Found 1 design units, including 1 entities, in source file memory_mapped_io.v
+    Info (12023): Found entity 1: memory_mapped_io
 Info (12127): Elaborating entity "riscv" for the top level hierarchy
 Info (12128): Elaborating entity "rst_n_init" for hierarchy "rst_n_init:rst_n_init"
 Info (12128): Elaborating entity "processor_state_manager" for hierarchy "processor_state_manager:processor_state_manager"
@@ -599,6 +630,7 @@ Info (12128): Elaborating entity "memory_controller" for hierarchy "memory_contr
 Info (12128): Elaborating entity "flash_interface32bit" for hierarchy "memory_controller:mem|flash_interface32bit:flash32"
 Info (10264): Verilog HDL Case Statement information at interfaces.v(48): all case item expressions in this case statement are onehot
 Info (12128): Elaborating entity "sram_interface32bit" for hierarchy "memory_controller:mem|sram_interface32bit:sram32"
+Info (12128): Elaborating entity "memory_mapped_io" for hierarchy "memory_controller:mem|memory_mapped_io:memory_mapped_io"
 Info (12128): Elaborating entity "memory_multiplexer" for hierarchy "memory_multiplexer:memory_multiplexer"
 Info (12128): Elaborating entity "reg_bank" for hierarchy "reg_bank:reg_bank"
 Info (12128): Elaborating entity "instruction_fetch_and_pc" for hierarchy "instruction_fetch_and_pc:instruction_fetch_and_pc"
@@ -617,7 +649,7 @@ Warning (10230): Verilog HDL assignment warning at utils.v(53): truncated value 
 Warning (10230): Verilog HDL assignment warning at utils.v(60): truncated value with size 32 to match size of target (23)
 Info (12128): Elaborating entity "display_32bit_7seg" for hierarchy "display_32bit_7seg:mydisp"
 Info (12128): Elaborating entity "hex_to_7seg" for hierarchy "display_32bit_7seg:mydisp|hex_to_7seg:hex0conv"
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
@@ -625,51 +657,23 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "FL_RST_N" is stuck at VCC
     Warning (13410): Pin "FL_WE_N" is stuck at VCC
     Warning (13410): Pin "SRAM_CE_N" is stuck at GND
-    Warning (13410): Pin "LEDG[0]" is stuck at GND
-    Warning (13410): Pin "LEDG[1]" is stuck at GND
-    Warning (13410): Pin "LEDG[2]" is stuck at GND
-    Warning (13410): Pin "LEDG[3]" is stuck at GND
-    Warning (13410): Pin "LEDG[4]" is stuck at GND
-    Warning (13410): Pin "LEDG[5]" is stuck at GND
-    Warning (13410): Pin "LEDG[6]" is stuck at GND
-    Warning (13410): Pin "LEDG[7]" is stuck at GND
-    Warning (13410): Pin "HEX1[1]" is stuck at GND
-    Warning (13410): Pin "HEX2[0]" is stuck at GND
-    Warning (13410): Pin "HEX2[1]" is stuck at GND
-    Warning (13410): Pin "HEX2[2]" is stuck at GND
-    Warning (13410): Pin "HEX2[3]" is stuck at GND
-    Warning (13410): Pin "HEX2[4]" is stuck at GND
-    Warning (13410): Pin "HEX2[5]" is stuck at GND
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC
-    Warning (13410): Pin "HEX3[0]" is stuck at GND
-    Warning (13410): Pin "HEX3[1]" is stuck at GND
-    Warning (13410): Pin "HEX3[2]" is stuck at GND
-    Warning (13410): Pin "HEX3[3]" is stuck at GND
-    Warning (13410): Pin "HEX3[4]" is stuck at GND
-    Warning (13410): Pin "HEX3[5]" is stuck at GND
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC
-Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Seth Mueller/Documents/fpga/output_files/riscv.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 7 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[5]"
-    Warning (15610): No output dependent on input pin "SW[6]"
-    Warning (15610): No output dependent on input pin "SW[7]"
-    Warning (15610): No output dependent on input pin "SW[8]"
-    Warning (15610): No output dependent on input pin "SW[9]"
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "KEY[3]"
-Info (21057): Implemented 5506 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 6449 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 94 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 5373 logic cells
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 45 warnings
-    Info: Peak virtual memory: 381 megabytes
-    Info: Processing ended: Thu Jun 11 17:13:35 2026
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:16
+    Info (21061): Implemented 6316 logic cells
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 379 megabytes
+    Info: Processing ended: Fri Jun 12 22:02:40 2026
+    Info: Elapsed time: 00:00:27
+    Info: Total CPU time (on all processors): 00:00:26
 
 
 +------------------------------------------+

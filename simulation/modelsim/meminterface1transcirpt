@@ -10,12 +10,6 @@
 # ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/memory.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module memory_controller
-# 
-# Top level modules:
-# 	memory_controller
 # vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/riscv.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module riscv
@@ -32,51 +26,110 @@
 # 	sram_interface32bit
 # vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/utils.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module rst_n_init
 # -- Compiling module button_debounce
 # -- Compiling module hex_to_7seg
 # -- Compiling module display_32bit_7seg
 # 
 # Top level modules:
+# 	rst_n_init
 # 	button_debounce
 # 	display_32bit_7seg
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module memory_mapped_io
 # 
-vsim work.memory_controller
-# vsim work.memory_controller 
+# Top level modules:
+# 	memory_mapped_io
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/memory.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module memory_multiplexer
+# -- Compiling module memory_controller
+# 
+# Top level modules:
+# 	memory_multiplexer
+# 	memory_controller
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/pipeline.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module processor_state_manager
+# -- Compiling module reg_bank
+# -- Compiling module instruction_fetch_and_pc
+# -- Compiling module decoder
+# -- Compiling module execute
+# -- Compiling module memory_access
+# -- Compiling module reg_writeback
+# 
+# Top level modules:
+# 	processor_state_manager
+# 	reg_bank
+# 	instruction_fetch_and_pc
+# 	decoder
+# 	execute
+# 	memory_access
+# 	reg_writeback
+# 
+vsim work.riscv
+# vsim work.riscv 
+# Loading work.riscv
+# Loading work.rst_n_init
+# Loading work.processor_state_manager
 # Loading work.memory_controller
 # Loading work.flash_interface32bit
 # Loading work.sram_interface32bit
-# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Too few port connections. Expected 17, found 16.
+# Loading work.memory_mapped_io
+# Loading work.memory_multiplexer
+# Loading work.reg_bank
+# Loading work.instruction_fetch_and_pc
+# Loading work.decoder
+# Loading work.execute
+# Loading work.memory_access
+# Loading work.reg_writeback
+# Loading work.button_debounce
+# Loading work.display_32bit_7seg
+# Loading work.hex_to_7seg
+# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/memory.v(187): [TFMPC] - Too few port connections. Expected 17, found 16.
 # 
-#         Region: /memory_controller/sram32
-# ** Warning: (vsim-3015) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [PCDPC] - Port size (19 or 19) does not match connection size (18) for port 'addr'. The port definition is at: C:/Users/Seth Mueller/Documents/fpga/interfaces.v(137).
+#         Region: /riscv/mem/sram32
+# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/memory.v(187): [TFMPC] - Missing connection for port 'TEST_EXPOSE_STATE'.
 # 
-#         Region: /memory_controller/sram32
-# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/memory.v(105): [TFMPC] - Missing connection for port 'TEST_EXPOSE_STATE'.
+# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/riscv.v(253): [TFMPC] - Too few port connections. Expected 15, found 14.
 # 
-ls
-# meminterface1.do               riscv_run_msim_rtl_verilog.do.bak   riscv_run_msim_rtl_verilog.do.bak9  
-# meminterface1transcirpt        riscv_run_msim_rtl_verilog.do.bak1  riscv_v.sdo                         
-# modelsim.ini                   riscv_run_msim_rtl_verilog.do.bak2  riscv_v_fast.sdo                    
-# msim_transcript                riscv_run_msim_rtl_verilog.do.bak3  rtl_work                            
-# riscv.sft                      riscv_run_msim_rtl_verilog.do.bak4  sramtesting                         
-# riscv.vo                       riscv_run_msim_rtl_verilog.do.bak5  sramtesting.do                      
-# riscv_fast.vo                  riscv_run_msim_rtl_verilog.do.bak6  vsim.wlf                            
-# riscv_modelsim.xrf             riscv_run_msim_rtl_verilog.do.bak7  wave.do                             
-# riscv_run_msim_rtl_verilog.do  riscv_run_msim_rtl_verilog.do.bak8                                      
-do meminterface1.do
-# Invalid time value: 20n
-# Executing ONERROR command at macro ./meminterface1.do line 69
-force -freeze sim:/memory_controller/addr_in 00010000000000000000000000000001 0
+#         Region: /riscv/memory_access
+# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/riscv.v(253): [TFMPC] - Missing connection for port 'mem_access_busy'.
+# 
+do ../../fullwave.do
+# ** Error: (vish-4014) No objects found matching '/riscv/ins_valid'.
+# Executing ONERROR command at macro ./../../fullwave.do line 106
+add wave -position insertpoint  \
+sim:/riscv/TEST_ALLOW_WB_COMPLETE
+force -freeze sim:/riscv/TEST_ALLOW_WB_COMPLETE 1 0
+force -deposit sim:/riscv/CLOCK_50 0 0, 1 10 ns -r 20 ns
+force -freeze sim:/riscv/fetch_result 00110000000000000000011110110111 0
+run 200 ns
+run 100 ns
+run 40 ns
+run 40 ns
+run 40 ns
+run 40 ns
+run 40 ns
+run 40 ns
+force -freeze sim:/riscv/fetch_result 00010101010100000000011100010011 0
+run 400 ns
+run 40 ns
+run 40 ns
+add wave -position end  sim:/riscv/mem/memory_mapped_io/clk
+add wave -position end  sim:/riscv/mem/memory_mapped_io/rst_n
+add wave -position end  sim:/riscv/mem/memory_mapped_io/read_request
+add wave -position end  sim:/riscv/mem/memory_mapped_io/write_request
+add wave -position end  sim:/riscv/mem/memory_mapped_io/addr
+add wave -position end  sim:/riscv/mem/memory_mapped_io/data_in
+add wave -position end  sim:/riscv/mem/memory_mapped_io/data_out
+add wave -position end  sim:/riscv/mem/memory_mapped_io/finished
+add wave -position end  sim:/riscv/mem/memory_mapped_io/busy
+add wave -position end  sim:/riscv/mem/memory_mapped_io/LEDR
+add wave -position end  sim:/riscv/mem/memory_mapped_io/state
+add wave -position end  sim:/riscv/mem/memory_mapped_io/next_state
+force -freeze sim:/riscv/fetch_result 00000000111001111010000000100011 0
+run 400 ns
 run 20 ns
-run 20 ns
-force -freeze sim:/memory_controller/read_request 1 0
-run 20 ns
-force -freeze sim:/memory_controller/read_request 0 0
-run 20 ns
-add wave -position end  sim:/memory_controller/sram32/interface_data
-force -freeze sim:/memory_controller/sram32/interface_data 0000000000100000 0
-run 20 ns
-run 20 ns
-run 20 ns
-add wave -position end  sim:/memory_controller/sram32/interface_addr
-add wave -position end  sim:/memory_controller/sram32/addr
+run 100 ns
