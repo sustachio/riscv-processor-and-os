@@ -24,6 +24,10 @@ entity memory_controller is
         SRAM_UB_N       : out    vl_logic;
         SRAM_LB_N       : out    vl_logic;
         SRAM_CE_N       : out    vl_logic;
-        LEDR            : out    vl_logic_vector(9 downto 0)
+        LEDR            : out    vl_logic_vector(9 downto 0);
+        vga_pen_x       : out    vl_logic_vector(7 downto 0);
+        vga_pen_y       : out    vl_logic_vector(7 downto 0);
+        vga_pen_color   : out    vl_logic_vector(7 downto 0);
+        vga_pen_draw    : out    vl_logic
     );
 end memory_controller;

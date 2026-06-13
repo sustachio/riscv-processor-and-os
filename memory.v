@@ -66,7 +66,7 @@ module memory_multiplexer(
           memory_byte_mode = mem_access_byte_mode;
 
           fetch_result = 0;
-          mem_access_data_out = mem_access_data_out;
+          mem_access_data_out = memory_data_out;
         end
 
         default: begin
@@ -118,7 +118,14 @@ module memory_controller(
 	output SRAM_CE_N,  // !chip enable
 
   // memory mapped I/O
-  output [9:0] LEDR
+  // red leds
+  output [9:0] LEDR,
+
+  // vga
+  output [7:0] vga_pen_x,
+  output [7:0] vga_pen_y,
+  output [7:0] vga_pen_color,
+  output vga_pen_draw
 );
 	////////////////////////////// 4MB 8-bit flash (ROM) @ 0x00000000 /////////////////////
 	assign FL_OE_N = 0;
@@ -218,7 +225,12 @@ module memory_controller(
     .busy(mapped_busy),
 
     // interfaces
-    .LEDR(LEDR)
+    .LEDR(LEDR),
+
+    .vga_pen_x(vga_pen_x),
+    .vga_pen_y(vga_pen_y),
+    .vga_pen_color(vga_pen_color),
+    .vga_pen_draw(vga_pen_draw)
   );
 
 
@@ -268,7 +280,7 @@ module memory_controller(
       end
 
       else if (last_module == SRAM) begin
-        data_out = byte_mode ? {24'd0, flash_data[7:0]} : {sram_data_out[7:0], sram_data_out[15:8], sram_data_out[23:16], sram_data_out[31:24]}; // big -> little endian
+        data_out = byte_mode ? {24'd0, sram_data_out[7:0]} : {sram_data_out[7:0], sram_data_out[15:8], sram_data_out[23:16], sram_data_out[31:24]}; // big -> little endian
         busy = sram_busy;
         finished = sram_finished;
       end

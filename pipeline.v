@@ -621,28 +621,28 @@ module reg_writeback(
         // signed, must sext
         `OP_LB: begin
           reg_bank_rd = rd_in;
-          reg_bank_val = { {24{execute_result[7]}}, execute_result[7:0]};
+          reg_bank_val = { {24{mem_out[7]}}, mem_out[7:0]};
         end
 
         // signed, must sext
         `OP_LH: begin
           reg_bank_rd = rd_in;
-          reg_bank_val = { {16{execute_result[15]}}, execute_result[15:0]};
+          reg_bank_val = { {16{mem_out[15]}}, mem_out[15:0]};
         end
 
         `OP_LW: begin
           reg_bank_rd = rd_in;
-          reg_bank_val = execute_result;
+          reg_bank_val = mem_out;
         end
 
         `OP_LBU: begin
           reg_bank_rd = rd_in;
-          reg_bank_val = { {24{1'b0}}, execute_result[7:0]};
+          reg_bank_val = { {24{1'b0}}, mem_out[7:0]};
         end
 
         `OP_LHU: begin
           reg_bank_rd = rd_in;
-          reg_bank_val = { {16{1'b0}}, execute_result[15:0]};
+          reg_bank_val = { {16{1'b0}}, mem_out[15:0]};
         end
 
         // branches, ecalls, etc.

@@ -14,7 +14,7 @@ L0 22
 Z5 OV;L;10.1d;51
 r1
 31
-Z6 !s108 1781285332.968000
+Z6 !s108 1781377494.507000
 Z7 !s107 C:/Users/Seth Mueller/Documents/fpga/utils.v|
 Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/utils.v|
 Z9 o-vlog01compat -work work -O0
@@ -29,7 +29,7 @@ vdecoder
 I@]h5O=>[UOX=fhz6Xk8UZ2
 V8_]0J]FTTI3nMGaIg_cX91
 R1
-Z11 w1781215992
+Z11 w1781371106
 Z12 8C:/Users/Seth Mueller/Documents/fpga/pipeline.v
 Z13 FC:/Users/Seth Mueller/Documents/fpga/pipeline.v
 L0 200
@@ -37,7 +37,7 @@ R5
 r1
 !s85 0
 31
-Z14 !s108 1781285333.176000
+Z14 !s108 1781377494.704000
 Z15 !s107 C:/Users/Seth Mueller/Documents/fpga/global_constants.vh|C:/Users/Seth Mueller/Documents/fpga/pipeline.v|
 Z16 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/pipeline.v|
 !s101 -O0
@@ -94,7 +94,7 @@ L0 2
 R5
 r1
 31
-Z20 !s108 1781285332.909000
+Z20 !s108 1781377494.446000
 Z21 !s107 C:/Users/Seth Mueller/Documents/fpga/interfaces.v|
 Z22 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/interfaces.v|
 R9
@@ -164,44 +164,44 @@ R16
 R9
 R10
 vmemory_controller
-I6XXNXVElEkH;HZn07m3Y63
-Venn<BADIEWVTlo5g_08Gh0
+ITiA3l?oNK:eD7VD>?4FB=2
+VJ;cC21OaIbC9J4^J=MXdU0
 R1
-Z24 w1781281783
+Z24 w1781368101
 Z25 8C:/Users/Seth Mueller/Documents/fpga/memory.v
 Z26 FC:/Users/Seth Mueller/Documents/fpga/memory.v
 L0 87
 R5
 r1
 31
-Z27 !s108 1781285333.110000
+Z27 !s108 1781377494.644000
 Z28 !s107 C:/Users/Seth Mueller/Documents/fpga/global_constants.vh|C:/Users/Seth Mueller/Documents/fpga/memory.v|
 Z29 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/memory.v|
 R9
 R10
 !i10b 1
-!s100 emXF=]^;86Rlo1>0P2Phi0
+!s100 @WhV7C6Y`Q`[T6@1AbnhA0
 !s85 0
 !s101 -O0
 vmemory_mapped_io
-IUHhP;L7cEWfSgoag;gi4A3
-VNYCK8<kE60j[kj1n=1BID0
+I?2eeVg^_laI5LOjkej13@0
+V5eS_a9[EhT6f<l7@VAEee2
 R1
-w1781285071
-8C:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v
-FC:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v
+Z30 w1781369571
+Z31 8C:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v
+Z32 FC:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v
 L0 2
 R5
 r1
 31
+Z33 !s108 1781377494.583000
+Z34 !s107 C:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v|
+Z35 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v|
 R9
 R10
 !i10b 1
-!s100 k9:79Y]]k]@UNSJ<HWVc;2
+!s100 XJKBmYZ6aC2>hLL44hBnT2
 !s85 0
-!s108 1781285333.055000
-!s107 C:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v|
 !s101 -O0
 vmemory_multiplexer
 I_A=?HOkK32DhKd1zj24<^0
@@ -265,8 +265,8 @@ R9
 R10
 vreg_writeback
 !i10b 1
-!s100 bLDo_7LoNe``V=D:lYnVk3
-IThK[S`O5U=]YmzA8LUGUk3
+!s100 ^m[BfM[BPM`5W>nbM48Lz2
+I8h13mlYH2AN]e9ZaS7SLF0
 V[g9S?WiTi@>GeZ654IYE:1
 R1
 R11
@@ -284,10 +284,10 @@ R16
 R9
 R10
 vriscv
-IU0O;V;zkm7TTA;@6[U36`2
-V?AXgKZA?bfDgSE<B>A]j13
+I2Gk=F]g8zjV`adU9S?gkl0
+VlR^CkTjRK`4S[U:GAkW]31
 R1
-w1781284896
+w1781368123
 8C:/Users/Seth Mueller/Documents/fpga/riscv.v
 FC:/Users/Seth Mueller/Documents/fpga/riscv.v
 L0 1
@@ -297,9 +297,9 @@ r1
 R9
 R10
 !i10b 1
-!s100 PG23b677jJ`Cf1Hi1X5X@0
+!s100 WcM07OB9]V9PaPQ581>CW2
 !s85 0
-!s108 1781285332.858000
+!s108 1781377494.391000
 !s107 C:/Users/Seth Mueller/Documents/fpga/riscv.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/riscv.v|
 !s101 -O0
@@ -341,5 +341,25 @@ R9
 R10
 !i10b 1
 !s100 iP7m7OZL8;1?nZZ65gm;X1
+!s85 0
+!s101 -O0
+vvga_fun
+IYc:S]<a]AG^2f:VUWc4aO1
+VHEiNf0LQ5ccmkS^_k:cz50
+R1
+R30
+R31
+R32
+L0 104
+R5
+r1
+31
+R33
+R34
+R35
+R9
+R10
+!i10b 1
+!s100 OkM>K0WXPRmz:eE]^M_iX3
 !s85 0
 !s101 -O0

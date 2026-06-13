@@ -22,6 +22,11 @@ entity riscv is
         HEX0            : out    vl_logic_vector(6 downto 0);
         HEX1            : out    vl_logic_vector(6 downto 0);
         HEX2            : out    vl_logic_vector(6 downto 0);
-        HEX3            : out    vl_logic_vector(6 downto 0)
+        HEX3            : out    vl_logic_vector(6 downto 0);
+        VGA_R           : out    vl_logic_vector(3 downto 0);
+        VGA_G           : out    vl_logic_vector(3 downto 0);
+        VGA_B           : out    vl_logic_vector(3 downto 0);
+        VGA_HS          : out    vl_logic;
+        VGA_VS          : out    vl_logic
     );
 end riscv;

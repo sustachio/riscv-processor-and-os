@@ -1,5 +1,5 @@
 Flow report for riscv
-Fri Jun 12 22:03:38 2026
+Sat Jun 13 17:52:50 2026
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,20 +40,20 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Fri Jun 12 22:03:38 2026           ;
+; Flow Status                        ; Successful - Sat Jun 13 17:52:50 2026           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; riscv                                           ;
 ; Top-level Entity Name              ; riscv                                           ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 5,650 / 18,752 ( 30 % )                         ;
-;     Total combinational functions  ; 5,261 / 18,752 ( 28 % )                         ;
-;     Dedicated logic registers      ; 1,311 / 18,752 ( 7 % )                          ;
-; Total registers                    ; 1311                                            ;
-; Total pins                         ; 133 / 315 ( 42 % )                              ;
+; Total logic elements               ; 5,914 / 18,752 ( 32 % )                         ;
+;     Total combinational functions  ; 5,505 / 18,752 ( 29 % )                         ;
+;     Dedicated logic registers      ; 1,387 / 18,752 ( 7 % )                          ;
+; Total registers                    ; 1387                                            ;
+; Total pins                         ; 147 / 315 ( 47 % )                              ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
+; Total memory bits                  ; 16,384 / 239,616 ( 7 % )                        ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                                  ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                                   ;
 +------------------------------------+-------------------------------------------------+
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/12/2026 22:02:15 ;
+; Start date & time ; 06/13/2026 17:51:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; riscv               ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 39908817286048.178131973409296        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 39908817286048.178139108912176        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                  ; --            ; --          ; eda_simulation ;
@@ -95,12 +95,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:27     ; 1.0                     ; 371 MB              ; 00:00:25                           ;
-; Fitter                    ; 00:00:47     ; 1.0                     ; 514 MB              ; 00:00:45                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 377 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 418 MB              ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 372 MB              ; 00:00:03                           ;
-; Total                     ; 00:01:20     ; --                      ; --                  ; 00:01:16                           ;
+; Analysis & Synthesis      ; 00:00:26     ; 1.0                     ; 385 MB              ; 00:00:26                           ;
+; Fitter                    ; 00:00:44     ; 1.0                     ; 520 MB              ; 00:00:44                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 371 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 411 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 388 MB              ; 00:00:03                           ;
+; Total                     ; 00:01:16     ; --                      ; --                  ; 00:01:16                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

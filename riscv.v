@@ -25,7 +25,14 @@ module riscv(
 	output [6:0] HEX0,
 	output [6:0] HEX1,
 	output [6:0] HEX2,
-	output [6:0] HEX3
+	output [6:0] HEX3,
+
+  // video
+  output [3:0] VGA_R,
+  output [3:0] VGA_G,
+  output [3:0] VGA_B,
+  output VGA_HS,
+  output VGA_VS
 );
   //////////////////////////////////
 
@@ -68,6 +75,11 @@ module riscv(
 
   wire memory_busy;
   wire memory_finished;
+
+  wire [7:0] vga_pen_x;
+  wire [7:0] vga_pen_y;
+  wire [7:0] vga_pen_color;
+  wire vga_pen_draw;
   memory_controller mem(
     .clk(CLOCK_50),
     .rst_n(rst_n),
@@ -102,7 +114,12 @@ module riscv(
     .SRAM_CE_N(SRAM_CE_N),
 
     // memory mapped i/o
-    .LEDR(LEDR)
+    .LEDR(LEDR),
+
+    .vga_pen_x(vga_pen_x),
+    .vga_pen_y(vga_pen_y),
+    .vga_pen_color(vga_pen_color),
+    .vga_pen_draw(vga_pen_draw)
   );
 
   wire fetch_read_request;
@@ -348,9 +365,23 @@ module riscv(
 		.upper_sel(hex_upp_sel)
 	);
 
+  // video testing
+  vga_fun vga_fun(
+    .rst_n(rst_n),
+    .clk(CLOCK_50),
+
+    .VGA_R(VGA_R),
+    .VGA_G(VGA_G),
+    .VGA_B(VGA_B),
+    .VGA_HS(VGA_HS),
+    .VGA_VS(VGA_VS),
+		.pen_x(vga_pen_x),
+		.pen_y(vga_pen_y),
+		.pen_color(vga_pen_color),
+		.pen_draw(vga_pen_draw)
+  );
+
 endmodule
-
-
 
 
 // night sky https://www.asciiart.eu/ascii-night-sky-generator

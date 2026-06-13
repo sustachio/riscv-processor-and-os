@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C20F484) Path("C:/Users/Seth Mueller/Documents/fpga/output_files/") File("riscv.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C20F484) Path("C:/Users/Seth Mueller/Documents/DE1_v.1.0.2_SystemCD/DE1_control_panel/") File("DE1_ControlPanel.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
