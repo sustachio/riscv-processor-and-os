@@ -69,6 +69,12 @@
 # 	execute
 # 	memory_access
 # 	reg_writeback
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/ps2.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module ps2_interface
+# 
+# Top level modules:
+# 	ps2_interface
 # 
 vsim work.riscv
 # vsim work.riscv 
@@ -86,251 +92,24 @@ vsim work.riscv
 # Loading work.execute
 # Loading work.memory_access
 # Loading work.reg_writeback
+# Loading work.vga_fun
+# Loading work.ps2_interface
 # Loading work.button_debounce
 # Loading work.display_32bit_7seg
 # Loading work.hex_to_7seg
-# Loading work.vga_fun
-# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/memory.v(194): [TFMPC] - Too few port connections. Expected 17, found 16.
+# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/memory.v(197): [TFMPC] - Too few port connections. Expected 17, found 16.
 # 
 #         Region: /riscv/mem/sram32
-# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/memory.v(194): [TFMPC] - Missing connection for port 'TEST_EXPOSE_STATE'.
+# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/memory.v(197): [TFMPC] - Missing connection for port 'TEST_EXPOSE_STATE'.
 # 
-# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/riscv.v(270): [TFMPC] - Too few port connections. Expected 15, found 14.
+# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/riscv.v(280): [TFMPC] - Too few port connections. Expected 15, found 14.
 # 
 #         Region: /riscv/memory_access
-# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/riscv.v(270): [TFMPC] - Missing connection for port 'mem_access_busy'.
+# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/riscv.v(280): [TFMPC] - Missing connection for port 'mem_access_busy'.
 # 
-add wave -position end  sim:/riscv/CLOCK_50
-add wave -position end  sim:/riscv/FL_ADDR
-add wave -position end  sim:/riscv/FL_DQ
-add wave -position end  sim:/riscv/FL_OE_N
-add wave -position end  sim:/riscv/FL_RST_N
-add wave -position end  sim:/riscv/FL_WE_N
-add wave -position end  sim:/riscv/SRAM_ADDR
-add wave -position end  sim:/riscv/SRAM_DQ
-add wave -position end  sim:/riscv/SRAM_WE_N
-add wave -position end  sim:/riscv/SRAM_OE_N
-add wave -position end  sim:/riscv/SRAM_UB_N
-add wave -position end  sim:/riscv/SRAM_LB_N
-add wave -position end  sim:/riscv/SRAM_CE_N
-add wave -position end  sim:/riscv/SW
-add wave -position end  sim:/riscv/KEY
-add wave -position end  sim:/riscv/LEDR
-add wave -position end  sim:/riscv/LEDG
-add wave -position end  sim:/riscv/HEX0
-add wave -position end  sim:/riscv/HEX1
-add wave -position end  sim:/riscv/HEX2
-add wave -position end  sim:/riscv/HEX3
-add wave -position end  sim:/riscv/VGA_R
-add wave -position end  sim:/riscv/VGA_G
-add wave -position end  sim:/riscv/VGA_B
-add wave -position end  sim:/riscv/VGA_HS
-add wave -position end  sim:/riscv/VGA_VS
-add wave -position end  sim:/riscv/TEST_ALLOW_WB_COMPLETE
-add wave -position end  sim:/riscv/TEST_REG_IN
-add wave -position end  sim:/riscv/TEST_REG_OUT
-add wave -position end  sim:/riscv/rst_n
-add wave -position end  sim:/riscv/processor_state
-add wave -position end  sim:/riscv/decoder_op
-add wave -position end  sim:/riscv/mem_mux_finished
-add wave -position end  sim:/riscv/memory_write_request
-add wave -position end  sim:/riscv/memory_read_request
-add wave -position end  sim:/riscv/memory_byte_mode
-add wave -position end  sim:/riscv/memory_addr
-add wave -position end  sim:/riscv/memory_data_in
-add wave -position end  sim:/riscv/memory_data_out
-add wave -position end  sim:/riscv/memory_busy
-add wave -position end  sim:/riscv/memory_finished
-add wave -position end  sim:/riscv/vga_pen_x
-add wave -position end  sim:/riscv/vga_pen_y
-add wave -position end  sim:/riscv/vga_pen_color
-add wave -position end  sim:/riscv/vga_pen_draw
-add wave -position end  sim:/riscv/fetch_read_request
-add wave -position end  sim:/riscv/fetch_addr
-add wave -position end  sim:/riscv/fetch_result
-add wave -position end  sim:/riscv/mem_access_read_request
-add wave -position end  sim:/riscv/mem_access_write_request
-add wave -position end  sim:/riscv/mem_access_addr
-add wave -position end  sim:/riscv/mem_access_data_in
-add wave -position end  sim:/riscv/mem_access_byte_mode
-add wave -position end  sim:/riscv/mem_access_data_out
-add wave -position end  sim:/riscv/rs1_bank_interface_in
-add wave -position end  sim:/riscv/rs2_bank_interface_in
-add wave -position end  sim:/riscv/rs1_bank_interface_out
-add wave -position end  sim:/riscv/rs2_bank_interface_out
-add wave -position end  sim:/riscv/rd_writeback_reg
-add wave -position end  sim:/riscv/rd_writeback_val
-add wave -position end  sim:/riscv/next_pc
-add wave -position end  sim:/riscv/pc
-add wave -position end  sim:/riscv/instruction32
-add wave -position end  sim:/riscv/decoder_rd
-add wave -position end  sim:/riscv/decoder_rs1
-add wave -position end  sim:/riscv/decoder_rs2
-add wave -position end  sim:/riscv/decoder_imm
-add wave -position end  sim:/riscv/execute_result
-add wave -position end  sim:/riscv/memory_access_result
-add wave -position end  sim:/riscv/hex_num
-add wave -position end  sim:/riscv/hex_upp_sel
-add wave -position end  sim:/riscv/step
-add wave -position end  sim:/riscv/processor_state_manager/clk
-add wave -position end  sim:/riscv/processor_state_manager/rst_n
-add wave -position end  sim:/riscv/processor_state_manager/mem_finished
-add wave -position end  sim:/riscv/processor_state_manager/decoder_op
-add wave -position end  sim:/riscv/processor_state_manager/processor_state
-add wave -position end  sim:/riscv/processor_state_manager/TEST_ALLOW_WB_COMPLETE
-add wave -position end  sim:/riscv/processor_state_manager/next_state
-add wave -position end  sim:/riscv/mem/clk
-add wave -position end  sim:/riscv/mem/rst_n
-add wave -position end  sim:/riscv/mem/write_request
-add wave -position end  sim:/riscv/mem/read_request
-add wave -position end  sim:/riscv/mem/byte_mode
-add wave -position end  sim:/riscv/mem/addr_in
-add wave -position end  sim:/riscv/mem/data_in
-add wave -position end  sim:/riscv/mem/data_out
-add wave -position end  sim:/riscv/mem/busy
-add wave -position end  sim:/riscv/mem/finished
-add wave -position end  sim:/riscv/mem/FL_ADDR
-add wave -position end  sim:/riscv/mem/FL_DQ
-add wave -position end  sim:/riscv/mem/FL_OE_N
-add wave -position end  sim:/riscv/mem/FL_RST_N
-add wave -position end  sim:/riscv/mem/FL_WE_N
-add wave -position end  sim:/riscv/mem/SRAM_ADDR
-add wave -position end  sim:/riscv/mem/SRAM_DQ
-add wave -position end  sim:/riscv/mem/SRAM_WE_N
-add wave -position end  sim:/riscv/mem/SRAM_OE_N
-add wave -position end  sim:/riscv/mem/SRAM_UB_N
-add wave -position end  sim:/riscv/mem/SRAM_LB_N
-add wave -position end  sim:/riscv/mem/SRAM_CE_N
-add wave -position end  sim:/riscv/mem/LEDR
-add wave -position end  sim:/riscv/mem/vga_pen_x
-add wave -position end  sim:/riscv/mem/vga_pen_y
-add wave -position end  sim:/riscv/mem/vga_pen_color
-add wave -position end  sim:/riscv/mem/vga_pen_draw
-add wave -position end  sim:/riscv/mem/flash_read_request
-add wave -position end  sim:/riscv/mem/flash_addr
-add wave -position end  sim:/riscv/mem/flash_data
-add wave -position end  sim:/riscv/mem/flash_finished
-add wave -position end  sim:/riscv/mem/flash_busy
-add wave -position end  sim:/riscv/mem/flash_byte_mode
-add wave -position end  sim:/riscv/mem/sram_read_request
-add wave -position end  sim:/riscv/mem/sram_write_request
-add wave -position end  sim:/riscv/mem/sram_addr
-add wave -position end  sim:/riscv/mem/sram_data_in
-add wave -position end  sim:/riscv/mem/sram_data_out
-add wave -position end  sim:/riscv/mem/sram_finished
-add wave -position end  sim:/riscv/mem/sram_busy
-add wave -position end  sim:/riscv/mem/sram_byte_mode
-add wave -position end  sim:/riscv/mem/mapped_read_request
-add wave -position end  sim:/riscv/mem/mapped_write_request
-add wave -position end  sim:/riscv/mem/mapped_addr
-add wave -position end  sim:/riscv/mem/mapped_data_in
-add wave -position end  sim:/riscv/mem/mapped_data_out
-add wave -position end  sim:/riscv/mem/mapped_finished
-add wave -position end  sim:/riscv/mem/mapped_busy
-add wave -position end  sim:/riscv/mem/last_module
-add wave -position end  sim:/riscv/mem/next_module
-add wave -position end  sim:/riscv/memory_multiplexer/rst_n
-add wave -position end  sim:/riscv/memory_multiplexer/processor_state
-add wave -position end  sim:/riscv/memory_multiplexer/fetch_read_request
-add wave -position end  sim:/riscv/memory_multiplexer/fetch_addr
-add wave -position end  sim:/riscv/memory_multiplexer/fetch_result
-add wave -position end  sim:/riscv/memory_multiplexer/mem_access_read_request
-add wave -position end  sim:/riscv/memory_multiplexer/mem_access_write_request
-add wave -position end  sim:/riscv/memory_multiplexer/mem_access_addr
-add wave -position end  sim:/riscv/memory_multiplexer/mem_access_data_in
-add wave -position end  sim:/riscv/memory_multiplexer/mem_access_byte_mode
-add wave -position end  sim:/riscv/memory_multiplexer/mem_access_data_out
-add wave -position end  sim:/riscv/memory_multiplexer/finished
-add wave -position end  sim:/riscv/memory_multiplexer/memory_read_request
-add wave -position end  sim:/riscv/memory_multiplexer/memory_write_request
-add wave -position end  sim:/riscv/memory_multiplexer/memory_byte_mode
-add wave -position end  sim:/riscv/memory_multiplexer/memory_addr
-add wave -position end  sim:/riscv/memory_multiplexer/memory_data_in
-add wave -position end  sim:/riscv/memory_multiplexer/memory_data_out
-add wave -position end  sim:/riscv/memory_multiplexer/memory_finished
-add wave -position end  sim:/riscv/reg_bank/clk
-add wave -position end  sim:/riscv/reg_bank/rst_n
-add wave -position end  sim:/riscv/reg_bank/processor_state
-add wave -position end  sim:/riscv/reg_bank/rs1_bank_interface_in
-add wave -position end  sim:/riscv/reg_bank/rs2_bank_interface_in
-add wave -position end  sim:/riscv/reg_bank/rs1_bank_interface_out
-add wave -position end  sim:/riscv/reg_bank/rs2_bank_interface_out
-add wave -position end  sim:/riscv/reg_bank/rd_writeback_reg
-add wave -position end  sim:/riscv/reg_bank/rd_writeback_val
-add wave -position end  sim:/riscv/reg_bank/TEST_ALLOW_WB_COMPLETE
-add wave -position end  sim:/riscv/reg_bank/TEST_REG_IN
-add wave -position end  sim:/riscv/reg_bank/TEST_REG_OUT
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/clk
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/rst_n
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/processor_state
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/next_pc
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/pc
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/instruction32
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/mem_read_request
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/mem_addr
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/mem_read_result
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/mem_finished
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/TEST_ALLOW_WB_COMPLETE
-add wave -position end  sim:/riscv/instruction_fetch_and_pc/saved_instruction32
-add wave -position end  sim:/riscv/memory_access/clk
-add wave -position end  sim:/riscv/memory_access/rst_n
-add wave -position end  sim:/riscv/memory_access/processor_state
-add wave -position end  sim:/riscv/memory_access/op
-add wave -position end  sim:/riscv/memory_access/write_data
-add wave -position end  sim:/riscv/memory_access/execute_result
-add wave -position end  sim:/riscv/memory_access/read_res
-add wave -position end  sim:/riscv/memory_access/mem_access_read_request
-add wave -position end  sim:/riscv/memory_access/mem_access_write_request
-add wave -position end  sim:/riscv/memory_access/mem_access_addr
-add wave -position end  sim:/riscv/memory_access/mem_access_data
-add wave -position end  sim:/riscv/memory_access/mem_access_byte_mode
-add wave -position end  sim:/riscv/memory_access/mem_access_result
-add wave -position end  sim:/riscv/memory_access/mem_access_finished
-add wave -position end  sim:/riscv/memory_access/mem_access_busy
-add wave -position end  sim:/riscv/reg_writeback/clk
-add wave -position end  sim:/riscv/reg_writeback/rst_n
-add wave -position end  sim:/riscv/reg_writeback/processor_state
-add wave -position end  sim:/riscv/reg_writeback/rd_in
-add wave -position end  sim:/riscv/reg_writeback/op
-add wave -position end  sim:/riscv/reg_writeback/execute_result
-add wave -position end  sim:/riscv/reg_writeback/mem_out
-add wave -position end  sim:/riscv/reg_writeback/reg_bank_rd
-add wave -position end  sim:/riscv/reg_writeback/reg_bank_val
-add wave -position end  sim:/riscv/mem/sram32/clk
-add wave -position end  sim:/riscv/mem/sram32/rst_n
-add wave -position end  sim:/riscv/mem/sram32/interface_addr
-add wave -position end  sim:/riscv/mem/sram32/interface_data
-add wave -position end  sim:/riscv/mem/sram32/interface_upper_byte_mask_n
-add wave -position end  sim:/riscv/mem/sram32/interface_lower_byte_mask_n
-add wave -position end  sim:/riscv/mem/sram32/interface_output_enable_n
-add wave -position end  sim:/riscv/mem/sram32/interface_write_enable_n
-add wave -position end  sim:/riscv/mem/sram32/byte_mode
-add wave -position end  sim:/riscv/mem/sram32/read_request
-add wave -position end  sim:/riscv/mem/sram32/addr
-add wave -position end  sim:/riscv/mem/sram32/write_request
-add wave -position end  sim:/riscv/mem/sram32/write_data
-add wave -position end  sim:/riscv/mem/sram32/data_out
-add wave -position end  sim:/riscv/mem/sram32/finished
-add wave -position end  sim:/riscv/mem/sram32/busy
-add wave -position end  sim:/riscv/mem/sram32/TEST_EXPOSE_STATE
-add wave -position end  sim:/riscv/mem/sram32/writing
-add wave -position end  sim:/riscv/mem/sram32/write_halfword
-add wave -position end  sim:/riscv/mem/sram32/state
-add wave -position end  sim:/riscv/mem/sram32/next_state
-force -deposit sim:/riscv/CLOCK_50 0 0, 1 10 ns -r 20 ns
-force -freeze sim:/riscv/fetch_result 00000000000100010010000000100011 0
-add wave -position 160  sim:/riscv/reg_bank/registers
-force -freeze sim:/riscv/fetch_result 00110000000000000000000100110111 0
-run 900 ns
-do ../../radixenums.do
-force -freeze {sim:/riscv/SW[5]} 1 0
-run 20 ns
-force -freeze sim:/riscv/fetch_result 00000000010000010000000100010011 0
-run 500 ns
-force -freeze sim:/riscv/fetch_result 00000000101000000000000010010011 0
-run 500 ns
-force -freeze sim:/riscv/fetch_result 00000000000100010010000000100011 0
-run 500 ns
+do ../../fullwave.do
+# ** Error: (vish-4014) No objects found matching '/riscv/ins_valid'.
+# Executing ONERROR command at macro ./../../fullwave.do line 106
 add wave -position end  sim:/riscv/mem/memory_mapped_io/clk
 add wave -position end  sim:/riscv/mem/memory_mapped_io/rst_n
 add wave -position end  sim:/riscv/mem/memory_mapped_io/read_request
@@ -345,28 +124,32 @@ add wave -position end  sim:/riscv/mem/memory_mapped_io/vga_pen_x
 add wave -position end  sim:/riscv/mem/memory_mapped_io/vga_pen_y
 add wave -position end  sim:/riscv/mem/memory_mapped_io/vga_pen_color
 add wave -position end  sim:/riscv/mem/memory_mapped_io/vga_pen_draw
+add wave -position end  sim:/riscv/mem/memory_mapped_io/ps2_get_key
+add wave -position end  sim:/riscv/mem/memory_mapped_io/ps2_key_pressed
 add wave -position end  sim:/riscv/mem/memory_mapped_io/state
 add wave -position end  sim:/riscv/mem/memory_mapped_io/next_state
-run 500 ns
-force -freeze sim:/riscv/fetch_result 00010000000000000000000100110111 0
-run 500 ns
-force -freeze sim:/riscv/fetch_result 00000000000100010010000000100011 0
-run 500 ns
-force -freeze sim:/riscv/fetch_result 00000000000000010010000110000011 0
-run 500 ns
-# WARNING: No extended dataflow license exists
-run 400 ns
-run 10 ns
-run 10 ns
-run 10 ns
-run 10 ns
-force -freeze sim:/riscv/mem/SRAM_DQ 0000101000000000 0
-run 10 ns
-run 10 ns
-run 10 ns
-force -freeze sim:/riscv/mem/SRAM_DQ 0000000000000000 0
-run 20 ns
-run 20 ns
-noforce sim:/riscv/mem/SRAM_DQ
-run 20 ns
-run 20 ns
+add wave -position end  sim:/riscv/ps2_interface/clk
+add wave -position end  sim:/riscv/ps2_interface/rst_n
+add wave -position end  sim:/riscv/ps2_interface/get_key
+add wave -position end  sim:/riscv/ps2_interface/key_pressed
+add wave -position end  sim:/riscv/ps2_interface/PS2_CLK
+add wave -position end  sim:/riscv/ps2_interface/PS2_DAT
+add wave -position end  sim:/riscv/ps2_interface/state
+add wave -position end  sim:/riscv/ps2_interface/next_state
+add wave -position end  sim:/riscv/ps2_interface/extended
+add wave -position end  sim:/riscv/ps2_interface/next_extended
+add wave -position end  sim:/riscv/ps2_interface/releasing
+add wave -position end  sim:/riscv/ps2_interface/next_releasing
+add wave -position end  sim:/riscv/ps2_interface/current_read_bit_i
+add wave -position end  sim:/riscv/ps2_interface/last_byte
+add wave -position end  sim:/riscv/ps2_interface/current_key
+force -freeze {sim:/riscv/SW[5]} 1 0
+force -deposit sim:/riscv/CLOCK_50 0 0, 1 10 ns -r 20 ns
+force -freeze sim:/riscv/memory_addr 0x300000C8 0
+# Invalid binary digit: 3.
+# ** Error: (vsim-4011) Invalid force value: 0x300000C8 0.
+# 
+force -freeze sim:/riscv/memory_addr 32'h300000C8 0
+force -freeze sim:/riscv/memory_multiplexer/fetch_result 00000000000000000010000010000011 0
+run 100 ns
+run 100 ns

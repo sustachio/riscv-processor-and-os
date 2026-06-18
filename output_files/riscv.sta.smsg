@@ -1,5 +1,7 @@
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Warning (332060): Node: rst_n_init:rst_n_init|rst_n was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: PS2_CLK was determined to be a clock but was found without an associated clock assignment.
 Warning (332060): Node: processor_state_manager:processor_state_manager|processor_state[2] was determined to be a clock but was found without an associated clock assignment.
 Warning (332060): Node: rst_n_init:rst_n_init|rst_n was determined to be a clock but was found without an associated clock assignment.
+Warning (332060): Node: PS2_CLK was determined to be a clock but was found without an associated clock assignment.
 Warning (332060): Node: processor_state_manager:processor_state_manager|processor_state[2] was determined to be a clock but was found without an associated clock assignment.

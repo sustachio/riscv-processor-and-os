@@ -46,18 +46,18 @@ module button_debounce #(
 		sync2 <= sync1;
 		
 		if (sync2 != internal_debounce) begin
-			counter <= counter + 1;
+			counter <= counter + 23'd1;
 			if (counter[22] == 1) begin
 				internal_debounce <= sync2;
 				debounced <= sync2;
-        precise_count_down <= PRECISE_CYCLE_TRIGGER - 1;
+        precise_count_down <= PRECISE_CYCLE_TRIGGER - 23'd1;
 			end
 		end
 		else begin
 			counter <= 0;
 
       if (precise_count_down != 0)
-        precise_count_down <= precise_count_down - 1;
+        precise_count_down <= precise_count_down - 23'd1;
 			
 			if ((PRECISE_CYCLE_TRIGGER > 0) && precise_count_down == 0)
 				debounced <= 0;

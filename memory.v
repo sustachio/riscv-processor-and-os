@@ -125,7 +125,10 @@ module memory_controller(
   output [7:0] vga_pen_x,
   output [7:0] vga_pen_y,
   output [7:0] vga_pen_color,
-  output vga_pen_draw
+  output vga_pen_draw,
+
+  output [6:0] ps2_get_key,
+  input ps2_key_pressed
 );
 	////////////////////////////// 4MB 8-bit flash (ROM) @ 0x00000000 /////////////////////
 	assign FL_OE_N = 0;
@@ -230,7 +233,10 @@ module memory_controller(
     .vga_pen_x(vga_pen_x),
     .vga_pen_y(vga_pen_y),
     .vga_pen_color(vga_pen_color),
-    .vga_pen_draw(vga_pen_draw)
+    .vga_pen_draw(vga_pen_draw),
+
+    .ps2_get_key(ps2_get_key),
+    .ps2_key_pressed(ps2_key_pressed)
   );
 
 

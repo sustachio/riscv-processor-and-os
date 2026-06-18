@@ -19,12 +19,16 @@ module memory_mapped_io(
   output reg [7:0] vga_pen_x,
   output reg [7:0] vga_pen_y,
   output reg [7:0] vga_pen_color,
-  output reg vga_pen_draw
+  output reg vga_pen_draw,
+
+  output reg [6:0] ps2_get_key,
+  input ps2_key_pressed
 );
 	// states
 	localparam IDLE  = 3'd0;
 	localparam WRITE_LEDR = 3'd1;
   localparam WRITE_VGA  = 3'd2;
+  localparam READ_PS2  = 3'd3;
 	
 	reg [2:0] state = IDLE;
 	reg [2:0] next_state = IDLE;
@@ -41,12 +45,17 @@ module memory_mapped_io(
             next_state = WRITE_LEDR;
           else if (write_request && addr == 32'h30000004)
             next_state = WRITE_VGA;
+          else if (read_request && addr >= 32'h30000008 && addr <= 32'h3000006E)
+            next_state = READ_PS2;
         end
       
         WRITE_LEDR:
           next_state = IDLE;
 
         WRITE_VGA:
+          next_state = IDLE;
+
+        READ_PS2:
           next_state = IDLE;
 
         default: begin end
@@ -65,6 +74,8 @@ module memory_mapped_io(
       vga_pen_y <= 8'd0;
       vga_pen_color <= 8'd0;
       vga_pen_draw <= 1'b0;
+
+      ps2_get_key <= 7'd0;
 		end else begin
 			// FSM transitions
       if (next_state == IDLE) begin
@@ -75,13 +86,20 @@ module memory_mapped_io(
       end
 
 			if (next_state != state) begin
-				case (state)
-					IDLE: begin
-						busy <= 1;
-						finished <= 0;
-						data_out <= 0;
-					end
+        if (state == IDLE) begin
+          busy <= 1;
+          finished <= 0;
+          data_out <= 0;
+        end
 
+				case (next_state)
+          // read results
+          IDLE: begin
+            if (state == READ_PS2)
+              data_out <= {31'd0, ps2_key_pressed};
+          end
+
+          // write do things / read initialize
           WRITE_LEDR: begin
             LEDR <= data_in[9:0];
           end
@@ -91,6 +109,10 @@ module memory_mapped_io(
             vga_pen_y <= data_in[15:8];
             vga_pen_color <= data_in[7:0];
             vga_pen_draw <= 1'b1;
+          end
+
+          READ_PS2: begin
+            ps2_get_key <= addr - 32'h30000008;
           end
 				endcase
 			end
@@ -191,8 +213,10 @@ module vga_fun(
         VGA_VS = 0;
 
       // not in porches
-      if (144 <= x_counter && x_counter <= 783 &&
-          33  <= y_counter && y_counter <= 512) begin
+      //if (144 <= x_counter && x_counter <= 783 &&
+          //33  <= y_counter && y_counter <= 512) begin
+      if (145 <= x_counter && x_counter <= 783 &&
+          34  <= y_counter && y_counter <= 512) begin
         VGA_R = pixel_data[7:5] << 1;
         VGA_G = pixel_data[4:2] << 1;
         VGA_B = pixel_data[1:0] << 2;

@@ -27,6 +27,8 @@ entity riscv is
         VGA_G           : out    vl_logic_vector(3 downto 0);
         VGA_B           : out    vl_logic_vector(3 downto 0);
         VGA_HS          : out    vl_logic;
-        VGA_VS          : out    vl_logic
+        VGA_VS          : out    vl_logic;
+        PS2_CLK         : in     vl_logic;
+        PS2_DAT         : in     vl_logic
     );
 end riscv;

@@ -28,6 +28,8 @@ entity memory_controller is
         vga_pen_x       : out    vl_logic_vector(7 downto 0);
         vga_pen_y       : out    vl_logic_vector(7 downto 0);
         vga_pen_color   : out    vl_logic_vector(7 downto 0);
-        vga_pen_draw    : out    vl_logic
+        vga_pen_draw    : out    vl_logic;
+        ps2_get_key     : out    vl_logic_vector(6 downto 0);
+        ps2_key_pressed : in     vl_logic
     );
 end memory_controller;

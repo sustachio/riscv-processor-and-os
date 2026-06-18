@@ -32,7 +32,11 @@ module riscv(
   output [3:0] VGA_G,
   output [3:0] VGA_B,
   output VGA_HS,
-  output VGA_VS
+  output VGA_VS,
+	
+	// PS/2 keyboard
+	input PS2_CLK,
+	input PS2_DAT
 );
   //////////////////////////////////
 
@@ -80,6 +84,9 @@ module riscv(
   wire [7:0] vga_pen_y;
   wire [7:0] vga_pen_color;
   wire vga_pen_draw;
+
+  wire [6:0] ps2_get_key;
+  wire ps2_key_pressed;
   memory_controller mem(
     .clk(CLOCK_50),
     .rst_n(rst_n),
@@ -119,7 +126,10 @@ module riscv(
     .vga_pen_x(vga_pen_x),
     .vga_pen_y(vga_pen_y),
     .vga_pen_color(vga_pen_color),
-    .vga_pen_draw(vga_pen_draw)
+    .vga_pen_draw(vga_pen_draw),
+
+    .ps2_get_key(ps2_get_key),
+    .ps2_key_pressed(ps2_key_pressed)
   );
 
   wire fetch_read_request;
@@ -283,7 +293,33 @@ module riscv(
     .reg_bank_rd(rd_writeback_reg),
     .reg_bank_val(rd_writeback_val)
   );
-  
+
+
+  /////////// HARDWARE INTERFACES /////////
+  vga_fun vga_fun( // todo rename
+    .rst_n(rst_n),
+    .clk(CLOCK_50),
+
+    .VGA_R(VGA_R),
+    .VGA_G(VGA_G),
+    .VGA_B(VGA_B),
+    .VGA_HS(VGA_HS),
+    .VGA_VS(VGA_VS),
+		.pen_x(vga_pen_x),
+		.pen_y(vga_pen_y),
+		.pen_color(vga_pen_color),
+		.pen_draw(vga_pen_draw)
+  );
+
+  ps2_interface ps2_interface(
+    .rst_n(rst_n),
+    .clk(CLOCK_50),
+
+    .get_key(ps2_get_key),
+    .key_pressed(ps2_key_pressed),
+    .PS2_CLK(PS2_CLK),
+    .PS2_DAT(PS2_DAT)
+  );
 
   //////// DEBUGING ///////////
 
@@ -340,7 +376,7 @@ module riscv(
 
   assign TEST_REG_IN = SW[4:0];
 	
-	assign LEDG = TEST_REG_OUT[7:0];
+	assign LEDG = {ps2_get_key, ps2_key_pressed};
 	
   wire step;
   assign TEST_ALLOW_WB_COMPLETE = SW[5] | step;
@@ -365,21 +401,6 @@ module riscv(
 		.upper_sel(hex_upp_sel)
 	);
 
-  // video testing
-  vga_fun vga_fun(
-    .rst_n(rst_n),
-    .clk(CLOCK_50),
-
-    .VGA_R(VGA_R),
-    .VGA_G(VGA_G),
-    .VGA_B(VGA_B),
-    .VGA_HS(VGA_HS),
-    .VGA_VS(VGA_VS),
-		.pen_x(vga_pen_x),
-		.pen_y(vga_pen_y),
-		.pen_color(vga_pen_color),
-		.pen_draw(vga_pen_draw)
-  );
 
 endmodule
 
