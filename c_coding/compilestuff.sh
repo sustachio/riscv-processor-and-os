@@ -15,6 +15,7 @@ riscv64-unknown-elf-gcc \
     -nostdlib \
     -T linker.ld \
     startup.S \
+    lib.c \
     main.c \
     -lgcc \
     -o firmware.elf

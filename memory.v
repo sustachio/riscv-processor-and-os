@@ -247,7 +247,7 @@ module memory_controller(
 
   // sram
   assign sram_addr      = addr_in[18:0];
-  assign sram_data_in   = byte_mode ? {data_in[7:0], 24'd0} : {data_in[7:0], data_in[15:8], data_in[23:16], data_in[31:24]}; // big -> little endian
+  assign sram_data_in   = byte_mode ? {24'd0, data_in[7:0]} : {data_in[7:0], data_in[15:8], data_in[23:16], data_in[31:24]}; // big -> little endian
   assign sram_byte_mode = byte_mode;
 
   // memory mapped io

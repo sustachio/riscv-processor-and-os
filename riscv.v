@@ -1,3 +1,5 @@
+`include "global_constants.vh"
+
 module riscv(
 	input CLOCK_50,
 
@@ -40,7 +42,7 @@ module riscv(
 );
   //////////////////////////////////
 
-  wire TEST_ALLOW_WB_COMPLETE;
+  reg TEST_ALLOW_WB_COMPLETE;
   wire [4:0] TEST_REG_IN;
   wire [31:0] TEST_REG_OUT;
 
@@ -329,6 +331,7 @@ module riscv(
 
   // KEY[0] - allow WB (step)
   // KEY[1] - press to look at significant two bytes
+  // KEY[2] - hold for debug mode (allow EBREAKs)
 
   // LEDG[7:0] - TEST_REG_OUT[7:0] 
 
@@ -379,7 +382,9 @@ module riscv(
 	assign LEDG = {ps2_get_key, ps2_key_pressed};
 	
   wire step;
-  assign TEST_ALLOW_WB_COMPLETE = SW[5] | step;
+  always @(*) begin
+    TEST_ALLOW_WB_COMPLETE = (SW[5] && ((decoder_op != `OP_EBREAK) || ~SW[2])) || step;
+  end
 	button_debounce #(.PRECISE_CYCLE_TRIGGER(1)) sram_command_trigger(
 		.clk(CLOCK_50),
 		.button(!KEY[0]),

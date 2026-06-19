@@ -154,20 +154,20 @@ module vga_fun(
   reg [9:0] x_counter;
   reg [9:0] y_counter;
 
-  // 40 x 30
-  wire [7:0] x_pixel = (x_counter - 144) >> 4;
-  wire [7:0] y_pixel = (y_counter - 33)  >> 4;
+  // 160 x 120
+  wire [7:0] x_pixel = (x_counter - 144) >> 2;
+  wire [7:0] y_pixel = (y_counter - 33)  >> 2;
 
   reg slower_clock;
 
   // pixel framebuffer, reads must be synchronous
-  reg [7:0] pixels [0:2047]; // bigger than 40x30, weird so quartus may infer it?
-  wire [10:0] pixel_addr = y_pixel * 40 + x_pixel;
-  wire [10:0] pixel_write_addr = pen_y * 40 + pen_x;
+  reg [7:0] pixels [0:19199]; // 160*120 // bigger than 40x30, weird so quartus may infer it?
+  wire [14:0] pixel_addr = y_pixel * 160 + x_pixel;
+  wire [14:0] pixel_write_addr = pen_y * 160 + pen_x;
   reg [7:0] pixel_data;
 
   always @(posedge clk) begin
-    if (pen_x < 40 && pen_y < 30 && pen_draw && rst_n)
+    if (pen_x < 160 && pen_y < 120 && pen_draw && rst_n)
       pixels[pixel_write_addr] <= pen_color;
 
     pixel_data <= pixels[pixel_addr];
