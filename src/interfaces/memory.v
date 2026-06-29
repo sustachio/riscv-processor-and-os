@@ -1,4 +1,4 @@
-`include "global_constants.vh"
+`include "src/global_constants.vh"
 
 // mappings:
 // Flash (4MB) ROM  0x00000000-0x003FFFFF

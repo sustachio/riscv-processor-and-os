@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv
-Sun Jun 28 21:04:04 2026
+Sun Jun 28 21:17:42 2026
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -62,13 +62,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jun 28 21:04:04 2026           ;
+; Analysis & Synthesis Status        ; Successful - Sun Jun 28 21:17:42 2026           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; riscv                                           ;
 ; Top-level Entity Name              ; riscv                                           ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 7,090                                           ;
-;     Total combinational functions  ; 6,112                                           ;
+; Total logic elements               ; 7,155                                           ;
+;     Total combinational functions  ; 6,177                                           ;
 ;     Dedicated logic registers      ; 1,544                                           ;
 ; Total registers                    ; 1544                                            ;
 ; Total pins                         ; 149                                             ;
@@ -183,6 +183,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; src/interfaces/memory.v           ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v            ;         ;
 ; src/riscv.v                       ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/riscv.v                        ;         ;
 ; src/utils.v                       ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/utils.v                        ;         ;
+; src/global_constants.vh           ; yes             ; User Unspecified File        ; C:/Users/Seth Mueller/Documents/fpga/src/global_constants.vh            ;         ;
 ; src/interfaces/memory_mapped_io.v ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory_mapped_io.v  ;         ;
 ; src/interfaces/ps2.v              ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/ps2.v               ;         ;
 ; src/pipeline/processorstate.v     ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/pipeline/processorstate.v      ;         ;
@@ -195,7 +196,6 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; src/interfaces/flash.v            ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/flash.v             ;         ;
 ; src/interfaces/sram.v             ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/sram.v              ;         ;
 ; src/interfaces/vga.v              ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/vga.v               ;         ;
-; global_constants.vh               ; yes             ; Auto-Found Unspecified File  ; C:/Users/Seth Mueller/Documents/fpga/global_constants.vh                ;         ;
 ; altsyncram.tdf                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc             ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -216,16 +216,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 7,090                       ;
+; Estimated Total logic elements              ; 7,155                       ;
 ;                                             ;                             ;
-; Total combinational functions               ; 6112                        ;
+; Total combinational functions               ; 6177                        ;
 ; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 4564                        ;
-;     -- 3 input functions                    ; 1124                        ;
-;     -- <=2 input functions                  ; 424                         ;
+;     -- 4 input functions                    ; 4686                        ;
+;     -- 3 input functions                    ; 1038                        ;
+;     -- <=2 input functions                  ; 453                         ;
 ;                                             ;                             ;
 ; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 5588                        ;
+;     -- normal mode                          ; 5653                        ;
 ;     -- arithmetic mode                      ; 524                         ;
 ;                                             ;                             ;
 ; Total registers                             ; 1544                        ;
@@ -236,9 +236,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Total memory bits                           ; 153600                      ;
 ; Embedded Multiplier 9-bit elements          ; 0                           ;
 ; Maximum fan-out node                        ; rst_n_init:rst_n_init|rst_n ;
-; Maximum fan-out                             ; 1710                        ;
-; Total fan-out                               ; 29497                       ;
-; Average fan-out                             ; 3.76                        ;
+; Maximum fan-out                             ; 1787                        ;
+; Total fan-out                               ; 29785                       ;
+; Average fan-out                             ; 3.77                        ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -247,27 +247,27 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Library Name ;
 +--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
-; |riscv                                                 ; 6112 (112)        ; 1544 (0)     ; 153600      ; 0            ; 0       ; 0         ; 149  ; 0            ; |riscv                                                                                                       ; work         ;
+; |riscv                                                 ; 6177 (111)        ; 1544 (0)     ; 153600      ; 0            ; 0       ; 0         ; 149  ; 0            ; |riscv                                                                                                       ; work         ;
 ;    |button_debounce:num_display_control|               ; 26 (26)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|button_debounce:num_display_control                                                                   ; work         ;
 ;    |button_debounce:sram_command_trigger|              ; 60 (60)           ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|button_debounce:sram_command_trigger                                                                  ; work         ;
-;    |decoder:decoder|                                   ; 417 (417)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|decoder:decoder                                                                                       ; work         ;
-;    |display_32bit_7seg:mydisp|                         ; 270 (242)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp                                                                             ; work         ;
+;    |decoder:decoder|                                   ; 483 (483)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|decoder:decoder                                                                                       ; work         ;
+;    |display_32bit_7seg:mydisp|                         ; 272 (244)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp                                                                             ; work         ;
 ;       |hex_to_7seg:hex0conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex0conv                                                        ; work         ;
 ;       |hex_to_7seg:hex1conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex1conv                                                        ; work         ;
 ;       |hex_to_7seg:hex2conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex2conv                                                        ; work         ;
 ;       |hex_to_7seg:hex3conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex3conv                                                        ; work         ;
-;    |execute:execute|                                   ; 1626 (1626)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|execute:execute                                                                                       ; work         ;
-;    |instruction_fetch_and_pc:instruction_fetch_and_pc| ; 100 (100)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc                                                     ; work         ;
+;    |execute:execute|                                   ; 1629 (1629)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|execute:execute                                                                                       ; work         ;
+;    |instruction_fetch_and_pc:instruction_fetch_and_pc| ; 93 (93)           ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc                                                     ; work         ;
 ;    |memory_access:memory_access|                       ; 5 (5)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_access:memory_access                                                                           ; work         ;
-;    |memory_controller:mem|                             ; 494 (96)          ; 204 (2)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem                                                                                 ; work         ;
+;    |memory_controller:mem|                             ; 497 (96)          ; 204 (2)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem                                                                                 ; work         ;
 ;       |flash_interface32bit:flash32|                   ; 167 (167)         ; 65 (65)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|flash_interface32bit:flash32                                                    ; work         ;
 ;       |memory_mapped_io:memory_mapped_io|              ; 52 (52)           ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|memory_mapped_io:memory_mapped_io                                               ; work         ;
-;       |sram_interface32bit:sram32|                     ; 179 (179)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|sram_interface32bit:sram32                                                      ; work         ;
-;    |memory_multiplexer:memory_multiplexer|             ; 140 (140)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_multiplexer:memory_multiplexer                                                                 ; work         ;
-;    |processor_state_manager:processor_state_manager|   ; 4 (4)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|processor_state_manager:processor_state_manager                                                       ; work         ;
-;    |ps2_interface:ps2_interface|                       ; 466 (466)         ; 146 (146)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|ps2_interface:ps2_interface                                                                           ; work         ;
-;    |reg_bank:reg_bank|                                 ; 2119 (2119)       ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_bank:reg_bank                                                                                     ; work         ;
-;    |reg_writeback:reg_writeback|                       ; 141 (141)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_writeback:reg_writeback                                                                           ; work         ;
+;       |sram_interface32bit:sram32|                     ; 182 (182)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|sram_interface32bit:sram32                                                      ; work         ;
+;    |memory_multiplexer:memory_multiplexer|             ; 142 (142)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_multiplexer:memory_multiplexer                                                                 ; work         ;
+;    |processor_state_manager:processor_state_manager|   ; 5 (5)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|processor_state_manager:processor_state_manager                                                       ; work         ;
+;    |ps2_interface:ps2_interface|                       ; 465 (465)         ; 146 (146)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|ps2_interface:ps2_interface                                                                           ; work         ;
+;    |reg_bank:reg_bank|                                 ; 2118 (2118)       ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_bank:reg_bank                                                                                     ; work         ;
+;    |reg_writeback:reg_writeback|                       ; 139 (139)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_writeback:reg_writeback                                                                           ; work         ;
 ;    |rst_n_init:rst_n_init|                             ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|rst_n_init:rst_n_init                                                                                 ; work         ;
 ;    |vga_interface:vga_interface|                       ; 129 (124)         ; 24 (21)      ; 153600      ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|vga_interface:vga_interface                                                                           ; work         ;
 ;       |altsyncram:pixels_rtl_0|                        ; 5 (0)             ; 3 (0)        ; 153600      ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|vga_interface:vga_interface|altsyncram:pixels_rtl_0                                                   ; work         ;
@@ -789,7 +789,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:31     ;
+; Top            ; 00:00:30     ;
 +----------------+--------------+
 
 
@@ -799,7 +799,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Jun 28 21:03:31 2026
+    Info: Processing started: Sun Jun 28 21:17:09 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv -c riscv
 Info (12021): Found 1 design units, including 1 entities, in source file src/interfaces/memory.v
     Info (12023): Found entity 1: memory_controller
@@ -850,6 +850,15 @@ Info (12128): Elaborating entity "reg_bank" for hierarchy "reg_bank:reg_bank"
 Info (12128): Elaborating entity "instruction_fetch_and_pc" for hierarchy "instruction_fetch_and_pc:instruction_fetch_and_pc"
 Info (12128): Elaborating entity "decoder" for hierarchy "decoder:decoder"
 Warning (10762): Verilog HDL Case Statement warning at decoder.v(39): can't check case statement for completeness because the case expression has too many possible states
+Warning (10935): Verilog HDL Casex/Casez warning at decoder.v(106): casex/casez item expression overlaps with a previous casex/casez item expression
+Warning (10935): Verilog HDL Casex/Casez warning at decoder.v(107): casex/casez item expression overlaps with a previous casex/casez item expression
+Warning (10935): Verilog HDL Casex/Casez warning at decoder.v(108): casex/casez item expression overlaps with a previous casex/casez item expression
+Warning (10935): Verilog HDL Casex/Casez warning at decoder.v(109): casex/casez item expression overlaps with a previous casex/casez item expression
+Warning (10935): Verilog HDL Casex/Casez warning at decoder.v(110): casex/casez item expression overlaps with a previous casex/casez item expression
+Warning (10935): Verilog HDL Casex/Casez warning at decoder.v(111): casex/casez item expression overlaps with a previous casex/casez item expression
+Warning (10935): Verilog HDL Casex/Casez warning at decoder.v(112): casex/casez item expression overlaps with a previous casex/casez item expression
+Warning (10935): Verilog HDL Casex/Casez warning at decoder.v(113): casex/casez item expression overlaps with a previous casex/casez item expression
+Warning (10935): Verilog HDL Casex/Casez warning at decoder.v(114): casex/casez item expression overlaps with a previous casex/casez item expression
 Info (12128): Elaborating entity "execute" for hierarchy "execute:execute"
 Info (12128): Elaborating entity "memory_access" for hierarchy "memory_access:memory_access"
 Info (12128): Elaborating entity "reg_writeback" for hierarchy "reg_writeback:reg_writeback"
@@ -929,17 +938,17 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "KEY[3]"
-Info (21057): Implemented 7370 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 7435 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
     Info (21059): Implemented 108 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 7181 logic cells
+    Info (21061): Implemented 7246 logic cells
     Info (21064): Implemented 40 RAM segments
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 25 warnings
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 34 warnings
     Info: Peak virtual memory: 394 megabytes
-    Info: Processing ended: Sun Jun 28 21:04:04 2026
+    Info: Processing ended: Sun Jun 28 21:17:42 2026
     Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Total CPU time (on all processors): 00:00:32
 
 
 +------------------------------------------+

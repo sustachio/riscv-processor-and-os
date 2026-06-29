@@ -1,4 +1,4 @@
-`include "src/global_constants.vh"
+`include "global_constants.vh"
 
 // x0 - constant 0
 // x1 - conventional call return address
