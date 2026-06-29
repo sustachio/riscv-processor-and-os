@@ -41,6 +41,13 @@
 `define OP_BGEU 39
 `define OP_ILLEGAL 40
 
+`define OP_CSRRW 41
+`define OP_CSRRS 42
+`define OP_CSRRC 43
+`define OP_CSRRWI 44
+`define OP_CSRRSI 45
+`define OP_CSRRCI 46
+
 // processor_state
 `define START_FETCH 0
 `define FETCH 1

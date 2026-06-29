@@ -1,0 +1,42 @@
+// 83ms debounce given 50MHz clock
+module button_debounce #(
+    parameter SINGLE_CYCLE_TRIGGER = 0
+) (
+	input  wire clk,
+	input  wire button,
+	output reg  debounced_button
+);
+	localparam IDLE    = 1'd0;
+	localparam PRESSED = 1'd1;
+	reg state;
+	reg next_state;
+	
+	reg [23:0] counter;
+	
+	always @(*) begin
+		case (state)
+			IDLE: begin
+				if (button) next_state = PRESSED;
+				end
+			PRESSED: begin
+				if (!button && counter[23]) next_state = IDLE;
+				end
+		endcase		
+	end
+	
+	always @(posedge clk) begin
+		case (next_state)
+			IDLE: begin
+				counter <= 0;
+				debounced_button <= 0;
+				end
+			PRESSED: begin
+				if (!counter[23])
+					counter <= counter + 1;
+				debounced_button <= SINGLE_CYCLE_TRIGGER ? (state == IDLE) : 1;
+			end
+		endcase
+		
+		state <= next_state;
+	end
+endmodule

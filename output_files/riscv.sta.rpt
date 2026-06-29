@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for riscv
-Fri Jun 19 00:46:05 2026
+Sun Jun 28 21:05:03 2026
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -119,7 +119,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; riscv.sdc     ; OK     ; Fri Jun 19 00:46:03 2026 ;
+; riscv.sdc     ; OK     ; Sun Jun 28 21:05:01 2026 ;
 +---------------+--------+--------------------------+
 
 
@@ -390,10 +390,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; 0.969 ; button_debounce:num_display_control|counter[18]                              ; button_debounce:num_display_control|counter[18]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.255      ;
 ; 0.971 ; button_debounce:sram_command_trigger|precise_count_down[4]                   ; button_debounce:sram_command_trigger|precise_count_down[4]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.257      ;
 ; 0.972 ; button_debounce:sram_command_trigger|precise_count_down[2]                   ; button_debounce:sram_command_trigger|precise_count_down[2]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.258      ;
-; 0.975 ; vga_fun:vga_fun|x_counter[7]                                                 ; vga_fun:vga_fun|x_counter[7]                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.261      ;
+; 0.975 ; vga_interface:vga_interface|x_counter[7]                                     ; vga_interface:vga_interface|x_counter[7]                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.261      ;
 ; 0.976 ; button_debounce:sram_command_trigger|precise_count_down[6]                   ; button_debounce:sram_command_trigger|precise_count_down[6]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.262      ;
-; 0.976 ; vga_fun:vga_fun|y_counter[8]                                                 ; vga_fun:vga_fun|y_counter[8]                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.262      ;
-; 0.979 ; vga_fun:vga_fun|y_counter[0]                                                 ; vga_fun:vga_fun|y_counter[0]                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.265      ;
+; 0.976 ; vga_interface:vga_interface|y_counter[8]                                     ; vga_interface:vga_interface|y_counter[8]                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.262      ;
+; 0.979 ; vga_interface:vga_interface|y_counter[0]                                     ; vga_interface:vga_interface|y_counter[0]                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.265      ;
 ; 0.980 ; button_debounce:sram_command_trigger|precise_count_down[8]                   ; button_debounce:sram_command_trigger|precise_count_down[8]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.266      ;
 ; 0.982 ; button_debounce:sram_command_trigger|precise_count_down[12]                  ; button_debounce:sram_command_trigger|precise_count_down[12]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.268      ;
 ; 0.984 ; button_debounce:sram_command_trigger|precise_count_down[18]                  ; button_debounce:sram_command_trigger|precise_count_down[18]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.270      ;
@@ -619,112 +619,112 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-----------------------------+---------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Slow Model Minimum Pulse Width: 'CLOCK_50'                                                                                                                                                  ;
-+-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------+
-; Slack ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                                                                                   ;
-+-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------+
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg0   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg0   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg1   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg1   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg10  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg10  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg11  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg11  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg2   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg2   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg3   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg3   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg4   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg4   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg5   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg5   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg6   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg6   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg7   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg7   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg8   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg8   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg9   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg9   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_datain_reg0    ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_datain_reg0    ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_memory_reg0    ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_memory_reg0    ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_we_reg         ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_we_reg         ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg0   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg0   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg1   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg1   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg10  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg10  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg11  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg11  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg2   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg2   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg3   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg3   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg4   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg4   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg5   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg5   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg6   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg6   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg7   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg7   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg8   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg8   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg9   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg9   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg0  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg0  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg1  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg1  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg10 ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg10 ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg11 ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg11 ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg2  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg2  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg3  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg3  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg4  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg4  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg5  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg5  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg6  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg6  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg7  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg7  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg8  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg8  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg9  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg9  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_datain_reg0   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_datain_reg0   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_memory_reg0   ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_memory_reg0   ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_we_reg        ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_we_reg        ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg0  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg0  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg1  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg1  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg10 ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg10 ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg11 ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg11 ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg2  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg2  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg3  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg3  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg4  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg4  ;
-; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg5  ;
-; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg5  ;
-+-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'CLOCK_50'                                                                                                                                                              ;
++-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                                                                                               ;
++-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------------------+
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg0   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg0   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg1   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg1   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg10  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg10  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg11  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg11  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg2   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg2   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg3   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg3   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg4   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg4   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg5   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg5   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg6   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg6   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg7   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg7   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg8   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg8   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg9   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg9   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_datain_reg0    ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_datain_reg0    ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_memory_reg0    ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_memory_reg0    ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_we_reg         ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_we_reg         ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg0   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg0   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg1   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg1   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg10  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg10  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg11  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg11  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg2   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg2   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg3   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg3   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg4   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg4   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg5   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg5   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg6   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg6   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg7   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg7   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg8   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg8   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg9   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg9   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg0  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg0  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg1  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg1  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg10 ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg10 ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg11 ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg11 ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg2  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg2  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg3  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg3  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg4  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg4  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg5  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg5  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg6  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg6  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg7  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg7  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg8  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg8  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg9  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg9  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_datain_reg0   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_datain_reg0   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_memory_reg0   ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_memory_reg0   ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_we_reg        ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_we_reg        ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg0  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg0  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg1  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg1  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg10 ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg10 ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg11 ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg11 ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg2  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg2  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg3  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg3  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg4  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg4  ;
+; 7.436 ; 10.000       ; 2.564          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg5  ;
+; 7.436 ; 10.000       ; 2.564          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg5  ;
++-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------+
@@ -1661,10 +1661,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; 0.359 ; button_debounce:num_display_control|counter[18]                              ; button_debounce:num_display_control|counter[18]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
 ; 0.360 ; button_debounce:sram_command_trigger|precise_count_down[4]                   ; button_debounce:sram_command_trigger|precise_count_down[4]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.512      ;
 ; 0.360 ; button_debounce:sram_command_trigger|precise_count_down[6]                   ; button_debounce:sram_command_trigger|precise_count_down[6]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.512      ;
-; 0.360 ; vga_fun:vga_fun|x_counter[7]                                                 ; vga_fun:vga_fun|x_counter[7]                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.512      ;
-; 0.360 ; vga_fun:vga_fun|y_counter[8]                                                 ; vga_fun:vga_fun|y_counter[8]                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; vga_interface:vga_interface|x_counter[7]                                     ; vga_interface:vga_interface|x_counter[7]                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; vga_interface:vga_interface|y_counter[8]                                     ; vga_interface:vga_interface|y_counter[8]                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.512      ;
 ; 0.361 ; button_debounce:sram_command_trigger|precise_count_down[2]                   ; button_debounce:sram_command_trigger|precise_count_down[2]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.513      ;
-; 0.361 ; vga_fun:vga_fun|y_counter[0]                                                 ; vga_fun:vga_fun|y_counter[0]                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; vga_interface:vga_interface|y_counter[0]                                     ; vga_interface:vga_interface|y_counter[0]                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.513      ;
 ; 0.365 ; button_debounce:sram_command_trigger|precise_count_down[8]                   ; button_debounce:sram_command_trigger|precise_count_down[8]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.517      ;
 ; 0.365 ; button_debounce:sram_command_trigger|precise_count_down[9]                   ; button_debounce:sram_command_trigger|precise_count_down[9]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.517      ;
 ; 0.365 ; button_debounce:sram_command_trigger|precise_count_down[10]                  ; button_debounce:sram_command_trigger|precise_count_down[10]                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.517      ;
@@ -1894,112 +1894,112 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-----------------------------+---------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fast Model Minimum Pulse Width: 'CLOCK_50'                                                                                                                                                  ;
-+-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------+
-; Slack ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                                                                                   ;
-+-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------+
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg0   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg0   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg1   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg1   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg10  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg10  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg11  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg11  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg2   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg2   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg3   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg3   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg4   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg4   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg5   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg5   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg6   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg6   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg7   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg7   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg8   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg8   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg9   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg9   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_datain_reg0    ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_datain_reg0    ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_memory_reg0    ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_memory_reg0    ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_we_reg         ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_we_reg         ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg0   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg0   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg1   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg1   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg10  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg10  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg11  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg11  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg2   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg2   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg3   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg3   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg4   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg4   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg5   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg5   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg6   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg6   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg7   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg7   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg8   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg8   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg9   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg9   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg0  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg0  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg1  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg1  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg10 ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg10 ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg11 ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg11 ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg2  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg2  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg3  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg3  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg4  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg4  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg5  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg5  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg6  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg6  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg7  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg7  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg8  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg8  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg9  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg9  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_datain_reg0   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_datain_reg0   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_memory_reg0   ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_memory_reg0   ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_we_reg        ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_we_reg        ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg0  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg0  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg1  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg1  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg10 ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg10 ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg11 ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg11 ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg2  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg2  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg3  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg3  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg4  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg4  ;
-; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg5  ;
-; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_fun:vga_fun|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg5  ;
-+-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'CLOCK_50'                                                                                                                                                              ;
++-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                                                                                               ;
++-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------------------+
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg0   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg0   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg1   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg1   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg10  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg10  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg11  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg11  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg2   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg2   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg3   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg3   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg4   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg4   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg5   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg5   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg6   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg6   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg7   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg7   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg8   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg8   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg9   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_address_reg9   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_datain_reg0    ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_datain_reg0    ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_memory_reg0    ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_memory_reg0    ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_we_reg         ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~porta_we_reg         ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg0   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg0   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg1   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg1   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg10  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg10  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg11  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg11  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg2   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg2   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg3   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg3   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg4   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg4   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg5   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg5   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg6   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg6   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg7   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg7   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg8   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg8   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg9   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a0~portb_address_reg9   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg0  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg0  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg1  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg1  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg10 ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg10 ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg11 ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg11 ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg2  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg2  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg3  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg3  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg4  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg4  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg5  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg5  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg6  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg6  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg7  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg7  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg8  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg8  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg9  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_address_reg9  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_datain_reg0   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_datain_reg0   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_memory_reg0   ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_memory_reg0   ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_we_reg        ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~porta_we_reg        ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg0  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg0  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg1  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg1  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg10 ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg10 ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg11 ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg11 ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg2  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg2  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg3  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg3  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg4  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg4  ;
+; 7.873 ; 10.000       ; 2.127          ; High Pulse Width ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg5  ;
+; 7.873 ; 10.000       ; 2.127          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; vga_interface:vga_interface|altsyncram:pixels_rtl_0|altsyncram_i1h1:auto_generated|ram_block1a10~portb_address_reg5  ;
++-------+--------------+----------------+------------------+----------+------------+----------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------+
@@ -3366,7 +3366,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 19 00:46:02 2026
+    Info: Processing started: Sun Jun 28 21:05:00 2026
 Info: Command: quartus_sta riscv -c riscv
 Info: qsta_default_script.tcl version: #1
 Info (21077): Low junction temperature is 0 degrees C
@@ -3423,10 +3423,10 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info (144001): Generated suppressed messages file C:/Users/Seth Mueller/Documents/fpga/output_files/riscv.sta.smsg
 Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 444 megabytes
-    Info: Processing ended: Fri Jun 19 00:46:05 2026
+    Info: Peak virtual memory: 437 megabytes
+    Info: Processing ended: Sun Jun 28 21:05:03 2026
     Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 
 +-----------------------------------------------+
