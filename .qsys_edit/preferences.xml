@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable>
+  <columns>
+   <connections preferredWidth="47" />
+   <irq preferredWidth="34" />
+  </columns>
+ </systemtable>
+ <clocktable>
+  <columns>
+   <clockname preferredWidth="387" />
+   <clocksource preferredWidth="387" />
+   <frequency preferredWidth="368" />
+  </columns>
+ </clocktable>
+ <window width="1594" height="1280" x="0" y="0" />
+ <library
+   expandedCategories="Library/DSP/Filters,Library,Library/Interface Protocols,Library/Bridges and Adapters,Library/Memories and Memory Controllers/External Memory Interfaces,Library/Qsys Interconnect,Library/DSP,Project,Library/Memories and Memory Controllers/On-Chip,Library/Clock and Reset,Library/Memories and Memory Controllers,Library/Peripherals,Library/Bridges and Adapters/DMA,Library/PLL" />
+</preferences>

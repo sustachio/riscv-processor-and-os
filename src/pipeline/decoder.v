@@ -1,4 +1,4 @@
-`include "global_constants.vh"
+`include "src/global_constants.vh"
 
 module decoder(
 	input rst_n,
@@ -9,6 +9,7 @@ module decoder(
 	output reg [31:0] rs1,
 	output reg [31:0] rs2,
 	output reg [31:0] imm,
+  output reg [11:0] csr_i,
 	
 	output wire [4:0] rs1_bank_interface_in,
 	output wire [4:0] rs2_bank_interface_in,
@@ -30,11 +31,13 @@ module decoder(
       rs2 = 0;
       imm = 0;
       rd = 0;
+      csr_i = 0;
     end
   else begin
     rd = instruction32[11:7];
     rs1 = rs1_bank_interface_out;
     rs2 = rs2_bank_interface_out;
+		csr_i = 0;
 
     casez (instruction32)
       // U-Type
@@ -100,6 +103,18 @@ module decoder(
       //  imm[20] imm[10:1]  imm[11] imm[19:12] rd    op
       32'b?_______??????????_?_______????????___?????_1101111: op = `OP_JAL;
 
+      /////////////////////// Zicsr (control status registers) ///////////////
+      // I-Type
+      //  csr          rs1   func3 rd    op
+      32'b????????????_?????_001___?????_1110011: op = `OP_CSRRW;
+      32'b????????????_?????_010___?????_1110011: op = `OP_CSRRS;
+      32'b????????????_?????_011___?????_1110011: op = `OP_CSRRC;
+      //  csr          uimm[4:0] func3 rd    op
+      32'b????????????_?????_____101___?????_1110011: op = `OP_CSRRWI;
+      32'b????????????_?????_____110___?????_1110011: op = `OP_CSRRSI;
+      32'b????????????_?????_____111___?????_1110011: op = `OP_CSRRCI;
+
+
       default: op = `OP_ILLEGAL;
     endcase
 
@@ -120,6 +135,20 @@ module decoder(
       // only use lower 5 bits for offset
       `OP_SLLI, `OP_SRLI, `OP_SRAI:
         imm = {27'd0, instruction32[24:20]};
+
+      `OP_CSRRWI, `OP_CSRRSI, `OP_CSRRCI: begin
+        imm = { 27'd0, instruction32[19:15] }; // rs1 field
+        csr_i = instruction32[31:20];
+      end
+
+      `OP_CSRRW, `OP_CSRRS, `OP_CSRRC: begin
+        imm = 0;
+        csr_i = instruction32[31:20];
+      end
+
+      // FENCE not implemented - no threading (for now?)
+      `OP_ECALL, `OP_EBREAK, `OP_FENCE:
+        imm = 32'd0;
 
       // R-Type
       //    func7   rs2   rs1   func3 rd    op
@@ -146,24 +175,12 @@ module decoder(
       `OP_JAL:
         imm = { {11{instruction32[31]}}, instruction32[31], instruction32[19:12], instruction32[20], instruction32[30:21], 1'b0}; // sext
 
-      // ommited instructions
-      // ECALL- we've got no system or privlage
-      // EBREAK - i'm not doing a debugger
-      // also i haven't even done interupts lol
-      // FENCE - no threading (for now?)
-      `OP_ECALL, `OP_EBREAK, `OP_FENCE: begin 
-        imm = 32'd0;
-        rs1 = 0;
-        rs2 = 0;
-        imm = 0;
-        rd = 0;
-      end
-
+      // other
       `OP_ILLEGAL:
         imm = 32'd0;
 
       default:
-        imm = 32'd0; // uh oh
+        imm = 32'd0;
     endcase
   end
 endmodule

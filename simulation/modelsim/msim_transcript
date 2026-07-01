@@ -10,21 +10,7 @@
 # ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/riscv.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module riscv
-# 
-# Top level modules:
-# 	riscv
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/interfaces.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module flash_interface32bit
-# -- Compiling module sram_interface32bit
-# 
-# Top level modules:
-# 	flash_interface32bit
-# 	sram_interface32bit
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/utils.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src {C:/Users/Seth Mueller/Documents/fpga/src/utils.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module rst_n_init
 # -- Compiling module button_debounce
@@ -35,121 +21,36 @@
 # 	rst_n_init
 # 	button_debounce
 # 	display_32bit_7seg
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/memory_mapped_io.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory_mapped_io.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module memory_mapped_io
-# -- Compiling module vga_fun
 # 
 # Top level modules:
 # 	memory_mapped_io
-# 	vga_fun
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/memory.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/flash.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module memory_multiplexer
+# -- Compiling module flash_interface32bit
+# 
+# Top level modules:
+# 	flash_interface32bit
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/sram.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module sram_interface32bit
+# 
+# Top level modules:
+# 	sram_interface32bit
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/vga.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module vga_interface
+# 
+# Top level modules:
+# 	vga_interface
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# ** Error: C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v(1): Cannot open `include file "C:/Users/Seth Mueller/Documents/fpga/src/interfaces/src/global_constants.vh".
 # -- Compiling module memory_controller
-# 
-# Top level modules:
-# 	memory_multiplexer
-# 	memory_controller
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/pipeline.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module processor_state_manager
-# -- Compiling module reg_bank
-# -- Compiling module instruction_fetch_and_pc
-# -- Compiling module decoder
-# -- Compiling module execute
-# -- Compiling module memory_access
-# -- Compiling module reg_writeback
-# 
-# Top level modules:
-# 	processor_state_manager
-# 	reg_bank
-# 	instruction_fetch_and_pc
-# 	decoder
-# 	execute
-# 	memory_access
-# 	reg_writeback
-# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/ps2.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module ps2_interface
-# 
-# Top level modules:
-# 	ps2_interface
-# 
-vsim work.riscv
-# vsim work.riscv 
-# Loading work.riscv
-# Loading work.rst_n_init
-# Loading work.processor_state_manager
-# Loading work.memory_controller
-# Loading work.flash_interface32bit
-# Loading work.sram_interface32bit
-# Loading work.memory_mapped_io
-# Loading work.memory_multiplexer
-# Loading work.reg_bank
-# Loading work.instruction_fetch_and_pc
-# Loading work.decoder
-# Loading work.execute
-# Loading work.memory_access
-# Loading work.reg_writeback
-# Loading work.vga_fun
-# Loading work.ps2_interface
-# Loading work.button_debounce
-# Loading work.display_32bit_7seg
-# Loading work.hex_to_7seg
-# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/memory.v(197): [TFMPC] - Too few port connections. Expected 17, found 16.
-# 
-#         Region: /riscv/mem/sram32
-# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/memory.v(197): [TFMPC] - Missing connection for port 'TEST_EXPOSE_STATE'.
-# 
-# ** Warning: (vsim-3017) C:/Users/Seth Mueller/Documents/fpga/riscv.v(280): [TFMPC] - Too few port connections. Expected 15, found 14.
-# 
-#         Region: /riscv/memory_access
-# ** Warning: (vsim-3722) C:/Users/Seth Mueller/Documents/fpga/riscv.v(280): [TFMPC] - Missing connection for port 'mem_access_busy'.
-# 
-do ../../fullwave.do
-# ** Error: (vish-4014) No objects found matching '/riscv/ins_valid'.
-# Executing ONERROR command at macro ./../../fullwave.do line 106
-add wave -position end  sim:/riscv/mem/memory_mapped_io/clk
-add wave -position end  sim:/riscv/mem/memory_mapped_io/rst_n
-add wave -position end  sim:/riscv/mem/memory_mapped_io/read_request
-add wave -position end  sim:/riscv/mem/memory_mapped_io/write_request
-add wave -position end  sim:/riscv/mem/memory_mapped_io/addr
-add wave -position end  sim:/riscv/mem/memory_mapped_io/data_in
-add wave -position end  sim:/riscv/mem/memory_mapped_io/data_out
-add wave -position end  sim:/riscv/mem/memory_mapped_io/finished
-add wave -position end  sim:/riscv/mem/memory_mapped_io/busy
-add wave -position end  sim:/riscv/mem/memory_mapped_io/LEDR
-add wave -position end  sim:/riscv/mem/memory_mapped_io/vga_pen_x
-add wave -position end  sim:/riscv/mem/memory_mapped_io/vga_pen_y
-add wave -position end  sim:/riscv/mem/memory_mapped_io/vga_pen_color
-add wave -position end  sim:/riscv/mem/memory_mapped_io/vga_pen_draw
-add wave -position end  sim:/riscv/mem/memory_mapped_io/ps2_get_key
-add wave -position end  sim:/riscv/mem/memory_mapped_io/ps2_key_pressed
-add wave -position end  sim:/riscv/mem/memory_mapped_io/state
-add wave -position end  sim:/riscv/mem/memory_mapped_io/next_state
-add wave -position end  sim:/riscv/ps2_interface/clk
-add wave -position end  sim:/riscv/ps2_interface/rst_n
-add wave -position end  sim:/riscv/ps2_interface/get_key
-add wave -position end  sim:/riscv/ps2_interface/key_pressed
-add wave -position end  sim:/riscv/ps2_interface/PS2_CLK
-add wave -position end  sim:/riscv/ps2_interface/PS2_DAT
-add wave -position end  sim:/riscv/ps2_interface/state
-add wave -position end  sim:/riscv/ps2_interface/next_state
-add wave -position end  sim:/riscv/ps2_interface/extended
-add wave -position end  sim:/riscv/ps2_interface/next_extended
-add wave -position end  sim:/riscv/ps2_interface/releasing
-add wave -position end  sim:/riscv/ps2_interface/next_releasing
-add wave -position end  sim:/riscv/ps2_interface/current_read_bit_i
-add wave -position end  sim:/riscv/ps2_interface/last_byte
-add wave -position end  sim:/riscv/ps2_interface/current_key
-force -freeze {sim:/riscv/SW[5]} 1 0
-force -deposit sim:/riscv/CLOCK_50 0 0, 1 10 ns -r 20 ns
-force -freeze sim:/riscv/memory_addr 0x300000C8 0
-# Invalid binary digit: 3.
-# ** Error: (vsim-4011) Invalid force value: 0x300000C8 0.
-# 
-force -freeze sim:/riscv/memory_addr 32'h300000C8 0
-force -freeze sim:/riscv/memory_multiplexer/fetch_result 00000000000000000010000010000011 0
-run 100 ns
-run 100 ns
+# ** Error: C:/altera/13.0sp1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./riscv_run_msim_rtl_verilog.do line 13
+# C:/altera/13.0sp1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory..."

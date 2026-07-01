@@ -10,6 +10,8 @@ module execute(
 	input [31:0] imm,
   input [31:0] pc,
 
+  input [31:0] csr_read,
+
   output reg [31:0] res,
 
   output reg [31:0] next_pc
@@ -119,7 +121,10 @@ module execute(
 
         `OP_FENCE, `OP_ECALL, `OP_EBREAK, `OP_ILLEGAL:
           res = 32'd0;
-					
+
+        `OP_CSRRW, `OP_CSRRS, `OP_CSRRC, `OP_CSRRWI, `OP_CSRRSI, `OP_CSRRCI:
+          res = csr_read;
+
 				default:
 					res = 32'd0;
       endcase

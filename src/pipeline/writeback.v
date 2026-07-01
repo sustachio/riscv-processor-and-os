@@ -21,7 +21,7 @@ module reg_writeback(
     end else begin
       case (op)
         // normal execute instructions
-        `OP_LUI, `OP_AUIPC, `OP_ADDI, `OP_SLTI, `OP_SLTIU, `OP_XORI, `OP_ORI, `OP_ANDI, `OP_JALR, `OP_SLLI, `OP_SRLI, `OP_SRAI, `OP_ADD, `OP_SUB, `OP_SLL, `OP_SLT, `OP_SLTU, `OP_XOR, `OP_SRL, `OP_SRA, `OP_OR, `OP_AND, `OP_JAL: begin
+        `OP_LUI, `OP_AUIPC, `OP_ADDI, `OP_SLTI, `OP_SLTIU, `OP_XORI, `OP_ORI, `OP_ANDI, `OP_JALR, `OP_SLLI, `OP_SRLI, `OP_SRAI, `OP_ADD, `OP_SUB, `OP_SLL, `OP_SLT, `OP_SLTU, `OP_XOR, `OP_SRL, `OP_SRA, `OP_OR, `OP_AND, `OP_JAL, `OP_CSRRW, `OP_CSRRS, `OP_CSRRC, `OP_CSRRWI, `OP_CSRRSI, `OP_CSRRCI: begin
           reg_bank_rd = rd_in;
           reg_bank_val = execute_result;
         end

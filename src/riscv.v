@@ -54,6 +54,8 @@ module riscv(
   );
 
   wire [2:0] processor_state;
+  wire [1:0] processor_privilege;
+  wire [1:0] next_privilege = `PRIV_MACHINE;
   wire [5:0] decoder_op;
   wire mem_mux_finished;
   processor_state_manager processor_state_manager(
@@ -62,8 +64,10 @@ module riscv(
 
     .mem_finished(mem_mux_finished),
     .decoder_op(decoder_op),
+    .next_privilege(next_privilege),
 
     .processor_state(processor_state),
+    .processor_privilege(processor_privilege),
 
     .TEST_ALLOW_WB_COMPLETE(TEST_ALLOW_WB_COMPLETE)
   );
@@ -226,6 +230,7 @@ module riscv(
   wire [31:0] decoder_rs1;
   wire [31:0] decoder_rs2;
   wire [31:0] decoder_imm;
+  wire [11:0] decoder_csr_i;
   decoder decoder(
     .rst_n(rst_n),
 
@@ -235,11 +240,34 @@ module riscv(
     .rs1(decoder_rs1),
     .rs2(decoder_rs2),
     .imm(decoder_imm),
+    .csr_i(decoder_csr_i),
     
     .rs1_bank_interface_in(rs1_bank_interface_in),
     .rs2_bank_interface_in(rs2_bank_interface_in),
     .rs1_bank_interface_out(rs1_bank_interface_out),
     .rs2_bank_interface_out(rs2_bank_interface_out)
+  );
+
+  wire [31:0] csr_read;
+  wire illegal_csr_access;
+  wire [31:0] TEST_PROBE_NEW_CSR_VAL;
+  control_status_registers control_status_registers(
+    .clk(CLOCK_50),
+    .rst_n(rst_n),
+
+    .processor_state(processor_state),
+    .processor_privilege(processor_privilege),
+    .TEST_ALLOW_WB_COMPLETE(TEST_ALLOW_WB_COMPLETE),
+
+    .op(decoder_op),
+    .imm(decoder_imm),
+    .rs1_val(decoder_rs1),
+    .csr_i(decoder_csr_i), // only valid on csr instructions
+
+    .csr_read(csr_read),
+
+    .illegal_csr_access(illegal_csr_access),
+    .TEST_PROBE_NEW_CSR_VAL(TEST_PROBE_NEW_CSR_VAL)
   );
 
   wire [31:0] execute_result;
@@ -252,6 +280,8 @@ module riscv(
     .rs2(decoder_rs2),
     .imm(decoder_imm),
     .pc(pc),
+
+    .csr_read(csr_read),
 
     .res(execute_result),
 
@@ -354,25 +384,37 @@ module riscv(
 
   reg [31:0] hex_num;
   always @(*) begin
-    case (SW[9:6])
-      4'b0000: hex_num = decoder_op;
-      4'b0001: hex_num = TEST_REG_OUT;
-      4'b0010: hex_num = processor_state;
-      4'b0011: hex_num = mem_mux_finished;
-      4'b0100: hex_num = rs1_bank_interface_in;
-      4'b0101: hex_num = rs2_bank_interface_in;
-      4'b0110: hex_num = rs1_bank_interface_out;
-      4'b0111: hex_num = rs2_bank_interface_out;
-      4'b1000: hex_num = rd_writeback_reg;
-      4'b1001: hex_num = rd_writeback_val;
-      4'b1010: hex_num = pc;
-      4'b1011: hex_num = next_pc;
-      4'b1100: hex_num = instruction32;
-      4'b1101: hex_num = decoder_imm;
-      4'b1110: hex_num = execute_result;
+    if (KEY[3]) begin
+      case (SW[9:6])
+        4'b0000: hex_num = decoder_op;
+        4'b0001: hex_num = TEST_REG_OUT;
+        4'b0010: hex_num = processor_state;
+        4'b0011: hex_num = mem_mux_finished;
+        4'b0100: hex_num = rs1_bank_interface_in;
+        4'b0101: hex_num = rs2_bank_interface_in;
+        4'b0110: hex_num = rs1_bank_interface_out;
+        4'b0111: hex_num = rs2_bank_interface_out;
+        4'b1000: hex_num = rd_writeback_reg;
+        4'b1001: hex_num = rd_writeback_val;
+        4'b1010: hex_num = pc;
+        4'b1011: hex_num = next_pc;
+        4'b1100: hex_num = instruction32;
+        4'b1101: hex_num = decoder_imm;
+        4'b1110: hex_num = execute_result;
 
-      default: hex_num = 0;
-    endcase
+        default: hex_num = 0;
+      endcase
+    end else begin
+      case (SW[9:6])
+        4'b0000: hex_num = decoder_csr_i;
+        4'b0001: hex_num = processor_privilege;
+        4'b0010: hex_num = next_privilege;
+        4'b0011: hex_num = illegal_csr_access;
+        4'b0100: hex_num = TEST_PROBE_NEW_CSR_VAL;
+
+        default: hex_num = 0;
+      endcase
+    end
   end
 	
   wire hex_upp_sel;

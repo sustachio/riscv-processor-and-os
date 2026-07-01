@@ -48,12 +48,63 @@
 `define OP_CSRRSI 45
 `define OP_CSRRCI 46
 
-// processor_state
+`define MRET 47
+`define WFI 48
+
+//////////////////// processor_state
 `define START_FETCH 0
 `define FETCH 1
 `define START_MEM 2
 `define MEM_ACCESS 3
 `define WRITEBACK 4
+
+//////////////////// processor_privilege
+`define PRIV_MACHINE    2'b11
+`define PRIV_SUPERVISOR 2'b01
+`define PRIV_USER       2'b00
+
+///////////////// CSRs
+
+`define CSR_CYCLE	12'hC00
+`define CSR_CYCLEH	12'hC80
+`define CSR_TIME	12'hC01
+`define CSR_TIMEH	12'hC81
+`define CSR_INSTRET	12'hC02
+`define CSR_INSTRETH	12'hC82
+//hpmcounter3-31	0xC03-0xC1F
+//hpmcounter3-31h	0xC83-0xC9F
+`define CSR_MISA	12'h301
+`define CSR_MVENDORID	12'hF11
+`define CSR_MARCHID	12'hF12
+`define CSR_MIMPID	12'hF13
+`define CSR_MHARTID	12'hF14
+`define CSR_MSTATUS	12'h300
+`define CSR_MSTATUSH	12'h310
+`define CSR_MTVEC	12'h305
+`define CSR_MEDELEG 	12'h302
+`define CSR_MEDELEGH	12'h312
+`define CSR_MIDELEG 	12'h303
+`define CSR_MIP	12'h344
+`define CSR_MIE	12'h304
+`define CSR_MCYCLE	12'hB00
+`define CSR_MCYCLEH	12'hB80
+`define CSR_MINSTRET	12'hB02
+`define CSR_MINSTRETH	12'hB82
+//mhpmcounter3-31	0xB03-0xB1F
+//mhpmcounter3-31h	0xB84-0xB9F
+//mhpevent3-31	0x324-0x33F
+//mhpevent3-31h	0x324-0x33F
+`define CSR_MCOUNTEREN	12'h306
+`define CSR_MCOUNTINHIBIT	12'h320
+`define CSR_MSCRATCH	12'h340
+`define CSR_MEPC	12'h341
+`define CSR_MCAUSE	12'h342
+`define CSR_MTVAL	12'h343
+`define CSR_MCONFIGPTR	12'hF15
+`define CSR_MENVCFG	12'h30A
+`define CSR_MENVCFGH 	12'h31A
+`define CSR_MSECCFG	12'h747
+`define CSR_MSECCFGH	12'h757
 
 ////////// KEYS //////////
 // compiled from http://www.technoblogy.com/show?4QEL, thank you internet site! :3
