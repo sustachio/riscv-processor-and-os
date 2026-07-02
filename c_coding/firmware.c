@@ -1,24 +1,35 @@
-extern unsigned char __text_start, __text_end, __text_load;
-extern unsigned char __data_start, __data_end, __data_load;
-extern unsigned char __bss_start,  __bss_end;
+extern unsigned char __os_text_start, __os_text_end, __os_text_load;
+extern unsigned char __os_data_start, __os_data_end, __os_data_load;
+extern unsigned char __os_bss_start,  __os_bss_end;
 
-__attribute__((section(".boot"))) 
-void firmware_start(void) {
+typedef void (*entry_t)(void);
+
+__attribute__((section(".boot")))
+void firmware_start() {
   char *src, *dst;
 
-  src = &__text_load;
-  dst = &__text_start;
-  while (dst < &__text_end)
+  // text load
+  src = &__os_text_load;
+  dst = &__os_text_start;
+  while (dst < &__os_text_end)
     *dst++ = *src++;
 
-  src = &__data_load;
-  dst = &__data_start;
-  while (dst < &__data_end)
+  // data load
+  src = &__os_data_load;
+  dst = &__os_data_start;
+  while (dst < &__os_data_end)
     *dst++ = *src++;
 
-  dst = &__bss_start;
-  while (dst < &__bss_end)
+  // bss clear
+  dst = &__os_bss_start;
+  while (dst < &__os_bss_end)
     *dst++ = 0;
+
+  // woah this is neat
+  entry_t os = (entry_t)&__os_text_start;
+  os();
+
+  for (;;);
 }
 
 /*
