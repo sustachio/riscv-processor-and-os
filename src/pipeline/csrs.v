@@ -1,3 +1,5 @@
+`include "src/global_constants.vh"
+
 module control_status_registers(
   input clk,
   input rst_n,
@@ -6,6 +8,9 @@ module control_status_registers(
   input [1:0] processor_privilege,
   input TEST_ALLOW_WB_COMPLETE,
 
+  input external_irq,
+  input timer_irq,
+
   input [5:0] op,
   input [31:0] imm,
   input [31:0] rs1_val,
@@ -13,28 +18,45 @@ module control_status_registers(
 
   output reg [31:0] csr_read,
 
+  // trap handling
+  output reg [63:0] mstatus,
+  output reg [31:0] mtvec,
+  output reg [31:0] mcause,
+  output reg [31:0] mtval,
+  output reg [31:0] mepc,
+
+  output reg [31:0] mie,
+  output reg [31:0] mip,
+
+  // misc
+  output reg [31:0] mscratch,
+
+  // set by trap handler
+  input [63:0] next_mstatus,
+  input [31:0] next_mtvec,
+  input [31:0] next_mcause,
+  input [31:0] next_mtval,
+  input [31:0] next_mepc,
+
   output reg illegal_csr_access,
   output reg [31:0] TEST_PROBE_NEW_CSR_VAL
 );
-  reg [63:0] mstatus;
-  reg [31:0] mtvec;
-  reg [31:0] mcause;
-  reg [31:0] mtval;
-  reg [31:0] mepc;
-  reg [31:0] mscratch;
-
   reg [1:0] required_priv;
   reg instruction_is_csr_op;
 
   reg [31:0] new_csr_value;
-  //assign TEST_PROBE_NEW_CSR_VAL = new_csr_value;
   always @(*)
-    TEST_PROBE_NEW_CSR_VAL = mscratch;
+    TEST_PROBE_NEW_CSR_VAL = new_csr_value;
 
   always @(*) begin
-    if (!rst_n)
+    if (!rst_n) begin
       csr_read = 0;
-    else begin
+      mip = 0;
+    end else begin
+      mip = 0;
+      mip[11] = external_irq;
+      mip[7]  = timer_irq;
+
       instruction_is_csr_op = (op == `OP_CSRRW  ||
                                op == `OP_CSRRS  ||
                                op == `OP_CSRRC  ||
@@ -62,8 +84,8 @@ module control_status_registers(
         `CSR_MEDELEG :  csr_read = 0; // unimp, supervisor mode delegations
         `CSR_MEDELEGH:  csr_read = 0; // ^
         `CSR_MIDELEG :  csr_read = 0; // ^
-        `CSR_MIP:       csr_read = 0; // TODO
-        `CSR_MIE:       csr_read = 0; // TODO
+        `CSR_MIP:       csr_read = mip;
+        `CSR_MIE:       csr_read = mie;
         `CSR_MCYCLE:    csr_read = 0; // TODO
         `CSR_MCYCLEH:   csr_read = 0; // TODO
         `CSR_MINSTRET:  csr_read = 0; // TODO
@@ -128,6 +150,13 @@ module control_status_registers(
       mscratch <= 0;
     end
     else begin
+      // values set by trap_handler
+      mstatus <= next_mstatus;
+      mtvec <= next_mtvec;
+      mepc <= next_mcause;
+      mtval <= next_mtval;
+      mepc <= next_mepc;
+
       if (instruction_is_csr_op && (processor_state == `WRITEBACK) && TEST_ALLOW_WB_COMPLETE && !illegal_csr_access) begin
         case (csr_i)
           `CSR_CYCLE:     begin end // TODO
@@ -150,7 +179,7 @@ module control_status_registers(
           `CSR_MEDELEGH:  begin end // ^
           `CSR_MIDELEG :  begin end // ^
           `CSR_MIP:       begin end // TODO
-          `CSR_MIE:       begin end // TODO
+          `CSR_MIE:       mie <= new_csr_value; // TODO
           `CSR_MCYCLE:    begin end // TODO
           `CSR_MCYCLEH:   begin end // TODO
           `CSR_MINSTRET:  begin end // TODO

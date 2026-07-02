@@ -1,3 +1,5 @@
+// to test the raymarcher on a real computer
+
 #include <stdio.h>
 #include <math.h>
 

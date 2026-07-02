@@ -1,48 +1,115 @@
-ENTRY(_start)
+ENTRY(firmware_start)
 
 MEMORY
 {
-    ROM (rx)  : ORIGIN = 0x00000000, LENGTH = 64K
-    RAM (rwx) : ORIGIN = 0x10000000, LENGTH = 64K
+  ROM (rx)  : ORIGIN = 0x00000000, LENGTH = 4M 
+  RAM (rwx) : ORIGIN = 0x10000000, LENGTH = 512K
 }
 
 SECTIONS
 {
-    .boot :
-    {
-      KEEP(*(.boot))
-    } > ROM
+  /* firmware */
 
-    .text ORIGIN(RAM) : AT(LOADADDR(.boot) + SIZEOF(.boot))
-    {
-      __text_start = .;
-      *(.text*)
-      *(.rodata*)
-      __text_end = .;
-    } > RAM
+  .boot ORIGIN(ROM) :
+  {
+    KEEP(firmware.o(.boot))
+  } > ROM
 
-    __text_load = LOADADDR(.text);
+  /* OS */
 
-    .data :
-    {
-      __data_start = .;
-      *(.data*)
-      __data_end = .;
-    } > RAM AT > ROM
-    
-    __data_load = LOADADDR(.data);
+  /*.os.text ORIGIN(RAM) : AT(LOADADDR(.boot) + SIZEOF(.boot))*/
+  .os.text :
+  {
+    __os_text_start = .;
+    OS.o(.text*)
+    OS.o(.rodata*)
+    __os_text_end = .;
+  } > RAM AT > ROM
 
-    .bss :
-    {
-        __bss_start = .;
-        *(.bss*)
-        *(COMMON)
-        __bss_end = .;
-    } > RAM
+  __os_text_load = LOADADDR(.os.text);
 
-    .stack (NOLOAD) :
-    {
-      . = ALIGN(16);
-      __stack_top = ORIGIN(RAM) + LENGTH(RAM);
-    } > RAM
+  .os.data :
+  {
+    __os_data_start = .;
+    OS.o(.data)
+    __os_data_end = .;
+  } > RAM AT > ROM
+  
+  __os_data_load = LOADADDR(.os.data);
+
+  .os.bss :
+  {
+      __os_bss_start = .;
+      OS.o(.bss*)
+      OS.o(COMMON)
+      __os_bss_end = .;
+  } > RAM
+
+  .os.stack (NOLOAD) :
+  {
+    . = ALIGN(16);
+    . += 4K;
+    __os_stack_top = .;
+  } > RAM
+
+  /* program 0 */
+
+  .shell.text __os_stack_top :
+  {
+    __shell_text_start = .;
+    shell.o(.text*)
+    shell.o(.rodata*)
+    __shell_text_end = .;
+  } > RAM AT > ROM
+
+  __shell_text_load = LOADADDR(.shell.text);
+
+  .shell.data :
+  {
+    __shell_data_start = .;
+    shell.o(.data)
+    __shell_data_end = .echo;
+  } > RAM AT > ROM
+  
+  __shell_data_load = LOADADDR(.shell.data);
+
+  .shell.bss :
+  {
+      __shell_bss_start = .;
+      shell.o(.bss*)
+      shell.o(COMMON)
+      __shell_bss_end = .;
+  } > RAM
+
+
+  /* program 1 */
+
+  .echo.text __os_stack_top :
+  {
+    __echo_text_start = .;
+    echo.o(.text*)
+    echo.o(.rodata*)
+    __echo_text_end = .;
+  } > RAM AT > ROM
+
+  __echo_text_load = LOADADDR(.echo.text);
+
+  .echo.data :
+  {
+    __echo_data_start = .;
+    echo.o(.data)
+    __echo_data_end = .;
+  } > RAM AT > ROM
+  
+  __echo_data_load = LOADADDR(.echo.data);
+
+  .echo.bss :
+  {
+      __echo_bss_start = .;
+      echo.o(.bss*)
+      echo.o(COMMON)
+      __echo_bss_end = .;
+  } > RAM
+
+  __program_stack_top = ORIGIN(RAM) + LENGTH(RAM);
 }

@@ -1,3 +1,5 @@
+// this DID NOT work, float emulation too slow
+
 #define LEDR   ((volatile unsigned int*)0x30000000)
 #define VGA    ((volatile unsigned int*)0x30000004)
 

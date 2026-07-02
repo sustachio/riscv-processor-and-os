@@ -7,6 +7,14 @@ riscv64-unknown-elf-gcc \
     -c startup.S \
     -o startup.o \
 
+# compile firmware
+riscv64-unknown-elf-gcc \
+  -march=rv32i \
+  -mabi=ilp32 \
+  -c firmware.c \
+  -o output_files/firmware.o
+
+
 # compile main.c
 riscv64-unknown-elf-gcc \
     -march=rv32i \

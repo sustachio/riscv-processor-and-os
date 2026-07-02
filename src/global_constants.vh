@@ -48,8 +48,8 @@
 `define OP_CSRRSI 45
 `define OP_CSRRCI 46
 
-`define MRET 47
-`define WFI 48
+`define OP_MRET 47
+`define OP_WFI 48
 
 //////////////////// processor_state
 `define START_FETCH 0
@@ -105,6 +105,62 @@
 `define CSR_MENVCFGH 	12'h31A
 `define CSR_MSECCFG	12'h747
 `define CSR_MSECCFGH	12'h757
+
+
+///// csr bit fields indicies
+// mstatus
+`define CSR_MSTATUS_SDR 24
+`define CSR_MSTATUS_SPELP 23
+`define CSR_MSTATUS_TSR 22
+`define CSR_MSTATUS_TW 21
+`define CSR_MSTATUS_TVM 20
+`define CSR_MSTATUS_MXR 19
+`define CSR_MSTATUS_SUM 18
+`define CSR_MSTATUS_MPRV 17
+`define CSR_MSTATUS_XS 16 // 16:15
+`define CSR_MSTATUS_FS 14 // 14:13
+`define CSR_MSTATUS_MPP 12 // 12:11
+`define CSR_MSTATUS_VS 10 // 10:9
+`define CSR_MSTATUS_SPP 8
+`define CSR_MSTATUS_MPIE 7
+`define CSR_MSTATUS_UBE 6
+`define CSR_MSTATUS_SPIE 5
+`define CSR_MSTATUS_WPRI 4
+`define CSR_MSTATUS_MIE 3
+`define CSR_MSTATUS_SIE 1
+
+// mip/mie
+`define CSR_MIP_LCOFIP 13
+`define CSR_MIE_LCOFIE 13
+`define CSR_MIP_MEIP 11
+`define CSR_MIE_MEIE 11
+`define CSR_MIP_SEIP 9
+`define CSR_MIE_SEIE 9
+`define CSR_MIP_MTIP 7
+`define CSR_MIE_MTIE 7
+`define CSR_MIP_STIP 5
+`define CSR_MIE_STIE 5
+`define CSR_MIP_MSIP 3
+`define CSR_MIE_MSIE 3
+`define CSR_MIP_SSIP 1
+`define CSR_MIE_SSIE 1
+
+////////////// trap mcause
+// exceptions
+`define TRAPCAUSE_ECALL_U 8
+`define TRAPCAUSE_ECALL_S 9
+`define TRAPCAUSE_ECALL_M 11
+`define TRAPCAUSE_EBREAK 3
+`define TRAPCAUSE_ILLEGAL_INSTRUCTION 2
+`define TRAPCAUSE_INSTRUCTION_MISALIGNED 0
+// interupts
+`define TRAPCAUSE_MEI ((32'b1 << 31) & 32'd11)
+`define TRAPCAUSE_MTI ((32'b1 << 31) & 32'd7)
+
+////////////// mtvec modes
+`define MTVEC_DIRECT 0
+`define MTVEC_VECTORED 1
+
 
 ////////// KEYS //////////
 // compiled from http://www.technoblogy.com/show?4QEL, thank you internet site! :3

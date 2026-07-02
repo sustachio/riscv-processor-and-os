@@ -55,7 +55,7 @@ module riscv(
 
   wire [2:0] processor_state;
   wire [1:0] processor_privilege;
-  wire [1:0] next_privilege = `PRIV_MACHINE;
+  wire [1:0] next_privilege;
   wire [5:0] decoder_op;
   wire mem_mux_finished;
   processor_state_manager processor_state_manager(
@@ -250,6 +250,25 @@ module riscv(
 
   wire [31:0] csr_read;
   wire illegal_csr_access;
+
+  wire timer_irq = 0;
+  wire external_irq = 0;
+
+  wire [63:0] mstatus;
+  wire [31:0] mtvec;
+  wire [31:0] mcause;
+  wire [31:0] mtval;
+  wire [31:0] mepc;
+  wire [31:0] mie;
+  wire [31:0] mip;
+  wire [31:0] mscratch;
+
+  wire [63:0] next_mstatus;
+  wire [31:0] next_mtvec;
+  wire [31:0] next_mcause;
+  wire [31:0] next_mtval;
+  wire [31:0] next_mepc;
+
   wire [31:0] TEST_PROBE_NEW_CSR_VAL;
   control_status_registers control_status_registers(
     .clk(CLOCK_50),
@@ -259,6 +278,9 @@ module riscv(
     .processor_privilege(processor_privilege),
     .TEST_ALLOW_WB_COMPLETE(TEST_ALLOW_WB_COMPLETE),
 
+    .timer_irq(timer_irq),
+    .external_irq(external_irq),
+
     .op(decoder_op),
     .imm(decoder_imm),
     .rs1_val(decoder_rs1),
@@ -266,11 +288,61 @@ module riscv(
 
     .csr_read(csr_read),
 
+    // direct outputs
+    .mstatus(mstatus),
+    .mtvec(mtvec),
+    .mcause(mcause),
+    .mtval(mtval),
+    .mepc(mepc),
+    .mie(mie),
+    .mip(mip),
+    .mscratch(mscratch),
+
+    // set by trap handler
+    .next_mstatus(next_mstatus),
+    .next_mtvec(next_mtvec),
+    .next_mcause(next_mcause),
+    .next_mtval(next_mtval),
+    .next_mepc(next_mepc),
+
     .illegal_csr_access(illegal_csr_access),
     .TEST_PROBE_NEW_CSR_VAL(TEST_PROBE_NEW_CSR_VAL)
   );
 
+  trap_manager trap_manager(
+    .clk(clk),
+    .rst_n(rst_n),
+
+    .pc(pc),
+    .execute_next_pc(execute_next_pc),
+    .next_pc(next_pc),
+
+    .op(decoder_op),
+
+    .illegal_csr_access(illegal_csr_access),
+
+    .processor_state(processor_state),
+    .processor_privilege(processor_privilege),
+    .next_privilege(next_privilege),
+
+    .mstatus(mstatus),
+    .mtvec(mtvec),
+    .mcause(mcause),
+    .mtval(mtval),
+    .mepc(mepc),
+    .mip(mip),
+    .mie(mie),
+
+    .next_mstatus(next_mstatus),
+    .next_mtvec(next_mtvec),
+    .next_mcause(next_mcause),
+    .next_mtval(next_mtval),
+    .next_mepc(next_mepc)
+  );
+
+
   wire [31:0] execute_result;
+  wire [31:0] execute_next_pc;
   execute execute(
     .rst_n(rst_n),
 
@@ -285,7 +357,7 @@ module riscv(
 
     .res(execute_result),
 
-    .next_pc(next_pc)
+    .next_pc(execute_next_pc)
   );
 
   wire [31:0] memory_access_result;
