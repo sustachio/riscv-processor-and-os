@@ -12,17 +12,19 @@ SECTIONS
 
   .boot ORIGIN(ROM) :
   {
-    KEEP(firmware.o(.boot))
+    KEEP(*firmware.o(.boot))
   } > ROM
 
-  /* OS */
+  /* os */
 
   /*.os.text ORIGIN(RAM) : AT(LOADADDR(.boot) + SIZEOF(.boot))*/
   .os.text :
   {
     __os_text_start = .;
-    OS.o(.text*)
-    OS.o(.rodata*)
+    KEEP(*os.o(.entry))
+    *os.o(.text*)
+    *os_asm.o(.text*)
+    *os.o(.rodata*)
     __os_text_end = .;
   } > RAM AT > ROM
 
@@ -31,7 +33,7 @@ SECTIONS
   .os.data :
   {
     __os_data_start = .;
-    OS.o(.data)
+    *os.o(.data)
     __os_data_end = .;
   } > RAM AT > ROM
   
@@ -40,8 +42,8 @@ SECTIONS
   .os.bss :
   {
       __os_bss_start = .;
-      OS.o(.bss*)
-      OS.o(COMMON)
+      *os.o(.bss*)
+      *os.o(COMMON)
       __os_bss_end = .;
   } > RAM
 
@@ -57,8 +59,9 @@ SECTIONS
   .shell.text __os_stack_top :
   {
     __shell_text_start = .;
-    shell.o(.text*)
-    shell.o(.rodata*)
+    *shell.o(.entry)
+    *shell.o(.text*)
+    *shell.o(.rodata*)
     __shell_text_end = .;
   } > RAM AT > ROM
 
@@ -67,8 +70,8 @@ SECTIONS
   .shell.data :
   {
     __shell_data_start = .;
-    shell.o(.data)
-    __shell_data_end = .echo;
+    *shell.o(.data)
+    __shell_data_end = .;
   } > RAM AT > ROM
   
   __shell_data_load = LOADADDR(.shell.data);
@@ -76,8 +79,8 @@ SECTIONS
   .shell.bss :
   {
       __shell_bss_start = .;
-      shell.o(.bss*)
-      shell.o(COMMON)
+      *shell.o(.bss*)
+      *shell.o(COMMON)
       __shell_bss_end = .;
   } > RAM
 
@@ -87,8 +90,9 @@ SECTIONS
   .echo.text __os_stack_top :
   {
     __echo_text_start = .;
-    echo.o(.text*)
-    echo.o(.rodata*)
+    *echo.o(.entry)
+    *echo.o(.text*)
+    *echo.o(.rodata*)
     __echo_text_end = .;
   } > RAM AT > ROM
 
@@ -97,7 +101,7 @@ SECTIONS
   .echo.data :
   {
     __echo_data_start = .;
-    echo.o(.data)
+    *echo.o(.data)
     __echo_data_end = .;
   } > RAM AT > ROM
   
@@ -106,8 +110,8 @@ SECTIONS
   .echo.bss :
   {
       __echo_bss_start = .;
-      echo.o(.bss*)
-      echo.o(COMMON)
+      *echo.o(.bss*)
+      *echo.o(COMMON)
       __echo_bss_end = .;
   } > RAM
 

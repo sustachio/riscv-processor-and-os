@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv
-Wed Jul 01 18:47:32 2026
+Sat Jul 04 00:41:40 2026
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -63,13 +63,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jul 01 18:47:32 2026           ;
+; Analysis & Synthesis Status        ; Successful - Sat Jul 04 00:41:40 2026           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; riscv                                           ;
 ; Top-level Entity Name              ; riscv                                           ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 9,022                                           ;
-;     Total combinational functions  ; 7,980                                           ;
+; Total logic elements               ; 9,122                                           ;
+;     Total combinational functions  ; 8,080                                           ;
 ;     Dedicated logic registers      ; 1,802                                           ;
 ; Total registers                    ; 1802                                            ;
 ; Total pins                         ; 149                                             ;
@@ -184,7 +184,6 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; src/interfaces/memory.v           ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v            ;         ;
 ; src/riscv.v                       ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/riscv.v                        ;         ;
 ; src/utils.v                       ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/utils.v                        ;         ;
-; src/global_constants.vh           ; yes             ; User Unspecified File        ; C:/Users/Seth Mueller/Documents/fpga/src/global_constants.vh            ;         ;
 ; src/interfaces/memory_mapped_io.v ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory_mapped_io.v  ;         ;
 ; src/interfaces/ps2.v              ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/ps2.v               ;         ;
 ; src/pipeline/processorstate.v     ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/pipeline/processorstate.v      ;         ;
@@ -199,6 +198,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; src/interfaces/vga.v              ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/interfaces/vga.v               ;         ;
 ; src/pipeline/csrs.v               ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/pipeline/csrs.v                ;         ;
 ; src/pipeline/trap_manager.v       ; yes             ; User Verilog HDL File        ; C:/Users/Seth Mueller/Documents/fpga/src/pipeline/trap_manager.v        ;         ;
+; global_constants.vh               ; yes             ; Auto-Found Unspecified File  ; C:/Users/Seth Mueller/Documents/fpga/global_constants.vh                ;         ;
 ; altsyncram.tdf                    ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc             ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                       ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -219,16 +219,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimated Total logic elements              ; 9,022                       ;
+; Estimated Total logic elements              ; 9,122                       ;
 ;                                             ;                             ;
-; Total combinational functions               ; 7980                        ;
+; Total combinational functions               ; 8080                        ;
 ; Logic element usage by number of LUT inputs ;                             ;
-;     -- 4 input functions                    ; 6295                        ;
-;     -- 3 input functions                    ; 1174                        ;
-;     -- <=2 input functions                  ; 511                         ;
+;     -- 4 input functions                    ; 6370                        ;
+;     -- 3 input functions                    ; 1195                        ;
+;     -- <=2 input functions                  ; 515                         ;
 ;                                             ;                             ;
 ; Logic elements by mode                      ;                             ;
-;     -- normal mode                          ; 7427                        ;
+;     -- normal mode                          ; 7527                        ;
 ;     -- arithmetic mode                      ; 553                         ;
 ;                                             ;                             ;
 ; Total registers                             ; 1802                        ;
@@ -239,9 +239,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Total memory bits                           ; 153600                      ;
 ; Embedded Multiplier 9-bit elements          ; 0                           ;
 ; Maximum fan-out node                        ; rst_n_init:rst_n_init|rst_n ;
-; Maximum fan-out                             ; 2123                        ;
-; Total fan-out                               ; 37743                       ;
-; Average fan-out                             ; 3.79                        ;
+; Maximum fan-out                             ; 2232                        ;
+; Total fan-out                               ; 38115                       ;
+; Average fan-out                             ; 3.78                        ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -250,28 +250,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Library Name ;
 +--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------+--------------+
-; |riscv                                                 ; 7980 (180)        ; 1802 (0)     ; 153600      ; 0            ; 0       ; 0         ; 149  ; 0            ; |riscv                                                                                                       ; work         ;
+; |riscv                                                 ; 8080 (190)        ; 1802 (0)     ; 153600      ; 0            ; 0       ; 0         ; 149  ; 0            ; |riscv                                                                                                       ; work         ;
 ;    |button_debounce:num_display_control|               ; 26 (26)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|button_debounce:num_display_control                                                                   ; work         ;
 ;    |button_debounce:sram_command_trigger|              ; 60 (60)           ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|button_debounce:sram_command_trigger                                                                  ; work         ;
-;    |control_status_registers:control_status_registers| ; 734 (734)         ; 256 (256)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|control_status_registers:control_status_registers                                                     ; work         ;
-;    |decoder:decoder|                                   ; 2568 (2568)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|decoder:decoder                                                                                       ; work         ;
-;    |display_32bit_7seg:mydisp|                         ; 272 (244)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp                                                                             ; work         ;
+;    |control_status_registers:control_status_registers| ; 728 (728)         ; 256 (256)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|control_status_registers:control_status_registers                                                     ; work         ;
+;    |decoder:decoder|                                   ; 2622 (2622)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|decoder:decoder                                                                                       ; work         ;
+;    |display_32bit_7seg:mydisp|                         ; 318 (290)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp                                                                             ; work         ;
 ;       |hex_to_7seg:hex0conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex0conv                                                        ; work         ;
 ;       |hex_to_7seg:hex1conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex1conv                                                        ; work         ;
 ;       |hex_to_7seg:hex2conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex2conv                                                        ; work         ;
 ;       |hex_to_7seg:hex3conv|                           ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|display_32bit_7seg:mydisp|hex_to_7seg:hex3conv                                                        ; work         ;
-;    |execute:execute|                                   ; 1592 (1592)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|execute:execute                                                                                       ; work         ;
-;    |instruction_fetch_and_pc:instruction_fetch_and_pc| ; 162 (162)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc                                                     ; work         ;
+;    |execute:execute|                                   ; 1584 (1584)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|execute:execute                                                                                       ; work         ;
+;    |instruction_fetch_and_pc:instruction_fetch_and_pc| ; 185 (185)         ; 64 (64)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc                                                     ; work         ;
 ;    |memory_access:memory_access|                       ; 4 (4)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_access:memory_access                                                                           ; work         ;
-;    |memory_controller:mem|                             ; 507 (105)         ; 204 (2)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem                                                                                 ; work         ;
-;       |flash_interface32bit:flash32|                   ; 167 (167)         ; 65 (65)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|flash_interface32bit:flash32                                                    ; work         ;
-;       |memory_mapped_io:memory_mapped_io|              ; 55 (55)           ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|memory_mapped_io:memory_mapped_io                                               ; work         ;
-;       |sram_interface32bit:sram32|                     ; 180 (180)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|sram_interface32bit:sram32                                                      ; work         ;
-;    |memory_multiplexer:memory_multiplexer|             ; 140 (140)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_multiplexer:memory_multiplexer                                                                 ; work         ;
-;    |processor_state_manager:processor_state_manager|   ; 4 (4)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|processor_state_manager:processor_state_manager                                                       ; work         ;
-;    |ps2_interface:ps2_interface|                       ; 464 (464)         ; 146 (146)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|ps2_interface:ps2_interface                                                                           ; work         ;
-;    |reg_bank:reg_bank|                                 ; 815 (815)         ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_bank:reg_bank                                                                                     ; work         ;
-;    |reg_writeback:reg_writeback|                       ; 140 (140)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_writeback:reg_writeback                                                                           ; work         ;
+;    |memory_controller:mem|                             ; 536 (138)         ; 204 (2)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem                                                                                 ; work         ;
+;       |flash_interface32bit:flash32|                   ; 166 (166)         ; 65 (65)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|flash_interface32bit:flash32                                                    ; work         ;
+;       |memory_mapped_io:memory_mapped_io|              ; 53 (53)           ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|memory_mapped_io:memory_mapped_io                                               ; work         ;
+;       |sram_interface32bit:sram32|                     ; 179 (179)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_controller:mem|sram_interface32bit:sram32                                                      ; work         ;
+;    |memory_multiplexer:memory_multiplexer|             ; 152 (152)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|memory_multiplexer:memory_multiplexer                                                                 ; work         ;
+;    |processor_state_manager:processor_state_manager|   ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|processor_state_manager:processor_state_manager                                                       ; work         ;
+;    |ps2_interface:ps2_interface|                       ; 463 (463)         ; 146 (146)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|ps2_interface:ps2_interface                                                                           ; work         ;
+;    |reg_bank:reg_bank|                                 ; 753 (753)         ; 992 (992)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_bank:reg_bank                                                                                     ; work         ;
+;    |reg_writeback:reg_writeback|                       ; 142 (142)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|reg_writeback:reg_writeback                                                                           ; work         ;
 ;    |rst_n_init:rst_n_init|                             ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|rst_n_init:rst_n_init                                                                                 ; work         ;
 ;    |trap_manager:trap_manager|                         ; 180 (180)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|trap_manager:trap_manager                                                                             ; work         ;
 ;    |vga_interface:vga_interface|                       ; 129 (124)         ; 24 (21)      ; 153600      ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv|vga_interface:vga_interface                                                                           ; work         ;
@@ -369,113 +369,113 @@ Encoding Type:  One-Hot
 +-----------------+-------------+-------------+-------------+-------------+-----------------+------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                                                                ;
-+----------------------------------------------------------------------+--------------------------------------------------------------------+------------------------+
-; Latch Name                                                           ; Latch Enable Signal                                                ; Free of Timing Hazards ;
-+----------------------------------------------------------------------+--------------------------------------------------------------------+------------------------+
-; ps2_interface:ps2_interface|key_pressed                              ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; memory_controller:mem|data_out[15]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|finished                                       ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[20]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[5]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[0]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[1]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[2]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[3]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[4]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[6]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[12]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[13]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[14]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[27]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[28]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[29]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[30]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[31]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[25]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[26]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[7]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[8]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[9]                                    ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[10]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[11]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[16]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[17]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[18]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[19]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[21]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[22]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[24]                                   ; VCC                                                                ; yes                    ;
-; memory_controller:mem|data_out[23]                                   ; VCC                                                                ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[0]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|illegal_csr_access ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[16]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[0]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[16]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[1]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[17]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[1]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[17]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[2]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[18]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[2]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[18]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[3]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[19]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[19]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[3]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[4]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[20]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[20]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[4]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[5]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[21]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[5]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[21]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[22]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[22]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[6]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[6]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[23]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[23]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[7]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[7]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[24]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[24]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[8]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[8]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[25]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[25]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[9]                                    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[9]   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[26]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[26]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[10]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[10]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[27]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[27]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[11]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[11]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[12]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[12]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[28]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[28]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[13]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[13]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[29]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[29]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[14]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[14]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[30]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[30]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[15]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[31]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; control_status_registers:control_status_registers|new_csr_value[15]  ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; reg_bank:reg_bank|TEST_REG_OUT[31]                                   ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
-; memory_multiplexer:memory_multiplexer|memory_byte_mode               ; processor_state_manager:processor_state_manager|processor_state[2] ; yes                    ;
-; Number of user-specified and inferred latches = 103                  ;                                                                    ;                        ;
-+----------------------------------------------------------------------+--------------------------------------------------------------------+------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                                   ;
++-------------------------------------------------------------------------+--------------------------------------------------------------------+------------------------+
+; Latch Name                                                              ; Latch Enable Signal                                                ; Free of Timing Hazards ;
++-------------------------------------------------------------------------+--------------------------------------------------------------------+------------------------+
+; ps2_interface:ps2_interface|key_pressed                                 ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; memory_controller:mem|data_out[16]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[3]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|finished                                          ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[14]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[6]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[5]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[4]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[2]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[1]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[12]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[13]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[0]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[25]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[26]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[27]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[29]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[31]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[28]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[30]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[17]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[9]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[8]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[15]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[11]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[19]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[10]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[7]                                       ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[24]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[23]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[22]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[21]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[20]                                      ; VCC                                                                ; yes                    ;
+; memory_controller:mem|data_out[18]                                      ; VCC                                                                ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[0]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|illegal_csr_access    ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[16]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[1]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[17]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[2]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[18]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[19]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[3]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[20]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[4]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[5]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[21]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[22]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[6]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[23]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[7]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[24]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[8]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[9]                                       ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[25]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[10]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[26]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[11]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[27]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[12]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[28]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[13]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[29]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[14]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[30]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[15]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; reg_bank:reg_bank|TEST_REG_OUT[31]                                      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; memory_multiplexer:memory_multiplexer|memory_byte_mode                  ; processor_state_manager:processor_state_manager|processor_state[2] ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[16]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|instruction_is_csr_op ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[0]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[11]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[15]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[14]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[13]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[12]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[10]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[9]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[8]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[5]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[7]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[4]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[6]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[3]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[2]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[1]      ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[17]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[18]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[19]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[20]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[21]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[22]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[23]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[24]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[25]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[26]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[27]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[28]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[29]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; control_status_registers:control_status_registers|new_csr_value[30]     ; rst_n_init:rst_n_init|rst_n                                        ; yes                    ;
+; Number of user-specified and inferred latches = 103                     ;                                                                    ;                        ;
++-------------------------------------------------------------------------+--------------------------------------------------------------------+------------------------+
 Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -487,7 +487,6 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; memory_controller:mem|memory_mapped_io:memory_mapped_io|data_out[1..30] ; Merged with memory_controller:mem|memory_mapped_io:memory_mapped_io|data_out[31]  ;
 ; button_debounce:num_display_control|internal_debounce                   ; Merged with button_debounce:num_display_control|debounced                         ;
 ; memory_controller:mem|memory_mapped_io:memory_mapped_io|data_out[31]    ; Stuck at GND due to stuck port data_in                                            ;
-; reg_bank:reg_bank|registers[0][0]                                       ; Stuck at GND due to stuck port data_in                                            ;
 ; reg_bank:reg_bank|registers[0][31]                                      ; Stuck at GND due to stuck port data_in                                            ;
 ; reg_bank:reg_bank|registers[0][30]                                      ; Stuck at GND due to stuck port data_in                                            ;
 ; reg_bank:reg_bank|registers[0][29]                                      ; Stuck at GND due to stuck port data_in                                            ;
@@ -519,6 +518,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; reg_bank:reg_bank|registers[0][3]                                       ; Stuck at GND due to stuck port data_in                                            ;
 ; reg_bank:reg_bank|registers[0][2]                                       ; Stuck at GND due to stuck port data_in                                            ;
 ; reg_bank:reg_bank|registers[0][1]                                       ; Stuck at GND due to stuck port data_in                                            ;
+; reg_bank:reg_bank|registers[0][0]                                       ; Stuck at GND due to stuck port data_in                                            ;
 ; ps2_interface:ps2_interface|state~2                                     ; Lost fanout                                                                       ;
 ; ps2_interface:ps2_interface|state~3                                     ; Lost fanout                                                                       ;
 ; memory_controller:mem|memory_mapped_io:memory_mapped_io|state~4         ; Lost fanout                                                                       ;
@@ -555,22 +555,22 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------+
 ; Register name                                                        ; Reason for Removal        ; Registers Removed due to This Register                                  ;
 +----------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------+
-; memory_controller:mem|memory_mapped_io:memory_mapped_io|data_out[31] ; Stuck at GND              ; reg_bank:reg_bank|registers[0][0], reg_bank:reg_bank|registers[0][31],  ;
-;                                                                      ; due to stuck port data_in ; reg_bank:reg_bank|registers[0][30], reg_bank:reg_bank|registers[0][29], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][28], reg_bank:reg_bank|registers[0][27], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][26], reg_bank:reg_bank|registers[0][25], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][24], reg_bank:reg_bank|registers[0][23], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][22], reg_bank:reg_bank|registers[0][21], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][20], reg_bank:reg_bank|registers[0][19], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][18], reg_bank:reg_bank|registers[0][17], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][16], reg_bank:reg_bank|registers[0][15], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][14], reg_bank:reg_bank|registers[0][13], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][12], reg_bank:reg_bank|registers[0][11], ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][10], reg_bank:reg_bank|registers[0][9],  ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][8], reg_bank:reg_bank|registers[0][7],   ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][6], reg_bank:reg_bank|registers[0][5],   ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][4], reg_bank:reg_bank|registers[0][3],   ;
-;                                                                      ;                           ; reg_bank:reg_bank|registers[0][2], reg_bank:reg_bank|registers[0][1]    ;
+; memory_controller:mem|memory_mapped_io:memory_mapped_io|data_out[31] ; Stuck at GND              ; reg_bank:reg_bank|registers[0][31], reg_bank:reg_bank|registers[0][30], ;
+;                                                                      ; due to stuck port data_in ; reg_bank:reg_bank|registers[0][29], reg_bank:reg_bank|registers[0][28], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][27], reg_bank:reg_bank|registers[0][26], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][25], reg_bank:reg_bank|registers[0][24], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][23], reg_bank:reg_bank|registers[0][22], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][21], reg_bank:reg_bank|registers[0][20], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][19], reg_bank:reg_bank|registers[0][18], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][17], reg_bank:reg_bank|registers[0][16], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][15], reg_bank:reg_bank|registers[0][14], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][13], reg_bank:reg_bank|registers[0][12], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][11], reg_bank:reg_bank|registers[0][10], ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][9], reg_bank:reg_bank|registers[0][8],   ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][7], reg_bank:reg_bank|registers[0][6],   ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][5], reg_bank:reg_bank|registers[0][4],   ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][3], reg_bank:reg_bank|registers[0][2],   ;
+;                                                                      ;                           ; reg_bank:reg_bank|registers[0][1], reg_bank:reg_bank|registers[0][0]    ;
 +----------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------+
 
 
@@ -584,7 +584,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; Number of registers using Synchronous Load   ; 17    ;
 ; Number of registers using Asynchronous Clear ; 1511  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1586  ;
+; Number of registers using Clock Enable       ; 1587  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -598,8 +598,8 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; memory_controller:mem|sram_interface32bit:sram32|interface_output_enable_n   ; 1       ;
 ; memory_controller:mem|sram_interface32bit:sram32|interface_upper_byte_mask_n ; 2       ;
 ; memory_controller:mem|sram_interface32bit:sram32|interface_lower_byte_mask_n ; 2       ;
-; processor_state_manager:processor_state_manager|processor_privilege[0]       ; 6       ;
-; processor_state_manager:processor_state_manager|processor_privilege[1]       ; 6       ;
+; processor_state_manager:processor_state_manager|processor_privilege[0]       ; 5       ;
+; processor_state_manager:processor_state_manager|processor_privilege[1]       ; 5       ;
 ; memory_controller:mem|sram_interface32bit:sram32|write_halfword[0]~en        ; 1       ;
 ; memory_controller:mem|sram_interface32bit:sram32|write_halfword[8]~en        ; 1       ;
 ; Total number of inverted registers = 8                                       ;         ;
@@ -620,81 +620,80 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|saved_instruction32[28]    ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|memory_access:memory_access|read_res[8]                                      ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |riscv|ps2_interface:ps2_interface|reset_counter[6]                                 ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[30]                ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[22]                ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[15]                ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[4]                 ;
-; 3:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |riscv|control_status_registers:control_status_registers|mstatus[8]                 ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|control_status_registers:control_status_registers|mstatus[32]                ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|control_status_registers:control_status_registers|mtvec[7]                   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|control_status_registers:control_status_registers|mtval[18]                  ;
-; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |riscv|button_debounce:sram_command_trigger|precise_count_down[4]                   ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |riscv|vga_interface:vga_interface|x_counter[0]                                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|saved_instruction32[24]    ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|memory_access:memory_access|read_res[17]                                     ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |riscv|ps2_interface:ps2_interface|reset_counter[16]                                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[24]                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[16]                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[10]                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|data_out[6]                 ;
+; 3:1                ; 28 bits   ; 56 LEs        ; 28 LEs               ; 28 LEs                 ; Yes        ; |riscv|control_status_registers:control_status_registers|mstatus[4]                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|control_status_registers:control_status_registers|mstatus[61]                ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|control_status_registers:control_status_registers|mtvec[31]                  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv|control_status_registers:control_status_registers|mtval[29]                  ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |riscv|button_debounce:sram_command_trigger|precise_count_down[13]                  ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |riscv|vga_interface:vga_interface|x_counter[1]                                     ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |riscv|ps2_interface:ps2_interface|current_read_bit_i[2]                            ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |riscv|control_status_registers:control_status_registers|mepc[12]                   ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |riscv|vga_interface:vga_interface|y_counter[9]                                     ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |riscv|control_status_registers:control_status_registers|mstatus[12]                ;
-; 5:1                ; 21 bits   ; 63 LEs        ; 42 LEs               ; 21 LEs                 ; Yes        ; |riscv|memory_controller:mem|flash_interface32bit:flash32|interface_addr[14]        ;
-; 8:1                ; 17 bits   ; 85 LEs        ; 34 LEs               ; 51 LEs                 ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|interface_addr[7]           ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|writing                     ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|write_halfword[15]          ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|write_halfword[2]           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state.READ2          ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |riscv|vga_interface:vga_interface|VGA_G[3]                                         ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |riscv|control_status_registers:control_status_registers|mepc[0]                    ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |riscv|vga_interface:vga_interface|y_counter[5]                                     ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |riscv|control_status_registers:control_status_registers|mstatus[11]                ;
+; 5:1                ; 21 bits   ; 63 LEs        ; 42 LEs               ; 21 LEs                 ; Yes        ; |riscv|memory_controller:mem|flash_interface32bit:flash32|interface_addr[6]         ;
+; 8:1                ; 17 bits   ; 85 LEs        ; 34 LEs               ; 51 LEs                 ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|interface_addr[17]          ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|interface_output_enable_n   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|write_halfword[9]           ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |riscv|memory_controller:mem|sram_interface32bit:sram32|write_halfword[6]           ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state.READ4          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |riscv|vga_interface:vga_interface|VGA_R[3]                                         ;
 ; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state                  ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state                ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |riscv|decoder:decoder|csr_i[0]                                                     ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_rd[3]                                   ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[9]                                                       ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |riscv|decoder:decoder|csr_i[8]                                                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_rd[4]                                   ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[8]                                                       ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state                  ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|fetch_result[3]                        ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv|trap_manager:trap_manager|next_privilege[1]                                  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.READ_BYTE_LOWER  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.WRITE1           ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |riscv|trap_manager:trap_manager|next_mcause                                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|fetch_result[10]                       ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |riscv|trap_manager:trap_manager|next_mcause                                        ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |riscv|trap_manager:trap_manager|next_privilege[0]                                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.UNALIGNED_READ1  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|sram_interface32bit:sram32|next_state.WRITE_BYTE_UPPER ;
 ; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |riscv|memory_controller:mem|next_module                                            ;
-; 5:1                ; 24 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|data_out[13]                                           ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|data_out[7]                                            ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state.READ_BYTE      ;
-; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; No         ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|instruction32[27]          ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |riscv|decoder:decoder|imm[23]                                                      ;
+; 5:1                ; 24 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|data_out[8]                                            ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|data_out[6]                                            ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |riscv|memory_controller:mem|flash_interface32bit:flash32|next_state.READ1          ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; No         ; |riscv|instruction_fetch_and_pc:instruction_fetch_and_pc|instruction32[17]          ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |riscv|decoder:decoder|imm[22]                                                      ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |riscv|memory_controller:mem|memory_mapped_io:memory_mapped_io|next_state.WRITE_VGA ;
-; 6:1                ; 24 bits   ; 96 LEs        ; 24 LEs               ; 72 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_data_in[3]                      ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[25]                                                      ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |riscv|decoder:decoder|imm[16]                                                      ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_data_in[28]                     ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; No         ; |riscv|decoder:decoder|imm[26]                                                      ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |riscv|decoder:decoder|imm[19]                                                      ;
 ; 33:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |riscv|reg_bank:reg_bank|TEST_REG_OUT                                               ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |riscv|memory_controller:mem|sram_data_in[2]                                        ;
-; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |riscv|decoder:decoder|rs2[12]                                                      ;
-; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |riscv|decoder:decoder|rs1[8]                                                       ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |riscv|decoder:decoder|imm[12]                                                      ;
-; 65:1               ; 7 bits    ; 301 LEs       ; 14 LEs               ; 287 LEs                ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[2]                                  ;
+; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |riscv|decoder:decoder|rs2[21]                                                      ;
+; 34:1               ; 32 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; No         ; |riscv|decoder:decoder|rs1[28]                                                      ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |riscv|decoder:decoder|imm[14]                                                      ;
+; 65:1               ; 7 bits    ; 301 LEs       ; 14 LEs               ; 287 LEs                ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[6]                                  ;
 ; 10:1               ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_addr[0]                         ;
-; 10:1               ; 29 bits   ; 174 LEs       ; 87 LEs               ; 87 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_addr[12]                        ;
-; 36:1               ; 32 bits   ; 768 LEs       ; 128 LEs              ; 640 LEs                ; No         ; |riscv|control_status_registers:control_status_registers|Selector59                 ;
-; 9:1                ; 28 bits   ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |riscv|control_status_registers:control_status_registers|Selector15                 ;
+; 10:1               ; 29 bits   ; 174 LEs       ; 87 LEs               ; 87 LEs                 ; No         ; |riscv|memory_multiplexer:memory_multiplexer|memory_addr[11]                        ;
+; 36:1               ; 32 bits   ; 768 LEs       ; 128 LEs              ; 640 LEs                ; No         ; |riscv|control_status_registers:control_status_registers|Selector50                 ;
+; 9:1                ; 28 bits   ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |riscv|control_status_registers:control_status_registers|Selector29                 ;
 ; 257:1              ; 6 bits    ; 1026 LEs      ; 72 LEs               ; 954 LEs                ; No         ; |riscv|ps2_interface:ps2_interface|current_key                                      ;
 ; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |riscv|control_status_registers:control_status_registers|Selector23                 ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |riscv|control_status_registers:control_status_registers|Selector24                 ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |riscv|control_status_registers:control_status_registers|Selector20                 ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |riscv|ps2_interface:ps2_interface|state                                            ;
 ; 10:1               ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |riscv|ps2_interface:ps2_interface|state                                            ;
-; 15:1               ; 7 bits    ; 70 LEs        ; 28 LEs               ; 42 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[13]                                 ;
-; 36:1               ; 3 bits    ; 72 LEs        ; 51 LEs               ; 21 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit3[2]                                          ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 16 LEs               ; 28 LEs                 ; No         ; |riscv|decoder:decoder|imm[4]                                                       ;
-; 50:1               ; 3 bits    ; 99 LEs        ; 54 LEs               ; 45 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit2[1]                                          ;
-; 14:1               ; 16 bits   ; 144 LEs       ; 64 LEs               ; 80 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[28]                                 ;
-; 48:1               ; 3 bits    ; 96 LEs        ; 51 LEs               ; 45 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit1[3]                                          ;
-; 33:1               ; 30 bits   ; 660 LEs       ; 120 LEs              ; 540 LEs                ; No         ; |riscv|trap_manager:trap_manager|next_pc[2]                                         ;
-; 47:1               ; 2 bits    ; 62 LEs        ; 36 LEs               ; 26 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit0[3]                                          ;
-; 42:1               ; 8 bits    ; 224 LEs       ; 144 LEs              ; 80 LEs                 ; No         ; |riscv|execute:execute|res[12]                                                      ;
-; 42:1               ; 8 bits    ; 224 LEs       ; 144 LEs              ; 80 LEs                 ; No         ; |riscv|execute:execute|res[20]                                                      ;
-; 44:1               ; 4 bits    ; 116 LEs       ; 72 LEs               ; 44 LEs                 ; No         ; |riscv|execute:execute|res[4]                                                       ;
-; 44:1               ; 4 bits    ; 116 LEs       ; 76 LEs               ; 40 LEs                 ; No         ; |riscv|execute:execute|res[26]                                                      ;
-; 46:1               ; 2 bits    ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; No         ; |riscv|execute:execute|res[3]                                                       ;
-; 46:1               ; 2 bits    ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; No         ; |riscv|execute:execute|res[29]                                                      ;
-; 48:1               ; 2 bits    ; 64 LEs        ; 40 LEs               ; 24 LEs                 ; No         ; |riscv|execute:execute|res[30]                                                      ;
+; 15:1               ; 7 bits    ; 70 LEs        ; 28 LEs               ; 42 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[8]                                  ;
+; 17:1               ; 4 bits    ; 44 LEs        ; 16 LEs               ; 28 LEs                 ; No         ; |riscv|decoder:decoder|imm[1]                                                       ;
+; 14:1               ; 16 bits   ; 144 LEs       ; 64 LEs               ; 80 LEs                 ; No         ; |riscv|reg_writeback:reg_writeback|reg_bank_val[29]                                 ;
+; 64:1               ; 3 bits    ; 126 LEs       ; 63 LEs               ; 63 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit3[2]                                          ;
+; 64:1               ; 3 bits    ; 126 LEs       ; 66 LEs               ; 60 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit2[3]                                          ;
+; 33:1               ; 30 bits   ; 660 LEs       ; 120 LEs              ; 540 LEs                ; No         ; |riscv|trap_manager:trap_manager|next_pc[20]                                        ;
+; 62:1               ; 3 bits    ; 123 LEs       ; 60 LEs               ; 63 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit1[2]                                          ;
+; 61:1               ; 2 bits    ; 80 LEs        ; 44 LEs               ; 36 LEs                 ; No         ; |riscv|display_32bit_7seg:mydisp|digit1[0]                                          ;
+; 42:1               ; 8 bits    ; 224 LEs       ; 144 LEs              ; 80 LEs                 ; No         ; |riscv|execute:execute|res[14]                                                      ;
+; 42:1               ; 8 bits    ; 224 LEs       ; 144 LEs              ; 80 LEs                 ; No         ; |riscv|execute:execute|res[23]                                                      ;
+; 44:1               ; 4 bits    ; 116 LEs       ; 72 LEs               ; 44 LEs                 ; No         ; |riscv|execute:execute|res[7]                                                       ;
+; 44:1               ; 4 bits    ; 116 LEs       ; 76 LEs               ; 40 LEs                 ; No         ; |riscv|execute:execute|res[25]                                                      ;
+; 46:1               ; 2 bits    ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; No         ; |riscv|execute:execute|res[2]                                                       ;
+; 46:1               ; 2 bits    ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; No         ; |riscv|execute:execute|res[28]                                                      ;
+; 48:1               ; 2 bits    ; 64 LEs        ; 40 LEs               ; 24 LEs                 ; No         ; |riscv|execute:execute|res[31]                                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 
 
@@ -817,15 +816,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "control_status_registers:control_status_registers"                                          ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; timer_irq    ; Input  ; Info     ; Stuck at GND                                                                        ;
-; external_irq ; Input  ; Info     ; Stuck at GND                                                                        ;
-; mscratch     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_status_registers:control_status_registers"                                                    ;
++------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                   ; Type   ; Severity ; Details                                                                             ;
++------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; timer_irq              ; Input  ; Info     ; Stuck at GND                                                                        ;
+; external_irq           ; Input  ; Info     ; Stuck at GND                                                                        ;
+; mscratch               ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; TEST_PROBE_NEW_CSR_VAL ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -851,7 +851,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:34     ;
+; Top            ; 00:00:31     ;
 +----------------+--------------+
 
 
@@ -861,7 +861,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Jul 01 18:46:55 2026
+    Info: Processing started: Sat Jul 04 00:41:06 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv -c riscv
 Info (12021): Found 1 design units, including 1 entities, in source file src/interfaces/memory.v
     Info (12023): Found entity 1: memory_controller
@@ -902,7 +902,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file src/pip
     Info (12023): Found entity 1: control_status_registers
 Info (12021): Found 1 design units, including 1 entities, in source file src/pipeline/trap_manager.v
     Info (12023): Found entity 1: trap_manager
-Warning (10236): Verilog HDL Implicit Net warning at riscv.v(313): created implicit net for "clk"
+Info (12021): Found 0 design units, including 0 entities, in source file src/global_constants.v
+Info (12021): Found 1 design units, including 1 entities, in source file src/plltest.v
+    Info (12023): Found entity 1: plltest
 Info (12127): Elaborating entity "riscv" for the top level hierarchy
 Info (12128): Elaborating entity "rst_n_init" for hierarchy "rst_n_init:rst_n_init"
 Info (12128): Elaborating entity "processor_state_manager" for hierarchy "processor_state_manager:processor_state_manager"
@@ -919,7 +921,6 @@ Info (12128): Elaborating entity "decoder" for hierarchy "decoder:decoder"
 Warning (10762): Verilog HDL Case Statement warning at decoder.v(42): can't check case statement for completeness because the case expression has too many possible states
 Info (12128): Elaborating entity "control_status_registers" for hierarchy "control_status_registers:control_status_registers"
 Info (12128): Elaborating entity "trap_manager" for hierarchy "trap_manager:trap_manager"
-Warning (10230): Verilog HDL assignment warning at trap_manager.v(93): truncated value with size 2 to match size of target (1)
 Info (12128): Elaborating entity "execute" for hierarchy "execute:execute"
 Info (12128): Elaborating entity "memory_access" for hierarchy "memory_access:memory_access"
 Info (12128): Elaborating entity "reg_writeback" for hierarchy "reg_writeback:reg_writeback"
@@ -998,17 +999,17 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[2]"
-Info (21057): Implemented 9337 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 9450 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 25 input pins
     Info (21059): Implemented 108 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 9148 logic cells
+    Info (21061): Implemented 9261 logic cells
     Info (21064): Implemented 40 RAM segments
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 26 warnings
-    Info: Peak virtual memory: 399 megabytes
-    Info: Processing ended: Wed Jul 01 18:47:32 2026
-    Info: Elapsed time: 00:00:37
-    Info: Total CPU time (on all processors): 00:00:37
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 400 megabytes
+    Info: Processing ended: Sat Jul 04 00:41:40 2026
+    Info: Elapsed time: 00:00:34
+    Info: Total CPU time (on all processors): 00:00:34
 
 
 +------------------------------------------+

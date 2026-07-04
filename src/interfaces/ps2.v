@@ -1,4 +1,4 @@
-`include "src/global_constants.vh"
+`include "global_constants.vh"
 
 `define KEY_CODE_RELEASE 8'hF0
 `define KEY_CODE_EXTENDED 8'hE0

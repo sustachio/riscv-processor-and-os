@@ -45,12 +45,76 @@
 # 
 # Top level modules:
 # 	vga_interface
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src {C:/Users/Seth Mueller/Documents/fpga/src/plltest.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module plltest
+# 
+# Top level modules:
+# 	plltest
 # vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# ** Error: C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v(1): Cannot open `include file "C:/Users/Seth Mueller/Documents/fpga/src/interfaces/src/global_constants.vh".
+# ** Error: C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v(1): Cannot open `include file "C:/Users/Seth Mueller/Documents/fpga/src/interfaces/global_constants.vh".
 # -- Compiling module memory_controller
 # ** Error: C:/altera/13.0sp1/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./riscv_run_msim_rtl_verilog.do line 13
+# Error in macro ./riscv_run_msim_rtl_verilog.do line 14
 # C:/altera/13.0sp1/modelsim_ase/win32aloem/vlog failed.
 #     while executing
 # "vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory..."
+do compile.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/src/utils.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module rst_n_init
+# -- Compiling module button_debounce
+# -- Compiling module hex_to_7seg
+# -- Compiling module display_32bit_7seg
+# 
+# Top level modules:
+# 	rst_n_init
+# 	button_debounce
+# 	display_32bit_7seg
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory_mapped_io.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module memory_mapped_io
+# 
+# Top level modules:
+# 	memory_mapped_io
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/flash.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module flash_interface32bit
+# 
+# Top level modules:
+# 	flash_interface32bit
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/sram.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module sram_interface32bit
+# 
+# Top level modules:
+# 	sram_interface32bit
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/vga.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module vga_interface
+# 
+# Top level modules:
+# 	vga_interface
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src/interfaces +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module memory_controller
+# 
+# Top level modules:
+# 	memory_controller
+# vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/Documents/fpga/src/riscv.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module riscv
+# ** Error: C:/Users/Seth Mueller/Documents/fpga/src/riscv.v(60): 'rst_n' already declared in this scope (riscv).
+# ** Error: C:/altera/13.0sp1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./compile.do line 14
+# C:/altera/13.0sp1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -vlog01compat -work work +incdir+C:/Users/Seth\ Mueller/Documents/fpga/src +incdir+C:/Users/Seth\ Mueller/Documents/fpga {C:/Users/Seth Mueller/D..."

@@ -1,4 +1,4 @@
-`include "src/global_constants.vh"
+`include "global_constants.vh"
 
 // NPC (next program counter) calculated in execute
 // structured similarly to memory_access

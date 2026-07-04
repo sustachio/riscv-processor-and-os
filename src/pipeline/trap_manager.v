@@ -1,4 +1,4 @@
-`include "src/global_constants.vh"
+`include "global_constants.vh"
 
 // todo: illegal instrucitons, misaligned instructions
 module trap_manager(
@@ -33,7 +33,8 @@ module trap_manager(
   output reg [31:0] next_mepc
 );
   wire ecall = op == `OP_ECALL;
-  wire ebreak = op == `OP_EBREAK;
+  //wire ebreak = op == `OP_EBREAK;
+  wire ebreak = 0;
   wire mret = op == `OP_MRET;
 
   wire external_irq = mip[`CSR_MIP_MEIP] & mstatus[`CSR_MSTATUS_MIE] & mie[`CSR_MIE_MEIE];
@@ -90,7 +91,7 @@ module trap_manager(
 
         next_mstatus[`CSR_MSTATUS_MIE] = mstatus[`CSR_MSTATUS_MPIE];
         next_mstatus[`CSR_MSTATUS_MPIE] = 1;
-        next_mstatus[`CSR_MSTATUS_MPP] = `PRIV_USER;
+        next_mstatus[`CSR_MSTATUS_MPP:`CSR_MSTATUS_MPP-1] = `PRIV_USER;
 
         next_pc = mepc;
       end

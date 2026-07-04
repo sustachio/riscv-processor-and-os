@@ -1,5 +1,5 @@
 Flow report for riscv
-Wed Jul 01 18:49:14 2026
+Sat Jul 04 00:42:59 2026
 Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Wed Jul 01 18:49:14 2026           ;
+; Flow Status                        ; Successful - Sat Jul 04 00:42:59 2026           ;
 ; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; riscv                                           ;
 ; Top-level Entity Name              ; riscv                                           ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 8,446 / 18,752 ( 45 % )                         ;
-;     Total combinational functions  ; 7,980 / 18,752 ( 43 % )                         ;
+; Total logic elements               ; 8,655 / 18,752 ( 46 % )                         ;
+;     Total combinational functions  ; 8,080 / 18,752 ( 43 % )                         ;
 ;     Dedicated logic registers      ; 1,802 / 18,752 ( 10 % )                         ;
 ; Total registers                    ; 1802                                            ;
 ; Total pins                         ; 149 / 315 ( 47 % )                              ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/01/2026 18:46:56 ;
+; Start date & time ; 07/04/2026 00:41:07 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; riscv               ;
 +-------------------+---------------------+
@@ -75,12 +75,17 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 39908817286048.178294961512784        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 39908817286048.178314366618168        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                           ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)             ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                  ; --            ; --          ; eda_simulation ;
+; IP_TOOL_NAME                        ; ALTPLL                                ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                     ; 13.0                                  ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --            ; --          ; --             ;
+; MISC_FILE                           ; src/plltest_inst.v                    ; --            ; --          ; --             ;
+; MISC_FILE                           ; src/plltest_bb.v                      ; --            ; --          ; --             ;
+; MISC_FILE                           ; src/plltest.ppf                       ; --            ; --          ; --             ;
 ; PARTITION_COLOR                     ; 16764057                              ; --            ; --          ; Top            ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; --          ; Top            ;
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; --          ; Top            ;
@@ -95,11 +100,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:36     ; 1.0                     ; 391 MB              ; 00:00:36                           ;
-; Fitter                    ; 00:01:03     ; 1.0                     ; 536 MB              ; 00:01:03                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 381 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 482 MB              ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 393 MB              ; 00:00:04                           ;
+; Analysis & Synthesis      ; 00:00:33     ; 1.0                     ; 392 MB              ; 00:00:33                           ;
+; Fitter                    ; 00:01:06     ; 1.0                     ; 537 MB              ; 00:01:06                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 383 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 499 MB              ; 00:00:03                           ;
+; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 409 MB              ; 00:00:04                           ;
 ; Total                     ; 00:01:48     ; --                      ; --                  ; 00:01:48                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 

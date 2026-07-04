@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 dC:\Users\Seth Mueller\Documents\fpga\simulation\modelsim
 vbutton_debounce
-I:kPO]dKR1_4lz@?Qh8e0>3
+IMAK7@J7DR=8Y8FFzYzAgT0
 VhF?FliBXT>_QgMnXOhBKO0
 Z1 dC:\Users\Seth Mueller\Documents\fpga\simulation\modelsim
 Z2 w1781585073
@@ -14,17 +14,17 @@ L0 22
 Z5 OV;L;10.1d;51
 r1
 31
-Z6 !s108 1782922465.517000
+Z6 !s108 1783143432.233000
 Z7 !s107 C:/Users/Seth Mueller/Documents/fpga/src/utils.v|
-Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src|C:/Users/Seth Mueller/Documents/fpga/src/utils.v|
+Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/src/utils.v|
 Z9 o-vlog01compat -work work -O0
-Z10 !s92 -vlog01compat -work work {+incdir+C:/Users/Seth Mueller/Documents/fpga/src} -O0
+Z10 !s92 -vlog01compat -work work {+incdir+C:/Users/Seth Mueller/Documents/fpga/src} {+incdir+C:/Users/Seth Mueller/Documents/fpga} -O0
 !i10b 1
 !s100 :9PXCzjz8lb>iK?W2i@YV0
 !s85 0
 !s101 -O0
 vdisplay_32bit_7seg
-I3ECJm3_;TVABlD<>>0hne1
+I6;CdSjkAjY@P>Dg6WC8`?1
 VZk0kGbEc77YKHUK4nXdCl0
 R1
 R2
@@ -44,10 +44,10 @@ R10
 !s85 0
 !s101 -O0
 vflash_interface32bit
-IjQhZ<:?;PKf<jBNK3k5bM2
+IJHWfbT^4S^^JDU@m9CM7B2
 V:4EcJji>0d:CNl_<ZgdFb1
 R1
-w1782697818
+w1783100575
 8C:/Users/Seth Mueller/Documents/fpga/src/interfaces/flash.v
 FC:/Users/Seth Mueller/Documents/fpga/src/interfaces/flash.v
 L0 2
@@ -55,16 +55,16 @@ R5
 r1
 31
 R9
-Z11 !s92 -vlog01compat -work work {+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces} -O0
+Z11 !s92 -vlog01compat -work work {+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces} {+incdir+C:/Users/Seth Mueller/Documents/fpga} -O0
 !i10b 1
 !s100 B5gH;ge<FYJ8Wni8aH:H73
 !s85 0
-!s108 1782922465.726000
+!s108 1783143432.362000
 !s107 C:/Users/Seth Mueller/Documents/fpga/src/interfaces/flash.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/flash.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/flash.v|
 !s101 -O0
 vhex_to_7seg
-I;:_@FjeE2DKOGPIl8PAbo1
+IbnWRO:Y4WiHN;3>B4EC3M3
 VAAlmEUFLG5;Z`DC9baZg?0
 R1
 R2
@@ -83,8 +83,28 @@ R10
 !s100 nDbK<2Mfoi@7YRlI5Qm:53
 !s85 0
 !s101 -O0
+vmemory_controller
+!i10b 1
+!s100 OD87iP3R^ZfPgj2`7^?[22
+IVIjgKUnfziQ@IN_5EeIc`0
+VbA1J[P^CUT^0V2<Ia3O6R2
+R1
+w1783101523
+8C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v
+FC:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v
+L0 8
+R5
+r1
+!s85 0
+31
+!s108 1783143432.519000
+!s107 C:/Users/Seth Mueller/Documents/fpga/global_constants.vh|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory.v|
+!s101 -O0
+R9
+R11
 vmemory_mapped_io
-Iakh>o6UbSdSjTaVjZe::O3
+Ik[:oX3fNDOeZN2TEDzg]e3
 VEBWYdb;P:=goJ8kMAhdGa1
 R1
 w1782698472
@@ -99,12 +119,12 @@ R11
 !i10b 1
 !s100 4]<4L_kWm5Db4Uz7FMAhC3
 !s85 0
-!s108 1782922465.658000
+!s108 1783143432.311000
 !s107 C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory_mapped_io.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory_mapped_io.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/memory_mapped_io.v|
 !s101 -O0
 vrst_n_init
-IkbDP`7MmS2J9<Yg]8MzEn2
+Ik?ZE4<M4Q<B7`1HG>_8^92
 VN6OjeM^1^fo:1<mjzDjh;0
 R1
 R2
@@ -124,7 +144,7 @@ R10
 !s85 0
 !s101 -O0
 vsram_interface32bit
-IfO`4jA`=[Ie2`[64z<hDE2
+I5iGm8mJc^bkNHe@VdkLkA3
 VL0QLC>W4[X<_FB`@QZ0Gd1
 R1
 w1782697944
@@ -139,14 +159,12 @@ R11
 !i10b 1
 !s100 En3hdd:T1P1DLKghF@>SJ0
 !s85 0
-!s108 1782922465.791000
+!s108 1783143432.412000
 !s107 C:/Users/Seth Mueller/Documents/fpga/src/interfaces/sram.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/sram.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/sram.v|
 !s101 -O0
 vvga_interface
-!i10b 1
-!s100 S[78;RO;AHD]IV9nYZglR3
-IKhfOLiK7W3Vg<o2UG[m4R2
+IGb^>iQDJ0B6ECG=`:EZ:g3
 VOHDC37j;`=@GiN>U[zo]12
 R1
 w1782698482
@@ -155,11 +173,13 @@ FC:/Users/Seth Mueller/Documents/fpga/src/interfaces/vga.v
 L0 1
 R5
 r1
-!s85 0
 31
-!s108 1782922465.853000
-!s107 C:/Users/Seth Mueller/Documents/fpga/src/interfaces/vga.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/vga.v|
-!s101 -O0
 R9
 R11
+!i10b 1
+!s100 S[78;RO;AHD]IV9nYZglR3
+!s85 0
+!s108 1783143432.464000
+!s107 C:/Users/Seth Mueller/Documents/fpga/src/interfaces/vga.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Seth Mueller/Documents/fpga/src/interfaces|+incdir+C:/Users/Seth Mueller/Documents/fpga|C:/Users/Seth Mueller/Documents/fpga/src/interfaces/vga.v|
+!s101 -O0

@@ -1,4 +1,4 @@
-`include "src/global_constants.vh"
+`include "global_constants.vh"
 
 module control_status_registers(
   input clk,

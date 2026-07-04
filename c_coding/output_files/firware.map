@@ -1,0 +1,151 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ROM              0x0000000000000000 0x0000000000400000 xr
+RAM              0x0000000010000000 0x0000000000080000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD output_files/firmware.o
+LOAD output_files/os.o
+LOAD output_files/shell.o
+LOAD output_files/echo.o
+LOAD output_files/os_asm.o
+LOAD /usr/lib/gcc/riscv64-unknown-elf/9.3.0/rv32i/ilp32/libgcc.a
+
+.boot           0x0000000000000000       0x98
+ *firmware.o(.boot)
+ .boot          0x0000000000000000       0x98 output_files/firmware.o
+                0x0000000000000000                firmware_start
+
+.os.text        0x0000000010000000      0x1c0 load address 0x0000000000000098
+                0x0000000010000000                __os_text_start = .
+ *os.o(.entry)
+ .entry         0x0000000010000000       0x2c output_files/os.o
+                0x0000000010000000                os_entry
+ *os.o(.text*)
+ .text          0x000000001000002c        0x0 output_files/os.o
+ .text.trap_handler
+                0x000000001000002c       0x38 output_files/os.o
+                0x000000001000002c                trap_handler
+ .text.run_program
+                0x0000000010000064       0xf8 output_files/os.o
+                0x0000000010000064                run_program
+ *os_asm.o(.text*)
+ .text          0x000000001000015c       0x64 output_files/os_asm.o
+                0x000000001000015c                setup_mtvec
+                0x0000000010000164                enter_program
+                0x000000001000017c                load_program
+ *os.o(.rodata*)
+                0x00000000100001c0                __os_text_end = .
+                0x0000000000000098                __os_text_load = LOADADDR (.os.text)
+
+.os.data        0x00000000100001c0        0x0 load address 0x0000000000000258
+                0x00000000100001c0                __os_data_start = .
+ *os.o(.data)
+ .data          0x00000000100001c0        0x0 output_files/os.o
+                0x00000000100001c0                __os_data_end = .
+                0x0000000000000258                __os_data_load = LOADADDR (.os.data)
+
+.os.bss         0x00000000100001c0        0x0 load address 0x0000000000000258
+                0x00000000100001c0                __os_bss_start = .
+ *os.o(.bss*)
+ .bss           0x00000000100001c0        0x0 output_files/os.o
+ *os.o(COMMON)
+                0x00000000100001c0                __os_bss_end = .
+
+.os.stack       0x00000000100001c0     0x1000 load address 0x0000000000000258
+                0x00000000100001c0                . = ALIGN (0x10)
+ *fill*         0x00000000100001c0        0x0 
+                0x00000000100011c0                . = (. + 0x1000)
+ *fill*         0x00000000100001c0     0x1000 
+                0x00000000100011c0                __os_stack_top = .
+
+.shell.text     0x00000000100011c0       0x2c load address 0x0000000000000258
+                0x00000000100011c0                __shell_text_start = .
+ *shell.o(.entry)
+ .entry         0x00000000100011c0       0x2c output_files/shell.o
+                0x00000000100011c0                shell_main
+ *shell.o(.text*)
+ .text          0x00000000100011ec        0x0 output_files/shell.o
+ *shell.o(.rodata*)
+                0x00000000100011ec                __shell_text_end = .
+                0x0000000000000258                __shell_text_load = LOADADDR (.shell.text)
+
+.shell.data     0x00000000100011ec        0x0 load address 0x0000000000000284
+                0x00000000100011ec                __shell_data_start = .
+ *shell.o(.data)
+ .data          0x00000000100011ec        0x0 output_files/shell.o
+                0x00000000100011ec                __shell_data_end = .
+                0x0000000000000284                __shell_data_load = LOADADDR (.shell.data)
+
+.shell.bss      0x00000000100011ec        0x0 load address 0x0000000000000284
+                0x00000000100011ec                __shell_bss_start = .
+ *shell.o(.bss*)
+ .bss           0x00000000100011ec        0x0 output_files/shell.o
+ *shell.o(COMMON)
+                0x00000000100011ec                __shell_bss_end = .
+
+.echo.text      0x00000000100011c0       0x1c load address 0x0000000000000284
+                0x00000000100011c0                __echo_text_start = .
+ *echo.o(.entry)
+ .entry         0x00000000100011c0       0x1c output_files/echo.o
+                0x00000000100011c0                echo_main
+ *echo.o(.text*)
+ .text          0x00000000100011dc        0x0 output_files/echo.o
+ *echo.o(.rodata*)
+                0x00000000100011dc                __echo_text_end = .
+                0x0000000000000284                __echo_text_load = LOADADDR (.echo.text)
+
+.text           0x00000000100011dc        0x0 load address 0x00000000000002a0
+ .text          0x00000000100011dc        0x0 output_files/firmware.o
+
+.rela.dyn       0x00000000100011dc        0x0 load address 0x00000000000002a0
+ .rela.boot     0x00000000100011dc        0x0 output_files/firmware.o
+ .rela.text.run_program
+                0x00000000100011dc        0x0 output_files/firmware.o
+
+.echo.data      0x00000000100011dc        0x0 load address 0x00000000000002a0
+                0x00000000100011dc                __echo_data_start = .
+ *echo.o(.data)
+ .data          0x00000000100011dc        0x0 output_files/echo.o
+                0x00000000100011dc                __echo_data_end = .
+                0x00000000000002a0                __echo_data_load = LOADADDR (.echo.data)
+
+.data           0x00000000100011dc        0x0 load address 0x00000000000002a0
+ .data          0x00000000100011dc        0x0 output_files/firmware.o
+ .data          0x00000000100011dc        0x0 output_files/os_asm.o
+
+.echo.bss       0x00000000100011dc        0x0 load address 0x00000000000002a0
+                0x00000000100011dc                __echo_bss_start = .
+ *echo.o(.bss*)
+ .bss           0x00000000100011dc        0x0 output_files/echo.o
+ *echo.o(COMMON)
+                0x00000000100011dc                __echo_bss_end = .
+                0x0000000010080000                __program_stack_top = (ORIGIN (RAM) + LENGTH (RAM))
+OUTPUT(output_files/firmware.elf elf32-littleriscv)
+
+.bss            0x00000000100011dc        0x0 load address 0x00000000000002a0
+ .bss           0x00000000100011dc        0x0 output_files/firmware.o
+ .bss           0x00000000100011dc        0x0 output_files/os_asm.o
+
+.riscv.attributes
+                0x0000000000000000       0x1c
+ .riscv.attributes
+                0x0000000000000000       0x1a output_files/firmware.o
+ .riscv.attributes
+                0x000000000000001a       0x1c output_files/os.o
+ .riscv.attributes
+                0x0000000000000036       0x1c output_files/shell.o
+ .riscv.attributes
+                0x0000000000000052       0x1c output_files/echo.o
+ .riscv.attributes
+                0x000000000000006e       0x1a output_files/os_asm.o
+
+.comment        0x0000000000000000        0xe
+ .comment       0x0000000000000000        0xe output_files/os.o
+                                          0xf (size before relaxing)
+ .comment       0x000000000000000e        0xf output_files/shell.o
+ .comment       0x000000000000000e        0xf output_files/echo.o

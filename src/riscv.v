@@ -42,14 +42,27 @@ module riscv(
 );
   //////////////////////////////////
 
+  wire clk = CLOCK_50;
+  wire pll_locked;
+  wire rst_n;
+  
+  /*
+  plltest plltest (
+    .areset(~rst_n),
+    .inclk0(CLOCK_50),
+    .c0(clk),
+    .locked(pll_locked)
+  );*/
+
+
   reg TEST_ALLOW_WB_COMPLETE;
   wire [4:0] TEST_REG_IN;
   wire [31:0] TEST_REG_OUT;
 
-  wire rst_n;
+  
 
   rst_n_init rst_n_init(
-    .clk(CLOCK_50),
+    .clk(clk),
     .rst_n(rst_n)
   );
 
@@ -59,7 +72,7 @@ module riscv(
   wire [5:0] decoder_op;
   wire mem_mux_finished;
   processor_state_manager processor_state_manager(
-    .clk(CLOCK_50),
+    .clk(clk),
     .rst_n(rst_n),
 
     .mem_finished(mem_mux_finished),
@@ -94,7 +107,7 @@ module riscv(
   wire [6:0] ps2_get_key;
   wire ps2_key_pressed;
   memory_controller mem(
-    .clk(CLOCK_50),
+    .clk(clk),
     .rst_n(rst_n),
 
     .write_request(memory_write_request),
@@ -185,7 +198,7 @@ module riscv(
   wire [4:0] rd_writeback_reg;
   wire [31:0] rd_writeback_val;
   reg_bank reg_bank(
-    .clk(CLOCK_50),
+    .clk(clk),
     .rst_n(rst_n),
 
     .processor_state(processor_state),
@@ -207,7 +220,7 @@ module riscv(
   wire [31:0] pc;
   wire [31:0] instruction32;
   instruction_fetch_and_pc instruction_fetch_and_pc(
-    .clk(CLOCK_50),
+    .clk(clk),
     .rst_n(rst_n),
 
     .processor_state(processor_state),
@@ -271,7 +284,7 @@ module riscv(
 
   wire [31:0] TEST_PROBE_NEW_CSR_VAL;
   control_status_registers control_status_registers(
-    .clk(CLOCK_50),
+    .clk(clk),
     .rst_n(rst_n),
 
     .processor_state(processor_state),
@@ -309,6 +322,7 @@ module riscv(
     .TEST_PROBE_NEW_CSR_VAL(TEST_PROBE_NEW_CSR_VAL)
   );
 
+	wire [31:0] execute_next_pc;
   trap_manager trap_manager(
     .clk(clk),
     .rst_n(rst_n),
@@ -342,7 +356,6 @@ module riscv(
 
 
   wire [31:0] execute_result;
-  wire [31:0] execute_next_pc;
   execute execute(
     .rst_n(rst_n),
 
@@ -362,7 +375,7 @@ module riscv(
 
   wire [31:0] memory_access_result;
   memory_access memory_access(
-    .clk(CLOCK_50),
+    .clk(clk),
     .rst_n(rst_n),
 
     .processor_state(processor_state),
@@ -384,7 +397,7 @@ module riscv(
   );
 
   reg_writeback reg_writeback(
-    .clk(CLOCK_50),
+    .clk(clk),
     .rst_n(rst_n),
 
     .processor_state(processor_state),
@@ -402,7 +415,7 @@ module riscv(
   /////////// HARDWARE INTERFACES /////////
   vga_interface vga_interface(
     .rst_n(rst_n),
-    .clk(CLOCK_50),
+    .clk(clk),
 
     .VGA_R(VGA_R),
     .VGA_G(VGA_G),
@@ -417,7 +430,7 @@ module riscv(
 
   ps2_interface ps2_interface(
     .rst_n(rst_n),
-    .clk(CLOCK_50),
+    .clk(clk),
 
     .get_key(ps2_get_key),
     .key_pressed(ps2_key_pressed),
@@ -482,7 +495,9 @@ module riscv(
         4'b0001: hex_num = processor_privilege;
         4'b0010: hex_num = next_privilege;
         4'b0011: hex_num = illegal_csr_access;
-        4'b0100: hex_num = TEST_PROBE_NEW_CSR_VAL;
+        4'b0100: hex_num = memory_data_out;
+        4'b0101: hex_num = memory_data_in;
+        4'b0110: hex_num = memory_addr;
 
         default: hex_num = 0;
       endcase
@@ -500,13 +515,13 @@ module riscv(
     TEST_ALLOW_WB_COMPLETE = (SW[5] && ((decoder_op != `OP_EBREAK) || ~SW[2])) || step;
   end
 	button_debounce #(.PRECISE_CYCLE_TRIGGER(1)) sram_command_trigger(
-		.clk(CLOCK_50),
+		.clk(clk),
 		.button(!KEY[0]),
 		.debounced(step)
 	);
 
 	button_debounce #(.PRECISE_CYCLE_TRIGGER(0)) num_display_control(
-		.clk(CLOCK_50),
+		.clk(clk),
 		.button(!KEY[1]),
 		.debounced(hex_upp_sel)
 	);

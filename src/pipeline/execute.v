@@ -1,4 +1,4 @@
-`include "src/global_constants.vh"
+`include "global_constants.vh"
 
 module execute(
   input rst_n,
