@@ -2,7 +2,7 @@
 
 # compile firmware
 riscv64-unknown-elf-gcc \
-  -march=rv32i \
+  -march=rv32i_zicsr \
   -mabi=ilp32 \
   -ffreestanding \
   -nostdlib \
@@ -13,7 +13,7 @@ riscv64-unknown-elf-gcc \
 
 # compile OS
 riscv64-unknown-elf-gcc \
-  -march=rv32i \
+  -march=rv32i_zicsr \
   -mabi=ilp32 \
   -ffreestanding \
   -nostdlib \
@@ -22,7 +22,7 @@ riscv64-unknown-elf-gcc \
   -c os.c \
   -o output_files/os.o
 riscv64-unknown-elf-gcc \
-  -march=rv32i \
+  -march=rv32i_zicsr \
   -mabi=ilp32 \
   -ffreestanding \
   -nostdlib \
@@ -34,7 +34,7 @@ riscv64-unknown-elf-gcc \
 
 # compile programs
 riscv64-unknown-elf-gcc \
-  -march=rv32i \
+  -march=rv32i_zicsr \
   -mabi=ilp32 \
   -ffreestanding \
   -nostdlib \
@@ -43,7 +43,7 @@ riscv64-unknown-elf-gcc \
   -c shell.c \
   -o output_files/shell.o
 riscv64-unknown-elf-gcc \
-  -march=rv32i \
+  -march=rv32i_zicsr \
   -mabi=ilp32 \
   -ffreestanding \
   -nostdlib \
@@ -54,7 +54,7 @@ riscv64-unknown-elf-gcc \
 
 # link all
 riscv64-unknown-elf-gcc \
-  -march=rv32i \
+  -march=rv32i_zicsr \
   -mabi=ilp32 \
   -ffreestanding \
   -nostdlib \
